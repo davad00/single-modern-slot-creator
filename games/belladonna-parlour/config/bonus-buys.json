@@ -1,0 +1,59 @@
+{
+ "bonusBuys": [
+  {
+   "modeId": "buy-feature",
+   "publicName": "Buy: The Tasting",
+   "entryTier": "feature",
+   "priceXBet100": 4210,
+   "rtp": 0.9601,
+   "forcedEntryDistribution": {
+    "3": 1.0
+   },
+   "jurisdictionGated": true,
+   "uiDisclosure": {
+    "showPriceXBet": true,
+    "showRtp": true,
+    "showMaxWin": true,
+    "confirmationRequired": true,
+    "disclosureText": "Buys direct entry to The Tasting (10 rounds, vial starts at x1) for 42.10x total bet. RTP of this purchase: 96.01% (measured: 30,000 forced entries, battery v3). Maximum win 10,000x total bet."
+   }
+  },
+  {
+   "modeId": "buy-super",
+   "publicName": "Buy: The Distillery",
+   "entryTier": "super_feature",
+   "priceXBet100": 9170,
+   "rtp": 0.9598,
+   "forcedEntryDistribution": {
+    "4": 1.0
+   },
+   "jurisdictionGated": true,
+   "uiDisclosure": {
+    "showPriceXBet": true,
+    "showRtp": true,
+    "showMaxWin": true,
+    "confirmationRequired": true,
+    "disclosureText": "Buys direct entry to The Distillery (12 rounds, vial starts at x3) for 91.70x total bet. RTP of this purchase: 95.98% (measured: 30,000 forced entries, battery v3). Maximum win 10,000x total bet."
+   }
+  },
+  {
+   "modeId": "buy-ultimate",
+   "publicName": "Buy: The Night Garden",
+   "entryTier": "ultimate_feature",
+   "priceXBet100": 16770,
+   "rtp": 0.9601,
+   "forcedEntryDistribution": {
+    "5": 0.9868421052631579,
+    "6": 0.013157894736842105
+   },
+   "jurisdictionGated": true,
+   "uiDisclosure": {
+    "showPriceXBet": true,
+    "showRtp": true,
+    "showMaxWin": true,
+    "confirmationRequired": true,
+    "disclosureText": "Buys direct entry to The Night Garden (12 rounds, vial starts at x5, Prisming active) for 167.70x total bet. Entry lands 5 or 6 Parlour Seals at their natural conditional odds; a 6-seal entry also awards the 100x seal pay. RTP of this purchase: 96.01% (measured: 30,000 forced entries, battery v3). Maximum win 10,000x total bet."
+   }
+  }
+ ]
+}

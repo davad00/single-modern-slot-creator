@@ -1,0 +1,102 @@
+{
+  "reportId": "sim-42-50000",
+  "kind": "dev",
+  "provenance": {
+    "gameVersion": "1.0.0",
+    "mathVersion": "1.0.0",
+    "configHash": "sha256:cf6893c0315d3e9ec4e47e883545769be128f32c3ebb7d8d74810912b545b4fc",
+    "simCodeVersion": "1.0.0",
+    "lockfileHash": "sha256:114c98c2b66af0597cb88aa0dc327122ab7bf2d47e25721ba27959ff083f3da0",
+    "seedPolicy": "per-worker-derived",
+    "seeds": [
+      2684470948
+    ],
+    "rounds": 50000,
+    "workers": 1,
+    "command": "uv run python -m slot_math.simulate --config tests/fixtures/default-config --rounds 50000 --seed 42 --workers 1 --bet 100 --out reports/smoke-report.json",
+    "startedAt": "2026-08-08T06:04:06.642749+00:00",
+    "durationS": 3.37
+  },
+  "results": {
+    "rtp": 0.8171059999999999,
+    "rtpCi95": [
+      0.7873959249046955,
+      0.8468160750953043
+    ],
+    "hitFrequency": 0.29854,
+    "contributions": {
+      "base": 0.7339819999999999,
+      "scatter_pay": 0.0212,
+      "feature": 0.05626,
+      "super_feature": 0.005664,
+      "ultimate_feature": 0.0
+    },
+    "featureFreq": {
+      "feature": 121.95121951219512,
+      "super_feature": 2083.3333333333335,
+      "ultimate_feature": 50000.0
+    },
+    "retriggerRate": 0.06451612903225806,
+    "avgCascades": 0.0,
+    "payoutPercentiles": {
+      "p50": 0.0,
+      "p75": 0.6,
+      "p90": 2.0,
+      "p95": 4.0,
+      "p99": 12.1,
+      "p99.9": 40.0
+    },
+    "maxWinHits": 0,
+    "maxWinProb": 0.0,
+    "variance": 11.488553755839119,
+    "stddev": 3.3894769147818544,
+    "volatilityIndex": 3.3894769147818544
+  },
+  "perTier": [
+    {
+      "tierId": "feature",
+      "entryMode": "natural",
+      "triggers": 410,
+      "freqOneInN": 121.95121951219512,
+      "rtpContribution": 0.05626,
+      "avgPayX": 6.860975609756098,
+      "medianPayX": 4.2,
+      "p99PayX": 34.3,
+      "maxPayX": 120.7,
+      "avgRounds": 8.282926829268293,
+      "retriggerRate": 0.06585365853658537
+    },
+    {
+      "tierId": "super_feature",
+      "entryMode": "natural",
+      "triggers": 24,
+      "freqOneInN": 2083.3333333333335,
+      "rtpContribution": 0.005664,
+      "avgPayX": 11.800000000000002,
+      "medianPayX": 9.399999999999999,
+      "p99PayX": 40.379999999999995,
+      "maxPayX": 43.6,
+      "avgRounds": 12.166666666666666,
+      "retriggerRate": 0.041666666666666664
+    },
+    {
+      "tierId": "ultimate_feature",
+      "entryMode": "natural",
+      "triggers": 0,
+      "freqOneInN": 50000.0,
+      "rtpContribution": 0.0,
+      "avgPayX": 0.0,
+      "medianPayX": 0.0,
+      "p99PayX": 0.0,
+      "maxPayX": 0.0,
+      "avgRounds": 0.0,
+      "retriggerRate": 0.0
+    }
+  ],
+  "passFail": {
+    "targetRtp": 0.96,
+    "tolerance": 0.003,
+    "pass": false,
+    "notes": "dev-level run; |rtp-target|=0.1429, ci95 half-width=0.0297; release sizing must follow prompts/math.md; tiers with 0 natural triggers at this size: ultimate_feature (their freqOneInN is the run horizon, a lower bound, not a measurement)"
+  }
+}

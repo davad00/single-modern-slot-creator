@@ -1,0 +1,1344 @@
+{
+  "events": [
+    {
+      "eventId": "music.base",
+      "file": "music-base.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 96,
+      "durationMs": 80000,
+      "loop": {
+        "enabled": true,
+        "startMs": 0,
+        "endMs": 80000
+      },
+      "priority": 100,
+      "polyphonyLimit": 1,
+      "volumeDb": 0,
+      "loudnessLufsTarget": -16,
+      "ducking": {
+        "ducks": [],
+        "amountDb": 0,
+        "attackMs": 0,
+        "releaseMs": 0
+      },
+      "interruptBehavior": "crossfade",
+      "mobileFallback": {
+        "file": "music-base.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "unchanged",
+      "associatedAnimationEvent": null,
+      "generationPrompt": {
+        "tool": "stable-audio-2.5",
+        "prompt": "Instrumental chamber-noir waltz, sparse and elegant, solo harpsichord carrying a slow 3/4 waltz motif, pizzicato low strings on beats two and three, occasional distant clock tick and soft rain texture, candle-lit Victorian parlour after midnight, mood: elegant menace, unhurried, confident, 72 BPM, 3/4 time, D minor, seamless 32-bar loop exactly 80 seconds, no vocals, no drums, 48kHz stereo.",
+        "negativePrompt": "vocals, modern drums, synthesizers, cheerful major-key brightness, distortion",
+        "bpm": 72,
+        "key": "Dm",
+        "loopPoints": {
+          "startMs": 0,
+          "endMs": 80000
+        }
+      }
+    },
+    {
+      "eventId": "music.feature",
+      "file": "music-feature.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 96,
+      "durationMs": 80000,
+      "loop": {
+        "enabled": true,
+        "startMs": 0,
+        "endMs": 80000
+      },
+      "priority": 100,
+      "polyphonyLimit": 1,
+      "volumeDb": 0,
+      "loudnessLufsTarget": -16,
+      "ducking": {
+        "ducks": [],
+        "amountDb": 0,
+        "attackMs": 0,
+        "releaseMs": 0
+      },
+      "interruptBehavior": "crossfade",
+      "mobileFallback": {
+        "file": "music-feature.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "unchanged",
+      "associatedAnimationEvent": null,
+      "generationPrompt": {
+        "tool": "stable-audio-2.5",
+        "prompt": "Instrumental chamber-noir waltz, same harpsichord waltz motif family as the base parlour theme but warmer and more insistent, adds a steady pizzicato pulse on every beat and a soft cimbalom shimmer under the harpsichord, low strings sustain, back-parlour tasting-room intimacy, mood: conspiratorial excitement, 72 BPM, 3/4 time, D minor, seamless 32-bar loop exactly 80 seconds, no vocals, 48kHz stereo.",
+        "negativePrompt": "vocals, drum kit, synthesizers, major-key brightness",
+        "bpm": 72,
+        "key": "Dm",
+        "loopPoints": {
+          "startMs": 0,
+          "endMs": 80000
+        }
+      }
+    },
+    {
+      "eventId": "music.super_feature",
+      "file": "music-super-feature.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 96,
+      "durationMs": 80000,
+      "loop": {
+        "enabled": true,
+        "startMs": 0,
+        "endMs": 80000
+      },
+      "priority": 100,
+      "polyphonyLimit": 1,
+      "volumeDb": 0,
+      "loudnessLufsTarget": -16,
+      "ducking": {
+        "ducks": [],
+        "amountDb": 0,
+        "attackMs": 0,
+        "releaseMs": 0
+      },
+      "interruptBehavior": "crossfade",
+      "mobileFallback": {
+        "file": "music-super-feature.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "unchanged",
+      "associatedAnimationEvent": null,
+      "generationPrompt": {
+        "tool": "stable-audio-2.5",
+        "prompt": "Instrumental chamber-noir waltz, cellar-distillery variation of the parlour waltz motif: low brass swells underneath, driving cimbalom sixteenth-note figures, darker harmony with chromatic pull, pizzicato replaced by bowed cello ostinato, copper-and-steam industrial undertone, the pulse subdivides so the energy feels roughly eight BPM faster without changing tempo, mood: dangerous industry, 72 BPM, 3/4 time, G minor, seamless 32-bar loop exactly 80 seconds, no vocals, 48kHz stereo.",
+        "negativePrompt": "vocals, drum kit, synthesizers, tempo change, cheerfulness",
+        "bpm": 72,
+        "key": "Gm",
+        "loopPoints": {
+          "startMs": 0,
+          "endMs": 80000
+        }
+      }
+    },
+    {
+      "eventId": "music.ultimate_feature",
+      "file": "music-ultimate-feature.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 96,
+      "durationMs": 80000,
+      "loop": {
+        "enabled": true,
+        "startMs": 0,
+        "endMs": 80000
+      },
+      "priority": 100,
+      "polyphonyLimit": 1,
+      "volumeDb": 0,
+      "loudnessLufsTarget": -16,
+      "ducking": {
+        "ducks": [],
+        "amountDb": 0,
+        "attackMs": 0,
+        "releaseMs": 0
+      },
+      "interruptBehavior": "crossfade",
+      "mobileFallback": {
+        "file": "music-ultimate-feature.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "unchanged",
+      "associatedAnimationEvent": null,
+      "generationPrompt": {
+        "tool": "stable-audio-2.5",
+        "prompt": "Instrumental nocturne, an exclusive moonlit-conservatory piece that quotes the parlour waltz motif but transforms it: glass harmonica carries the lead melody, wordless choir pads breathe underneath, harp arpeggios like moonlight through hanging prisms, low strings very soft, night-garden stillness with belladonna in bloom, mood: transcendent, forbidden, beautiful, 72 BPM, 3/4 time, D minor, seamless 32-bar loop exactly 80 seconds, no lyrics, 48kHz stereo.",
+        "negativePrompt": "lyrics, drum kit, brass stabs, harshness, distortion",
+        "bpm": 72,
+        "key": "Dm",
+        "loopPoints": {
+          "startMs": 0,
+          "endMs": 80000
+        }
+      }
+    },
+    {
+      "eventId": "amb.parlour",
+      "file": "amb-parlour.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 96,
+      "durationMs": 45000,
+      "loop": {
+        "enabled": true,
+        "startMs": 0,
+        "endMs": 45000
+      },
+      "priority": 20,
+      "polyphonyLimit": 1,
+      "volumeDb": -6,
+      "loudnessLufsTarget": -22,
+      "ducking": {
+        "ducks": [],
+        "amountDb": 0,
+        "attackMs": 0,
+        "releaseMs": 0
+      },
+      "interruptBehavior": "crossfade",
+      "mobileFallback": {
+        "file": "amb-parlour.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "mute",
+      "associatedAnimationEvent": null,
+      "generationPrompt": {
+        "tool": "stable-audio-2.5",
+        "prompt": "Room-tone ambience of a Victorian apothecary parlour after midnight: steady soft rain against leaded glass windows, a slow ticking long-case clock, faint fire crackle, occasional glass bottle clink and floorboard creak, warm candle-lit stillness, calm and unobtrusive, seamless 45-second loop, no music, no voices, 48kHz stereo.",
+        "negativePrompt": "music, melody, voices, footsteps, traffic",
+        "loopPoints": {
+          "startMs": 0,
+          "endMs": 45000
+        }
+      }
+    },
+    {
+      "eventId": "sfx.reel.stop",
+      "file": "sfx-reel-stop.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 64,
+      "durationMs": 300,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 300
+      },
+      "priority": 40,
+      "polyphonyLimit": 6,
+      "volumeDb": -4,
+      "loudnessLufsTarget": -16,
+      "ducking": {
+        "ducks": [
+          "music.*"
+        ],
+        "amountDb": -3,
+        "attackMs": 40,
+        "releaseMs": 150
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx-reel-stop.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.reel.stop",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Column of glass bottles settling into a wooden apothecary cabinet shelf, soft wooden thunk with a light glass clink on top, tight and dry, no reverb tail. Pitch is shifted up one semitone per column at runtime, columns one through six."
+      }
+    },
+    {
+      "eventId": "sfx.symbol.land",
+      "file": "sfx-symbol-land.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 64,
+      "durationMs": 250,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 250
+      },
+      "priority": 40,
+      "polyphonyLimit": 4,
+      "volumeDb": -8,
+      "loudnessLufsTarget": -16,
+      "ducking": {
+        "ducks": [],
+        "amountDb": 0,
+        "attackMs": 0,
+        "releaseMs": 0
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx-symbol-land.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.symbol.land",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Single small glass bottle landing on velvet-lined wood, muted glass tap, very short, soft, dry, no ring-out."
+      }
+    },
+    {
+      "eventId": "sfx.scatter.land",
+      "file": "sfx-scatter-land.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 64,
+      "durationMs": 1000,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 1000
+      },
+      "priority": 60,
+      "polyphonyLimit": 2,
+      "volumeDb": -2,
+      "loudnessLufsTarget": -16,
+      "ducking": {
+        "ducks": [
+          "music.*"
+        ],
+        "amountDb": -3,
+        "attackMs": 40,
+        "releaseMs": 400
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx-scatter-land.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.scatter.land",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Heavy wax seal being pressed onto thick paper with a deep brass stamp, low thump with a waxy squelch and a faint brass ring, weighty, ceremonial, dry tail. Pitch is stepped up one semitone per seal landed at runtime."
+      }
+    },
+    {
+      "eventId": "sfx.scatter.anticipation",
+      "file": "sfx-scatter-anticipation.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 64,
+      "durationMs": 2500,
+      "loop": {
+        "enabled": true,
+        "startMs": 0,
+        "endMs": 2500
+      },
+      "priority": 60,
+      "polyphonyLimit": 2,
+      "volumeDb": -4,
+      "loudnessLufsTarget": -16,
+      "ducking": {
+        "ducks": [
+          "music.*"
+        ],
+        "amountDb": -6,
+        "attackMs": 200,
+        "releaseMs": 400
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx-scatter-anticipation.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "mute",
+      "associatedAnimationEvent": "anim.scatter.anticipation",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Rising tension riser made of bowed glass rims and a quickening clock tick, glass harmonica shimmer building continuously upward, suspenseful, elegant, seamless loop, no percussion hits, no melody resolution."
+      }
+    },
+    {
+      "eventId": "sfx.cascade.shatter",
+      "file": "sfx-cascade-shatter.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 64,
+      "durationMs": 600,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 600
+      },
+      "priority": 40,
+      "polyphonyLimit": 6,
+      "volumeDb": -4,
+      "loudnessLufsTarget": -16,
+      "ducking": {
+        "ducks": [],
+        "amountDb": 0,
+        "attackMs": 0,
+        "releaseMs": 0
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx-cascade-shatter.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.cascade.remove",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Small apothecary bottle shattering crisply, bright glass break with a short liquid splash inside, contained and musical rather than violent, tight, dry, no debris rain. Pitch is shifted up one semitone per cascade chain depth at runtime, capped at twelve semitones."
+      }
+    },
+    {
+      "eventId": "sfx.cascade.settle",
+      "file": "sfx-cascade-settle.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 64,
+      "durationMs": 700,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 700
+      },
+      "priority": 40,
+      "polyphonyLimit": 2,
+      "volumeDb": -6,
+      "loudnessLufsTarget": -16,
+      "ducking": {
+        "ducks": [],
+        "amountDb": 0,
+        "attackMs": 0,
+        "releaseMs": 0
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx-cascade-settle.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.cascade.refill",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Several glass bottles dropping into place on wooden shelves in quick succession, soft wood knocks with gentle glass clinks, settling downward, rounded and warm, dry finish."
+      }
+    },
+    {
+      "eventId": "sfx.orb.land",
+      "file": "sfx-orb-land.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 64,
+      "durationMs": 400,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 400
+      },
+      "priority": 40,
+      "polyphonyLimit": 4,
+      "volumeDb": -3,
+      "loudnessLufsTarget": -16,
+      "ducking": {
+        "ducks": [],
+        "amountDb": 0,
+        "attackMs": 0,
+        "releaseMs": 0
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx-orb-land.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.orb.land",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Single crystal-clear glass ping, like a fingernail flicking a full round potion orb, pure ringing tone with liquid warble inside, short, precise, small dry tail. Pitch rises with the orb's multiplier value band at runtime."
+      }
+    },
+    {
+      "eventId": "sfx.orb.collect",
+      "file": "sfx-orb-collect.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 64,
+      "durationMs": 600,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 600
+      },
+      "priority": 40,
+      "polyphonyLimit": 4,
+      "volumeDb": -4,
+      "loudnessLufsTarget": -16,
+      "ducking": {
+        "ducks": [],
+        "amountDb": 0,
+        "attackMs": 0,
+        "releaseMs": 0
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx-orb-collect.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.orb.collect",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Liquid being drawn quickly through a thin glass pipette into a vial, smooth rising liquid slurp with a glassy whistle overtone, elegant, quick, wet but clean, no splash."
+      }
+    },
+    {
+      "eventId": "sfx.orb.apply",
+      "file": "sfx-orb-apply.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 64,
+      "durationMs": 900,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 900
+      },
+      "priority": 60,
+      "polyphonyLimit": 1,
+      "volumeDb": -2,
+      "loudnessLufsTarget": -16,
+      "ducking": {
+        "ducks": [],
+        "amountDb": 0,
+        "attackMs": 0,
+        "releaseMs": 0
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx-orb-apply.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.orb.apply",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Cork popping from a glass vial followed by a short pour of thick liquid, satisfying hollow cork pop then a smooth glug and settle, warm, intimate, dry room. The celebratory swell layer is gated by win tier at runtime and never plays when the round's total return is at or below the stake."
+      }
+    },
+    {
+      "eventId": "sfx.prisming.chime",
+      "file": "sfx-prisming-chime.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 64,
+      "durationMs": 1500,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 1500
+      },
+      "priority": 80,
+      "polyphonyLimit": 1,
+      "volumeDb": -2,
+      "loudnessLufsTarget": -14,
+      "ducking": {
+        "ducks": [
+          "music.*"
+        ],
+        "amountDb": -8,
+        "attackMs": 40,
+        "releaseMs": 400
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx-prisming-chime.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.ultimate_feature.prisming",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Glass harmonica glissando sweeping upward through a hanging crystal prism, shimmering refracted overtones splitting into a bright doubled chord, magical, crystalline, elegant decay."
+      }
+    },
+    {
+      "eventId": "sfx.feature.enter",
+      "file": "sfx-feature-enter.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 64,
+      "durationMs": 2500,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 2500
+      },
+      "priority": 80,
+      "polyphonyLimit": 1,
+      "volumeDb": -2,
+      "loudnessLufsTarget": -14,
+      "ducking": {
+        "ducks": [
+          "music.*",
+          "amb.*"
+        ],
+        "amountDb": -10,
+        "attackMs": 40,
+        "releaseMs": 400
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx-feature-enter.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.feature.enter",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Three-seal chamber-opening stinger: heavy velvet curtain drawing back on brass rings over a rising three-note glass harmonica interval, minor third rising, harpsichord flourish underneath, candle-warm, inviting menace, resolves cleanly for a music crossfade. First and smallest of three escalating seal stingers."
+      }
+    },
+    {
+      "eventId": "sfx.super_feature.enter",
+      "file": "sfx-super-feature-enter.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 64,
+      "durationMs": 3000,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 3000
+      },
+      "priority": 80,
+      "polyphonyLimit": 1,
+      "volumeDb": -2,
+      "loudnessLufsTarget": -14,
+      "ducking": {
+        "ducks": [
+          "music.*",
+          "amb.*"
+        ],
+        "amountDb": -10,
+        "attackMs": 40,
+        "releaseMs": 400
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx-super-feature-enter.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.super_feature.enter",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Four-seal descent stinger: iron cellar door unlocking and stone stairs descending motif, low brass swell and cimbalom tremolo under a rising four-note glass harmonica interval, perfect fifth rising, copper stills igniting with a gas whump at the end, darker and bigger than the three-seal stinger, clean resolve for a music crossfade. Second of three escalating seal stingers."
+      }
+    },
+    {
+      "eventId": "sfx.ultimate_feature.enter",
+      "file": "sfx-ultimate-feature-enter.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 64,
+      "durationMs": 3500,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 3500
+      },
+      "priority": 80,
+      "polyphonyLimit": 1,
+      "volumeDb": -2,
+      "loudnessLufsTarget": -14,
+      "ducking": {
+        "ducks": [
+          "music.*",
+          "amb.*"
+        ],
+        "amountDb": -10,
+        "attackMs": 40,
+        "releaseMs": 400
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx-ultimate-feature-enter.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.ultimate_feature.enter",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Five-seal night-garden stinger: tall conservatory glass doors swinging open into moonlight, rushing night air and rustling leaves, wordless choir bloom and a rising five-note glass harmonica interval climbing a full octave, hanging prisms chiming as they descend, the rarest and biggest of three escalating seal stingers, hard-cuts the music and hands over to an exclusive nocturne."
+      }
+    },
+    {
+      "eventId": "sfx.feature.retrigger",
+      "file": "sfx-feature-retrigger.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 64,
+      "durationMs": 1500,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 1500
+      },
+      "priority": 60,
+      "polyphonyLimit": 1,
+      "volumeDb": -3,
+      "loudnessLufsTarget": -14,
+      "ducking": {
+        "ducks": [
+          "music.*"
+        ],
+        "amountDb": -6,
+        "attackMs": 40,
+        "releaseMs": 400
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx-feature-retrigger.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.feature.retrigger",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Shortened seal-stamp motif: wax seal press with brass ring followed by a quick two-note glass harmonica lift, announces additional rounds granted, brisk, confident, dry resolve."
+      }
+    },
+    {
+      "eventId": "sfx.feature.summary",
+      "file": "sfx-feature-summary.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 64,
+      "durationMs": 3000,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 3000
+      },
+      "priority": 60,
+      "polyphonyLimit": 1,
+      "volumeDb": -3,
+      "loudnessLufsTarget": -14,
+      "ducking": {
+        "ducks": [
+          "music.*"
+        ],
+        "amountDb": -8,
+        "attackMs": 40,
+        "releaseMs": 400
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx-feature-summary.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.feature.summary",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Chamber-closing summary flourish: a settling harpsichord cadence with a final vial cork press and a soft ledger-paper page turn, wax seal stamped once at the end, conclusive, elegant, plays under the total-win presentation on the summary plate."
+      }
+    },
+    {
+      "eventId": "sfx.win.small",
+      "file": "sfx-win-small.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 64,
+      "durationMs": 500,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 500
+      },
+      "priority": 80,
+      "polyphonyLimit": 1,
+      "volumeDb": -4,
+      "loudnessLufsTarget": -16,
+      "ducking": {
+        "ducks": [],
+        "amountDb": 0,
+        "attackMs": 0,
+        "releaseMs": 0
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx-win-small.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.win.small",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "One single neutral glass note, a soft muted tap on a laboratory bottle, flat pitch, non-melodic, unemotional, completely dry, under half a second. LDW HARD RULE: this is the ONLY win sound permitted when the round's total return is less than or equal to the stake (UKGC RTS 14F); it carries no jingle, no pitch rise, no count-up, and ducks nothing."
+      }
+    },
+    {
+      "eventId": "sfx.win.medium",
+      "file": "sfx-win-medium.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 64,
+      "durationMs": 1500,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 1500
+      },
+      "priority": 60,
+      "polyphonyLimit": 1,
+      "volumeDb": -3,
+      "loudnessLufsTarget": -14,
+      "ducking": {
+        "ducks": [
+          "music.*",
+          "amb.*"
+        ],
+        "amountDb": -8,
+        "attackMs": 40,
+        "releaseMs": 400
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx-win-medium.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.win.medium",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Short elegant win tune: harpsichord arpeggio rising over two glass clinks and a soft cork pop, pleased but restrained, waltz-compatible phrasing, warm dry finish. Only reachable when total return exceeds the stake."
+      }
+    },
+    {
+      "eventId": "sfx.win.big",
+      "file": "sfx-win-big.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 64,
+      "durationMs": 2500,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 2500
+      },
+      "priority": 60,
+      "polyphonyLimit": 1,
+      "volumeDb": -2,
+      "loudnessLufsTarget": -14,
+      "ducking": {
+        "ducks": [
+          "music.*",
+          "amb.*"
+        ],
+        "amountDb": -8,
+        "attackMs": 40,
+        "releaseMs": 400
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx-win-big.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.win.big",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Big-win fanfare in chamber-noir style: harpsichord and pizzicato strings burst into a triumphant one-bar waltz flourish, glass harmonica sparkle on top, bottles clinking in celebration, longer and harmonically brighter than the medium win tune, confident finish that hands over to a count-up loop."
+      }
+    },
+    {
+      "eventId": "sfx.win.mega",
+      "file": "sfx-win-mega.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 64,
+      "durationMs": 3000,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 3000
+      },
+      "priority": 60,
+      "polyphonyLimit": 1,
+      "volumeDb": -2,
+      "loudnessLufsTarget": -14,
+      "ducking": {
+        "ducks": [
+          "music.*",
+          "amb.*"
+        ],
+        "amountDb": -8,
+        "attackMs": 40,
+        "releaseMs": 400
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx-win-mega.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.win.mega",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Mega-win fanfare: full chamber ensemble hit with low brass swell, cimbalom roll and cascading glass harmonica runs, a second harmonic lift halfway through, audibly larger, longer and more layered than the big-win fanfare, theatrical, ends open for a pitched-up count-up loop."
+      }
+    },
+    {
+      "eventId": "sfx.win.epic",
+      "file": "sfx-win-epic.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 64,
+      "durationMs": 7500,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 7500
+      },
+      "priority": 60,
+      "polyphonyLimit": 1,
+      "volumeDb": -1,
+      "loudnessLufsTarget": -14,
+      "ducking": {
+        "ducks": [
+          "music.*",
+          "amb.*"
+        ],
+        "amountDb": -8,
+        "attackMs": 40,
+        "releaseMs": 400
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx-win-epic.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.win.epic",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Epic-win celebration piece, three bars of 3/4 waltz at 72 BPM in D minor: choir pads, glass harmonica lead, harpsichord cascades, low brass and a rain of gentle glass chimes, a complete self-contained celebration that takes over from the music bed, escalating in texture not volume, grand resolving cadence."
+      }
+    },
+    {
+      "eventId": "sfx.win.max",
+      "file": "sfx-win-max.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 64,
+      "durationMs": 10000,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 10000
+      },
+      "priority": 100,
+      "polyphonyLimit": 1,
+      "volumeDb": -1,
+      "loudnessLufsTarget": -13,
+      "ducking": {
+        "ducks": [
+          "music.*",
+          "amb.*",
+          "sfx.*",
+          "ui.*"
+        ],
+        "amountDb": -60,
+        "attackMs": 40,
+        "releaseMs": 800
+      },
+      "interruptBehavior": "ignore",
+      "mobileFallback": {
+        "file": "sfx-win-max.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.maxwin.reached",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Maximum-win piece, four bars of 3/4 at 72 BPM in D major resolving from D minor: the house's full voice — choir, glass harmonica, harpsichord, low brass and a thousand-prism chime shimmer as the master vial overflows and every window of the house lights up, uninterruptible ten-second ceremonial piece, mastered to minus thirteen LUFS with true peak at or below minus one dBTP, ends with a single enormous seal stamp."
+      }
+    },
+    {
+      "eventId": "sfx.win.countup_loop",
+      "file": "sfx-win-countup-loop.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 64,
+      "durationMs": 2500,
+      "loop": {
+        "enabled": true,
+        "startMs": 0,
+        "endMs": 2500
+      },
+      "priority": 60,
+      "polyphonyLimit": 1,
+      "volumeDb": -4,
+      "loudnessLufsTarget": -16,
+      "ducking": {
+        "ducks": [
+          "music.*",
+          "amb.*"
+        ],
+        "amountDb": -8,
+        "attackMs": 40,
+        "releaseMs": 800
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx-win-countup-loop.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "mute",
+      "associatedAnimationEvent": "anim.win.countup",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Coin-meter count-up loop in period costume: rapid harpsichord arpeggio ostinato with light glass-vial clinks ticking like an apothecary till, one bar of 3/4 at 72 BPM, exactly two and a half seconds, seamless loop, energetic but elegant, no melody resolution. Runtime pitch-steps up one semitone per win tier (big, mega, epic)."
+      }
+    },
+    {
+      "eventId": "sfx.win.countup_end",
+      "file": "sfx-win-countup-end.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 64,
+      "durationMs": 1250,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 1250
+      },
+      "priority": 60,
+      "polyphonyLimit": 1,
+      "volumeDb": -3,
+      "loudnessLufsTarget": -14,
+      "ducking": {
+        "ducks": [],
+        "amountDb": 0,
+        "attackMs": 0,
+        "releaseMs": 0
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx-win-countup-end.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.win.countup_end",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Count-up terminator hit: a decisive harpsichord chord with a heavy glass stopper pressed home and one bright glass harmonica note, half a bar of 3/4 at 72 BPM, beat-quantized landing so the meter resolves musically, final, dry."
+      }
+    },
+    {
+      "eventId": "sfx.maxwin.reached",
+      "file": "sfx-maxwin-reached.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 64,
+      "durationMs": 2500,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 2500
+      },
+      "priority": 80,
+      "polyphonyLimit": 1,
+      "volumeDb": -2,
+      "loudnessLufsTarget": -13,
+      "ducking": {
+        "ducks": [
+          "music.*",
+          "amb.*"
+        ],
+        "amountDb": -10,
+        "attackMs": 40,
+        "releaseMs": 400
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx-maxwin-reached.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.maxwin.reached",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "The master vial overflowing at the win cap: liquid rushing over glass rims, prisms ringing in sympathy, a deep house-wide resonance as every lamp flares, transitions the scene into the maximum-win ceremony, awe-struck, enormous but not harsh."
+      }
+    },
+    {
+      "eventId": "sfx.autoplay.start",
+      "file": "sfx-autoplay-start.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 64,
+      "durationMs": 400,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 400
+      },
+      "priority": 20,
+      "polyphonyLimit": 1,
+      "volumeDb": -6,
+      "loudnessLufsTarget": -18,
+      "ducking": {
+        "ducks": [],
+        "amountDb": 0,
+        "attackMs": 0,
+        "releaseMs": 0
+      },
+      "interruptBehavior": "ignore",
+      "mobileFallback": {
+        "file": "sfx-autoplay-start.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.autoplay.start",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Small brass clockwork mechanism winding up and starting to tick, two quick ratchet clicks then a settled tick, precise, quiet, dry. Jurisdiction-gated: never fired where autoplay is disabled (for example the GB profile)."
+      }
+    },
+    {
+      "eventId": "sfx.autoplay.stop",
+      "file": "sfx-autoplay-stop.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 64,
+      "durationMs": 400,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 400
+      },
+      "priority": 20,
+      "polyphonyLimit": 1,
+      "volumeDb": -6,
+      "loudnessLufsTarget": -18,
+      "ducking": {
+        "ducks": [],
+        "amountDb": 0,
+        "attackMs": 0,
+        "releaseMs": 0
+      },
+      "interruptBehavior": "ignore",
+      "mobileFallback": {
+        "file": "sfx-autoplay-stop.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.autoplay.stop",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Small brass clockwork mechanism winding down and stopping, a soft ratchet release and one final click, gentle, conclusive, dry. Jurisdiction-gated alongside autoplay start."
+      }
+    },
+    {
+      "eventId": "ui.click",
+      "file": "ui-click.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 64,
+      "durationMs": 120,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 120
+      },
+      "priority": 20,
+      "polyphonyLimit": 2,
+      "volumeDb": -8,
+      "loudnessLufsTarget": -18,
+      "ducking": {
+        "ducks": [],
+        "amountDb": 0,
+        "attackMs": 0,
+        "releaseMs": 0
+      },
+      "interruptBehavior": "ignore",
+      "mobileFallback": {
+        "file": "ui-click.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.ui.spin_pressed",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Tiny brass button press, a soft metallic click like a cabinet latch, subtle, clean, completely dry, around a tenth of a second."
+      }
+    },
+    {
+      "eventId": "ui.bet_change",
+      "file": "ui-bet-change.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 64,
+      "durationMs": 150,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 150
+      },
+      "priority": 20,
+      "polyphonyLimit": 2,
+      "volumeDb": -8,
+      "loudnessLufsTarget": -18,
+      "ducking": {
+        "ducks": [],
+        "amountDb": 0,
+        "attackMs": 0,
+        "releaseMs": 0
+      },
+      "interruptBehavior": "ignore",
+      "mobileFallback": {
+        "file": "ui-bet-change.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": null,
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Single page of thick ledger paper flicked over with a faint brass coin tick, papery, precise, dry, very short. Pitch nudges up on bet increase and down on bet decrease at runtime."
+      }
+    },
+    {
+      "eventId": "ui.toggle",
+      "file": "ui-toggle.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 64,
+      "durationMs": 150,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 150
+      },
+      "priority": 20,
+      "polyphonyLimit": 2,
+      "volumeDb": -8,
+      "loudnessLufsTarget": -18,
+      "ducking": {
+        "ducks": [],
+        "amountDb": 0,
+        "attackMs": 0,
+        "releaseMs": 0
+      },
+      "interruptBehavior": "ignore",
+      "mobileFallback": {
+        "file": "ui-toggle.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": null,
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Small brass toggle switch flipping, one rounded mechanical clunk with a hint of spring, tactile, quiet, dry."
+      }
+    },
+    {
+      "eventId": "ui.error",
+      "file": "ui-error.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 64,
+      "durationMs": 800,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 800
+      },
+      "priority": 80,
+      "polyphonyLimit": 1,
+      "volumeDb": -4,
+      "loudnessLufsTarget": -16,
+      "ducking": {
+        "ducks": [
+          "music.*",
+          "amb.*"
+        ],
+        "amountDb": -6,
+        "attackMs": 40,
+        "releaseMs": 300
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "ui-error.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "continue",
+      "reducedSensoryBehavior": "unchanged",
+      "associatedAnimationEvent": "anim.system.error",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Neutral-negative attention tone: two low muted glass taps descending a semitone, calm, informative, never alarming or harsh, dry, under one second, no melody."
+      }
+    },
+    {
+      "eventId": "ui.reconnect",
+      "file": "ui-reconnect.webm",
+      "format": "webm",
+      "sampleRateHz": 48000,
+      "bitrateKbps": 64,
+      "durationMs": 600,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 600
+      },
+      "priority": 80,
+      "polyphonyLimit": 1,
+      "volumeDb": -6,
+      "loudnessLufsTarget": -16,
+      "ducking": {
+        "ducks": [],
+        "amountDb": 0,
+        "attackMs": 0,
+        "releaseMs": 0
+      },
+      "interruptBehavior": "ignore",
+      "mobileFallback": {
+        "file": "ui-reconnect.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "continue",
+      "reducedSensoryBehavior": "unchanged",
+      "associatedAnimationEvent": "anim.system.reconnect",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Soft rising two-note glass chime, like a bell-jar being lifted and reseated, gentle, reassuring, informative, dry finish. Fires when the connection is being restored; music is paused, not stopped."
+      }
+    }
+  ]
+}

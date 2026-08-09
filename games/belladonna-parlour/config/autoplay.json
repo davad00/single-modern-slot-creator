@@ -1,0 +1,56 @@
+{
+  "projectSlug": "belladonna-parlour",
+  "gameVersion": "0.1.0",
+  "notes": "Autoplay configuration for the client-template AutoplayController (src/core/autoplay.ts). The whole autoplay surface is policy-gated by jurisdiction-policies.json flags.autoplayEnabled and is REMOVED (not greyed) when false; UNKNOWN jurisdiction maps to restricted-default = off (CONVENTIONS 9.6). Finite counts only - no infinite option exists. xBet ladders multiply the current betMinor to produce the AutoplayConfig minor-unit fields (lossLimitMinor, winThresholdMinor, profitThresholdMinor, balanceFloorMinor).",
+  "policyFlag": "autoplayEnabled",
+  "roundPresets": [10, 25, 50, 100],
+  "maxRounds": 100,
+  "defaults": {
+    "armed": false,
+    "rounds": null,
+    "stopOnFeature": true,
+    "lossLimitXBet": null,
+    "winThresholdXBet": null,
+    "profitThresholdXBet": null,
+    "balanceFloorXBet": null
+  },
+  "mandatoryBeforeStart": ["rounds", "lossLimitXBet"],
+  "optionLaddersXBet": {
+    "lossLimit": [10, 25, 50, 100],
+    "winThreshold": [10, 25, 50, 100],
+    "profitThreshold": [10, 25, 50, 100],
+    "balanceFloor": [10, 20, 50]
+  },
+  "stopConditions": {
+    "alwaysOn": [
+      "completed",
+      "user_stop",
+      "feature_triggered",
+      "super_feature_triggered",
+      "ultimate_feature_triggered",
+      "insufficient_balance",
+      "network_error",
+      "game_error",
+      "rg_interruption",
+      "reality_check",
+      "bet_changed",
+      "max_win"
+    ],
+    "playerConfigurable": [
+      "win_threshold",
+      "loss_threshold",
+      "profit_threshold",
+      "balance_floor"
+    ],
+    "stopOnFeatureConfigurable": false,
+    "notes": "ids match AutoplayStopReason in src/core/autoplay.ts; the GDD 14 list maps 1:1. stopOnFeature is fixed true for this game (tier triggers always stop autoplay) - the HUD must not offer a toggle. loss_threshold is mandatory (mandatoryBeforeStart). reality_check blocks the next round_requested until acknowledged (research/13 D4.17)."
+  },
+  "ui": {
+    "remainingCountOnSpinButton": true,
+    "oneTapStopAlwaysVisible": true,
+    "stopTakesEffect": "before the next round request - the in-flight round always completes and settles",
+    "noWagerQueue": true,
+    "noOverlappingRounds": true,
+    "perRoundDurationFloor": "jurisdiction minimumRoundDurationMs applies to every autoplay round (SE tresekundersregeln applies to autoplay rounds too)"
+  }
+}

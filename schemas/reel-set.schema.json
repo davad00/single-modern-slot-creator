@@ -1,0 +1,164 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.single-slot-creator.local/reel-set.schema.json",
+  "title": "Reel set — one entry of config/reel-sets.json",
+  "description": "Definition of one reel set (per game state / feature tier / RTP profile). config/reel-sets.json is an array whose every element validates against this schema. A reel set is either strip-based (physical reel strips, stops selected on the strip) or weighted-table-based (per-reel symbol weight maps); exactly one of the two representations must be present, matching the declared mode.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["setId", "purpose", "mode", "stopSelection"],
+  "properties": {
+    "setId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_-]{2,40}$",
+      "description": "Unique id of this reel set, e.g. \"base-96\", \"feature_strips\", \"ultimate-feature-96\"."
+    },
+    "purpose": {
+      "type": "string",
+      "enum": ["base", "feature", "super_feature", "ultimate_feature", "respin", "bonus_buy_entry"],
+      "description": "Game context this reel set is used in. Tier purposes match the canonical tier ids; bonus_buy_entry sets generate the guaranteed-trigger entry spin of a bought feature."
+    },
+    "mode": {
+      "type": "string",
+      "enum": ["strips", "weightedTable"],
+      "description": "Representation of the reels: physical strips or per-reel weighted symbol tables."
+    },
+    "stopSelection": {
+      "type": "string",
+      "enum": ["uniform_strip", "weighted"],
+      "description": "How the RNG picks stops: uniformly over strip positions (strips mode) or by weight draw (weightedTable mode)."
+    },
+    "rtpProfileId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{1,30}$",
+      "description": "RTP profile (from game-config.json rtpProfiles) this set belongs to. Omitted = valid for all profiles."
+    },
+    "strips": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 8,
+      "description": "One strip per reel, left to right; array length must equal the grid's column count (config validator). Present iff mode is \"strips\".",
+      "items": {
+        "type": "array",
+        "minItems": 20,
+        "maxItems": 200,
+        "description": "Ordered symbol strip for this reel; stops wrap around the ends.",
+        "items": {
+          "$ref": "#/$defs/symbolId",
+          "description": "Symbol id at this strip position."
+        }
+      }
+    },
+    "weightedTable": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 8,
+      "description": "One weight map per reel, left to right; array length must equal the grid's column count (config validator). Present iff mode is \"weightedTable\".",
+      "items": {
+        "type": "object",
+        "minProperties": 1,
+        "maxProperties": 32,
+        "description": "Map from symbol id to integer draw weight for this reel.",
+        "additionalProperties": false,
+        "patternProperties": {
+          "^[A-Z][A-Z0-9_]{0,15}$": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000000,
+            "description": "Relative draw weight of this symbol on this reel."
+          }
+        }
+      }
+    },
+    "scatterPositionRules": {
+      "type": "object",
+      "description": "Optional constraints on where scatters may land, used to shape trigger odds and anticipation.",
+      "additionalProperties": false,
+      "properties": {
+        "maxScattersPerReel": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4,
+          "description": "Maximum simultaneous visible scatters on one reel."
+        },
+        "allowedReels": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 8,
+          "uniqueItems": true,
+          "description": "Zero-based reel indices where scatters may appear at all.",
+          "items": { "type": "integer", "minimum": 0, "maximum": 7, "description": "Zero-based reel index." }
+        },
+        "minGapPositions": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 20,
+          "description": "Minimum strip positions between two scatters on the same strip (strips mode only)."
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "$comment": "Validation message: 'mode \"strips\" requires the strips array (and forbids weightedTable); stopSelection must be uniform_strip.'",
+      "if": {
+        "properties": { "mode": { "const": "strips" } },
+        "required": ["mode"]
+      },
+      "then": {
+        "required": ["strips"],
+        "not": { "required": ["weightedTable"] },
+        "properties": { "stopSelection": { "const": "uniform_strip" } }
+      }
+    },
+    {
+      "$comment": "Validation message: 'mode \"weightedTable\" requires the weightedTable array (and forbids strips); stopSelection must be weighted.'",
+      "if": {
+        "properties": { "mode": { "const": "weightedTable" } },
+        "required": ["mode"]
+      },
+      "then": {
+        "required": ["weightedTable"],
+        "not": { "required": ["strips"] },
+        "properties": { "stopSelection": { "const": "weighted" } }
+      }
+    }
+  ],
+  "$defs": {
+    "minorUnits": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Monetary amount in integer minor units (e.g. cents). Never a binary float."
+    },
+    "semver": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semantic version string MAJOR.MINOR.PATCH."
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "description": "Prefixed lowercase-hex SHA-256 digest."
+    },
+    "tierId": {
+      "type": "string",
+      "enum": ["feature", "super_feature", "ultimate_feature"],
+      "description": "Canonical scatter feature tier id (3 / 4 / 5+ scatters)."
+    },
+    "symbolId": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9_]{0,15}$",
+      "description": "Canonical symbol id, e.g. WILD, SCATTER, H1, L3, JP_GRAND."
+    },
+    "projectSlug": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{2,40}$",
+      "description": "Kebab-case project slug used for games/<slug>/."
+    },
+    "rtp": {
+      "type": "number",
+      "minimum": 0.8,
+      "maximum": 0.99,
+      "description": "Return-to-player expressed as a fraction (e.g. 0.9600)."
+    }
+  }
+}

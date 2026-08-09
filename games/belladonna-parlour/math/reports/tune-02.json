@@ -1,0 +1,104 @@
+{
+  "reportId": "sim-102-150000",
+  "kind": "dev",
+  "provenance": {
+    "gameVersion": "0.1.0",
+    "mathVersion": "0.1.0",
+    "configHash": "sha256:f0b8f20ae6bf9c2082f05b1e1dad270a645f9cb94a45a908e62d2c4137710ee7",
+    "simCodeVersion": "1.0.0",
+    "lockfileHash": "sha256:114c98c2b66af0597cb88aa0dc327122ab7bf2d47e25721ba27959ff083f3da0",
+    "seedPolicy": "per-worker-derived",
+    "seeds": [
+      726912521,
+      541647636,
+      2792992462
+    ],
+    "rounds": 150000,
+    "workers": 3,
+    "command": "uv run python -m slot_math.simulate --config ..\\math-config --rounds 150000 --seed 102 --workers 3 --bet 100 --out reports\\tune-02.json",
+    "startedAt": "2026-08-08T16:30:42.176040+00:00",
+    "durationS": 10.4
+  },
+  "results": {
+    "rtp": 0.19565266666666667,
+    "rtpCi95": [
+      0.18842492839292208,
+      0.20288040494041126
+    ],
+    "hitFrequency": 0.17680666666666667,
+    "contributions": {
+      "base": 0.15860406666666665,
+      "scatter_pay": 0.017173333333333332,
+      "feature": 0.012726733333333334,
+      "super_feature": 0.006935533333333333,
+      "ultimate_feature": 0.000213
+    },
+    "featureFreq": {
+      "feature": 143.40344168260037,
+      "super_feature": 2777.777777777778,
+      "ultimate_feature": 37500.0
+    },
+    "retriggerRate": 0.058876811594202896,
+    "avgCascades": 0.32105333333333336,
+    "payoutPercentiles": {
+      "p50": 0.0,
+      "p75": 0.0,
+      "p90": 0.3,
+      "p95": 0.8,
+      "p99": 3.6,
+      "p99.9": 15.30010000000184
+    },
+    "maxWinHits": 0,
+    "maxWinProb": 0.0,
+    "variance": 2.039782924579053,
+    "stddev": 1.428209692089734,
+    "volatilityIndex": 1.428209692089734
+  },
+  "perTier": [
+    {
+      "tierId": "feature",
+      "entryMode": "natural",
+      "triggers": 1046,
+      "freqOneInN": 143.40344168260037,
+      "rtpContribution": 0.012726733333333334,
+      "avgPayX": 1.8250573613766732,
+      "medianPayX": 0.5,
+      "p99PayX": 20.573499999999946,
+      "maxPayX": 36.11,
+      "avgRounds": 8.267686424474187,
+      "retriggerRate": 0.052581261950286805
+    },
+    {
+      "tierId": "super_feature",
+      "entryMode": "natural",
+      "triggers": 54,
+      "freqOneInN": 2777.777777777778,
+      "rtpContribution": 0.006935533333333333,
+      "avgPayX": 19.265370370370373,
+      "medianPayX": 4.04,
+      "p99PayX": 166.93079999999995,
+      "maxPayX": 194.3,
+      "avgRounds": 10.925925925925926,
+      "retriggerRate": 0.18518518518518517
+    },
+    {
+      "tierId": "ultimate_feature",
+      "entryMode": "natural",
+      "triggers": 4,
+      "freqOneInN": 37500.0,
+      "rtpContribution": 0.000213,
+      "avgPayX": 7.987500000000001,
+      "medianPayX": 7.8,
+      "p99PayX": 16.215,
+      "maxPayX": 16.35,
+      "avgRounds": 12.0,
+      "retriggerRate": 0.0
+    }
+  ],
+  "passFail": {
+    "targetRtp": 0.96,
+    "tolerance": 0.01,
+    "pass": false,
+    "notes": "dev-level run; |rtp-target|=0.7643, ci95 half-width=0.0072; release sizing must follow prompts/math.md"
+  }
+}

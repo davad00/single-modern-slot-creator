@@ -1,0 +1,36 @@
+{
+  "countingRule": "initial-grid",
+  "countCascadedScatters": false,
+  "countCopiedScatters": false,
+  "tiers": [
+    {
+      "tierId": "feature",
+      "scattersRequired": 3,
+      "publicName": "Feature Bonus",
+      "entry": { "rounds": 8, "startingMultiplier100": 100, "modifiers": [] }
+    },
+    {
+      "tierId": "super_feature",
+      "scattersRequired": 4,
+      "publicName": "Super Feature Bonus",
+      "entry": { "rounds": 12, "startingMultiplier100": 200, "modifiers": [] }
+    },
+    {
+      "tierId": "ultimate_feature",
+      "scattersRequired": 5,
+      "publicName": "Ultimate Feature Bonus",
+      "entry": { "rounds": 16, "startingMultiplier100": 300, "modifiers": [] }
+    }
+  ],
+  "fiveOrMoreUsesUltimateTier": true,
+  "retrigger": {
+    "allowed": true,
+    "scattersRequired": 3,
+    "roundsAwarded": 4,
+    "capPerFeature": 3
+  },
+  "anticipation": {
+    "enabled": true,
+    "triggersAtScatters": 2
+  }
+}

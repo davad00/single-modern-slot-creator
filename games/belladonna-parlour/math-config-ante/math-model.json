@@ -1,0 +1,15 @@
+{
+ "profileId": "rtp-96",
+ "targetRtp": 0.96,
+ "rtpTolerance": 0.01,
+ "volatilityClass": "medium-high",
+ "cascades": {
+  "enabled": true,
+  "capPerSpin": 20,
+  "multiplierProgression": []
+ },
+ "maxWin": {
+  "xBet": 10000,
+  "terminationPolicy": "end_round"
+ }
+}

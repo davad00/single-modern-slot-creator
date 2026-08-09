@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.single-slot-creator.local/symbol.schema.json",
+  "title": "Symbol definition — one entry of config/symbols.json",
+  "description": "Definition of a single reel symbol. config/symbols.json is an array whose every element validates against this schema. Symbol ids follow the canonical set: WILD, SCATTER, premiums H1..H4 (H1 highest), lows L1..L5, feature-exclusive FX1.., MULT, CASH, COLLECT, MYSTERY, JP_MINI|JP_MINOR|JP_MAJOR|JP_GRAND, BLANK (hold-and-respin grids only).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "kind", "displayName", "tierRank", "substitutes", "appearsOnReels", "featureOnly", "assets"],
+  "properties": {
+    "id": {
+      "$ref": "#/$defs/symbolId",
+      "description": "Canonical symbol id, unique within the game."
+    },
+    "kind": {
+      "type": "string",
+      "enum": ["wild", "scatter", "premium", "low", "feature_exclusive", "multiplier", "cash", "collector", "mystery", "jackpot", "blank"],
+      "description": "Functional class of the symbol."
+    },
+    "displayName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 40,
+      "description": "Themed public name shown in the paytable/help screens."
+    },
+    "tierRank": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 32,
+      "description": "Pay-tier rank within the game, 1 = highest paying. Non-paying symbols (scatter without scatter pays, blank) still carry a rank for sorting help screens."
+    },
+    "substitutes": {
+      "type": "boolean",
+      "description": "Whether this symbol substitutes for others in win evaluation (true for wilds)."
+    },
+    "substitutesFor": {
+      "type": "array",
+      "maxItems": 32,
+      "uniqueItems": true,
+      "description": "Explicit list of symbol ids this symbol substitutes for. Omitted with substitutes true means: substitutes for every paying symbol except scatter and jackpot.",
+      "items": {
+        "$ref": "#/$defs/symbolId",
+        "description": "Symbol id this symbol can stand in for."
+      }
+    },
+    "multiplierValues": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 16,
+      "uniqueItems": true,
+      "description": "Whole-number win multipliers this symbol can carry (multiplier wilds, MULT symbols). Mechanics needing half steps must use x100 fixed-point in a mult100 field of the feature config instead.",
+      "items": {
+        "type": "integer",
+        "minimum": 2,
+        "maximum": 1000,
+        "description": "One possible multiplier value."
+      }
+    },
+    "cashValueRangeX100": {
+      "type": "object",
+      "description": "For kind \"cash\": inclusive range of bet-multiple values the symbol can carry, in integer hundredths of a bet (payX100 rule: 2.5x -> 250).",
+      "additionalProperties": false,
+      "required": ["min", "max"],
+      "properties": {
+        "min": { "type": "integer", "minimum": 1, "maximum": 25000000, "description": "Lowest cash value in payX100 units." },
+        "max": { "type": "integer", "minimum": 1, "maximum": 25000000, "description": "Highest cash value in payX100 units; must be >= min (config validator)." }
+      }
+    },
+    "appearsOnReels": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 8,
+      "uniqueItems": true,
+      "description": "Zero-based reel indices this symbol may appear on (in any reel set).",
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 7,
+        "description": "Zero-based reel index."
+      }
+    },
+    "featureOnly": {
+      "type": "boolean",
+      "description": "true = the symbol appears only inside feature tiers (never on base-game reel sets)."
+    },
+    "assets": {
+      "type": "object",
+      "description": "Image asset references per visual state. Ids must exist in config/asset-manifest.json.",
+      "additionalProperties": false,
+      "required": ["static", "win", "blur"],
+      "properties": {
+        "static": { "$ref": "#/$defs/imgId", "description": "Idle/landed image asset id." },
+        "win": { "$ref": "#/$defs/imgId", "description": "Win-celebration image (or animation atlas frame source) asset id." },
+        "blur": { "$ref": "#/$defs/imgId", "description": "Motion-blurred image asset id shown while the reel spins." }
+      }
+    }
+  },
+  "$defs": {
+    "imgId": {
+      "type": "string",
+      "pattern": "^img\\.[a-z0-9_.-]+$",
+      "description": "Image asset id, e.g. img.symbol.h1.static."
+    },
+    "minorUnits": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Monetary amount in integer minor units (e.g. cents). Never a binary float."
+    },
+    "semver": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semantic version string MAJOR.MINOR.PATCH."
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "description": "Prefixed lowercase-hex SHA-256 digest."
+    },
+    "tierId": {
+      "type": "string",
+      "enum": ["feature", "super_feature", "ultimate_feature"],
+      "description": "Canonical scatter feature tier id (3 / 4 / 5+ scatters)."
+    },
+    "symbolId": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9_]{0,15}$",
+      "description": "Canonical symbol id, e.g. WILD, SCATTER, H1, L3, JP_GRAND."
+    },
+    "projectSlug": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{2,40}$",
+      "description": "Kebab-case project slug used for games/<slug>/."
+    },
+    "rtp": {
+      "type": "number",
+      "minimum": 0.8,
+      "maximum": 0.99,
+      "description": "Return-to-player expressed as a fraction (e.g. 0.9600)."
+    }
+  }
+}

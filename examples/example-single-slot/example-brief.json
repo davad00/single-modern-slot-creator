@@ -1,0 +1,106 @@
+{
+  "project": {
+    "gameName": "Kilnspire",
+    "projectSlug": "kilnspire",
+    "releaseLevel": "production-prototype",
+    "targetJurisdictions": ["MT", "DE"],
+    "targetLanguages": ["en", "de"],
+    "targetCurrencies": ["EUR"],
+    "demoOnly": false
+  },
+  "creative": {
+    "theme": "A towering molten-glass forge - the Kilnspire - where master glasswrights blow incandescent star-glass into radiant orbs; industrial-fantasy craftsmanship, living fire, and luminous glass",
+    "narrative": "Deep in a volcanic rift, the last great glassworks turns raw fire into star-glass. Each spin stokes the kiln; three Kiln Sigils kindle the forge, four set it roaring, five crown it with starfire.",
+    "mood": "epic",
+    "visualStyle": "painterly 2.5D game art with luminous molten-glass materials, brass fittings and deep volcanic shadow; crisp edges, no photorealism",
+    "artDimensionality": "2.5D",
+    "charactersAllowed": false,
+    "themeRestrictions": [
+      "no gore",
+      "no religious iconography",
+      "no content or styling aimed at minors",
+      "no photorealistic human likenesses",
+      "no readable text baked into art"
+    ]
+  },
+  "layout": {
+    "primarySlotType": "ways",
+    "columns": 5,
+    "rows": 4,
+    "variableGrid": false,
+    "orientationPriority": "mobile-portrait"
+  },
+  "math": {
+    "targetRtp": 0.96,
+    "alternativeRtpProfiles": [],
+    "volatility": "high",
+    "maximumWinXBet": 10000,
+    "minimumBetMinor": 10,
+    "maximumBetMinor": 10000,
+    "targetHitFrequency": "AUTO",
+    "targetFeatureFrequency": 150
+  },
+  "mechanics": {
+    "primaryMechanic": "cascading-wins",
+    "secondaryMechanics": ["ways-to-win", "tiered-free-spins"],
+    "cascades": true,
+    "wildTypes": ["standard"],
+    "multipliers": true,
+    "expandingGrid": false,
+    "holdAndRespin": false,
+    "persistentProgression": false,
+    "jackpot": false
+  },
+  "scatterFeatureHierarchy": {
+    "enabled": true,
+    "featureBonusScatters": 3,
+    "superFeatureScatters": 4,
+    "ultimateFeatureScatters": 5,
+    "countingRule": "initial-grid",
+    "countCascadedScatters": false,
+    "retriggerAllowed": true
+  },
+  "optionalModes": {
+    "bonusBuyRequested": true,
+    "enhancedChanceRequested": false,
+    "normalSpin": true,
+    "quickSpin": true,
+    "turboSpin": true,
+    "animationSkip": true,
+    "autoplayRequested": true
+  },
+  "presentation": {
+    "fullyImmersive": true,
+    "parallax": true,
+    "reactiveEnvironment": true,
+    "cameraEffects": true,
+    "particles": true,
+    "shaderEffects": true,
+    "adaptiveAudio": true,
+    "haptics": true,
+    "targetFps": 60,
+    "reducedMotion": true,
+    "lowPerformanceMode": true
+  },
+  "technical": {
+    "renderer": "pixijs-v8",
+    "serverAuthoritative": true,
+    "developmentRoundProvider": true,
+    "productionRgsAdapter": true,
+    "webgl2Required": true,
+    "webgpuOptional": true
+  },
+  "deliverables": {
+    "researchReport": true,
+    "gameDesignDocument": true,
+    "mathModel": true,
+    "parSheet": true,
+    "simulationSuite": true,
+    "artPrompts": true,
+    "audioPrompts": true,
+    "playableClient": false,
+    "outcomeSchema": true,
+    "tests": true,
+    "complianceReview": true
+  }
+}

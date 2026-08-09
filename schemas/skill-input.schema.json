@@ -1,0 +1,580 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.single-slot-creator.local/skill-input.schema.json",
+  "title": "Skill input brief — single-modern-slot-creator v1.0.0",
+  "description": "Structured brief accepted by the single-modern-slot-creator skill. Every section and every field is optional: a missing field or the sentinel string \"AUTO\" delegates the decision to the skill, which must record its choice in docs/assumption-log.md. An empty object {} is a valid brief. Cross-field incompatibilities (e.g. UK real-money vs bonus buy) are enforced by the allOf conditionals at the root.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "project": {
+      "type": "object",
+      "description": "Project identity, release intent, and market targeting.",
+      "additionalProperties": false,
+      "properties": {
+        "gameName": {
+          "description": "Public display name of the game, or \"AUTO\" to let the skill invent an original name (never a trademarked or existing game name).",
+          "default": "AUTO",
+          "anyOf": [
+            { "$ref": "#/$defs/auto" },
+            { "type": "string", "minLength": 1, "maxLength": 80 }
+          ]
+        },
+        "projectSlug": {
+          "description": "Kebab-case directory slug for games/<slug>/, or \"AUTO\" to derive one from the game name.",
+          "default": "AUTO",
+          "anyOf": [
+            { "$ref": "#/$defs/auto" },
+            { "$ref": "#/$defs/projectSlug" }
+          ]
+        },
+        "releaseLevel": {
+          "type": "string",
+          "description": "Intended maturity of the deliverable. The skill always produces certification-ready candidates, never certified builds.",
+          "enum": ["concept", "demo", "production-prototype"],
+          "default": "production-prototype"
+        },
+        "targetJurisdictions": {
+          "type": "array",
+          "description": "ISO 3166-1 alpha-2/alpha-3 style jurisdiction codes (e.g. \"MT\", \"GB\", \"UK\", \"SE\", \"ON\"). Empty array means jurisdiction-agnostic with most-restrictive defaults applied at runtime via jurisdiction-policies.json. Listing UK/GB for real money (demoOnly not true) forbids bonusBuyRequested and autoplayRequested (UKGC policy).",
+          "default": [],
+          "uniqueItems": true,
+          "maxItems": 30,
+          "items": { "type": "string", "pattern": "^[A-Z]{2,3}$", "description": "Uppercase 2–3 letter jurisdiction code." }
+        },
+        "targetLanguages": {
+          "type": "array",
+          "description": "BCP-47 style language tags the client UI must support.",
+          "default": ["en"],
+          "minItems": 1,
+          "maxItems": 30,
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^[a-z]{2,3}(-[A-Z]{2})?$", "description": "Lowercase language code with optional region, e.g. \"en\", \"pt-BR\"." }
+        },
+        "targetCurrencies": {
+          "type": "array",
+          "description": "ISO 4217 currency codes. All money is handled in integer minor units of these currencies.",
+          "default": ["EUR"],
+          "minItems": 1,
+          "maxItems": 30,
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^[A-Z]{3}$", "description": "ISO 4217 alphabetic currency code, e.g. \"EUR\"." }
+        },
+        "demoOnly": {
+          "type": "boolean",
+          "description": "true = fun-play/demo build only, never wired to real money. Relaxes the UK bonus-buy/autoplay incompatibility because no real-money UKGC rules apply.",
+          "default": false
+        }
+      }
+    },
+    "creative": {
+      "type": "object",
+      "description": "Theme, narrative and art-direction constraints.",
+      "additionalProperties": false,
+      "properties": {
+        "theme": {
+          "description": "Core theme (e.g. \"deep-sea vents\", \"clockwork carnival\") or \"AUTO\" for an original research-driven theme. Must be original and adult-appropriate; never a copy of an existing game's theme.",
+          "default": "AUTO",
+          "anyOf": [
+            { "$ref": "#/$defs/auto" },
+            { "type": "string", "minLength": 3, "maxLength": 200 }
+          ]
+        },
+        "narrative": {
+          "description": "Optional story/fantasy framing the presentation should express, or \"AUTO\".",
+          "default": "AUTO",
+          "anyOf": [
+            { "$ref": "#/$defs/auto" },
+            { "type": "string", "minLength": 3, "maxLength": 2000 }
+          ]
+        },
+        "mood": {
+          "description": "Emotional register of art, motion and audio, or \"AUTO\".",
+          "default": "cinematic",
+          "anyOf": [
+            { "$ref": "#/$defs/auto" },
+            { "type": "string", "enum": ["cinematic", "playful", "mystical", "dark", "epic", "cozy", "retro", "futuristic", "luxurious", "whimsical"] }
+          ]
+        },
+        "visualStyle": {
+          "description": "Art style directive (e.g. \"painterly realism\", \"stylized low-poly\") or \"AUTO\".",
+          "default": "AUTO",
+          "anyOf": [
+            { "$ref": "#/$defs/auto" },
+            { "type": "string", "minLength": 3, "maxLength": 200 }
+          ]
+        },
+        "artDimensionality": {
+          "description": "Rendering look of the art package. \"2.5D\" = 2D sprites with parallax depth layers.",
+          "default": "2.5D",
+          "anyOf": [
+            { "$ref": "#/$defs/auto" },
+            { "type": "string", "enum": ["2D", "2.5D", "3D"] }
+          ]
+        },
+        "charactersAllowed": {
+          "type": "boolean",
+          "description": "Whether original characters may appear in art and animation.",
+          "default": true
+        },
+        "themeRestrictions": {
+          "type": "array",
+          "description": "Hard exclusions for theme/art content (e.g. \"no gore\", \"no religious iconography\").",
+          "default": [],
+          "maxItems": 30,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 2, "maxLength": 120, "description": "One exclusion rule in plain language." }
+        }
+      }
+    },
+    "layout": {
+      "type": "object",
+      "description": "Grid geometry and orientation priorities. If variableGrid is true, rowsPerReel is required and overrides rows.",
+      "additionalProperties": false,
+      "properties": {
+        "primarySlotType": {
+          "description": "Win-evaluation archetype, or \"AUTO\" to let the concept step decide.",
+          "default": "AUTO",
+          "anyOf": [
+            { "$ref": "#/$defs/auto" },
+            { "type": "string", "enum": ["lines", "ways", "cluster"] }
+          ]
+        },
+        "columns": {
+          "description": "Number of reels (columns), or \"AUTO\".",
+          "default": 5,
+          "anyOf": [
+            { "$ref": "#/$defs/auto" },
+            { "type": "integer", "minimum": 3, "maximum": 8 }
+          ]
+        },
+        "rows": {
+          "description": "Visible rows when the grid is uniform, or \"AUTO\". Ignored when variableGrid is true (rowsPerReel wins).",
+          "default": 4,
+          "anyOf": [
+            { "$ref": "#/$defs/auto" },
+            { "type": "integer", "minimum": 3, "maximum": 8 }
+          ]
+        },
+        "variableGrid": {
+          "type": "boolean",
+          "description": "true = per-reel row counts (rowsPerReel becomes required). false = uniform rows.",
+          "default": false
+        },
+        "rowsPerReel": {
+          "type": "array",
+          "description": "Visible rows for each reel, left to right. Required when variableGrid is true; array length must match the reel count.",
+          "minItems": 3,
+          "maxItems": 8,
+          "items": { "type": "integer", "minimum": 2, "maximum": 8, "description": "Row count for this reel." }
+        },
+        "orientationPriority": {
+          "description": "Primary layout target; all other layouts are still specified per the UI gate.",
+          "default": "mobile-portrait",
+          "anyOf": [
+            { "$ref": "#/$defs/auto" },
+            { "type": "string", "enum": ["mobile-portrait", "mobile-landscape", "tablet", "desktop"] }
+          ]
+        }
+      }
+    },
+    "math": {
+      "type": "object",
+      "description": "Math-model targets. All money values are integer minor units; RTP values are fractions. minimumBetMinor must not exceed maximumBetMinor (checked by the skill during normalization).",
+      "additionalProperties": false,
+      "properties": {
+        "targetRtp": {
+          "description": "Primary RTP target as a fraction (0.80–0.99), or \"AUTO\" (defaults to 0.9600).",
+          "default": 0.96,
+          "anyOf": [
+            { "$ref": "#/$defs/auto" },
+            { "$ref": "#/$defs/rtp" }
+          ]
+        },
+        "alternativeRtpProfiles": {
+          "type": "array",
+          "description": "Optional lower/market-specific RTP profiles (e.g. [0.94, 0.92]) to be built alongside the primary target.",
+          "default": [],
+          "maxItems": 4,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/rtp" }
+        },
+        "volatility": {
+          "description": "Target volatility class, or \"AUTO\".",
+          "default": "high",
+          "anyOf": [
+            { "$ref": "#/$defs/auto" },
+            { "type": "string", "enum": ["low", "medium", "medium-high", "high", "very-high"] }
+          ]
+        },
+        "maximumWinXBet": {
+          "description": "Hard max-win cap as a multiple of total bet (100–250000), or \"AUTO\" (defaults to 10000). Enforced in math and engine via a max_win_termination step.",
+          "default": 10000,
+          "anyOf": [
+            { "$ref": "#/$defs/auto" },
+            { "type": "integer", "minimum": 100, "maximum": 250000 }
+          ]
+        },
+        "minimumBetMinor": {
+          "description": "Smallest total bet in integer minor units (e.g. 10 = €0.10).",
+          "default": 10,
+          "allOf": [ { "$ref": "#/$defs/minorUnits" } ],
+          "minimum": 1
+        },
+        "maximumBetMinor": {
+          "description": "Largest total bet in integer minor units (e.g. 10000 = €100.00). Must be >= minimumBetMinor.",
+          "default": 10000,
+          "allOf": [ { "$ref": "#/$defs/minorUnits" } ],
+          "minimum": 1
+        },
+        "targetHitFrequency": {
+          "description": "Desired fraction of rounds with any win (0.05–0.60), or \"AUTO\" (~0.25–0.33 default band).",
+          "default": "AUTO",
+          "anyOf": [
+            { "$ref": "#/$defs/auto" },
+            { "type": "number", "minimum": 0.05, "maximum": 0.6 }
+          ]
+        },
+        "targetFeatureFrequency": {
+          "description": "Desired natural trigger rate of the base `feature` tier expressed as N in \"1 in N\" spins (20–2000), or \"AUTO\" (~1/150–1/250 default band).",
+          "default": "AUTO",
+          "anyOf": [
+            { "$ref": "#/$defs/auto" },
+            { "type": "integer", "minimum": 20, "maximum": 2000 }
+          ]
+        }
+      }
+    },
+    "mechanics": {
+      "type": "object",
+      "description": "Mechanic selection. \"AUTO\" values are decided at the mechanics step; at most 1 primary + 3 supporting mechanics survive the gate. Never use trademarked mechanic names.",
+      "additionalProperties": false,
+      "properties": {
+        "primaryMechanic": {
+          "description": "Requested primary mechanic in kebab-case (e.g. \"cascading-wins\", \"hold-and-respin\"), or \"AUTO\".",
+          "default": "AUTO",
+          "anyOf": [
+            { "$ref": "#/$defs/auto" },
+            { "type": "string", "pattern": "^[a-z][a-z0-9-]{2,48}$" }
+          ]
+        },
+        "secondaryMechanics": {
+          "type": "array",
+          "description": "Requested supporting mechanics in kebab-case; at most 3 are kept.",
+          "default": [],
+          "maxItems": 3,
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^[a-z][a-z0-9-]{2,48}$", "description": "Kebab-case mechanic id." }
+        },
+        "cascades": {
+          "description": "Whether winning symbols are removed and refilled (cascades/tumbles), or \"AUTO\".",
+          "default": "AUTO",
+          "anyOf": [ { "$ref": "#/$defs/auto" }, { "type": "boolean" } ]
+        },
+        "wildTypes": {
+          "type": "array",
+          "description": "Wild behaviours to include. Empty array = let the mechanics step decide.",
+          "default": [],
+          "maxItems": 7,
+          "uniqueItems": true,
+          "items": { "type": "string", "enum": ["standard", "expanding", "sticky", "walking", "multiplier", "stacked", "spreading"], "description": "One wild behaviour." }
+        },
+        "multipliers": {
+          "description": "Whether win multipliers are part of the design, or \"AUTO\".",
+          "default": "AUTO",
+          "anyOf": [ { "$ref": "#/$defs/auto" }, { "type": "boolean" } ]
+        },
+        "expandingGrid": {
+          "description": "Whether the grid can grow during play (extra rows/reels), or \"AUTO\".",
+          "default": "AUTO",
+          "anyOf": [ { "$ref": "#/$defs/auto" }, { "type": "boolean" } ]
+        },
+        "holdAndRespin": {
+          "description": "Whether a hold-and-respin (lock cash symbols, respin counter) mode is included, or \"AUTO\".",
+          "default": "AUTO",
+          "anyOf": [ { "$ref": "#/$defs/auto" }, { "type": "boolean" } ]
+        },
+        "persistentProgression": {
+          "description": "Whether in-feature persistent collection/progression is included (never across real-money rounds in a player-adaptive way), or \"AUTO\".",
+          "default": "AUTO",
+          "anyOf": [ { "$ref": "#/$defs/auto" }, { "type": "boolean" } ]
+        },
+        "jackpot": {
+          "type": "boolean",
+          "description": "Whether fixed (non-progressive) jackpot awards (JP_MINI..JP_GRAND) are included.",
+          "default": false
+        }
+      }
+    },
+    "scatterFeatureHierarchy": {
+      "type": "object",
+      "description": "The mandatory three-tier scatter bonus hierarchy: 3 scatters → feature, 4 → super_feature, 5+ → ultimate_feature. Tiers must be materially different in math AND presentation. Scatter counts must be strictly increasing across tiers (skill-verified).",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Whether the scatter feature hierarchy is active. Disabling it forbids bonusBuyRequested (there is no feature to buy into).",
+          "default": true
+        },
+        "featureBonusScatters": {
+          "type": "integer",
+          "description": "Scatter count that triggers the `feature` tier.",
+          "minimum": 2,
+          "maximum": 4,
+          "default": 3
+        },
+        "superFeatureScatters": {
+          "type": "integer",
+          "description": "Scatter count that triggers the `super_feature` tier. Must exceed featureBonusScatters.",
+          "minimum": 3,
+          "maximum": 5,
+          "default": 4
+        },
+        "ultimateFeatureScatters": {
+          "type": "integer",
+          "description": "Scatter count (this many or more) that triggers the `ultimate_feature` tier. Must exceed superFeatureScatters.",
+          "minimum": 4,
+          "maximum": 6,
+          "default": 5
+        },
+        "countingRule": {
+          "type": "string",
+          "description": "Which grid states count scatters toward a trigger.",
+          "enum": ["initial-grid", "all-steps"],
+          "default": "initial-grid"
+        },
+        "countCascadedScatters": {
+          "type": "boolean",
+          "description": "Whether scatters landing in cascade refills count toward triggers/retriggers.",
+          "default": false
+        },
+        "retriggerAllowed": {
+          "type": "boolean",
+          "description": "Whether features can retrigger (always with a hard cap in the math model).",
+          "default": true
+        }
+      }
+    },
+    "optionalModes": {
+      "type": "object",
+      "description": "Optional play modes. All are jurisdiction-gated at runtime via jurisdiction-policies.json; requesting one here only asks for it to be built. Presentation modes never alter outcomes.",
+      "additionalProperties": false,
+      "properties": {
+        "bonusBuyRequested": {
+          "type": "boolean",
+          "description": "Build bonus-buy (feature purchase) modes. Incompatible with real-money UK/GB targeting (UKGC prohibits feature buy); allowed if project.demoOnly is true. Requires scatterFeatureHierarchy.enabled.",
+          "default": true
+        },
+        "enhancedChanceRequested": {
+          "type": "boolean",
+          "description": "Build an enhanced-chance (ante bet) mode that raises feature trigger odds for a higher bet.",
+          "default": true
+        },
+        "normalSpin": {
+          "type": "boolean",
+          "description": "Standard spin presentation timing.",
+          "default": true
+        },
+        "quickSpin": {
+          "type": "boolean",
+          "description": "Shortened spin presentation (jurisdiction-gated).",
+          "default": true
+        },
+        "turboSpin": {
+          "type": "boolean",
+          "description": "Minimal spin presentation (jurisdiction-gated).",
+          "default": true
+        },
+        "animationSkip": {
+          "type": "boolean",
+          "description": "Allow tapping to skip win/feature presentation (never changes results).",
+          "default": true
+        },
+        "autoplayRequested": {
+          "type": "boolean",
+          "description": "Build autoplay with full stop conditions. Incompatible with real-money UK/GB targeting (UKGC prohibits autoplay); allowed if project.demoOnly is true.",
+          "default": true
+        }
+      }
+    },
+    "presentation": {
+      "type": "object",
+      "description": "Immersion and performance targets for the PixiJS client. Reduced-motion and low-performance variants are mandatory regardless of these flags.",
+      "additionalProperties": false,
+      "properties": {
+        "fullyImmersive": { "type": "boolean", "description": "Full-scene themed environment rather than a flat reel frame.", "default": true },
+        "parallax": { "type": "boolean", "description": "Multi-layer parallax background depth.", "default": true },
+        "reactiveEnvironment": { "type": "boolean", "description": "Environment reacts to game events (wins, anticipation, features).", "default": true },
+        "cameraEffects": { "type": "boolean", "description": "Camera moves/zooms/shakes on key events.", "default": true },
+        "particles": { "type": "boolean", "description": "Particle systems for wins, trails and ambience.", "default": true },
+        "shaderEffects": { "type": "boolean", "description": "Custom shader effects (glow, distortion, colour grading).", "default": true },
+        "adaptiveAudio": { "type": "boolean", "description": "Layered music that adapts to game state (music.base/feature/super_feature/ultimate_feature).", "default": true },
+        "haptics": { "type": "boolean", "description": "Mobile haptic feedback events (haptic.light/medium/heavy).", "default": true },
+        "targetFps": { "type": "integer", "description": "Frame-rate target on the primary device class.", "enum": [30, 60, 120], "default": 60 },
+        "reducedMotion": { "type": "boolean", "description": "Ship the reduced-motion variant set (mandatory; false is recorded as a risk and overridden).", "default": true },
+        "lowPerformanceMode": { "type": "boolean", "description": "Ship the low-performance fallback profile (mandatory; false is recorded as a risk and overridden).", "default": true }
+      }
+    },
+    "technical": {
+      "type": "object",
+      "description": "Engine and integration requirements. Real-money outcomes always come from the server; the dev round provider is dev/test only.",
+      "additionalProperties": false,
+      "properties": {
+        "renderer": {
+          "description": "Rendering stack. \"AUTO\" resolves to pixijs-v8; \"threejs\" requires explicit justification in the decision log.",
+          "default": "AUTO",
+          "anyOf": [
+            { "$ref": "#/$defs/auto" },
+            { "type": "string", "enum": ["pixijs-v8", "threejs"] }
+          ]
+        },
+        "serverAuthoritative": {
+          "type": "boolean",
+          "description": "Server-authoritative outcomes. Must be true; false fails validation of the brief at normalization (non-negotiable design rule).",
+          "const": true,
+          "default": true
+        },
+        "developmentRoundProvider": { "type": "boolean", "description": "Include the seeded, clearly dev-only local round provider.", "default": true },
+        "productionRgsAdapter": { "type": "boolean", "description": "Include the typed RGS adapter interface for later real-money integration.", "default": true },
+        "webgl2Required": { "type": "boolean", "description": "WebGL2 is the baseline rendering context.", "default": true },
+        "webgpuOptional": { "type": "boolean", "description": "Use WebGPU opportunistically where available.", "default": true }
+      }
+    },
+    "deliverables": {
+      "type": "object",
+      "description": "Which artifact groups to produce. Everything defaults to true; disabling a deliverable is recorded in the assumption log.",
+      "additionalProperties": false,
+      "properties": {
+        "researchReport": { "type": "boolean", "description": "Source-backed research dossier.", "default": true },
+        "gameDesignDocument": { "type": "boolean", "description": "Full game design document.", "default": true },
+        "mathModel": { "type": "boolean", "description": "Versioned math model configs.", "default": true },
+        "parSheet": { "type": "boolean", "description": "PAR sheet with simulated statistics.", "default": true },
+        "simulationSuite": { "type": "boolean", "description": "uv-managed Python simulation package and reports.", "default": true },
+        "artPrompts": { "type": "boolean", "description": "prompts/art-prompts.json (and generated art when tools are available).", "default": true },
+        "audioPrompts": { "type": "boolean", "description": "prompts/audio-prompts.json and audio event spec.", "default": true },
+        "playableClient": { "type": "boolean", "description": "Buildable bun + TypeScript + PixiJS client.", "default": true },
+        "outcomeSchema": { "type": "boolean", "description": "Server outcome-manifest JSON schema.", "default": true },
+        "tests": { "type": "boolean", "description": "Client and math test suites.", "default": true },
+        "complianceReview": { "type": "boolean", "description": "Compliance review and certification-readiness checklist.", "default": true }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "$comment": "Incompatibility: real-money UK/GB targeting forbids bonus buy and autoplay (UKGC). Validation message: 'optionalModes.bonusBuyRequested and optionalModes.autoplayRequested must be false (or omitted) when project.targetJurisdictions includes UK/GB and project.demoOnly is not true.'",
+      "if": {
+        "required": ["project"],
+        "properties": {
+          "project": {
+            "required": ["targetJurisdictions"],
+            "properties": {
+              "targetJurisdictions": { "contains": { "enum": ["UK", "GB", "GBR"] } }
+            },
+            "not": {
+              "required": ["demoOnly"],
+              "properties": { "demoOnly": { "const": true } }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "optionalModes": {
+            "properties": {
+              "bonusBuyRequested": {
+                "const": false,
+                "description": "Bonus buy is prohibited for real-money UK/GB play (UKGC). Set project.demoOnly to true or remove UK/GB from targetJurisdictions to request bonus buy."
+              },
+              "autoplayRequested": {
+                "const": false,
+                "description": "Autoplay is prohibited for real-money UK/GB play (UKGC). Set project.demoOnly to true or remove UK/GB from targetJurisdictions to request autoplay."
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "$comment": "Conditional requirement: variableGrid true requires rowsPerReel. Validation message: 'layout.rowsPerReel is required when layout.variableGrid is true.'",
+      "if": {
+        "required": ["layout"],
+        "properties": {
+          "layout": {
+            "required": ["variableGrid"],
+            "properties": { "variableGrid": { "const": true } }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "layout": { "required": ["rowsPerReel"] }
+        }
+      }
+    },
+    {
+      "$comment": "Incompatibility: bonus buy needs a feature to buy into. Validation message: 'optionalModes.bonusBuyRequested must be false (or omitted) when scatterFeatureHierarchy.enabled is false.'",
+      "if": {
+        "required": ["scatterFeatureHierarchy"],
+        "properties": {
+          "scatterFeatureHierarchy": {
+            "required": ["enabled"],
+            "properties": { "enabled": { "const": false } }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "optionalModes": {
+            "properties": {
+              "bonusBuyRequested": {
+                "const": false,
+                "description": "Bonus buy requires the scatter feature hierarchy to be enabled."
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "auto": {
+      "const": "AUTO",
+      "description": "Sentinel: delegate this decision to the skill; the chosen value is logged in docs/assumption-log.md."
+    },
+    "minorUnits": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Monetary amount in integer minor units (e.g. cents). Never a binary float."
+    },
+    "semver": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semantic version string MAJOR.MINOR.PATCH."
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "description": "Prefixed lowercase-hex SHA-256 digest."
+    },
+    "tierId": {
+      "type": "string",
+      "enum": ["feature", "super_feature", "ultimate_feature"],
+      "description": "Canonical scatter feature tier id (3 / 4 / 5+ scatters)."
+    },
+    "symbolId": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9_]{0,15}$",
+      "description": "Canonical symbol id, e.g. WILD, SCATTER, H1, L3, JP_GRAND."
+    },
+    "projectSlug": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{2,40}$",
+      "description": "Kebab-case project slug used for games/<slug>/."
+    },
+    "rtp": {
+      "type": "number",
+      "minimum": 0.8,
+      "maximum": 0.99,
+      "description": "Return-to-player expressed as a fraction (e.g. 0.9600)."
+    }
+  }
+}

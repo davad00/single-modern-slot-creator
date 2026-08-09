@@ -1,0 +1,52 @@
+{
+  "bonusBuys": [
+    {
+      "modeId": "buy-kindled-spins",
+      "publicName": "Buy Kindled Spins",
+      "entryTier": "feature",
+      "priceXBet100": 1775,
+      "rtp": 0.9589,
+      "forcedEntryDistribution": { "3": 1.0 },
+      "jurisdictionGated": true,
+      "uiDisclosure": {
+        "showPriceXBet": true,
+        "showRtp": true,
+        "showMaxWin": true,
+        "confirmationRequired": true,
+        "disclosureText": "Buys one guaranteed 3-Sigil entry spin (Kindled Spins, 8 rounds at 2x). Price 17.75x total bet. Measured mode RTP 95.89% (30,000 forced entries, seed 4303; reports/tier-feature.json: mean gross value 17.02x / 17.75x price). The natural 3-scatter conditional entry distribution is exactly {3: 1.0} because base strips carry at most one Kiln Sigil per reel."
+      }
+    },
+    {
+      "modeId": "buy-roaring-kiln",
+      "publicName": "Buy Roaring Kiln",
+      "entryTier": "super_feature",
+      "priceXBet100": 12100,
+      "rtp": 0.9608,
+      "forcedEntryDistribution": { "4": 1.0 },
+      "jurisdictionGated": true,
+      "uiDisclosure": {
+        "showPriceXBet": true,
+        "showRtp": true,
+        "showMaxWin": true,
+        "confirmationRequired": true,
+        "disclosureText": "Buys one guaranteed 4-Sigil entry spin (Roaring Kiln, 10 rounds at 4x with stoked wilds). Price 121x total bet. Measured mode RTP 96.08% (30,000 forced entries, seed 4304; reports/tier-super-feature.json: mean gross value 116.26x / 121x price). Natural 4-scatter conditional distribution is exactly {4: 1.0}."
+      }
+    },
+    {
+      "modeId": "buy-starfire-crown",
+      "publicName": "Buy Starfire Crown",
+      "entryTier": "ultimate_feature",
+      "priceXBet100": 112500,
+      "rtp": 0.9603,
+      "forcedEntryDistribution": { "5": 1.0 },
+      "jurisdictionGated": true,
+      "uiDisclosure": {
+        "showPriceXBet": true,
+        "showRtp": true,
+        "showMaxWin": true,
+        "confirmationRequired": true,
+        "disclosureText": "Buys one guaranteed 5-Sigil entry spin (Starfire Crown, 12 rounds at 8x with surging wilds). Price 1125x total bet. Measured mode RTP 96.03% (30,000 forced entries, seed 4305; reports/tier-ultimate-feature.json: mean gross value 1080.39x / 1125x price). Base strips carry one Kiln Sigil per reel, so 5 scatters is the only ultimate entry count and the natural conditional distribution is exactly {5: 1.0}."
+      }
+    }
+  ]
+}

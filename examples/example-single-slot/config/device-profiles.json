@@ -1,0 +1,47 @@
+{
+  "$comment": "No dedicated schema exists for this file (schema-gap, noted in docs/known-limitations.md). Profiles are selected at boot from device capability probes; asset-manifest.json deviceVariants reference these profileIds. Reduced-motion is an accessibility setting orthogonal to these performance profiles and is always available (CONVENTIONS 9.7).",
+  "profiles": [
+    {
+      "profileId": "mobile-low",
+      "description": "Low-end phones and webviews: WebGL2 baseline, reduced texture budget.",
+      "targetFps": 30,
+      "maxPixelRatio": 1,
+      "textureScale": 0.5,
+      "maxTextureSizePx": 1024,
+      "particleBudget": 60,
+      "shaderEffects": false,
+      "parallaxLayers": 2,
+      "audio": { "maxVoices": 8, "useMobileFallbackFiles": true }
+    },
+    {
+      "profileId": "mobile-high",
+      "description": "Mid/high phones and tablets: full effects at device resolution.",
+      "targetFps": 60,
+      "maxPixelRatio": 2,
+      "textureScale": 1.0,
+      "maxTextureSizePx": 2048,
+      "particleBudget": 250,
+      "shaderEffects": true,
+      "parallaxLayers": 3,
+      "audio": { "maxVoices": 16, "useMobileFallbackFiles": false }
+    },
+    {
+      "profileId": "desktop",
+      "description": "Desktop browsers: WebGL2 default, WebGPU where available.",
+      "targetFps": 60,
+      "maxPixelRatio": 2,
+      "textureScale": 1.0,
+      "maxTextureSizePx": 4096,
+      "particleBudget": 500,
+      "shaderEffects": true,
+      "parallaxLayers": 3,
+      "audio": { "maxVoices": 24, "useMobileFallbackFiles": false }
+    }
+  ],
+  "fallbackProfileId": "mobile-low",
+  "lowPerformanceRuntimeSwitch": {
+    "$comment": "If measured FPS stays below threshold, the client drops to the lowPerformance timeline variants defined per animation event.",
+    "fpsThreshold": 24,
+    "sampleWindowMs": 4000
+  }
+}

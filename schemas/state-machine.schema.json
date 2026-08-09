@@ -1,0 +1,231 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.single-slot-creator.local/state-machine.schema.json",
+  "title": "Game state machine — config/state-machine.json",
+  "description": "The single authoritative game state machine: the exact 23 canonical states from CONVENTIONS §4.4, all transitions with guards, entry/exit actions, recovery rules, terminal states, invalid-transition policy, and the presentation (animation) and audio maps. UI overlays (menus, paytable) are NOT states here. Server-owned round states: round_requested → outcome_received → outcome_committed → … → round_complete.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "states",
+    "transitions",
+    "guards",
+    "actions",
+    "recoveryRules",
+    "terminalStates",
+    "invalidTransitionPolicy",
+    "presentationMap",
+    "audioMap"
+  ],
+  "properties": {
+    "states": {
+      "type": "array",
+      "minItems": 23,
+      "maxItems": 23,
+      "uniqueItems": true,
+      "description": "Exactly the 23 canonical states — no additions, removals, or renames.",
+      "items": { "$ref": "#/$defs/stateName" }
+    },
+    "transitions": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 200,
+      "description": "Every legal state transition. Anything not listed is illegal and handled per invalidTransitionPolicy.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["from", "to", "event", "guards"],
+        "properties": {
+          "from": {
+            "$ref": "#/$defs/stateName",
+            "description": "Source state."
+          },
+          "to": {
+            "$ref": "#/$defs/stateName",
+            "description": "Destination state."
+          },
+          "event": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]{1,60}$",
+            "description": "snake_case event that fires this transition, e.g. spin_pressed, outcome_committed, presentation_done."
+          },
+          "guards": {
+            "type": "array",
+            "maxItems": 8,
+            "uniqueItems": true,
+            "description": "Ids of guards (see guards[]) that must ALL pass for the transition to fire. Empty array = unconditional.",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_]{1,60}$"
+            }
+          }
+        }
+      }
+    },
+    "guards": {
+      "type": "array",
+      "maxItems": 60,
+      "description": "Named boolean predicates evaluated against committed round state (never against a predicted outcome).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "description"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]{1,60}$",
+            "description": "snake_case guard id referenced from transitions[].guards."
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300,
+            "description": "What this guard checks, e.g. 'scatterCount >= 3 in committed manifest'."
+          }
+        }
+      }
+    },
+    "actions": {
+      "type": "array",
+      "maxItems": 80,
+      "description": "Named side effects bound to state entry and/or exit. Actions are presentation/bookkeeping only; they never alter the committed outcome.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "description"],
+        "anyOf": [{ "required": ["onEntryOf"] }, { "required": ["onExitOf"] }],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]{1,60}$",
+            "description": "snake_case action id."
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300,
+            "description": "What the action does, e.g. 'lock spin button', 'persist resume pointer'."
+          },
+          "onEntryOf": {
+            "$ref": "#/$defs/stateName",
+            "description": "State whose entry runs this action."
+          },
+          "onExitOf": {
+            "$ref": "#/$defs/stateName",
+            "description": "State whose exit runs this action."
+          }
+        }
+      }
+    },
+    "recoveryRules": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 23,
+      "description": "Per-state recovery behavior after disconnect/reload. Recovery always replays the committed manifest from resumePointer; it never re-randomizes.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["state", "resumable", "resumeTo", "notes"],
+        "properties": {
+          "state": {
+            "$ref": "#/$defs/stateName",
+            "description": "State the client was in when interrupted."
+          },
+          "resumable": {
+            "type": "boolean",
+            "description": "Whether an interrupted session in this state resumes mid-round (true) or restarts at ready with the round settled server-side (false)."
+          },
+          "resumeTo": {
+            "$ref": "#/$defs/stateName",
+            "description": "State the client enters after recovery completes (commonly recovering → this)."
+          },
+          "notes": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 300,
+            "description": "How recovery behaves here, e.g. 'seek presentation to resumePointer step instantly'."
+          }
+        }
+      }
+    },
+    "terminalStates": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 5,
+      "uniqueItems": true,
+      "description": "States with no outgoing transitions in the round lifecycle (typically round_complete; error is terminal until operator/session recovery).",
+      "items": { "$ref": "#/$defs/stateName" }
+    },
+    "invalidTransitionPolicy": {
+      "type": "string",
+      "enum": ["ignore", "error", "recover"],
+      "description": "What the engine does when an event has no legal transition from the current state: ignore silently, enter error, or enter recovering and re-fetch the committed manifest."
+    },
+    "presentationMap": {
+      "type": "object",
+      "minProperties": 1,
+      "description": "State → animation event ids played while in that state. Keys must be canonical state names; every id must exist in config/animation-events.json.",
+      "propertyNames": { "$ref": "#/$defs/stateName" },
+      "additionalProperties": {
+        "type": "array",
+        "maxItems": 20,
+        "uniqueItems": true,
+        "description": "Animation events for this state.",
+        "items": { "$ref": "#/$defs/animEventId" }
+      }
+    },
+    "audioMap": {
+      "type": "object",
+      "minProperties": 1,
+      "description": "State → audio event ids (music states and sfx) active in that state. Keys must be canonical state names; every id must exist in config/audio-events.json. Music must cover base plus all three feature tiers.",
+      "propertyNames": { "$ref": "#/$defs/stateName" },
+      "additionalProperties": {
+        "type": "array",
+        "maxItems": 20,
+        "uniqueItems": true,
+        "description": "Audio events for this state.",
+        "items": { "$ref": "#/$defs/audioEventId" }
+      }
+    }
+  },
+  "$defs": {
+    "stateName": {
+      "type": "string",
+      "enum": [
+        "boot",
+        "loading",
+        "ready",
+        "round_requested",
+        "outcome_received",
+        "outcome_committed",
+        "presenting_initial_result",
+        "presenting_wins",
+        "presenting_cascades",
+        "feature_pending",
+        "feature_entry",
+        "feature_active",
+        "super_feature_entry",
+        "super_feature_active",
+        "ultimate_feature_entry",
+        "ultimate_feature_active",
+        "feature_retrigger",
+        "maximum_win",
+        "feature_summary",
+        "round_complete",
+        "reconnecting",
+        "recovering",
+        "error"
+      ],
+      "description": "One of the 23 canonical game states (CONVENTIONS §4.4)."
+    },
+    "animEventId": {
+      "type": "string",
+      "pattern": "^anim\\.[a-z0-9_]+\\.[a-z0-9_]+$",
+      "description": "Animation event id in dot notation, e.g. anim.feature.enter."
+    },
+    "audioEventId": {
+      "type": "string",
+      "pattern": "^(music\\.[a-z0-9_]+|sfx\\.[a-z0-9_]+\\.[a-z0-9_]+|amb\\.[a-z0-9_]+|ui\\.[a-z0-9_]+)$",
+      "description": "Audio event id: music.<state>, sfx.<context>.<name>, amb.<name>, or ui.<name>."
+    }
+  }
+}

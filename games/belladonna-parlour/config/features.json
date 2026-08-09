@@ -1,0 +1,139 @@
+{
+  "features": [
+    {
+      "tierId": "feature",
+      "publicName": "The Tasting",
+      "stateMachineRef": "main",
+      "reelSetRef": "feature",
+      "modifiers": [
+        {
+          "id": "essence_banking",
+          "type": "persistent_multiplier",
+          "description": "Distilled Essence banking: each winning feature spin adds the sequence orb sum (drawn from orbTables.feature in the math config) to the master-vial bank; wins pay x bank. Starting bank x1. increment100 is the minimum single-orb increment (x2); actual increments are the drawn orb sums.",
+          "params": {
+            "startMultiplier100": 100,
+            "incrementOn": "any_win",
+            "increment100": 200,
+            "capMultiplier100": 51200
+          }
+        }
+      ],
+      "progression": {
+        "meter": { "enabled": false, "startValue": 0, "target": 1 },
+        "stages": []
+      },
+      "maxWin": {
+        "behavior": "complete_current_step_then_terminate",
+        "celebrationAnimationEventId": "anim.maxwin.reached"
+      },
+      "recovery": {
+        "resumable": true,
+        "persistedFields": ["multiplierBank", "spinsLeft", "retriggers"]
+      },
+      "exitSummary": {
+        "displayFields": ["total_win", "rounds_played", "retriggers", "highest_multiplier", "max_win_reached"],
+        "summaryAnimationEventId": "anim.feature.summary"
+      }
+    },
+    {
+      "tierId": "super_feature",
+      "publicName": "The Distillery",
+      "stateMachineRef": "main",
+      "reelSetRef": "super_feature",
+      "modifiers": [
+        {
+          "id": "essence_banking",
+          "type": "persistent_multiplier",
+          "description": "Distilled Essence banking as in the feature tier, drawing from orbTables.super_feature; the vial arrives charged at x3. increment100 states the minimum single-orb increment (x3); actual increments are the drawn orb sums.",
+          "params": {
+            "startMultiplier100": 300,
+            "incrementOn": "any_win",
+            "increment100": 300,
+            "capMultiplier100": 51200
+          }
+        },
+        {
+          "id": "enriched_reels",
+          "type": "premium_boost",
+          "description": "Enriched Distillery strips: premium frequency up (approx x1.3 vs base composition) and L5 removed entirely (aggregate low weight approx x0.74: 64 vs 86 low positions per strip). Exact composition is baked into the dedicated super_feature reel set; this modifier documents the enrichment.",
+          "params": {
+            "weightMultiplier100": 130,
+            "appliesTo": ["H1", "H2", "H3", "H4"],
+            "lowWeightMultiplier100": 74
+          }
+        }
+      ],
+      "progression": {
+        "meter": { "enabled": false, "startValue": 0, "target": 1 },
+        "stages": []
+      },
+      "maxWin": {
+        "behavior": "complete_current_step_then_terminate",
+        "celebrationAnimationEventId": "anim.maxwin.reached"
+      },
+      "recovery": {
+        "resumable": true,
+        "persistedFields": ["multiplierBank", "spinsLeft", "retriggers"]
+      },
+      "exitSummary": {
+        "displayFields": ["total_win", "rounds_played", "retriggers", "highest_multiplier", "max_win_reached"],
+        "summaryAnimationEventId": "anim.super_feature.summary"
+      }
+    },
+    {
+      "tierId": "ultimate_feature",
+      "publicName": "The Night Garden",
+      "stateMachineRef": "main",
+      "reelSetRef": "ultimate_feature",
+      "modifiers": [
+        {
+          "id": "essence_banking",
+          "type": "persistent_multiplier",
+          "description": "Distilled Essence banking as in the feature tier, drawing from orbTables.ultimate_feature; the vial arrives charged at x5. increment100 states the minimum single-orb increment (x5); actual increments are the drawn orb sums.",
+          "params": {
+            "startMultiplier100": 500,
+            "incrementOn": "any_win",
+            "increment100": 500,
+            "capMultiplier100": 51200
+          }
+        },
+        {
+          "id": "upgraded_orbs",
+          "type": "guaranteed_event",
+          "description": "Upgraded essence: every Essence Orb in this tier draws from the upgraded value table (orbTables.ultimate_feature, minimum x5) - a guaranteed value floor on every orb, every round.",
+          "params": {
+            "guarantee": "multiplier_boost",
+            "everyNRounds": 1
+          }
+        },
+        {
+          "id": "multiplier_doubler",
+          "type": "collection_meter",
+          "description": "The Prisming: an FX1 (Prisming Vial) landing on a spin whose sequence win is > 0 doubles the banked multiplier before the win is applied. One doubling per spin even with multiple FX1; bank cap x512 still binds. Modeled as a 1-symbol collection awarding a multiplier boost, reset each spin.",
+          "params": {
+            "collectSymbolId": "FX1",
+            "target": 1,
+            "reward": "multiplier_boost",
+            "carriesBetweenRounds": false
+          }
+        }
+      ],
+      "progression": {
+        "meter": { "enabled": false, "startValue": 0, "target": 1 },
+        "stages": []
+      },
+      "maxWin": {
+        "behavior": "complete_current_step_then_terminate",
+        "celebrationAnimationEventId": "anim.maxwin.reached"
+      },
+      "recovery": {
+        "resumable": true,
+        "persistedFields": ["multiplierBank", "spinsLeft", "retriggers"]
+      },
+      "exitSummary": {
+        "displayFields": ["total_win", "rounds_played", "retriggers", "highest_multiplier", "max_win_reached"],
+        "summaryAnimationEventId": "anim.ultimate_feature.summary"
+      }
+    }
+  ]
+}

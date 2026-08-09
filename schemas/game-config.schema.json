@@ -1,0 +1,265 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.single-slot-creator.local/game-config.schema.json",
+  "title": "Game configuration — config/game-config.json",
+  "description": "Root configuration of one generated slot game: identity and versioning, grid geometry, win-evaluation mode, bet configuration in integer minor units, max-win cap, RTP profiles, and references to the sibling config files that complete the game definition.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "gameId",
+    "gameName",
+    "projectSlug",
+    "gameVersion",
+    "mathVersion",
+    "configHash",
+    "grid",
+    "winEvaluation",
+    "bet",
+    "maxWinXBet",
+    "rtpProfiles",
+    "configFileRefs"
+  ],
+  "properties": {
+    "gameId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{2,60}$",
+      "description": "Stable machine id of the game (kebab-case). Usually equals projectSlug, optionally suffixed for market variants."
+    },
+    "gameName": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80,
+      "description": "Public display name of the game."
+    },
+    "projectSlug": {
+      "$ref": "#/$defs/projectSlug",
+      "description": "Kebab-case slug of the generated project directory games/<slug>/."
+    },
+    "gameVersion": {
+      "$ref": "#/$defs/semver",
+      "description": "Semver of the overall game package (client + configs)."
+    },
+    "mathVersion": {
+      "$ref": "#/$defs/semver",
+      "description": "Semver of the math model. Bumped whenever any math-relevant config changes."
+    },
+    "configHash": {
+      "$ref": "#/$defs/sha256",
+      "description": "sha256 of the canonical JSON concatenation of all config/*.json in filename alphabetical order (UTF-8, sorted keys, no insignificant whitespace)."
+    },
+    "grid": {
+      "type": "object",
+      "description": "Reel grid geometry. Exactly one of rows (uniform) or rowsPerReel (variable) must be present.",
+      "additionalProperties": false,
+      "required": ["columns"],
+      "oneOf": [
+        { "required": ["rows"], "not": { "required": ["rowsPerReel"] } },
+        { "required": ["rowsPerReel"], "not": { "required": ["rows"] } }
+      ],
+      "properties": {
+        "columns": {
+          "type": "integer",
+          "minimum": 3,
+          "maximum": 8,
+          "description": "Number of reels (columns), left to right."
+        },
+        "rows": {
+          "type": "integer",
+          "minimum": 3,
+          "maximum": 8,
+          "description": "Visible rows when every reel shows the same number of rows."
+        },
+        "rowsPerReel": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 8,
+          "description": "Visible rows per reel, left to right; length must equal columns (enforced by the config validator).",
+          "items": {
+            "type": "integer",
+            "minimum": 2,
+            "maximum": 8,
+            "description": "Row count for this reel."
+          }
+        }
+      }
+    },
+    "winEvaluation": {
+      "type": "object",
+      "description": "How wins are evaluated on the grid.",
+      "additionalProperties": false,
+      "required": ["mode"],
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": ["lines", "ways", "cluster", "scatter_pays"],
+          "description": "Win-evaluation archetype: fixed paylines, all-ways adjacency, cluster pays, or pays-anywhere count thresholds (scatter_pays, v1.0.1 widening)."
+        },
+        "lineCount": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1024,
+          "description": "Number of fixed paylines. Required by the config validator when mode is \"lines\"; ignored otherwise."
+        },
+        "minClusterSize": {
+          "type": "integer",
+          "minimum": 4,
+          "maximum": 8,
+          "description": "Smallest paying cluster size. Only meaningful when mode is \"cluster\"."
+        }
+      }
+    },
+    "bet": {
+      "type": "object",
+      "description": "Bet configuration. All amounts are integer minor units of defaultCurrency; never binary floats.",
+      "additionalProperties": false,
+      "required": ["defaultCurrency", "minBetMinor", "maxBetMinor", "betLevelsMinor", "defaultBetMinor"],
+      "properties": {
+        "defaultCurrency": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$",
+          "description": "ISO 4217 code of the currency the bet levels are denominated in."
+        },
+        "minBetMinor": {
+          "$ref": "#/$defs/minorUnitsPositive",
+          "description": "Smallest total bet in minor units (e.g. 10 = 0.10)."
+        },
+        "maxBetMinor": {
+          "$ref": "#/$defs/minorUnitsPositive",
+          "description": "Largest total bet in minor units (e.g. 10000 = 100.00). Must be >= minBetMinor (config validator)."
+        },
+        "betLevelsMinor": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 60,
+          "uniqueItems": true,
+          "description": "Selectable total-bet levels in minor units, ascending; first must equal minBetMinor and last maxBetMinor (config validator).",
+          "items": {
+            "$ref": "#/$defs/minorUnitsPositive",
+            "description": "One selectable total bet in minor units."
+          }
+        },
+        "defaultBetMinor": {
+          "$ref": "#/$defs/minorUnitsPositive",
+          "description": "Bet pre-selected at load; must be a member of betLevelsMinor (config validator)."
+        }
+      }
+    },
+    "maxWinXBet": {
+      "type": "integer",
+      "minimum": 100,
+      "maximum": 250000,
+      "description": "Hard maximum win cap as a whole-number multiple of total bet. Enforced in math and engine via the max_win_termination step."
+    },
+    "rtpProfiles": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 5,
+      "description": "All RTP profiles this game ships with. Exactly one profile must have default true (config validator).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["profileId", "targetRtp"],
+        "properties": {
+          "profileId": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]{1,30}$",
+            "description": "Kebab-case profile id, e.g. \"rtp-96\", \"rtp-94\"."
+          },
+          "targetRtp": {
+            "$ref": "#/$defs/rtp",
+            "description": "Target RTP fraction of this profile."
+          },
+          "default": {
+            "type": "boolean",
+            "default": false,
+            "description": "Whether this profile is the shipped default."
+          },
+          "reelSetSuffix": {
+            "type": "string",
+            "pattern": "^[a-z0-9_-]{0,20}$",
+            "description": "Optional suffix distinguishing this profile's reel sets (e.g. \"-94\")."
+          }
+        }
+      }
+    },
+    "configFileRefs": {
+      "type": "object",
+      "description": "Filenames of the sibling files in config/ that complete the game definition. Paths are relative to config/; each must validate against its schema.",
+      "additionalProperties": false,
+      "required": [
+        "symbols",
+        "paytable",
+        "reelSets",
+        "scatterTiers",
+        "features",
+        "stateMachine",
+        "spinPresentation",
+        "jurisdictionPolicies"
+      ],
+      "properties": {
+        "symbols": { "$ref": "#/$defs/configFileName", "description": "Symbol definitions (symbols.json)." },
+        "paytable": { "$ref": "#/$defs/configFileName", "description": "Paytable (paytable.json)." },
+        "reelSets": { "$ref": "#/$defs/configFileName", "description": "Reel strips / weighted tables (reel-sets.json)." },
+        "scatterTiers": { "$ref": "#/$defs/configFileName", "description": "Scatter tier hierarchy (scatter-tiers.json)." },
+        "features": { "$ref": "#/$defs/configFileName", "description": "Feature definitions (features.json)." },
+        "bonusBuys": { "$ref": "#/$defs/configFileName", "description": "Bonus-buy modes (bonus-buys.json); omit when bonus buy is not built." },
+        "spinPresentation": { "$ref": "#/$defs/configFileName", "description": "Spin timing / win-tier presentation (spin-presentation.json)." },
+        "autoplay": { "$ref": "#/$defs/configFileName", "description": "Autoplay settings (autoplay.json); omit when autoplay is not built." },
+        "jurisdictionPolicies": { "$ref": "#/$defs/configFileName", "description": "Jurisdiction feature gates (jurisdiction-policies.json)." },
+        "stateMachine": { "$ref": "#/$defs/configFileName", "description": "Game state machine (state-machine.json)." },
+        "animationEvents": { "$ref": "#/$defs/configFileName", "description": "Animation event catalog (animation-events.json)." },
+        "audioEvents": { "$ref": "#/$defs/configFileName", "description": "Audio event catalog (audio-events.json)." },
+        "assetManifest": { "$ref": "#/$defs/configFileName", "description": "Asset manifest (asset-manifest.json)." },
+        "deviceProfiles": { "$ref": "#/$defs/configFileName", "description": "Device performance profiles (device-profiles.json)." }
+      }
+    }
+  },
+  "$defs": {
+    "configFileName": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{0,60}\\.json$",
+      "description": "Kebab-case JSON filename relative to config/."
+    },
+    "minorUnits": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Monetary amount in integer minor units (e.g. cents). Never a binary float."
+    },
+    "minorUnitsPositive": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Strictly positive monetary amount in integer minor units."
+    },
+    "semver": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semantic version string MAJOR.MINOR.PATCH."
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "description": "Prefixed lowercase-hex SHA-256 digest."
+    },
+    "tierId": {
+      "type": "string",
+      "enum": ["feature", "super_feature", "ultimate_feature"],
+      "description": "Canonical scatter feature tier id (3 / 4 / 5+ scatters)."
+    },
+    "symbolId": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9_]{0,15}$",
+      "description": "Canonical symbol id, e.g. WILD, SCATTER, H1, L3, JP_GRAND."
+    },
+    "projectSlug": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{2,40}$",
+      "description": "Kebab-case project slug used for games/<slug>/."
+    },
+    "rtp": {
+      "type": "number",
+      "minimum": 0.8,
+      "maximum": 0.99,
+      "description": "Return-to-player expressed as a fraction (e.g. 0.9600)."
+    }
+  }
+}

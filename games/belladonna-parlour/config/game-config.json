@@ -1,0 +1,54 @@
+{
+ "gameId": "belladonna-parlour",
+ "gameName": "Belladonna's Parlour",
+ "projectSlug": "belladonna-parlour",
+ "gameVersion": "0.1.0",
+ "mathVersion": "0.1.0",
+ "configHash": "sha256:906cff0ccf0178a0a78d9d810ebdd0a6033cf0ec48ebeba6d4eb54ab75b80a05",
+ "grid": {
+  "columns": 6,
+  "rows": 5
+ },
+ "winEvaluation": {
+  "mode": "scatter_pays"
+ },
+ "bet": {
+  "defaultCurrency": "EUR",
+  "minBetMinor": 10,
+  "maxBetMinor": 10000,
+  "betLevelsMinor": [
+   10,
+   20,
+   50,
+   100,
+   200,
+   500,
+   1000,
+   2000,
+   5000,
+   10000
+  ],
+  "defaultBetMinor": 100
+ },
+ "maxWinXBet": 10000,
+ "rtpProfiles": [
+  {
+   "profileId": "rtp-96",
+   "targetRtp": 0.96,
+   "default": true
+  }
+ ],
+ "configFileRefs": {
+  "symbols": "symbols.json",
+  "paytable": "paytable.json",
+  "reelSets": "reel-sets.json",
+  "scatterTiers": "scatter-tiers.json",
+  "features": "features.json",
+  "bonusBuys": "bonus-buys.json",
+  "spinPresentation": "spin-presentation.json",
+  "jurisdictionPolicies": "jurisdiction-policies.json",
+  "stateMachine": "state-machine.json",
+  "animationEvents": "animation-events.json",
+  "audioEvents": "audio-events.json"
+ }
+}

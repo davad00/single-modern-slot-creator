@@ -1,0 +1,57 @@
+{
+ "countingRule": "initial-grid",
+ "countCascadedScatters": false,
+ "countCopiedScatters": false,
+ "tiers": [
+  {
+   "tierId": "feature",
+   "scattersRequired": 3,
+   "publicName": "The Tasting",
+   "entry": {
+    "rounds": 10,
+    "startingMultiplier100": 100,
+    "modifiers": [
+     "essence_banking"
+    ]
+   }
+  },
+  {
+   "tierId": "super_feature",
+   "scattersRequired": 4,
+   "publicName": "The Distillery",
+   "entry": {
+    "rounds": 12,
+    "startingMultiplier100": 300,
+    "modifiers": [
+     "essence_banking",
+     "enriched_reels"
+    ]
+   }
+  },
+  {
+   "tierId": "ultimate_feature",
+   "scattersRequired": 5,
+   "publicName": "The Night Garden",
+   "entry": {
+    "rounds": 12,
+    "startingMultiplier100": 500,
+    "modifiers": [
+     "essence_banking",
+     "upgraded_orbs",
+     "multiplier_doubler"
+    ]
+   }
+  }
+ ],
+ "fiveOrMoreUsesUltimateTier": true,
+ "retrigger": {
+  "allowed": true,
+  "scattersRequired": 3,
+  "roundsAwarded": 5,
+  "capPerFeature": 3
+ },
+ "anticipation": {
+  "enabled": true,
+  "triggersAtScatters": 2
+ }
+}

@@ -1,0 +1,124 @@
+{
+  "features": [
+    {
+      "tierId": "feature",
+      "publicName": "Kindled Spins",
+      "stateMachineRef": "main",
+      "reelSetRef": "feature-strips",
+      "modifiers": [
+        {
+          "id": "kindled_premium_lift",
+          "type": "premium_boost",
+          "description": "Premium density lift realized by the dedicated feature-strips reel set (authoritative counts in reel-sets.json): premiums rise from ~27% to ~36% of strip positions vs base; lows thinned. Every round also carries the fixed 2x Kindled multiplier (startingMultiplier100 200).",
+          "params": {
+            "weightMultiplier100": 130,
+            "appliesTo": ["H1", "H2", "H3", "H4"],
+            "lowWeightMultiplier100": 85
+          }
+        }
+      ],
+      "progression": {
+        "meter": { "enabled": false, "startValue": 0, "target": 1 },
+        "stages": []
+      },
+      "maxWin": {
+        "behavior": "terminate_immediately",
+        "celebrationAnimationEventId": "anim.maxwin.reached"
+      },
+      "recovery": {
+        "resumable": true,
+        "persistedFields": ["remainingRounds", "currentMultiplier100", "retriggersUsed", "accumulatedWinMinor"]
+      },
+      "exitSummary": {
+        "displayFields": ["total_win", "rounds_played", "retriggers", "max_win_reached"],
+        "summaryAnimationEventId": "anim.feature.summary"
+      }
+    },
+    {
+      "tierId": "super_feature",
+      "publicName": "Roaring Kiln",
+      "stateMachineRef": "main",
+      "reelSetRef": "super-feature-strips",
+      "modifiers": [
+        {
+          "id": "roaring_premium_lift",
+          "type": "premium_boost",
+          "description": "Stronger premium lift than Kindled Spins, realized by the super-feature-strips reel set: premiums ~43% of strip positions, lows thinned to ~48%. Combined with the fixed 4x Roaring multiplier (entry.startingMultiplier100 = 400).",
+          "params": {
+            "weightMultiplier100": 155,
+            "appliesTo": ["H1", "H2", "H3", "H4"],
+            "lowWeightMultiplier100": 70
+          }
+        },
+        {
+          "id": "bellows_wild_lift",
+          "type": "premium_boost",
+          "description": "Molten Core wilds are stoked by the bellows: wild strip counts roughly triple vs the base set (2-3 per strip on every reel vs 0-1 in base), realized by the super-feature-strips reel set.",
+          "params": {
+            "weightMultiplier100": 300,
+            "appliesTo": ["WILD"]
+          }
+        }
+      ],
+      "progression": {
+        "meter": { "enabled": false, "startValue": 0, "target": 1 },
+        "stages": []
+      },
+      "maxWin": {
+        "behavior": "terminate_immediately",
+        "celebrationAnimationEventId": "anim.maxwin.reached"
+      },
+      "recovery": {
+        "resumable": true,
+        "persistedFields": ["remainingRounds", "currentMultiplier100", "retriggersUsed", "accumulatedWinMinor"]
+      },
+      "exitSummary": {
+        "displayFields": ["total_win", "rounds_played", "retriggers", "max_win_reached"],
+        "summaryAnimationEventId": "anim.feature.summary"
+      }
+    },
+    {
+      "tierId": "ultimate_feature",
+      "publicName": "Starfire Crown",
+      "stateMachineRef": "main",
+      "reelSetRef": "ultimate-feature-strips",
+      "modifiers": [
+        {
+          "id": "starfire_premium_lift",
+          "type": "premium_boost",
+          "description": "Maximum premium lift, realized by the ultimate-feature-strips reel set: premiums ~50% of strip positions, lows thinned to ~36%. Combined with the fixed 8x Starfire multiplier (entry.startingMultiplier100 = 800).",
+          "params": {
+            "weightMultiplier100": 175,
+            "appliesTo": ["H1", "H2", "H3", "H4"],
+            "lowWeightMultiplier100": 55
+          }
+        },
+        {
+          "id": "molten_wild_surge",
+          "type": "premium_boost",
+          "description": "The kiln overflows: Molten Core wild counts reach 4-5 per strip on every reel (vs 0-1 in base), realized by the ultimate-feature-strips reel set. This is the defining mechanic of the Starfire Crown and exists in no lower tier.",
+          "params": {
+            "weightMultiplier100": 500,
+            "appliesTo": ["WILD"]
+          }
+        }
+      ],
+      "progression": {
+        "meter": { "enabled": false, "startValue": 0, "target": 1 },
+        "stages": []
+      },
+      "maxWin": {
+        "behavior": "terminate_immediately",
+        "celebrationAnimationEventId": "anim.maxwin.reached"
+      },
+      "recovery": {
+        "resumable": true,
+        "persistedFields": ["remainingRounds", "currentMultiplier100", "retriggersUsed", "accumulatedWinMinor"]
+      },
+      "exitSummary": {
+        "displayFields": ["total_win", "rounds_played", "retriggers", "max_win_reached"],
+        "summaryAnimationEventId": "anim.feature.summary"
+      }
+    }
+  ]
+}

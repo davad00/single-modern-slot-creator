@@ -1,0 +1,870 @@
+{
+  "schemaVersion": "1.0.0",
+  "roundId": "rnd_example_super_0001",
+  "gameId": "kilnspire",
+  "gameVersion": "1.0.0",
+  "mathVersion": "1.0.0",
+  "mathProfileId": "rtp-96",
+  "configHash": "sha256:38e29ea70528228ebd3f168bcf1df34f5aa6b977591c4ed55b713bf71b8c3531",
+  "currency": "EUR",
+  "wagerMinor": 100,
+  "initialGrid": [
+    [
+      "SCATTER",
+      "L2",
+      "L1",
+      "L4"
+    ],
+    [
+      "SCATTER",
+      "L4",
+      "L2",
+      "L5"
+    ],
+    [
+      "SCATTER",
+      "L3",
+      "L2",
+      "H4"
+    ],
+    [
+      "SCATTER",
+      "L1",
+      "L2",
+      "H4"
+    ],
+    [
+      "L5",
+      "L3",
+      "L4",
+      "L1"
+    ]
+  ],
+  "steps": [
+    {
+      "stepId": "step-1",
+      "type": "initial_result",
+      "grid": [
+        [
+          "SCATTER",
+          "L2",
+          "L1",
+          "L4"
+        ],
+        [
+          "SCATTER",
+          "L4",
+          "L2",
+          "L5"
+        ],
+        [
+          "SCATTER",
+          "L3",
+          "L2",
+          "H4"
+        ],
+        [
+          "SCATTER",
+          "L1",
+          "L2",
+          "H4"
+        ],
+        [
+          "L5",
+          "L3",
+          "L4",
+          "L1"
+        ]
+      ],
+      "wins": [
+        {
+          "symbolId": "L2",
+          "positions": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              2
+            ]
+          ],
+          "payX100": 21,
+          "winMinor": 21,
+          "waysCount": 1
+        }
+      ],
+      "scatterCount": 4,
+      "multiplier100": 100,
+      "events": [
+        "anim.reel.stop"
+      ]
+    },
+    {
+      "stepId": "step-2",
+      "type": "cascade",
+      "grid": [
+        [
+          "L2",
+          "SCATTER",
+          "L1",
+          "L4"
+        ],
+        [
+          "H2",
+          "SCATTER",
+          "L4",
+          "L5"
+        ],
+        [
+          "L3",
+          "SCATTER",
+          "L3",
+          "H4"
+        ],
+        [
+          "L4",
+          "SCATTER",
+          "L1",
+          "H4"
+        ],
+        [
+          "L5",
+          "L3",
+          "L4",
+          "L1"
+        ]
+      ],
+      "wins": [],
+      "scatterCount": 0,
+      "multiplier100": 100,
+      "events": [
+        "anim.cascade.refill"
+      ]
+    },
+    {
+      "stepId": "step-3",
+      "type": "feature_trigger",
+      "grid": [
+        [
+          "SCATTER",
+          "L2",
+          "L1",
+          "L4"
+        ],
+        [
+          "SCATTER",
+          "L4",
+          "L2",
+          "L5"
+        ],
+        [
+          "SCATTER",
+          "L3",
+          "L2",
+          "H4"
+        ],
+        [
+          "SCATTER",
+          "L1",
+          "L2",
+          "H4"
+        ],
+        [
+          "L5",
+          "L3",
+          "L4",
+          "L1"
+        ]
+      ],
+      "wins": [],
+      "scatterCount": 4,
+      "multiplier100": 100,
+      "events": [
+        "anim.super_feature.enter"
+      ]
+    },
+    {
+      "stepId": "step-14",
+      "type": "settlement",
+      "grid": [
+        [
+          "H1",
+          "H2",
+          "H3",
+          "L2"
+        ],
+        [
+          "L1",
+          "L4",
+          "H1",
+          "SCATTER"
+        ],
+        [
+          "H3",
+          "L1",
+          "L2",
+          "H4"
+        ],
+        [
+          "L2",
+          "L5",
+          "H1",
+          "H4"
+        ],
+        [
+          "L4",
+          "L3",
+          "H2",
+          "L5"
+        ]
+      ],
+      "wins": [],
+      "scatterCount": 0,
+      "multiplier100": 100,
+      "events": [
+        "anim.win.countup"
+      ]
+    }
+  ],
+  "feature": {
+    "triggered": true,
+    "tier": "super_feature",
+    "initialRounds": 10,
+    "remainingRounds": 0,
+    "steps": [
+      {
+        "stepId": "step-4",
+        "type": "feature_round",
+        "grid": [
+          [
+            "L3",
+            "H1",
+            "H2",
+            "H3"
+          ],
+          [
+            "L4",
+            "H2",
+            "L4",
+            "L2"
+          ],
+          [
+            "L3",
+            "H1",
+            "L3",
+            "L1"
+          ],
+          [
+            "L4",
+            "H4",
+            "H2",
+            "L2"
+          ],
+          [
+            "L2",
+            "H2",
+            "L5",
+            "L4"
+          ]
+        ],
+        "wins": [],
+        "scatterCount": 0,
+        "multiplier100": 400,
+        "events": [
+          "anim.super_feature.round"
+        ]
+      },
+      {
+        "stepId": "step-5",
+        "type": "feature_round",
+        "grid": [
+          [
+            "L4",
+            "L3",
+            "H1",
+            "H2"
+          ],
+          [
+            "L1",
+            "H2",
+            "H3",
+            "L2"
+          ],
+          [
+            "H4",
+            "WILD",
+            "SCATTER",
+            "L2"
+          ],
+          [
+            "L1",
+            "L3",
+            "L1",
+            "L4"
+          ],
+          [
+            "WILD",
+            "H4",
+            "L2",
+            "H3"
+          ]
+        ],
+        "wins": [
+          {
+            "symbolId": "H2",
+            "positions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                1
+              ]
+            ],
+            "payX100": 38,
+            "winMinor": 152,
+            "waysCount": 1
+          }
+        ],
+        "scatterCount": 1,
+        "multiplier100": 400,
+        "events": [
+          "anim.super_feature.round"
+        ]
+      },
+      {
+        "stepId": "step-6",
+        "type": "feature_round",
+        "grid": [
+          [
+            "L5",
+            "H1",
+            "SCATTER",
+            "L4"
+          ],
+          [
+            "H1",
+            "WILD",
+            "L5",
+            "WILD"
+          ],
+          [
+            "L3",
+            "H3",
+            "L3",
+            "H1"
+          ],
+          [
+            "L5",
+            "H1",
+            "H4",
+            "H1"
+          ],
+          [
+            "SCATTER",
+            "H1",
+            "H4",
+            "L5"
+          ]
+        ],
+        "wins": [
+          {
+            "symbolId": "H1",
+            "positions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                3,
+                1
+              ],
+              [
+                3,
+                3
+              ],
+              [
+                4,
+                1
+              ]
+            ],
+            "payX100": 2640,
+            "winMinor": 10560,
+            "waysCount": 6
+          }
+        ],
+        "scatterCount": 2,
+        "multiplier100": 400,
+        "events": [
+          "anim.super_feature.round"
+        ]
+      },
+      {
+        "stepId": "step-7",
+        "type": "feature_round",
+        "grid": [
+          [
+            "L5",
+            "H4",
+            "H2",
+            "L5"
+          ],
+          [
+            "WILD",
+            "L1",
+            "L4",
+            "H1"
+          ],
+          [
+            "H3",
+            "L3",
+            "H1",
+            "L3"
+          ],
+          [
+            "H2",
+            "L2",
+            "H2",
+            "WILD"
+          ],
+          [
+            "H4",
+            "L5",
+            "L1",
+            "L2"
+          ]
+        ],
+        "wins": [],
+        "scatterCount": 0,
+        "multiplier100": 400,
+        "events": [
+          "anim.super_feature.round"
+        ]
+      },
+      {
+        "stepId": "step-8",
+        "type": "feature_round",
+        "grid": [
+          [
+            "L1",
+            "H3",
+            "H2",
+            "L4"
+          ],
+          [
+            "H2",
+            "L1",
+            "H3",
+            "H4"
+          ],
+          [
+            "L3",
+            "L1",
+            "H1",
+            "H2"
+          ],
+          [
+            "L4",
+            "L2",
+            "L5",
+            "H1"
+          ],
+          [
+            "WILD",
+            "L3",
+            "H4",
+            "L1"
+          ]
+        ],
+        "wins": [
+          {
+            "symbolId": "H2",
+            "positions": [
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                3
+              ]
+            ],
+            "payX100": 38,
+            "winMinor": 152,
+            "waysCount": 1
+          },
+          {
+            "symbolId": "L1",
+            "positions": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                1
+              ]
+            ],
+            "payX100": 8,
+            "winMinor": 32,
+            "waysCount": 1
+          }
+        ],
+        "scatterCount": 0,
+        "multiplier100": 400,
+        "events": [
+          "anim.super_feature.round"
+        ]
+      },
+      {
+        "stepId": "step-9",
+        "type": "feature_round",
+        "grid": [
+          [
+            "L3",
+            "L2",
+            "L1",
+            "H3"
+          ],
+          [
+            "L4",
+            "H2",
+            "L4",
+            "L2"
+          ],
+          [
+            "L5",
+            "H2",
+            "L5",
+            "WILD"
+          ],
+          [
+            "L4",
+            "H4",
+            "H2",
+            "L2"
+          ],
+          [
+            "WILD",
+            "L3",
+            "H4",
+            "L1"
+          ]
+        ],
+        "wins": [
+          {
+            "symbolId": "L2",
+            "positions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                3,
+                3
+              ],
+              [
+                4,
+                0
+              ]
+            ],
+            "payX100": 55,
+            "winMinor": 220,
+            "waysCount": 1
+          }
+        ],
+        "scatterCount": 0,
+        "multiplier100": 400,
+        "events": [
+          "anim.super_feature.round"
+        ]
+      },
+      {
+        "stepId": "step-10",
+        "type": "feature_round",
+        "grid": [
+          [
+            "L2",
+            "H4",
+            "H1",
+            "H2"
+          ],
+          [
+            "L3",
+            "L4",
+            "H2",
+            "L5"
+          ],
+          [
+            "L2",
+            "H4",
+            "L3",
+            "L4"
+          ],
+          [
+            "H2",
+            "L3",
+            "L1",
+            "L3"
+          ],
+          [
+            "H2",
+            "L5",
+            "H1",
+            "WILD"
+          ]
+        ],
+        "wins": [],
+        "scatterCount": 0,
+        "multiplier100": 400,
+        "events": [
+          "anim.super_feature.round"
+        ]
+      },
+      {
+        "stepId": "step-11",
+        "type": "feature_round",
+        "grid": [
+          [
+            "H1",
+            "H2",
+            "H3",
+            "L2"
+          ],
+          [
+            "L4",
+            "H2",
+            "L5",
+            "L3"
+          ],
+          [
+            "H2",
+            "H4",
+            "WILD",
+            "SCATTER"
+          ],
+          [
+            "WILD",
+            "L2",
+            "H2",
+            "H4"
+          ],
+          [
+            "L5",
+            "L1",
+            "L2",
+            "H1"
+          ]
+        ],
+        "wins": [
+          {
+            "symbolId": "H2",
+            "positions": [
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                2,
+                2
+              ],
+              [
+                3,
+                0
+              ],
+              [
+                3,
+                2
+              ]
+            ],
+            "payX100": 368,
+            "winMinor": 1472,
+            "waysCount": 4
+          }
+        ],
+        "scatterCount": 1,
+        "multiplier100": 400,
+        "events": [
+          "anim.super_feature.round"
+        ]
+      },
+      {
+        "stepId": "step-12",
+        "type": "feature_round",
+        "grid": [
+          [
+            "H3",
+            "L5",
+            "H4",
+            "H2"
+          ],
+          [
+            "H2",
+            "L1",
+            "L2",
+            "L5"
+          ],
+          [
+            "H2",
+            "L4",
+            "H2",
+            "L2"
+          ],
+          [
+            "H1",
+            "WILD",
+            "H3",
+            "L5"
+          ],
+          [
+            "H1",
+            "L2",
+            "H2",
+            "L5"
+          ]
+        ],
+        "wins": [
+          {
+            "symbolId": "H2",
+            "positions": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                2,
+                0
+              ],
+              [
+                2,
+                2
+              ],
+              [
+                3,
+                1
+              ],
+              [
+                4,
+                2
+              ]
+            ],
+            "payX100": 540,
+            "winMinor": 2160,
+            "waysCount": 2
+          }
+        ],
+        "scatterCount": 0,
+        "multiplier100": 400,
+        "events": [
+          "anim.super_feature.round"
+        ]
+      },
+      {
+        "stepId": "step-13",
+        "type": "feature_round",
+        "grid": [
+          [
+            "H1",
+            "H2",
+            "H3",
+            "L2"
+          ],
+          [
+            "L1",
+            "L4",
+            "H1",
+            "SCATTER"
+          ],
+          [
+            "H3",
+            "L1",
+            "L2",
+            "H4"
+          ],
+          [
+            "L2",
+            "L5",
+            "H1",
+            "H4"
+          ],
+          [
+            "L4",
+            "L3",
+            "H2",
+            "L5"
+          ]
+        ],
+        "wins": [],
+        "scatterCount": 1,
+        "multiplier100": 400,
+        "events": [
+          "anim.super_feature.round"
+        ]
+      }
+    ],
+    "retriggers": 0,
+    "maxWinReached": false
+  },
+  "totalWinMinor": 16269,
+  "maximumWinReached": false,
+  "roundComplete": true,
+  "signature": "dev-unsigned"
+}

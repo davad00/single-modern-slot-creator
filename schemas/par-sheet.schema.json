@@ -1,0 +1,251 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.single-slot-creator.local/par-sheet.schema.json",
+  "title": "PAR sheet (machine-readable) — math/reports/par-sheet.json",
+  "description": "Machine-readable PAR sheet produced from release-level simulation. All statistics are MEASURED values, reported exactly as simulated (honesty rule) — never targets. The human-readable PAR sheet document (docs/par-sheet.md) is rendered from this data.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "metadata",
+    "symbolInventory",
+    "rtpContributions",
+    "hitFrequency",
+    "featureFrequencies",
+    "volatility",
+    "payoutPercentiles",
+    "maxWinProbability",
+    "confidenceIntervals",
+    "simulationProvenance"
+  ],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "description": "Identity and versioning of the game this PAR sheet describes.",
+      "additionalProperties": false,
+      "required": ["gameName", "projectSlug", "gameVersion", "mathVersion", "configHash", "rtpProfileId", "generatedAt", "generator", "seedPolicy"],
+      "properties": {
+        "gameName": { "type": "string", "minLength": 1, "maxLength": 80, "description": "Public display name of the game." },
+        "projectSlug": { "$ref": "#/$defs/projectSlug", "description": "Kebab-case project slug." },
+        "gameVersion": { "$ref": "#/$defs/semver", "description": "Semver of the game package the sheet was simulated against." },
+        "mathVersion": { "$ref": "#/$defs/semver", "description": "Semver of the math model the sheet was simulated against." },
+        "configHash": { "$ref": "#/$defs/sha256", "description": "Canonical config hash of the exact configs simulated." },
+        "rtpProfileId": { "type": "string", "pattern": "^[a-z][a-z0-9-]{1,30}$", "description": "RTP profile this sheet covers; one PAR sheet per profile." },
+        "generatedAt": { "type": "string", "format": "date-time", "description": "ISO 8601 timestamp of sheet generation." },
+        "generator": { "type": "string", "minLength": 1, "maxLength": 120, "description": "Generator identifier, e.g. \"single-modern-slot-creator v1.0.0\"." },
+        "seedPolicy": {
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 300,
+          "description": "How simulation seeds were chosen and recorded, e.g. \"fixed seeds, numpy PCG64, one seed per worker, listed in simulationProvenance.seeds\"."
+        }
+      }
+    },
+    "symbolInventory": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 8,
+      "description": "Per-reel symbol counts of the BASE reel set (one map per reel, left to right). Strip games: occurrences on the strip; weighted games: integer weights.",
+      "items": {
+        "type": "object",
+        "minProperties": 1,
+        "maxProperties": 32,
+        "description": "Map from symbol id to its count/weight on this reel.",
+        "additionalProperties": false,
+        "patternProperties": {
+          "^[A-Z][A-Z0-9_]{0,15}$": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 1000000,
+            "description": "Occurrences (strip) or weight (weighted table) of this symbol on this reel."
+          }
+        }
+      }
+    },
+    "rtpContributions": {
+      "type": "object",
+      "description": "Measured RTP split by win source, as fractions of total bet. base + feature + super_feature + ultimate_feature + scatterPay (+ jackpot) must equal total ±0.0005 (validation gate).",
+      "additionalProperties": false,
+      "required": ["base", "feature", "super_feature", "ultimate_feature", "scatterPay", "total"],
+      "properties": {
+        "base": { "$ref": "#/$defs/rtpFraction", "description": "Measured base-game contribution." },
+        "feature": { "$ref": "#/$defs/rtpFraction", "description": "Measured `feature` tier contribution." },
+        "super_feature": { "$ref": "#/$defs/rtpFraction", "description": "Measured `super_feature` tier contribution." },
+        "ultimate_feature": { "$ref": "#/$defs/rtpFraction", "description": "Measured `ultimate_feature` tier contribution." },
+        "scatterPay": { "$ref": "#/$defs/rtpFraction", "description": "Measured direct scatter-pay contribution." },
+        "jackpot": { "$ref": "#/$defs/rtpFraction", "description": "Measured jackpot contribution. Omit when the game has no jackpots." },
+        "total": { "$ref": "#/$defs/rtp", "description": "Measured total RTP fraction." }
+      }
+    },
+    "hitFrequency": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Measured fraction of rounds with any win (win > 0)."
+    },
+    "featureFrequencies": {
+      "type": "object",
+      "description": "Measured natural trigger frequency of each tier, expressed as N in \"1 in N\" rounds.",
+      "additionalProperties": false,
+      "required": ["feature", "super_feature", "ultimate_feature"],
+      "properties": {
+        "feature": { "$ref": "#/$defs/oneInN", "description": "1-in-N rounds triggering the `feature` tier." },
+        "super_feature": { "$ref": "#/$defs/oneInN", "description": "1-in-N rounds triggering the `super_feature` tier." },
+        "ultimate_feature": { "$ref": "#/$defs/oneInN", "description": "1-in-N rounds triggering the `ultimate_feature` tier." }
+      }
+    },
+    "volatility": {
+      "type": "object",
+      "description": "Measured dispersion statistics of per-round x-bet returns.",
+      "additionalProperties": false,
+      "required": ["index", "standardDeviation", "class"],
+      "properties": {
+        "index": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Volatility index (industry-style, derived from the standard deviation and confidence level)."
+        },
+        "standardDeviation": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Standard deviation of per-round return in x-bet units."
+        },
+        "class": {
+          "type": "string",
+          "enum": ["low", "medium", "medium-high", "high", "very-high"],
+          "description": "Volatility class the measured index falls into."
+        }
+      }
+    },
+    "payoutPercentiles": {
+      "type": "object",
+      "description": "Percentiles of the per-round total win distribution, in x-bet units (0 = losing round).",
+      "additionalProperties": false,
+      "required": ["p50", "p75", "p90", "p95", "p99", "p999"],
+      "properties": {
+        "p50": { "$ref": "#/$defs/xBetAmount", "description": "Median per-round win (x-bet)." },
+        "p75": { "$ref": "#/$defs/xBetAmount", "description": "75th percentile per-round win (x-bet)." },
+        "p90": { "$ref": "#/$defs/xBetAmount", "description": "90th percentile per-round win (x-bet)." },
+        "p95": { "$ref": "#/$defs/xBetAmount", "description": "95th percentile per-round win (x-bet)." },
+        "p99": { "$ref": "#/$defs/xBetAmount", "description": "99th percentile per-round win (x-bet)." },
+        "p999": { "$ref": "#/$defs/xBetAmount", "description": "99.9th percentile per-round win (x-bet)." }
+      }
+    },
+    "maxWinProbability": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "maximum": 1,
+      "description": "Measured (or rare-event-estimated) per-round probability of reaching the max-win cap. Must be > 0: the cap must be reachable."
+    },
+    "confidenceIntervals": {
+      "type": "object",
+      "description": "Statistical uncertainty of the headline measurements at the stated confidence level.",
+      "additionalProperties": false,
+      "required": ["level", "rtpHalfWidth"],
+      "properties": {
+        "level": {
+          "type": "number",
+          "minimum": 0.9,
+          "maximum": 0.999,
+          "description": "Confidence level used, e.g. 0.99."
+        },
+        "rtpHalfWidth": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 0.05,
+          "description": "Half-width of the RTP confidence interval (absolute, fraction of bet). The tolerance gate compares |simRTP - targetRTP| against this."
+        },
+        "hitFrequencyHalfWidth": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 0.05,
+          "description": "Half-width of the hit-frequency confidence interval."
+        },
+        "maxWinProbabilityHalfWidth": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Half-width of the max-win probability estimate (wide when estimated by plain Monte Carlo)."
+        }
+      }
+    },
+    "simulationProvenance": {
+      "type": "object",
+      "description": "Full reproducibility block per CONVENTIONS §5 — enough to re-run the exact simulation.",
+      "additionalProperties": false,
+      "required": ["gameVersion", "mathVersion", "configHash", "simCodeVersion", "lockfileHash", "seeds", "rounds", "workers", "command"],
+      "properties": {
+        "gameVersion": { "$ref": "#/$defs/semver", "description": "Game package semver at simulation time." },
+        "mathVersion": { "$ref": "#/$defs/semver", "description": "Math model semver at simulation time." },
+        "configHash": { "$ref": "#/$defs/sha256", "description": "Canonical config hash at simulation time." },
+        "simCodeVersion": { "type": "string", "minLength": 1, "maxLength": 80, "description": "Version/commit of the simulation code (semver or VCS revision)." },
+        "lockfileHash": { "$ref": "#/$defs/sha256", "description": "sha256 of the uv lockfile pinning the simulation environment." },
+        "seeds": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1024,
+          "description": "RNG seeds used (numpy PCG64), one per worker/stream.",
+          "items": { "type": "integer", "minimum": 0, "description": "One RNG seed." }
+        },
+        "rounds": { "type": "integer", "minimum": 1000000, "description": "Total simulated rounds (dev minimum 1e6; release sizes are larger per the simulation policy)." },
+        "workers": { "type": "integer", "minimum": 1, "maximum": 1024, "description": "Parallel worker count." },
+        "command": { "type": "string", "minLength": 5, "maxLength": 500, "description": "Exact command line, e.g. \"uv run python -m slot_math.simulate --profile rtp-96 --rounds 100000000 ...\"." }
+      }
+    }
+  },
+  "$defs": {
+    "rtpFraction": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 0.99,
+      "description": "One win source's RTP contribution as a fraction of total bet."
+    },
+    "oneInN": {
+      "type": "number",
+      "minimum": 1,
+      "description": "Frequency expressed as N in \"1 in N\" rounds (e.g. 187.4)."
+    },
+    "xBetAmount": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 250000,
+      "description": "A win amount expressed as a multiple of total bet."
+    },
+    "minorUnits": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Monetary amount in integer minor units (e.g. cents). Never a binary float."
+    },
+    "semver": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semantic version string MAJOR.MINOR.PATCH."
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "description": "Prefixed lowercase-hex SHA-256 digest."
+    },
+    "tierId": {
+      "type": "string",
+      "enum": ["feature", "super_feature", "ultimate_feature"],
+      "description": "Canonical scatter feature tier id (3 / 4 / 5+ scatters)."
+    },
+    "symbolId": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9_]{0,15}$",
+      "description": "Canonical symbol id, e.g. WILD, SCATTER, H1, L3, JP_GRAND."
+    },
+    "projectSlug": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{2,40}$",
+      "description": "Kebab-case project slug used for games/<slug>/."
+    },
+    "rtp": {
+      "type": "number",
+      "minimum": 0.8,
+      "maximum": 0.99,
+      "description": "Return-to-player expressed as a fraction (e.g. 0.9600)."
+    }
+  }
+}

@@ -1,0 +1,57 @@
+[
+  {
+    "id": "WILD",
+    "kind": "wild",
+    "tierRank": 1
+  },
+  {
+    "id": "SCATTER",
+    "kind": "scatter",
+    "tierRank": 2
+  },
+  {
+    "id": "H1",
+    "kind": "premium",
+    "tierRank": 3
+  },
+  {
+    "id": "H2",
+    "kind": "premium",
+    "tierRank": 4
+  },
+  {
+    "id": "H3",
+    "kind": "premium",
+    "tierRank": 5
+  },
+  {
+    "id": "H4",
+    "kind": "premium",
+    "tierRank": 6
+  },
+  {
+    "id": "L1",
+    "kind": "low",
+    "tierRank": 7
+  },
+  {
+    "id": "L2",
+    "kind": "low",
+    "tierRank": 8
+  },
+  {
+    "id": "L3",
+    "kind": "low",
+    "tierRank": 9
+  },
+  {
+    "id": "L4",
+    "kind": "low",
+    "tierRank": 10
+  },
+  {
+    "id": "L5",
+    "kind": "low",
+    "tierRank": 11
+  }
+]

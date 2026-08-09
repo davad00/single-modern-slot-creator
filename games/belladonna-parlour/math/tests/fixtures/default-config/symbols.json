@@ -1,0 +1,11 @@
+[
+  { "id": "WILD", "kind": "wild", "tierRank": 0 },
+  { "id": "SCATTER", "kind": "scatter", "tierRank": 0 },
+  { "id": "H1", "kind": "premium", "tierRank": 1 },
+  { "id": "H2", "kind": "premium", "tierRank": 2 },
+  { "id": "H3", "kind": "premium", "tierRank": 3 },
+  { "id": "L1", "kind": "low", "tierRank": 4 },
+  { "id": "L2", "kind": "low", "tierRank": 5 },
+  { "id": "L3", "kind": "low", "tierRank": 6 },
+  { "id": "L4", "kind": "low", "tierRank": 7 }
+]

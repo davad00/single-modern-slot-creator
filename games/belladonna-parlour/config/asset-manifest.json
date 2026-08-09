@@ -1,0 +1,1236 @@
+{
+ "assets": [
+  {
+   "assetId": "img.symbol.h1",
+   "category": "symbol",
+   "purpose": "H1 Belladonna Philtre (amethyst teardrop bottle), highest premium; base and all feature reel sets; master consistency reference for the whole set",
+   "file": "art/symbols/h1.png",
+   "format": "png",
+   "resolution": {
+    "w": 1024,
+    "h": 1024
+   },
+   "transparent": true,
+   "atlasGroup": "base",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.symbol.h2",
+   "category": "symbol",
+   "purpose": "H2 Serpent's Emerald (venom flask wrapped by a coiled glass serpent) premium; base and all feature reel sets",
+   "file": "art/symbols/h2.png",
+   "format": "png",
+   "resolution": {
+    "w": 1024,
+    "h": 1024
+   },
+   "transparent": true,
+   "atlasGroup": "base",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.symbol.h3",
+   "category": "symbol",
+   "purpose": "H3 Widow's Amber (squat hexagonal jar with a beetle suspended in amber tincture) premium; base and all feature reel sets",
+   "file": "art/symbols/h3.png",
+   "format": "png",
+   "resolution": {
+    "w": 1024,
+    "h": 1024
+   },
+   "transparent": true,
+   "atlasGroup": "base",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.symbol.h4",
+   "category": "symbol",
+   "purpose": "H4 Moth-Wing Tonic (slim teal phial with moth-wing stopper flares) premium; base and all feature reel sets",
+   "file": "art/symbols/h4.png",
+   "format": "png",
+   "resolution": {
+    "w": 1024,
+    "h": 1024
+   },
+   "transparent": true,
+   "atlasGroup": "base",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.symbol.l1",
+   "category": "symbol",
+   "purpose": "L1 Mandrake Root low symbol; base and all feature reel sets; template for the low-sundries detail tier",
+   "file": "art/symbols/l1.png",
+   "format": "png",
+   "resolution": {
+    "w": 1024,
+    "h": 1024
+   },
+   "transparent": true,
+   "atlasGroup": "base",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.symbol.l2",
+   "category": "symbol",
+   "purpose": "L2 Nightcap Mushrooms low symbol; base and all feature reel sets",
+   "file": "art/symbols/l2.png",
+   "format": "png",
+   "resolution": {
+    "w": 1024,
+    "h": 1024
+   },
+   "transparent": true,
+   "atlasGroup": "base",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.symbol.l3",
+   "category": "symbol",
+   "purpose": "L3 Black Lotus Pod low symbol; base and all feature reel sets",
+   "file": "art/symbols/l3.png",
+   "format": "png",
+   "resolution": {
+    "w": 1024,
+    "h": 1024
+   },
+   "transparent": true,
+   "atlasGroup": "base",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.symbol.l4",
+   "category": "symbol",
+   "purpose": "L4 Wax Seal & Twine (square parchment packet) low symbol; base and all feature reel sets",
+   "file": "art/symbols/l4.png",
+   "format": "png",
+   "resolution": {
+    "w": 1024,
+    "h": 1024
+   },
+   "transparent": true,
+   "atlasGroup": "base",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.symbol.l5",
+   "category": "symbol",
+   "purpose": "L5 Dried Foxglove Sprig (arched stem with hanging bell row) low symbol; base, feature and ante reel sets only (removed from super/ultimate sets, GDD \u00a74)",
+   "file": "art/symbols/l5.png",
+   "format": "png",
+   "resolution": {
+    "w": 1024,
+    "h": 1024
+   },
+   "transparent": true,
+   "atlasGroup": "base",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.symbol.scatter",
+   "category": "symbol",
+   "purpose": "SCATTER The Parlour Seal (round wax seal with ribbon tails); triggers the 3/4/5+ tier hierarchy; carries anticipation glow layer",
+   "file": "art/symbols/scatter.png",
+   "format": "png",
+   "resolution": {
+    "w": 1024,
+    "h": 1024
+   },
+   "transparent": true,
+   "atlasGroup": "base",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.symbol.mult",
+   "category": "symbol",
+   "purpose": "MULT Essence Orb (crowned glass sphere of luminous essence); lands with a value on all reel sets; in-engine numerals render over the plate asset",
+   "file": "art/symbols/mult.png",
+   "format": "png",
+   "resolution": {
+    "w": 1024,
+    "h": 1024
+   },
+   "transparent": true,
+   "atlasGroup": "base",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.symbol.mult.plate",
+   "category": "symbol",
+   "purpose": "Essence Orb value plate backing (small brass plaque); the orb's x-value numerals (>=24 px, GDD 6.2) render in-engine over this plate; one art asset serves every value variant",
+   "file": "art/symbols/mult-plate.png",
+   "format": "png",
+   "resolution": {
+    "w": 512,
+    "h": 256
+   },
+   "transparent": true,
+   "atlasGroup": "base",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.symbol.fx1",
+   "category": "symbol",
+   "purpose": "FX1 The Prisming Vial (prism-stoppered slim vial); exists ONLY on the ultimate_feature reel set; doubles the banked multiplier on winning spins (GDD 6.3)",
+   "file": "art/symbols/fx1.png",
+   "format": "png",
+   "resolution": {
+    "w": 1024,
+    "h": 1024
+   },
+   "transparent": true,
+   "atlasGroup": "ultimate-feature",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.env.base.layer0",
+   "category": "background",
+   "purpose": "Base parlour environment, deepest parallax layer (0 of 4, opaque): far wall of the midnight apothecary shopfront",
+   "file": "art/env/base-layer0.png",
+   "format": "png",
+   "resolution": {
+    "w": 2048,
+    "h": 1024
+   },
+   "transparent": false,
+   "atlasGroup": null,
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "prompt": "prompts/art-prompts.json#img.env.base.layer0",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08T12:00:00Z",
+    "license": "not yet generated (prompt-only); to be generated in-run as original work, no third-party IP"
+   },
+   "status": "prompt-only"
+  },
+  {
+   "assetId": "img.env.base.layer1",
+   "category": "background",
+   "purpose": "Base parlour environment, mid parallax layer (1 of 4): floor-to-ceiling bottle cabinets with Madame Belladonna's silhouette behind frosted glass",
+   "file": "art/env/base-layer1.png",
+   "format": "png",
+   "resolution": {
+    "w": 2048,
+    "h": 1024
+   },
+   "transparent": true,
+   "atlasGroup": null,
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "prompt": "prompts/art-prompts.json#img.env.base.layer1",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08T12:00:00Z",
+    "license": "not yet generated (prompt-only); to be generated in-run as original work, no third-party IP"
+   },
+   "status": "prompt-only"
+  },
+  {
+   "assetId": "img.env.base.layer2",
+   "category": "background",
+   "purpose": "Base parlour environment, near parallax layer (2 of 4): counter-level props flanking the cabinet",
+   "file": "art/env/base-layer2.png",
+   "format": "png",
+   "resolution": {
+    "w": 2048,
+    "h": 1024
+   },
+   "transparent": true,
+   "atlasGroup": null,
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "prompt": "prompts/art-prompts.json#img.env.base.layer2",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08T12:00:00Z",
+    "license": "not yet generated (prompt-only); to be generated in-run as original work, no third-party IP"
+   },
+   "status": "prompt-only"
+  },
+  {
+   "assetId": "img.env.base.layer3",
+   "category": "foreground",
+   "purpose": "Base parlour environment, foreground occluder layer (3 of 4): edge-entering drapery and hanging herb bundles, centre fully transparent",
+   "file": "art/env/base-layer3.png",
+   "format": "png",
+   "resolution": {
+    "w": 2048,
+    "h": 1024
+   },
+   "transparent": true,
+   "atlasGroup": null,
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "prompt": "prompts/art-prompts.json#img.env.base.layer3",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08T12:00:00Z",
+    "license": "not yet generated (prompt-only); to be generated in-run as original work, no third-party IP"
+   },
+   "status": "prompt-only"
+  },
+  {
+   "assetId": "img.env.feature.layer0",
+   "category": "feature_env",
+   "purpose": "The Tasting (feature tier) environment, deepest layer (0 of 3, opaque): the back parlour beyond the drawn velvet curtain",
+   "file": "art/env/feature-layer0.png",
+   "format": "png",
+   "resolution": {
+    "w": 2048,
+    "h": 1024
+   },
+   "transparent": false,
+   "atlasGroup": null,
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "prompt": "prompts/art-prompts.json#img.env.feature.layer0",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08T12:00:00Z",
+    "license": "not yet generated (prompt-only); to be generated in-run as original work, no third-party IP"
+   },
+   "status": "prompt-only"
+  },
+  {
+   "assetId": "img.env.feature.layer1",
+   "category": "feature_env",
+   "purpose": "The Tasting environment, mid layer (1 of 3): tasting table, candle groupings, decanters",
+   "file": "art/env/feature-layer1.png",
+   "format": "png",
+   "resolution": {
+    "w": 2048,
+    "h": 1024
+   },
+   "transparent": true,
+   "atlasGroup": null,
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "prompt": "prompts/art-prompts.json#img.env.feature.layer1",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08T12:00:00Z",
+    "license": "not yet generated (prompt-only); to be generated in-run as original work, no third-party IP"
+   },
+   "status": "prompt-only"
+  },
+  {
+   "assetId": "img.env.feature.layer2",
+   "category": "foreground",
+   "purpose": "The Tasting environment, foreground occluder (2 of 3): parted velvet curtain edges framing the view, centre fully transparent",
+   "file": "art/env/feature-layer2.png",
+   "format": "png",
+   "resolution": {
+    "w": 2048,
+    "h": 1024
+   },
+   "transparent": true,
+   "atlasGroup": null,
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "prompt": "prompts/art-prompts.json#img.env.feature.layer2",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08T12:00:00Z",
+    "license": "not yet generated (prompt-only); to be generated in-run as original work, no third-party IP"
+   },
+   "status": "prompt-only"
+  },
+  {
+   "assetId": "img.env.super_feature.layer0",
+   "category": "feature_env",
+   "purpose": "The Distillery (super_feature tier) environment, deepest layer (0 of 3, opaque): brick cellar vaults in copper glow",
+   "file": "art/env/super-feature-layer0.png",
+   "format": "png",
+   "resolution": {
+    "w": 2048,
+    "h": 1024
+   },
+   "transparent": false,
+   "atlasGroup": null,
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "prompt": "prompts/art-prompts.json#img.env.super_feature.layer0",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08T12:00:00Z",
+    "license": "not yet generated (prompt-only); to be generated in-run as original work, no third-party IP"
+   },
+   "status": "prompt-only"
+  },
+  {
+   "assetId": "img.env.super_feature.layer1",
+   "category": "feature_env",
+   "purpose": "The Distillery environment, mid layer (1 of 3): copper stills and green-glass carboys on the working floor",
+   "file": "art/env/super-feature-layer1.png",
+   "format": "png",
+   "resolution": {
+    "w": 2048,
+    "h": 1024
+   },
+   "transparent": true,
+   "atlasGroup": null,
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "prompt": "prompts/art-prompts.json#img.env.super_feature.layer1",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08T12:00:00Z",
+    "license": "not yet generated (prompt-only); to be generated in-run as original work, no third-party IP"
+   },
+   "status": "prompt-only"
+  },
+  {
+   "assetId": "img.env.super_feature.layer2",
+   "category": "foreground",
+   "purpose": "The Distillery environment, foreground occluder (2 of 3): copper piping and stair rail entering from the edges, centre fully transparent",
+   "file": "art/env/super-feature-layer2.png",
+   "format": "png",
+   "resolution": {
+    "w": 2048,
+    "h": 1024
+   },
+   "transparent": true,
+   "atlasGroup": null,
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "prompt": "prompts/art-prompts.json#img.env.super_feature.layer2",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08T12:00:00Z",
+    "license": "not yet generated (prompt-only); to be generated in-run as original work, no third-party IP"
+   },
+   "status": "prompt-only"
+  },
+  {
+   "assetId": "img.env.ultimate_feature.layer0",
+   "category": "feature_env",
+   "purpose": "The Night Garden (ultimate_feature tier) environment, deepest layer (0 of 4, opaque): moonlit glass conservatory interior, rain on the roof panes",
+   "file": "art/env/ultimate-feature-layer0.png",
+   "format": "png",
+   "resolution": {
+    "w": 2048,
+    "h": 1024
+   },
+   "transparent": false,
+   "atlasGroup": null,
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "prompt": "prompts/art-prompts.json#img.env.ultimate_feature.layer0",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08T12:00:00Z",
+    "license": "not yet generated (prompt-only); to be generated in-run as original work, no third-party IP"
+   },
+   "status": "prompt-only"
+  },
+  {
+   "assetId": "img.env.ultimate_feature.layer1",
+   "category": "feature_env",
+   "purpose": "The Night Garden environment, mid layer (1 of 4): belladonna beds in bloom under moonlight",
+   "file": "art/env/ultimate-feature-layer1.png",
+   "format": "png",
+   "resolution": {
+    "w": 2048,
+    "h": 1024
+   },
+   "transparent": true,
+   "atlasGroup": null,
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "prompt": "prompts/art-prompts.json#img.env.ultimate_feature.layer1",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08T12:00:00Z",
+    "license": "not yet generated (prompt-only); to be generated in-run as original work, no third-party IP"
+   },
+   "status": "prompt-only"
+  },
+  {
+   "assetId": "img.env.ultimate_feature.layer2",
+   "category": "feature_env",
+   "purpose": "The Night Garden environment, near layer (2 of 4): night-flowering foliage and planter urns flanking the cabinet",
+   "file": "art/env/ultimate-feature-layer2.png",
+   "format": "png",
+   "resolution": {
+    "w": 2048,
+    "h": 1024
+   },
+   "transparent": true,
+   "atlasGroup": null,
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "prompt": "prompts/art-prompts.json#img.env.ultimate_feature.layer2",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08T12:00:00Z",
+    "license": "not yet generated (prompt-only); to be generated in-run as original work, no third-party IP"
+   },
+   "status": "prompt-only"
+  },
+  {
+   "assetId": "img.env.ultimate_feature.layer3",
+   "category": "foreground",
+   "purpose": "The Night Garden environment, foreground occluder (3 of 4): hanging prisms and vine tendrils from the glass roof, centre fully transparent",
+   "file": "art/env/ultimate-feature-layer3.png",
+   "format": "png",
+   "resolution": {
+    "w": 2048,
+    "h": 1024
+   },
+   "transparent": true,
+   "atlasGroup": null,
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "prompt": "prompts/art-prompts.json#img.env.ultimate_feature.layer3",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08T12:00:00Z",
+    "license": "not yet generated (prompt-only); to be generated in-run as original work, no third-party IP"
+   },
+   "status": "prompt-only"
+  },
+  {
+   "assetId": "img.frame.reel",
+   "category": "frame",
+   "purpose": "Reel cabinet frame: the brass-and-walnut apothecary cabinet face the 6x5 grid lives inside; inner opening exactly 6:5 and fully transparent",
+   "file": "art/frame/reel-cabinet.png",
+   "format": "png",
+   "resolution": {
+    "w": 1600,
+    "h": 1200
+   },
+   "transparent": true,
+   "atlasGroup": "base",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.frame.cell",
+   "category": "frame",
+   "purpose": "Grid cell backing: one walnut pigeonhole tile tiled behind every symbol position",
+   "file": "art/frame/cell.png",
+   "format": "png",
+   "resolution": {
+    "w": 512,
+    "h": 512
+   },
+   "transparent": true,
+   "atlasGroup": "base",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.frame.cell_win",
+   "category": "frame",
+   "purpose": "Grid cell win-highlight variant: the pigeonhole tile with candle-gold inner glow rim, shown under symbols in a winning set",
+   "file": "art/frame/cell-win.png",
+   "format": "png",
+   "resolution": {
+    "w": 512,
+    "h": 512
+   },
+   "transparent": true,
+   "atlasGroup": "base",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.ui.hud_vial",
+   "category": "ui",
+   "purpose": "Master vial HUD element: long-necked alembic that docks beside the cabinet during features and displays the banked multiplier P; layered vessel/fluid/glow for the fill animation",
+   "file": "art/ui/hud-vial.png",
+   "format": "png",
+   "resolution": {
+    "w": 512,
+    "h": 1024
+   },
+   "transparent": true,
+   "atlasGroup": "base",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.ui.hud_dial",
+   "category": "ui",
+   "purpose": "Distillery pressure dial HUD element (super_feature only): brass gauge presenting P growth rate, pure presentation (GDD 9)",
+   "file": "art/ui/hud-dial.png",
+   "format": "png",
+   "resolution": {
+    "w": 512,
+    "h": 512
+   },
+   "transparent": true,
+   "atlasGroup": "super-feature",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.ui.hud_prismrail",
+   "category": "ui",
+   "purpose": "Prism rail HUD element (ultimate_feature only): horizontal brass rail of hanging prisms that light up per doubling event (GDD 10)",
+   "file": "art/ui/hud-prism-rail.png",
+   "format": "png",
+   "resolution": {
+    "w": 1024,
+    "h": 256
+   },
+   "transparent": true,
+   "atlasGroup": "ultimate-feature",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.ui.btn_spin.normal",
+   "category": "ui",
+   "purpose": "Primary spin button, normal state (1 of 10 states per the step-7 UI spec); most-touched control; the other 9 states derive from this file via edit-image",
+   "file": "art/ui/btn-spin-normal.png",
+   "format": "png",
+   "resolution": {
+    "w": 512,
+    "h": 512
+   },
+   "transparent": true,
+   "atlasGroup": "preload",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.ui.btn_stop",
+   "category": "ui",
+   "purpose": "Stop / slam-stop button (jurisdiction-gated animationSkipEnabled); swaps into the spin button position during presentation",
+   "file": "art/ui/btn-stop.png",
+   "format": "png",
+   "resolution": {
+    "w": 512,
+    "h": 512
+   },
+   "transparent": true,
+   "atlasGroup": "preload",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.ui.btn_autoplay",
+   "category": "ui",
+   "purpose": "Autoplay button (jurisdiction-gated autoplayEnabled); opens the autoplay panel with counts and stop conditions",
+   "file": "art/ui/btn-autoplay.png",
+   "format": "png",
+   "resolution": {
+    "w": 512,
+    "h": 512
+   },
+   "transparent": true,
+   "atlasGroup": "preload",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.ui.btn_bet",
+   "category": "ui",
+   "purpose": "Bet button: opens bet selection; paired in-engine +/- steppers reuse its ring",
+   "file": "art/ui/btn-bet.png",
+   "format": "png",
+   "resolution": {
+    "w": 512,
+    "h": 512
+   },
+   "transparent": true,
+   "atlasGroup": "preload",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.ui.btn_buy",
+   "category": "ui",
+   "purpose": "Bonus-buy button (jurisdiction-gated bonusBuyEnabled); opens the buy menu; mutually exclusive with ante mode",
+   "file": "art/ui/btn-buy.png",
+   "format": "png",
+   "resolution": {
+    "w": 512,
+    "h": 512
+   },
+   "transparent": true,
+   "atlasGroup": "preload",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.ui.btn_ante",
+   "category": "ui",
+   "purpose": "The Patron's Ante toggle (jurisdiction-gated enhancedChanceEnabled); 1.25x stake for ~1.6x seal frequency; toggled state derives via edit-image",
+   "file": "art/ui/btn-ante.png",
+   "format": "png",
+   "resolution": {
+    "w": 512,
+    "h": 512
+   },
+   "transparent": true,
+   "atlasGroup": "preload",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.ui.btn_settings",
+   "category": "ui",
+   "purpose": "Settings button: opens settings overlay (sound, spin modes, reduced motion, history, rules, RTP display)",
+   "file": "art/ui/btn-settings.png",
+   "format": "png",
+   "resolution": {
+    "w": 512,
+    "h": 512
+   },
+   "transparent": true,
+   "atlasGroup": "preload",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.ui.ind_spinmode",
+   "category": "ui",
+   "purpose": "Spin-mode indicator badge (normal/quick/turbo, jurisdiction-gated): small engraved plate whose glyph and tint the engine swaps",
+   "file": "art/ui/ind-spinmode.png",
+   "format": "png",
+   "resolution": {
+    "w": 512,
+    "h": 256
+   },
+   "transparent": true,
+   "atlasGroup": "preload",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.ui.panel_hud",
+   "category": "ui",
+   "purpose": "HUD panel 9-slice: walnut plate with brass fillet behind balance/bet/win readouts; slice insets recorded here at pack time (free packer emits none)",
+   "file": "art/ui/panel-hud.png",
+   "format": "png",
+   "resolution": {
+    "w": 1024,
+    "h": 512
+   },
+   "transparent": true,
+   "atlasGroup": "preload",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.ui.panel_overlay",
+   "category": "ui",
+   "purpose": "Overlay/menu panel 9-slice: larger walnut-and-brass plate for paytable, rules, settings, autoplay and summary overlays",
+   "file": "art/ui/panel-overlay.png",
+   "format": "png",
+   "resolution": {
+    "w": 1024,
+    "h": 1024
+   },
+   "transparent": true,
+   "atlasGroup": "preload",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.winplate.big",
+   "category": "ui",
+   "purpose": "BIG WIN ornamental plate (win >= 15x bet); localized tier word + numerals render in-engine over it; mega/epic/max derive from this file with escalating treatments",
+   "file": "art/winplates/big.png",
+   "format": "png",
+   "resolution": {
+    "w": 1024,
+    "h": 512
+   },
+   "transparent": true,
+   "atlasGroup": "celebrations",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.winplate.mega",
+   "category": "ui",
+   "purpose": "MEGA WIN ornamental plate (win >= 40x bet); derived from img.winplate.big with richer brass flourish and essence spill",
+   "file": "art/winplates/mega.png",
+   "format": "png",
+   "resolution": {
+    "w": 1024,
+    "h": 512
+   },
+   "transparent": true,
+   "atlasGroup": "celebrations",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.winplate.epic",
+   "category": "ui",
+   "purpose": "EPIC WIN ornamental plate (win >= 80x bet); derived from img.winplate.mega with prism-light refractions joining the flourish",
+   "file": "art/winplates/epic.png",
+   "format": "png",
+   "resolution": {
+    "w": 1024,
+    "h": 512
+   },
+   "transparent": true,
+   "atlasGroup": "celebrations",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.winplate.max",
+   "category": "ui",
+   "purpose": "MAX WIN plate (10,000x cap; non-skippable amount plate per motion spec); the overflowing master vial crowns the flourish; house-lights treatment",
+   "file": "art/winplates/max.png",
+   "format": "png",
+   "resolution": {
+    "w": 1024,
+    "h": 512
+   },
+   "transparent": true,
+   "atlasGroup": "celebrations",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.ui.buymenu",
+   "category": "ui",
+   "purpose": "Feature-buy menu backdrop: the appointment ledger composition presenting the three chamber purchases (buy_feature 42.10x / buy_super 91.70x / buy_ultimate 167.70x, per-mode RTP disclosed per GDD \u00a713); prices and labels render in-engine",
+   "file": "art/ui/buymenu.png",
+   "format": "png",
+   "resolution": {
+    "w": 2048,
+    "h": 1152
+   },
+   "transparent": false,
+   "atlasGroup": null,
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.meta.splash",
+   "category": "splash",
+   "purpose": "Splash/loading screen: the parlour shopfront at midnight, logo area reserved top-centre, loading-bar zone calm at bottom; portrait-safe central composition",
+   "file": "art/meta/splash.png",
+   "format": "png",
+   "resolution": {
+    "w": 2048,
+    "h": 1152
+   },
+   "transparent": false,
+   "atlasGroup": null,
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "prompt": "prompts/art-prompts.json#img.meta.splash",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08T12:00:00Z",
+    "license": "not yet generated (prompt-only); to be generated in-run as original work, no third-party IP"
+   },
+   "status": "prompt-only"
+  },
+  {
+   "assetId": "img.meta.icon",
+   "category": "icon",
+   "purpose": "Game icon (1:1): the Parlour Seal pressed in wax over the amethyst philtre, readable at 64 px lobby size",
+   "file": "art/meta/icon.png",
+   "format": "png",
+   "resolution": {
+    "w": 1024,
+    "h": 1024
+   },
+   "transparent": false,
+   "atlasGroup": null,
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "prompt": "prompts/art-prompts.json#img.meta.icon",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08T12:00:00Z",
+    "license": "not yet generated (prompt-only); to be generated in-run as original work, no third-party IP"
+   },
+   "status": "prompt-only"
+  },
+  {
+   "assetId": "img.meta.thumbnail",
+   "category": "thumbnail",
+   "purpose": "Lobby thumbnail (16:9): master vial and premium bottles on the parlour counter, title area reserved left third; no baked text",
+   "file": "art/meta/thumbnail.png",
+   "format": "png",
+   "resolution": {
+    "w": 2048,
+    "h": 1152
+   },
+   "transparent": false,
+   "atlasGroup": null,
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "prompt": "prompts/art-prompts.json#img.meta.thumbnail",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08T12:00:00Z",
+    "license": "not yet generated (prompt-only); to be generated in-run as original work, no third-party IP"
+   },
+   "status": "prompt-only"
+  },
+  {
+   "assetId": "img.vfx.shard",
+   "category": "vfx",
+   "purpose": "Glass-shard particle sheet (6 faceted shard shapes on one canvas) for cascade shatter (sfx.cascade.shatter companion); grayscale-for-tint so shards echo the broken bottle's hue",
+   "file": "art/vfx/shard-sheet.png",
+   "format": "png",
+   "resolution": {
+    "w": 1024,
+    "h": 1024
+   },
+   "transparent": true,
+   "atlasGroup": "base",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.vfx.essence",
+   "category": "vfx",
+   "purpose": "Essence droplet/stream texture for orb collect and vial pours (anim.orb.collect / anim.orb.apply); hard core with 2 px falloff, tinted in-engine from the orb token",
+   "file": "art/vfx/essence.png",
+   "format": "png",
+   "resolution": {
+    "w": 512,
+    "h": 512
+   },
+   "transparent": true,
+   "atlasGroup": "base",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.vfx.prism",
+   "category": "vfx",
+   "purpose": "Prism caustic streak texture for The Prisming (anim.ultimate_feature.prisming); thin refracted light bar, grayscale-for-tint",
+   "file": "art/vfx/prism-caustic.png",
+   "format": "png",
+   "resolution": {
+    "w": 512,
+    "h": 512
+   },
+   "transparent": true,
+   "atlasGroup": "ultimate-feature",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.vfx.mote",
+   "category": "vfx",
+   "purpose": "Dust-mote/ember particle texture for candle-shaft ambience and the feature/super entry bursts; grayscale-for-tint",
+   "file": "art/vfx/mote.png",
+   "format": "png",
+   "resolution": {
+    "w": 512,
+    "h": 512
+   },
+   "transparent": true,
+   "atlasGroup": "base",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  },
+  {
+   "assetId": "img.vfx.petal",
+   "category": "vfx",
+   "purpose": "Belladonna petal particle texture for the Night Garden entry burst and idle petal-fall (ultimate_feature only); violet-hued family exception to grayscale",
+   "file": "art/vfx/petal.png",
+   "format": "png",
+   "resolution": {
+    "w": 512,
+    "h": 512
+   },
+   "transparent": true,
+   "atlasGroup": "ultimate-feature",
+   "deviceVariants": [],
+   "provenance": {
+    "generator": "blender",
+    "prompt": "prompts/blender/bp-asset-kit.py",
+    "sourceFiles": [],
+    "generatedAt": "2026-08-08",
+    "license": "procedural Blender render; original work, no third-party IP"
+   },
+   "status": "generated"
+  }
+ ]
+}

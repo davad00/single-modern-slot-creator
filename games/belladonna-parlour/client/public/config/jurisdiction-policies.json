@@ -1,0 +1,12 @@
+{
+ "jurisdictionId": "DEV-DEMO",
+ "autoplayAllowed": true,
+ "autoplayMaxRounds": 100,
+ "quickSpinAllowed": true,
+ "turboSpinAllowed": true,
+ "slamStopAllowed": true,
+ "bonusBuyAllowed": true,
+ "minRoundDurationMs": 0,
+ "rtpDisplayRequired": true,
+ "realityCheckIntervalMs": null
+}

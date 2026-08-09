@@ -1,0 +1,157 @@
+[
+  {
+    "id": "WILD",
+    "kind": "wild",
+    "displayName": "Molten Core",
+    "tierRank": 1,
+    "substitutes": true,
+    "substitutesFor": ["H1", "H2", "H3", "H4", "L1", "L2", "L3", "L4", "L5"],
+    "appearsOnReels": [0, 1, 2, 3, 4],
+    "featureOnly": false,
+    "assets": {
+      "static": "img.symbol.wild.static",
+      "win": "img.symbol.wild.win",
+      "blur": "img.symbol.wild.blur"
+    }
+  },
+  {
+    "id": "SCATTER",
+    "kind": "scatter",
+    "displayName": "Kiln Sigil",
+    "tierRank": 2,
+    "substitutes": false,
+    "appearsOnReels": [0, 1, 2, 3, 4],
+    "featureOnly": false,
+    "assets": {
+      "static": "img.symbol.scatter.static",
+      "win": "img.symbol.scatter.win",
+      "blur": "img.symbol.scatter.blur"
+    }
+  },
+  {
+    "id": "H1",
+    "kind": "premium",
+    "displayName": "Star-Glass Orb",
+    "tierRank": 3,
+    "substitutes": false,
+    "appearsOnReels": [0, 1, 2, 3, 4],
+    "featureOnly": false,
+    "assets": {
+      "static": "img.symbol.h1.static",
+      "win": "img.symbol.h1.win",
+      "blur": "img.symbol.h1.blur"
+    }
+  },
+  {
+    "id": "H2",
+    "kind": "premium",
+    "displayName": "Glasswright's Gauntlet",
+    "tierRank": 4,
+    "substitutes": false,
+    "appearsOnReels": [0, 1, 2, 3, 4],
+    "featureOnly": false,
+    "assets": {
+      "static": "img.symbol.h2.static",
+      "win": "img.symbol.h2.win",
+      "blur": "img.symbol.h2.blur"
+    }
+  },
+  {
+    "id": "H3",
+    "kind": "premium",
+    "displayName": "Crucible of Embers",
+    "tierRank": 5,
+    "substitutes": false,
+    "appearsOnReels": [0, 1, 2, 3, 4],
+    "featureOnly": false,
+    "assets": {
+      "static": "img.symbol.h3.static",
+      "win": "img.symbol.h3.win",
+      "blur": "img.symbol.h3.blur"
+    }
+  },
+  {
+    "id": "H4",
+    "kind": "premium",
+    "displayName": "Blowpipe & Shears",
+    "tierRank": 6,
+    "substitutes": false,
+    "appearsOnReels": [0, 1, 2, 3, 4],
+    "featureOnly": false,
+    "assets": {
+      "static": "img.symbol.h4.static",
+      "win": "img.symbol.h4.win",
+      "blur": "img.symbol.h4.blur"
+    }
+  },
+  {
+    "id": "L1",
+    "kind": "low",
+    "displayName": "Cobalt Bead",
+    "tierRank": 7,
+    "substitutes": false,
+    "appearsOnReels": [0, 1, 2, 3, 4],
+    "featureOnly": false,
+    "assets": {
+      "static": "img.symbol.l1.static",
+      "win": "img.symbol.l1.win",
+      "blur": "img.symbol.l1.blur"
+    }
+  },
+  {
+    "id": "L2",
+    "kind": "low",
+    "displayName": "Amber Bead",
+    "tierRank": 8,
+    "substitutes": false,
+    "appearsOnReels": [0, 1, 2, 3, 4],
+    "featureOnly": false,
+    "assets": {
+      "static": "img.symbol.l2.static",
+      "win": "img.symbol.l2.win",
+      "blur": "img.symbol.l2.blur"
+    }
+  },
+  {
+    "id": "L3",
+    "kind": "low",
+    "displayName": "Viridian Bead",
+    "tierRank": 9,
+    "substitutes": false,
+    "appearsOnReels": [0, 1, 2, 3, 4],
+    "featureOnly": false,
+    "assets": {
+      "static": "img.symbol.l3.static",
+      "win": "img.symbol.l3.win",
+      "blur": "img.symbol.l3.blur"
+    }
+  },
+  {
+    "id": "L4",
+    "kind": "low",
+    "displayName": "Rose Bead",
+    "tierRank": 10,
+    "substitutes": false,
+    "appearsOnReels": [0, 1, 2, 3, 4],
+    "featureOnly": false,
+    "assets": {
+      "static": "img.symbol.l4.static",
+      "win": "img.symbol.l4.win",
+      "blur": "img.symbol.l4.blur"
+    }
+  },
+  {
+    "id": "L5",
+    "kind": "low",
+    "displayName": "Smoke Bead",
+    "tierRank": 11,
+    "substitutes": false,
+    "appearsOnReels": [0, 1, 2, 3, 4],
+    "featureOnly": false,
+    "assets": {
+      "static": "img.symbol.l5.static",
+      "win": "img.symbol.l5.win",
+      "blur": "img.symbol.l5.blur"
+    }
+  }
+]

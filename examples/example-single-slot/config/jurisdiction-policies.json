@@ -1,0 +1,91 @@
+{
+  "policies": [
+    {
+      "policyId": "mt-generic-com",
+      "jurisdiction": "MT",
+      "notes": "Malta / generic-.com tier per research/17-jurisdiction-policy-matrix.md (MGA Directive 2 of 2018 v3). Autoplay allowed with interval alert; bonus buy and enhanced presentation modes allowed; MGA minimum RTP 0.85 satisfied by the rtp-96 profile. Reality check content is MGA-mandated; 60-minute default until player-set. slamStop stays off as a design stance (illusion-of-control research). Engineering flags only, never legal conclusions.",
+      "flags": {
+        "autoplayEnabled": true,
+        "quickSpinEnabled": true,
+        "turboSpinEnabled": true,
+        "slamStopEnabled": false,
+        "animationSkipEnabled": true,
+        "bonusBuyEnabled": true,
+        "enhancedChanceEnabled": false,
+        "minimumRoundDurationMs": null,
+        "maxStakeMinor": null,
+        "ldwCelebrationSuppressed": true,
+        "showRtp": true,
+        "showMaximumWin": true,
+        "showGameHistory": true,
+        "netPositionDisplay": true,
+        "sessionClockDisplay": true,
+        "realityCheckMinutes": 60
+      }
+    },
+    {
+      "policyId": "gb-ukgc",
+      "jurisdiction": "GB",
+      "notes": "UK/UKGC tier per research/17: RTS 14E bans quick/turbo/slam-stop/base-game skip; autoplay banned (RTS 8/8A); bonus buy treated as banned (RTS 3A+14A); 2500 ms minimum round with release-and-re-press; LDW celebration banned (RTS 14F); net position + session clock mandatory (RTS 2E/13C); reality check is player-set (null here, operator-supplied). maxStakeMinor 500 = GBP 5.00 default (25+); RGS MUST override per session for the 18-24 GBP 2.00 tier.",
+      "flags": {
+        "autoplayEnabled": false,
+        "quickSpinEnabled": false,
+        "turboSpinEnabled": false,
+        "slamStopEnabled": false,
+        "animationSkipEnabled": false,
+        "bonusBuyEnabled": false,
+        "enhancedChanceEnabled": false,
+        "minimumRoundDurationMs": 2500,
+        "maxStakeMinor": 500,
+        "ldwCelebrationSuppressed": true,
+        "showRtp": true,
+        "showMaximumWin": true,
+        "showGameHistory": true,
+        "netPositionDisplay": true,
+        "sessionClockDisplay": true,
+        "realityCheckMinutes": null
+      }
+    },
+    {
+      "policyId": "de-ggl",
+      "jurisdiction": "DE",
+      "notes": "Germany/GGL (GlueStV 2021) tier per research/17: para 22a bans autoplay and fast presentation; the statutory 'average 5 s' spin ships as a fixed 5000 ms floor; stake cap EUR 1.00 default (maxStakeMinor 100) with RGS session overrides for 21+/qualified tiers; bonus buy impossible in effect and disabled; fixed 60-min reality check with post-ack lockout handled by the platform. No jackpots on DE builds (this game has none).",
+      "flags": {
+        "autoplayEnabled": false,
+        "quickSpinEnabled": false,
+        "turboSpinEnabled": false,
+        "slamStopEnabled": false,
+        "animationSkipEnabled": false,
+        "bonusBuyEnabled": false,
+        "enhancedChanceEnabled": false,
+        "minimumRoundDurationMs": 5000,
+        "maxStakeMinor": 100,
+        "ldwCelebrationSuppressed": true,
+        "showRtp": true,
+        "showMaximumWin": true,
+        "showGameHistory": true,
+        "netPositionDisplay": true,
+        "sessionClockDisplay": true,
+        "realityCheckMinutes": 60
+      }
+    }
+  ],
+  "defaultPolicy": {
+    "autoplayEnabled": false,
+    "quickSpinEnabled": false,
+    "turboSpinEnabled": false,
+    "slamStopEnabled": false,
+    "animationSkipEnabled": false,
+    "bonusBuyEnabled": false,
+    "enhancedChanceEnabled": false,
+    "minimumRoundDurationMs": 5000,
+    "maxStakeMinor": 100,
+    "ldwCelebrationSuppressed": true,
+    "showRtp": true,
+    "showMaximumWin": true,
+    "showGameHistory": true,
+    "netPositionDisplay": true,
+    "sessionClockDisplay": true,
+    "realityCheckMinutes": 60
+  }
+}

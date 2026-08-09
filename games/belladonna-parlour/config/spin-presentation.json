@@ -1,0 +1,130 @@
+{
+  "projectSlug": "belladonna-parlour",
+  "gameVersion": "0.1.0",
+  "mathVersion": "0.1.0",
+  "notes": "PRESENTATION ONLY (CONVENTIONS 9.2): every number in this file re-times the committed outcome manifest and can never alter wins, weights, or settlement. 'modes' overrides client-template SPIN_MODE_PROFILES field-for-field (src/core/spinTiming.ts SpinModeProfile). 'winTiers' is read by winTierThresholdsFromConfig (src/presentation/winPresentation.ts). Jurisdiction minimumRoundDurationMs always pads on top of any mode (resolveSpinMode gates quick/turbo per policy; UNKNOWN = normal only).",
+  "modes": {
+    "normal": {
+      "accelMs": 250,
+      "travelMs": 1050,
+      "reelStaggerMs": 200,
+      "anticipationExtraMs": 1500,
+      "winCountupMs": 1100,
+      "cascadeStepMs": 650,
+      "featureTransitionMs": 2400,
+      "featureRoundMs": 1600,
+      "maxWinMs": 3000,
+      "summaryMs": 500
+    },
+    "quick": {
+      "accelMs": 120,
+      "travelMs": 630,
+      "reelStaggerMs": 90,
+      "anticipationExtraMs": 900,
+      "winCountupMs": 500,
+      "cascadeStepMs": 325,
+      "featureTransitionMs": 2400,
+      "featureRoundMs": 900,
+      "maxWinMs": 3000,
+      "summaryMs": 300
+    },
+    "turbo": {
+      "accelMs": 50,
+      "travelMs": 550,
+      "reelStaggerMs": 0,
+      "anticipationExtraMs": 400,
+      "winCountupMs": 200,
+      "cascadeStepMs": 160,
+      "featureTransitionMs": 2400,
+      "featureRoundMs": 450,
+      "maxWinMs": 3000,
+      "summaryMs": 200
+    }
+  },
+  "envelopes": {
+    "rule": "press-to-last-reel-stop = accelMs + travelMs + 5 * reelStaggerMs for the 6-reel cabinet (no anticipation); settlement adds summaryMs; featureTransitionMs and maxWinMs are clarity-preserved in every mode",
+    "normal": { "reelsSettledMs": 2300, "noWinRoundTotalMs": 2800 },
+    "quick": { "reelsSettledMs": 1200, "noWinRoundTotalMs": 1500 },
+    "turbo": { "reelsSettledMs": 600, "noWinRoundTotalMs": 800 }
+  },
+  "phaseBreakdown": {
+    "normal": {
+      "dropMs": 1300,
+      "stopStaggerMs": 200,
+      "settleBounceMs": 180,
+      "cascadeBeat": { "shatterMs": 260, "fallMs": 240, "settleMs": 150 },
+      "orbLandPlateMs": 240,
+      "orbCollectMs": 450,
+      "orbApplyMs": 550,
+      "prismingMs": 900,
+      "anticipationExtensionMs": 1500
+    },
+    "quick": {
+      "dropMs": 750,
+      "stopStaggerMs": 90,
+      "settleBounceMs": 120,
+      "cascadeBeat": { "shatterMs": 130, "fallMs": 120, "settleMs": 75 },
+      "orbLandPlateMs": 160,
+      "orbCollectMs": 250,
+      "orbApplyMs": 300,
+      "prismingMs": 900,
+      "anticipationExtensionMs": 900
+    },
+    "turbo": {
+      "dropMs": 600,
+      "stopStaggerMs": 0,
+      "settleBounceMs": 80,
+      "cascadeBeat": { "shatterMs": 65, "fallMs": 60, "settleMs": 35 },
+      "orbLandPlateMs": 100,
+      "orbCollectMs": 120,
+      "orbApplyMs": 160,
+      "prismingMs": 900,
+      "anticipationExtensionMs": 400
+    }
+  },
+  "winTiers": {
+    "mediumX100": 500,
+    "bigX100": 1500,
+    "megaX100": 4000,
+    "epicX100": 8000
+  },
+  "winPresentation": {
+    "countupDurationsMs": {
+      "small": 700,
+      "medium": 1200,
+      "big": 2400,
+      "mega": 3600,
+      "epic": 5000,
+      "max": 6000
+    },
+    "countupModeScale": {
+      "note": "applies to small/medium only; big and above keep full duration in every mode but remain tap-to-collect skippable (except max)",
+      "normal": 1.0,
+      "quick": 0.5,
+      "turbo": 0.25
+    },
+    "skippable": {
+      "small": true,
+      "medium": true,
+      "big": true,
+      "mega": true,
+      "epic": true,
+      "max": false
+    },
+    "countupAudio": { "loop": "sfx.win.countup.loop", "end": "sfx.win.countup.end" },
+    "tierAudio": {
+      "small": "sfx.win.small",
+      "medium": "sfx.win.medium",
+      "big": "sfx.win.big",
+      "mega": "sfx.win.mega",
+      "epic": "sfx.win.epic",
+      "max": "sfx.win.max"
+    },
+    "maxWinExtraAudio": "sfx.maxwin.reached",
+    "ldwRule": "unconditional in all policies (CONVENTIONS 9.5 + research/13 D1): 0 < win <= stake presents as a neutral result readout - no tier celebration above small, no win-class audio, no character/environment reaction; balance updates at settlement only"
+  },
+  "minimumRoundDuration": {
+    "source": "jurisdiction-policies.json flags.minimumRoundDurationMs",
+    "enforcement": "buildSpinSchedule pads totalDurationMs; spin button stays disabled until nextSpinEnabledAt in every mode including autoplay"
+  }
+}

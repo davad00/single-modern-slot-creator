@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.single-slot-creator.local/bonus-buy.schema.json",
+  "title": "Bonus-buy modes — config/bonus-buys.json",
+  "description": "Purchasable direct entries into the feature tiers. Every mode is jurisdiction-gated (bonus buy is illegal in several markets), carries its own RTP, and forces feature entry via a scatter-count distribution that the math model validates. Each mode requires separate simulation results.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["bonusBuys"],
+  "properties": {
+    "bonusBuys": {
+      "type": "array",
+      "minItems": 0,
+      "maxItems": 8,
+      "description": "All purchasable modes. May be empty when the game ships without bonus buy.",
+      "items": { "$ref": "#/$defs/bonusBuyMode" }
+    }
+  },
+  "$defs": {
+    "tierId": {
+      "type": "string",
+      "enum": ["feature", "super_feature", "ultimate_feature"],
+      "description": "Canonical internal tier identifier per CONVENTIONS §4.1."
+    },
+    "bonusBuyMode": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "modeId",
+        "entryTier",
+        "priceXBet100",
+        "rtp",
+        "forcedEntryDistribution",
+        "jurisdictionGated",
+        "uiDisclosure"
+      ],
+      "properties": {
+        "modeId": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]{2,40}$",
+          "description": "Kebab-case id of this buy mode, e.g. 'buy-feature', 'buy-super-feature'."
+        },
+        "entryTier": {
+          "$ref": "#/$defs/tierId",
+          "description": "The tier this purchase enters."
+        },
+        "priceXBet100": {
+          "type": "integer",
+          "minimum": 100,
+          "maximum": 1000000,
+          "description": "Purchase price as a multiple of total bet, in integer hundredths of a bet (10000 = 100x bet). priceMinor = (betMinor * priceXBet100) // 100, floor, identical rule to payX100."
+        },
+        "rtp": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1,
+          "description": "Return-to-player of this buy mode as a fraction (e.g. 0.9620). Verified by a dedicated simulation run; may legitimately differ from base-game RTP and must be disclosed where required."
+        },
+        "forcedEntryDistribution": {
+          "type": "object",
+          "minProperties": 1,
+          "description": "Probability of each forced triggering scatter count when this mode is purchased. Keys are scatter counts as strings ('3'..'9'); values are probabilities. The values MUST sum to exactly 1.0 (enforced by the config validator and the math model, not expressible in JSON Schema).",
+          "propertyNames": { "pattern": "^[3-9]$" },
+          "additionalProperties": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "description": "Probability that the purchase lands this many scatters on the entry spin."
+          }
+        },
+        "jurisdictionGated": {
+          "const": true,
+          "description": "Always true: bonus buy is only offered where config/jurisdiction-policies.json sets bonusBuyEnabled, and never in the most-restrictive default policy."
+        },
+        "uiDisclosure": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["showPriceXBet", "showRtp", "showMaxWin", "confirmationRequired"],
+          "description": "Mandatory player-facing disclosure before purchase.",
+          "properties": {
+            "showPriceXBet": {
+              "const": true,
+              "description": "The price as a bet multiple is always shown before purchase."
+            },
+            "showRtp": {
+              "type": "boolean",
+              "description": "Whether this mode's RTP is shown in the buy dialog (required in some jurisdictions; the policy layer may force it on)."
+            },
+            "showMaxWin": {
+              "type": "boolean",
+              "description": "Whether the game max win is shown in the buy dialog."
+            },
+            "confirmationRequired": {
+              "const": true,
+              "description": "A purchase always needs an explicit second confirmation; no one-tap buys."
+            },
+            "disclosureText": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 500,
+              "description": "Optional extra disclosure copy shown in the confirmation dialog."
+            }
+          }
+        },
+        "publicName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 60,
+          "description": "Optional themed display name of the buy option."
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "sets": [
+    {
+      "setId": "base",
+      "purpose": "base",
+      "replicate": true,
+      "strips": [
+        ["L1","H2","L3","L4","H1","L2","SCATTER","L3","H3","L1","L4","L2","H2","L3","WILD","L1","H3","L4","L2","H1","L3","L1","H2","L4","L2","H3","L1","L3","L4","L2"]
+      ]
+    },
+    {
+      "setId": "feature",
+      "purpose": "feature",
+      "replicate": true,
+      "strips": [
+        ["L1","H2","L3","L4","H1","L2","SCATTER","L3","H3","L1","L4","L2","H2","L3","WILD","L1","H3","L4","L2","H1","L3","L1","H2","L4","L2","H3","L1","L3","H1","L2"]
+      ]
+    },
+    {
+      "setId": "super_feature",
+      "purpose": "super_feature",
+      "replicate": true,
+      "strips": [
+        ["L1","H2","L3","L4","H1","L2","SCATTER","L3","H3","L1","L4","L2","H2","L3","WILD","L1","H3","L4","L2","H1","L3","L1","H2","L4","L2","H3","L1","H2","H1","L2"]
+      ]
+    },
+    {
+      "setId": "ultimate_feature",
+      "purpose": "ultimate_feature",
+      "replicate": true,
+      "strips": [
+        ["L1","H2","L3","L4","H1","L2","SCATTER","L3","H3","L1","L4","L2","H2","L3","WILD","L1","H3","L4","L2","H1","L3","L1","H2","L4","L2","H3","WILD","H2","H1","H1"]
+      ]
+    }
+  ]
+}

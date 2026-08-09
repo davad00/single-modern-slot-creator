@@ -1,0 +1,2754 @@
+{
+ "gameId": "belladonna-parlour",
+ "styleAnchor": "STYLE ANCHOR [belladonna-parlour v0.1.0]: Belladonna's Parlour, a candle-lit Victorian apothecary where a celebrated perfumer distils forbidden essences after midnight. Mood: elegant menace, hushed, opulent, unhurried, adult. Shape language: blown-glass volumes over Victorian brass filigree and tall apothecary-cabinet geometry. Materials: poison glass, tarnished brass, dark walnut. Lighting: warm candle key from lower-left; cold moonlight rim from upper-right. Camera: symbols orthographic front-on; environments share a horizon at 44% height. Painterly 2.5D game art, crisp edges, muted jewel tones, no photorealism.",
+ "paletteLock": "PALETTE LOCK: bg-deep #120D16, bg-mid #241B2F, playfield #1B1512, primary brass #A98546, secondary walnut #5C4634, action venom-amber #D98E2B (reserved: interactive elements ONLY), win candle-gold #EFC75E, danger oxblood #B3402E, text bone-cream #E9E0CB, scatter wax-mulberry #8C2E52, orb essence #A8C94E, poison green #74A12E, belladonna violet #6C4E91, moonlight #B9C7D9, tier-feature amber #C98F3D, tier-super verdigris #4E8A6A, tier-ultimate moon-violet #9B7BC4. Use ONLY these hues plus neutral shades derived from them; no off-palette colours. Magenta and hot-pink are banned from all art (keying colour).",
+ "negativeAnchor": "photorealism, watermark, signature, readable text, letters, numerals, off-palette colours, candy-bright gradients, deity or mascot characters, child-appealing styling, existing slot-game lookalikes, protected characters or logos, celebrity likeness, magenta or hot-pink pigment, soft feathered glow halo, baked drop shadow, border",
+ "renderRule": "final prompt = styleAnchor + ' SUBJECT: '+subject + ' COMPOSITION: '+composition + camera/lighting/materials/palette fields + ' AVOID: '+negativeAnchor+extra; sprites use transparent:true (magenta key)",
+ "generationWaves": [
+  "wave 1: img.symbol.h1 (hero) -> human QA",
+  "wave 2: remaining symbols (consistency ref = hero)",
+  "wave 3: environments per tier",
+  "wave 4: frame + UI kit",
+  "wave 5: winplates, buy menu, meta, VFX"
+ ],
+ "prompts": [
+  {
+   "assetId": "img.symbol.h1",
+   "assetCategory": "symbol",
+   "purpose": "H1 Belladonna Philtre (amethyst teardrop bottle), highest premium; base and all feature reel sets; master consistency reference for the whole set",
+   "subject": "Teardrop amethyst bottle 'Belladonna Philtre': a silver belladonna blossom suspended in violet liquid, ornate brass collar and tiny chain",
+   "composition": "single centered emblem filling ~82% of canvas, weight biased slightly low for landing squash",
+   "cameraAngle": "straight-on front view, 0 tilt",
+   "perspective": "orthographic, zero foreshortening (all symbols share this camera)",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "belladonna violet #6C4E91 body, brass #A98546 collar, moonlight rim",
+   "silhouetteRequirement": "unique outline readable as a solid black shape at 120 px; no other symbol shares this silhouette class",
+   "mobileReadabilityRequirement": "reads in <0.5 s at 120x120 px on the playfield colour; max 3 focal details; min stroke 2 px at 120 px",
+   "negativeSpace": ">=10% transparent margin on all sides (win-frame glow + landing squash never clip)",
+   "transparency": "magenta-key",
+   "resolution": "1024x1024",
+   "aspectRatio": "1024:1024",
+   "animationLayerRequirements": [
+    "base bottle",
+    "inner blossom (separate emissive layer for win pulse)"
+   ],
+   "consistencyReference": "hero asset \u2014 generate FIRST",
+   "negativePrompt": "<negativeAnchor> + perfume advert look",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/symbols/h1.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.symbol.h2",
+   "assetCategory": "symbol",
+   "purpose": "H2 Serpent's Emerald (venom flask wrapped by a coiled glass serpent) premium; base and all feature reel sets",
+   "subject": "Coiled-serpent emerald flask 'Serpent's Emerald': green glass coiled like a serpent, a venom drop forming at the fang-shaped spout",
+   "composition": "centered emblem ~80%, coil spiral leading eye to the drop",
+   "cameraAngle": "straight-on front view, 0 tilt",
+   "perspective": "orthographic, zero foreshortening (all symbols share this camera)",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "poison green #74A12E glass, brass base",
+   "silhouetteRequirement": "unique outline readable as a solid black shape at 120 px; no other symbol shares this silhouette class",
+   "mobileReadabilityRequirement": "reads in <0.5 s at 120x120 px on the playfield colour; max 3 focal details; min stroke 2 px at 120 px",
+   "negativeSpace": ">=10% transparent margin on all sides (win-frame glow + landing squash never clip)",
+   "transparency": "magenta-key",
+   "resolution": "1024x1024",
+   "aspectRatio": "1024:1024",
+   "animationLayerRequirements": [
+    "flask",
+    "venom drop (win-state drip layer)"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + realistic snake, scales close-up",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/symbols/h2.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.symbol.h3",
+   "assetCategory": "symbol",
+   "purpose": "H3 Widow's Amber (squat hexagonal jar with a beetle suspended in amber tincture) premium; base and all feature reel sets",
+   "subject": "Hexagonal amber tincture jar 'Widow's Amber': a beetle silhouette sealed inside amber liquid, black lace band at the neck",
+   "composition": "centered emblem ~78%, strong hexagonal silhouette",
+   "cameraAngle": "straight-on front view, 0 tilt",
+   "perspective": "orthographic, zero foreshortening (all symbols share this camera)",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "tier-feature amber #C98F3D, walnut lid",
+   "silhouetteRequirement": "unique outline readable as a solid black shape at 120 px; no other symbol shares this silhouette class",
+   "mobileReadabilityRequirement": "reads in <0.5 s at 120x120 px on the playfield colour; max 3 focal details; min stroke 2 px at 120 px",
+   "negativeSpace": ">=10% transparent margin on all sides (win-frame glow + landing squash never clip)",
+   "transparency": "magenta-key",
+   "resolution": "1024x1024",
+   "aspectRatio": "1024:1024",
+   "animationLayerRequirements": [
+    "jar",
+    "inner beetle (parallax micro-layer)"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + insect horror, photoreal beetle",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/symbols/h3.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.symbol.h4",
+   "assetCategory": "symbol",
+   "purpose": "H4 Moth-Wing Tonic (slim teal phial with moth-wing stopper flares) premium; base and all feature reel sets",
+   "subject": "Teal phial 'Moth-Wing Tonic': slender phial with two iridescent moth wings suspended, cork pinned like a specimen",
+   "composition": "centered emblem ~76%, vertical slender silhouette",
+   "cameraAngle": "straight-on front view, 0 tilt",
+   "perspective": "orthographic, zero foreshortening (all symbols share this camera)",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "moonlight #B9C7D9 + verdigris #4E8A6A accents",
+   "silhouetteRequirement": "unique outline readable as a solid black shape at 120 px; no other symbol shares this silhouette class",
+   "mobileReadabilityRequirement": "reads in <0.5 s at 120x120 px on the playfield colour; max 3 focal details; min stroke 2 px at 120 px",
+   "negativeSpace": ">=10% transparent margin on all sides (win-frame glow + landing squash never clip)",
+   "transparency": "magenta-key",
+   "resolution": "1024x1024",
+   "aspectRatio": "1024:1024",
+   "animationLayerRequirements": [
+    "phial",
+    "wings (flutter layer)"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + butterfly cartoon",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/symbols/h4.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.symbol.l1",
+   "assetCategory": "symbol",
+   "purpose": "L1 Mandrake Root low symbol; base and all feature reel sets; template for the low-sundries detail tier",
+   "subject": "Mandrake root bundle tied with twine, faintly humanoid root shape",
+   "composition": "centered ~72%, chunky organic silhouette",
+   "cameraAngle": "straight-on front view, 0 tilt",
+   "perspective": "orthographic, zero foreshortening (all symbols share this camera)",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "walnut #5C4634 + bone-cream ties",
+   "silhouetteRequirement": "unique outline readable as a solid black shape at 120 px; no other symbol shares this silhouette class",
+   "mobileReadabilityRequirement": "reads in <0.5 s at 120x120 px on the playfield colour; max 3 focal details; min stroke 2 px at 120 px",
+   "negativeSpace": ">=10% transparent margin on all sides (win-frame glow + landing squash never clip)",
+   "transparency": "magenta-key",
+   "resolution": "1024x1024",
+   "aspectRatio": "1024:1024",
+   "animationLayerRequirements": [
+    "single sprite"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + screaming mandrake face, fantasy meme",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/symbols/l1.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.symbol.l2",
+   "assetCategory": "symbol",
+   "purpose": "L2 Nightcap Mushrooms low symbol; base and all feature reel sets",
+   "subject": "Trio of dried nightcap mushrooms strung on a cord",
+   "composition": "centered ~72%, three-lobed silhouette",
+   "cameraAngle": "straight-on front view, 0 tilt",
+   "perspective": "orthographic, zero foreshortening (all symbols share this camera)",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "bg-mid purple-browns + bone-cream cord",
+   "silhouetteRequirement": "unique outline readable as a solid black shape at 120 px; no other symbol shares this silhouette class",
+   "mobileReadabilityRequirement": "reads in <0.5 s at 120x120 px on the playfield colour; max 3 focal details; min stroke 2 px at 120 px",
+   "negativeSpace": ">=10% transparent margin on all sides (win-frame glow + landing squash never clip)",
+   "transparency": "magenta-key",
+   "resolution": "1024x1024",
+   "aspectRatio": "1024:1024",
+   "animationLayerRequirements": [
+    "single sprite"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + cute mushroom faces",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/symbols/l2.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.symbol.l3",
+   "assetCategory": "symbol",
+   "purpose": "L3 Black Lotus Pod low symbol; base and all feature reel sets",
+   "subject": "Black lotus seed pod, cracked open showing dark seeds",
+   "composition": "centered ~70%, round pod silhouette",
+   "cameraAngle": "straight-on front view, 0 tilt",
+   "perspective": "orthographic, zero foreshortening (all symbols share this camera)",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "bg-deep + poison green sheen",
+   "silhouetteRequirement": "unique outline readable as a solid black shape at 120 px; no other symbol shares this silhouette class",
+   "mobileReadabilityRequirement": "reads in <0.5 s at 120x120 px on the playfield colour; max 3 focal details; min stroke 2 px at 120 px",
+   "negativeSpace": ">=10% transparent margin on all sides (win-frame glow + landing squash never clip)",
+   "transparency": "magenta-key",
+   "resolution": "1024x1024",
+   "aspectRatio": "1024:1024",
+   "animationLayerRequirements": [
+    "single sprite"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + lotus flower bloom",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/symbols/l3.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.symbol.l4",
+   "assetCategory": "symbol",
+   "purpose": "L4 Wax Seal & Twine (square parchment packet) low symbol; base and all feature reel sets",
+   "subject": "Mulberry wax seal with abstract flourish sigil on folded parchment corner and twine",
+   "composition": "centered ~70%, disc silhouette",
+   "cameraAngle": "straight-on front view, 0 tilt",
+   "perspective": "orthographic, zero foreshortening (all symbols share this camera)",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "wax-mulberry #8C2E52 + bone-cream parchment",
+   "silhouetteRequirement": "unique outline readable as a solid black shape at 120 px; no other symbol shares this silhouette class",
+   "mobileReadabilityRequirement": "reads in <0.5 s at 120x120 px on the playfield colour; max 3 focal details; min stroke 2 px at 120 px",
+   "negativeSpace": ">=10% transparent margin on all sides (win-frame glow + landing squash never clip)",
+   "transparency": "magenta-key",
+   "resolution": "1024x1024",
+   "aspectRatio": "1024:1024",
+   "animationLayerRequirements": [
+    "single sprite"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + letters, monograms, legible sigils",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/symbols/l4.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.symbol.l5",
+   "assetCategory": "symbol",
+   "purpose": "L5 Dried Foxglove Sprig (arched stem with hanging bell row) low symbol; base, feature and ante reel sets only (removed from super/ultimate sets, GDD \u00a74)",
+   "subject": "Dried foxglove sprig pressed flat, three bell blossoms",
+   "composition": "centered ~70%, sprig silhouette",
+   "cameraAngle": "straight-on front view, 0 tilt",
+   "perspective": "orthographic, zero foreshortening (all symbols share this camera)",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "belladonna violet muted + walnut stem",
+   "silhouetteRequirement": "unique outline readable as a solid black shape at 120 px; no other symbol shares this silhouette class",
+   "mobileReadabilityRequirement": "reads in <0.5 s at 120x120 px on the playfield colour; max 3 focal details; min stroke 2 px at 120 px",
+   "negativeSpace": ">=10% transparent margin on all sides (win-frame glow + landing squash never clip)",
+   "transparency": "magenta-key",
+   "resolution": "1024x1024",
+   "aspectRatio": "1024:1024",
+   "animationLayerRequirements": [
+    "single sprite"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + fresh flowers, bright bouquet",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/symbols/l5.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.symbol.scatter",
+   "assetCategory": "symbol",
+   "purpose": "SCATTER The Parlour Seal (round wax seal with ribbon tails); triggers the 3/4/5+ tier hierarchy; carries anticipation glow layer",
+   "subject": "The Parlour Seal: round brass-and-wax medallion, belladonna flower sigil inlay, cooling channels etched in the rim",
+   "composition": "centered medallion ~80%, strong radial symmetry (rotates during anticipation)",
+   "cameraAngle": "straight-on front view, 0 tilt",
+   "perspective": "orthographic, zero foreshortening (all symbols share this camera)",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "wax-mulberry #8C2E52 disc + brass #A98546 sigil; candle-gold reserved for landed state",
+   "silhouetteRequirement": "unique outline readable as a solid black shape at 120 px; no other symbol shares this silhouette class",
+   "mobileReadabilityRequirement": "reads in <0.5 s at 120x120 px on the playfield colour; max 3 focal details; min stroke 2 px at 120 px",
+   "negativeSpace": ">=10% transparent margin on all sides (win-frame glow + landing squash never clip)",
+   "transparency": "magenta-key",
+   "resolution": "1024x1024",
+   "aspectRatio": "1024:1024",
+   "animationLayerRequirements": [
+    "medallion",
+    "sigil glow (anticipation layer)"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + zodiac signs, runes from known fiction, religious symbols",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/symbols/scatter.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.symbol.mult",
+   "assetCategory": "symbol",
+   "purpose": "MULT Essence Orb (crowned glass sphere of luminous essence); lands with a value on all reel sets; in-engine numerals render over the plate asset",
+   "subject": "Essence Orb: a luminous chartreuse droplet sealed in a small glass sphere held by a three-point brass cradle, clear plate area below for the engine-rendered value",
+   "composition": "centered orb ~76%, plate zone lower 25% kept visually calm",
+   "cameraAngle": "straight-on front view, 0 tilt",
+   "perspective": "orthographic, zero foreshortening (all symbols share this camera)",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "orb essence #A8C94E core, brass cradle",
+   "silhouetteRequirement": "unique outline readable as a solid black shape at 120 px; no other symbol shares this silhouette class",
+   "mobileReadabilityRequirement": "reads in <0.5 s at 120x120 px on the playfield colour; max 3 focal details; min stroke 2 px at 120 px",
+   "negativeSpace": ">=10% transparent margin on all sides (win-frame glow + landing squash never clip)",
+   "transparency": "magenta-key",
+   "resolution": "1024x1024",
+   "aspectRatio": "1024:1024",
+   "animationLayerRequirements": [
+    "orb",
+    "core glow (value-tier pulse layer)",
+    "cradle"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + planet, eyeball, lens flare",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/symbols/mult.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.symbol.mult.plate",
+   "assetCategory": "symbol",
+   "purpose": "Essence Orb value plate backing (small brass plaque); the orb's x-value numerals (>=24 px, GDD 6.2) render in-engine over this plate; one art asset serves every value variant",
+   "subject": "Small rectangular brass value plate with rolled edges and rivets, empty center for engine-rendered numerals",
+   "composition": "horizontal plate filling ~90%, perfectly symmetric, EMPTY center",
+   "cameraAngle": "straight-on front view, 0 tilt",
+   "perspective": "orthographic, zero foreshortening (all symbols share this camera)",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "brass #A98546 + walnut backing",
+   "silhouetteRequirement": "unique outline readable as a solid black shape at 120 px; no other symbol shares this silhouette class",
+   "mobileReadabilityRequirement": "reads in <0.5 s at 120x120 px on the playfield colour; max 3 focal details; min stroke 2 px at 120 px",
+   "negativeSpace": ">=10% transparent margin on all sides (win-frame glow + landing squash never clip)",
+   "transparency": "magenta-key",
+   "resolution": "512x256",
+   "aspectRatio": "512:256",
+   "animationLayerRequirements": [
+    "single sprite"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + any digits or lettering",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/symbols/mult-plate.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.symbol.fx1",
+   "assetCategory": "symbol",
+   "purpose": "FX1 The Prisming Vial (prism-stoppered slim vial); exists ONLY on the ultimate_feature reel set; doubles the banked multiplier on winning spins (GDD 6.3)",
+   "subject": "The Prisming Vial: a crystal prism-cut vial splitting a moonbeam into a soft in-palette spectrum fan",
+   "composition": "centered ~80%, prism fan upward-right, vertical crystal silhouette",
+   "cameraAngle": "straight-on front view, 0 tilt",
+   "perspective": "orthographic, zero foreshortening (all symbols share this camera)",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "moon-violet #9B7BC4 + moonlight #B9C7D9; spectrum stays within palette hues",
+   "silhouetteRequirement": "unique outline readable as a solid black shape at 120 px; no other symbol shares this silhouette class",
+   "mobileReadabilityRequirement": "reads in <0.5 s at 120x120 px on the playfield colour; max 3 focal details; min stroke 2 px at 120 px",
+   "negativeSpace": ">=10% transparent margin on all sides (win-frame glow + landing squash never clip)",
+   "transparency": "magenta-key",
+   "resolution": "1024x1024",
+   "aspectRatio": "1024:1024",
+   "animationLayerRequirements": [
+    "vial",
+    "spectrum fan (prisming burst layer)"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + rainbow flag saturation, disco ball",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/symbols/fx1.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.env.base.layer0",
+   "assetCategory": "background",
+   "purpose": "Base parlour environment, deepest parallax layer (0 of 4, opaque): far wall of the midnight apothecary shopfront",
+   "subject": "Deep parlour interior: floor-to-ceiling apothecary cabinets fading into shadow, tall leaded window with midnight rain, distant counter candles",
+   "composition": "full-bleed opaque backdrop, horizon 44%, calm value masses, lowest detail; central third quiet for the cabinet frame",
+   "cameraAngle": "eye-level wide shot",
+   "perspective": "single vanishing point, horizon at 44% height (identical across ALL environment layers)",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "bg-deep #120D16 dominant, bg-mid forms, candle accents <=8%",
+   "silhouetteRequirement": "n/a (environment)",
+   "mobileReadabilityRequirement": "value structure readable at 25% scale",
+   "negativeSpace": "per composition field",
+   "transparency": "opaque",
+   "resolution": "2048x1024",
+   "aspectRatio": "2048:1024",
+   "animationLayerRequirements": [
+    "opaque layer"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + people, faces, machinery",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "colour-grade to palette lock",
+    "QA seams at layer boundaries"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/env/base-layer0.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.env.base.layer1",
+   "assetCategory": "background",
+   "purpose": "Base parlour environment, mid parallax layer (1 of 4): floor-to-ceiling bottle cabinets with Madame Belladonna's silhouette behind frosted glass",
+   "subject": "Mid-distance counter band: brass scales, bottle clusters, ledger and quill, mortar and pestle along a walnut counter",
+   "composition": "horizontal band middle 55%, edges fade to transparent, central third low-detail",
+   "cameraAngle": "eye-level wide shot",
+   "perspective": "single vanishing point, horizon at 44% height (identical across ALL environment layers)",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "walnut + brass, candle-gold accents <=12%",
+   "silhouetteRequirement": "n/a (environment)",
+   "mobileReadabilityRequirement": "value structure readable at 25% scale",
+   "negativeSpace": "per composition field",
+   "transparency": "magenta-key",
+   "resolution": "2048x1024",
+   "aspectRatio": "2048:1024",
+   "animationLayerRequirements": [
+    "transparent band layer"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + readable ledger text",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/env/base-layer1.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.env.base.layer2",
+   "assetCategory": "background",
+   "purpose": "Base parlour environment, near parallax layer (2 of 4): counter-level props flanking the cabinet",
+   "subject": "Near shelf props: hanging dried herb bundles and two brass lamps entering from top corners only",
+   "composition": "content confined to top 25% and outer 15% edges, center fully transparent",
+   "cameraAngle": "eye-level wide shot",
+   "perspective": "single vanishing point, horizon at 44% height (identical across ALL environment layers)",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "walnut silhouettes + moonlight rims",
+   "silhouetteRequirement": "n/a (environment)",
+   "mobileReadabilityRequirement": "value structure readable at 25% scale",
+   "negativeSpace": "per composition field",
+   "transparency": "magenta-key",
+   "resolution": "2048x1024",
+   "aspectRatio": "2048:1024",
+   "animationLayerRequirements": [
+    "transparent near layer"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + centered objects",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/env/base-layer2.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.env.base.layer3",
+   "assetCategory": "foreground",
+   "purpose": "Base parlour environment, foreground occluder layer (3 of 4): edge-entering drapery and hanging herb bundles, centre fully transparent",
+   "subject": "Foreground vignette: velvet curtain edge left, cabinet corner right, soft depth blur",
+   "composition": "outer 12% each side only, center 76% fully transparent, asymmetric left-heavy",
+   "cameraAngle": "eye-level, elements cropped by frame edges",
+   "perspective": "consistent with the 44% horizon",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "bg-deep silhouettes, oxblood velvet hint",
+   "silhouetteRequirement": "edge silhouettes only",
+   "mobileReadabilityRequirement": "never competes with the grid",
+   "negativeSpace": "center transparency per composition",
+   "transparency": "magenta-key",
+   "resolution": "2048x1024",
+   "aspectRatio": "2048:1024",
+   "animationLayerRequirements": [
+    "transparent foreground layer"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + objects inside central 76%",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/env/base-layer3.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.env.feature.layer0",
+   "assetCategory": "feature_env",
+   "purpose": "The Tasting (feature tier) environment, deepest layer (0 of 3, opaque): the back parlour beyond the drawn velvet curtain",
+   "subject": "The Tasting back parlour: intimate velvet-draped room, round tasting table, many candles, curtain rail behind",
+   "composition": "full-bleed opaque, horizon 44%, warmer key than base, tier-feature amber grade",
+   "cameraAngle": "eye-level wide shot",
+   "perspective": "single vanishing point, horizon at 44% height",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "tier-feature amber #C98F3D grade over walnut",
+   "silhouetteRequirement": "n/a (environment)",
+   "mobileReadabilityRequirement": "value structure readable at 25% scale",
+   "negativeSpace": "per composition field",
+   "transparency": "opaque",
+   "resolution": "2048x1024",
+   "aspectRatio": "2048:1024",
+   "animationLayerRequirements": [
+    "opaque layer"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + people, faces",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "colour-grade to palette lock",
+    "QA seams at layer boundaries"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/env/feature-layer0.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.env.feature.layer1",
+   "assetCategory": "feature_env",
+   "purpose": "The Tasting environment, mid layer (1 of 3): tasting table, candle groupings, decanters",
+   "subject": "Tasting table band: poured tasting cups, decanters, dripping candle cluster",
+   "composition": "horizontal band middle 50%, edge fade, low-detail center",
+   "cameraAngle": "eye-level wide shot",
+   "perspective": "single vanishing point, horizon at 44% height",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "amber + brass, candle-gold accents",
+   "silhouetteRequirement": "n/a (environment)",
+   "mobileReadabilityRequirement": "value structure readable at 25% scale",
+   "negativeSpace": "per composition field",
+   "transparency": "magenta-key",
+   "resolution": "2048x1024",
+   "aspectRatio": "2048:1024",
+   "animationLayerRequirements": [
+    "transparent band layer"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + hands",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/env/feature-layer1.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.env.feature.layer2",
+   "assetCategory": "foreground",
+   "purpose": "The Tasting environment, foreground occluder (2 of 3): parted velvet curtain edges framing the view, centre fully transparent",
+   "subject": "Foreground velvet curtain edges parted left and right",
+   "composition": "outer 14% each side, center transparent",
+   "cameraAngle": "eye-level, elements cropped by frame edges",
+   "perspective": "consistent with the 44% horizon",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "oxblood + walnut silhouettes",
+   "silhouetteRequirement": "edge silhouettes only",
+   "mobileReadabilityRequirement": "never competes with the grid",
+   "negativeSpace": "center transparency per composition",
+   "transparency": "magenta-key",
+   "resolution": "2048x1024",
+   "aspectRatio": "2048:1024",
+   "animationLayerRequirements": [
+    "transparent foreground layer"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + centered objects",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/env/feature-layer2.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.env.super_feature.layer0",
+   "assetCategory": "feature_env",
+   "purpose": "The Distillery (super_feature tier) environment, deepest layer (0 of 3, opaque): brick cellar vaults in copper glow",
+   "subject": "The Distillery cellar: copper stills and coiled pipes under vaulted stone, green glass carboys glowing, steam wisps",
+   "composition": "full-bleed opaque, horizon 44%, verdigris grade, dramatic pools of light",
+   "cameraAngle": "eye-level wide shot",
+   "perspective": "single vanishing point, horizon at 44% height",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "tier-super verdigris #4E8A6A + copper-brass",
+   "silhouetteRequirement": "n/a (environment)",
+   "mobileReadabilityRequirement": "value structure readable at 25% scale",
+   "negativeSpace": "per composition field",
+   "transparency": "opaque",
+   "resolution": "2048x1024",
+   "aspectRatio": "2048:1024",
+   "animationLayerRequirements": [
+    "opaque layer"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + industrial factory look",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "colour-grade to palette lock",
+    "QA seams at layer boundaries"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/env/super-feature-layer0.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.env.super_feature.layer1",
+   "assetCategory": "feature_env",
+   "purpose": "The Distillery environment, mid layer (1 of 3): copper stills and green-glass carboys on the working floor",
+   "subject": "Mid band of still-pipes, pressure dials and dripping condensers",
+   "composition": "horizontal band middle 55%, edge fade, central third calm",
+   "cameraAngle": "eye-level wide shot",
+   "perspective": "single vanishing point, horizon at 44% height",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "verdigris + brass, poison-green glow accents",
+   "silhouetteRequirement": "n/a (environment)",
+   "mobileReadabilityRequirement": "value structure readable at 25% scale",
+   "negativeSpace": "per composition field",
+   "transparency": "magenta-key",
+   "resolution": "2048x1024",
+   "aspectRatio": "2048:1024",
+   "animationLayerRequirements": [
+    "transparent band layer"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + readable gauge numerals",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/env/super-feature-layer1.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.env.super_feature.layer2",
+   "assetCategory": "foreground",
+   "purpose": "The Distillery environment, foreground occluder (2 of 3): copper piping and stair rail entering from the edges, centre fully transparent",
+   "subject": "Foreground barrel silhouette left, pipe column right, steam curl top corners",
+   "composition": "outer 15% edges + top 20%, center transparent",
+   "cameraAngle": "eye-level, elements cropped by frame edges",
+   "perspective": "consistent with the 44% horizon",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "bg-deep silhouettes + verdigris rims",
+   "silhouetteRequirement": "edge silhouettes only",
+   "mobileReadabilityRequirement": "never competes with the grid",
+   "negativeSpace": "center transparency per composition",
+   "transparency": "magenta-key",
+   "resolution": "2048x1024",
+   "aspectRatio": "2048:1024",
+   "animationLayerRequirements": [
+    "transparent foreground layer"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + centered steam",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/env/super-feature-layer2.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.env.ultimate_feature.layer0",
+   "assetCategory": "feature_env",
+   "purpose": "The Night Garden (ultimate_feature tier) environment, deepest layer (0 of 4, opaque): moonlit glass conservatory interior, rain on the roof panes",
+   "subject": "The Night Garden conservatory: moonlit glass-and-iron roof, blooming belladonna beds, mist over a reflecting pool",
+   "composition": "full-bleed opaque, horizon 44%, coldest palette, moon shafts through glass",
+   "cameraAngle": "eye-level wide shot",
+   "perspective": "single vanishing point, horizon at 44% height",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "moon-violet #9B7BC4 + moonlight #B9C7D9 over bg-deep",
+   "silhouetteRequirement": "n/a (environment)",
+   "mobileReadabilityRequirement": "value structure readable at 25% scale",
+   "negativeSpace": "per composition field",
+   "transparency": "opaque",
+   "resolution": "2048x1024",
+   "aspectRatio": "2048:1024",
+   "animationLayerRequirements": [
+    "opaque layer"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + daylight, sun",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "colour-grade to palette lock",
+    "QA seams at layer boundaries"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/env/ultimate-feature-layer0.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.env.ultimate_feature.layer1",
+   "assetCategory": "feature_env",
+   "purpose": "The Night Garden environment, mid layer (1 of 4): belladonna beds in bloom under moonlight",
+   "subject": "Band of hanging crystal prisms on brass chains catching moonlight",
+   "composition": "horizontal band upper-middle 40%, edge fade, prisms spaced rhythmically",
+   "cameraAngle": "eye-level wide shot",
+   "perspective": "single vanishing point, horizon at 44% height",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "moonlight + moon-violet, tiny in-palette spectra",
+   "silhouetteRequirement": "n/a (environment)",
+   "mobileReadabilityRequirement": "value structure readable at 25% scale",
+   "negativeSpace": "per composition field",
+   "transparency": "magenta-key",
+   "resolution": "2048x1024",
+   "aspectRatio": "2048:1024",
+   "animationLayerRequirements": [
+    "transparent band layer"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + chandeliers, rainbows",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/env/ultimate-feature-layer1.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.env.ultimate_feature.layer2",
+   "assetCategory": "feature_env",
+   "purpose": "The Night Garden environment, near layer (2 of 4): night-flowering foliage and planter urns flanking the cabinet",
+   "subject": "Mid band of belladonna vines and night blooms climbing iron ribs",
+   "composition": "horizontal band middle 45%, central third calm",
+   "cameraAngle": "eye-level wide shot",
+   "perspective": "single vanishing point, horizon at 44% height",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "belladonna violet + poison green foliage",
+   "silhouetteRequirement": "n/a (environment)",
+   "mobileReadabilityRequirement": "value structure readable at 25% scale",
+   "negativeSpace": "per composition field",
+   "transparency": "magenta-key",
+   "resolution": "2048x1024",
+   "aspectRatio": "2048:1024",
+   "animationLayerRequirements": [
+    "transparent band layer"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + roses, generic flowers",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/env/ultimate-feature-layer2.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.env.ultimate_feature.layer3",
+   "assetCategory": "foreground",
+   "purpose": "The Night Garden environment, foreground occluder (3 of 4): hanging prisms and vine tendrils from the glass roof, centre fully transparent",
+   "subject": "Foreground conservatory glazing bars and leaf clusters at edges, dew on glass",
+   "composition": "outer 12% edges + top 15%, center transparent",
+   "cameraAngle": "eye-level, elements cropped by frame edges",
+   "perspective": "consistent with the 44% horizon",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "iron-walnut silhouettes + moonlight rims",
+   "silhouetteRequirement": "edge silhouettes only",
+   "mobileReadabilityRequirement": "never competes with the grid",
+   "negativeSpace": "center transparency per composition",
+   "transparency": "magenta-key",
+   "resolution": "2048x1024",
+   "aspectRatio": "2048:1024",
+   "animationLayerRequirements": [
+    "transparent foreground layer"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + center content",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/env/ultimate-feature-layer3.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.frame.reel",
+   "assetCategory": "frame",
+   "purpose": "Reel cabinet frame: the brass-and-walnut apothecary cabinet face the 6x5 grid lives inside; inner opening exactly 6:5 and fully transparent",
+   "subject": "The apothecary cabinet face: 6x5 arrangement of open display niches in dark walnut with brass edging, subtle candle underglow along the inner sills",
+   "composition": "hollow rectangular cabinet; inner opening exactly 6:5 fully transparent; frame thickness ~7% per side",
+   "cameraAngle": "straight-on front view",
+   "perspective": "orthographic",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "walnut #5C4634 structure, brass #A98546 edging, playfield #1B1512 sills",
+   "silhouetteRequirement": "structural",
+   "mobileReadabilityRequirement": "inner opening boundaries crisp at 100%",
+   "negativeSpace": "inner opening fully transparent",
+   "transparency": "magenta-key",
+   "resolution": "1600x1200",
+   "aspectRatio": "1600:1200",
+   "animationLayerRequirements": [
+    "cabinet frame",
+    "sill glow strip (win-state layer)"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + ornate baroque gold frame, jewels",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/frame/reel-cabinet.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.frame.cell",
+   "assetCategory": "frame",
+   "purpose": "Grid cell backing: one walnut pigeonhole tile tiled behind every symbol position",
+   "subject": "A single empty cabinet niche: shallow walnut recess with brass corner pins",
+   "composition": "full-bleed single cell, subtle inner shadow, perfectly tileable",
+   "cameraAngle": "straight-on front view",
+   "perspective": "orthographic",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "playfield #1B1512 + walnut edges",
+   "silhouetteRequirement": "structural",
+   "mobileReadabilityRequirement": "inner opening boundaries crisp at 100%",
+   "negativeSpace": "inner opening fully transparent",
+   "transparency": "magenta-key",
+   "resolution": "512x512",
+   "aspectRatio": "512:512",
+   "animationLayerRequirements": [
+    "single sprite"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + strong vignette",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/frame/cell.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.frame.cell_win",
+   "assetCategory": "frame",
+   "purpose": "Grid cell win-highlight variant: the pigeonhole tile with candle-gold inner glow rim, shown under symbols in a winning set",
+   "subject": "The same niche lit by candle-gold underglow from the sill",
+   "composition": "identical geometry to the base cell, glow contained inside",
+   "cameraAngle": "straight-on front view",
+   "perspective": "orthographic",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "candle-gold #EFC75E glow over playfield",
+   "silhouetteRequirement": "structural",
+   "mobileReadabilityRequirement": "inner opening boundaries crisp at 100%",
+   "negativeSpace": "inner opening fully transparent",
+   "transparency": "magenta-key",
+   "resolution": "512x512",
+   "aspectRatio": "512:512",
+   "animationLayerRequirements": [
+    "single sprite"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + different geometry from base cell",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/frame/cell-win.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.ui.hud_vial",
+   "assetCategory": "ui",
+   "purpose": "Master vial HUD element: long-necked alembic that docks beside the cabinet during features and displays the banked multiplier P; layered vessel/fluid/glow for the fill animation",
+   "subject": "The Master Vial HUD element: tall graduated glass vessel in a brass stand, luminous essence fill visible, graduation marks as ticks (no numerals)",
+   "composition": "vertical element ~85% height, fill area clearly separable, tick marks abstract",
+   "cameraAngle": "straight-on",
+   "perspective": "orthographic, subtle 2 px top-light bevel",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "orb essence #A8C94E fill, brass stand, bone-cream ticks",
+   "silhouetteRequirement": "glyph readable as solid shape at 44 px",
+   "mobileReadabilityRequirement": "reads at 44x44 px touch size; zero text baked",
+   "negativeSpace": ">=6% transparent margin",
+   "transparency": "magenta-key",
+   "resolution": "512x1024",
+   "aspectRatio": "512:1024",
+   "animationLayerRequirements": [
+    "vessel",
+    "fill (engine-scaled layer)",
+    "glow"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + numerals on graduations",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/ui/hud-vial.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.ui.hud_dial",
+   "assetCategory": "ui",
+   "purpose": "Distillery pressure dial HUD element (super_feature only): brass gauge presenting P growth rate, pure presentation (GDD 9)",
+   "subject": "Distillery pressure dial: brass gauge with abstract tick arc and verdigris needle (no numerals)",
+   "composition": "circular dial centered ~88%, needle at 8 o'clock",
+   "cameraAngle": "straight-on",
+   "perspective": "orthographic, subtle 2 px top-light bevel",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "brass + verdigris needle",
+   "silhouetteRequirement": "glyph readable as solid shape at 44 px",
+   "mobileReadabilityRequirement": "reads at 44x44 px touch size; zero text baked",
+   "negativeSpace": ">=6% transparent margin",
+   "transparency": "magenta-key",
+   "resolution": "512x512",
+   "aspectRatio": "512:512",
+   "animationLayerRequirements": [
+    "dial face",
+    "needle (rotating layer)"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + readable numbers",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/ui/hud-dial.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.ui.hud_prismrail",
+   "assetCategory": "ui",
+   "purpose": "Prism rail HUD element (ultimate_feature only): horizontal brass rail of hanging prisms that light up per doubling event (GDD 10)",
+   "subject": "Prism rail: horizontal brass rail holding five small crystal prisms, sockets clearly separable",
+   "composition": "horizontal strip, five evenly spaced sockets, ends finialed",
+   "cameraAngle": "straight-on",
+   "perspective": "orthographic, subtle 2 px top-light bevel",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "brass rail + moon-violet prisms",
+   "silhouetteRequirement": "glyph readable as solid shape at 44 px",
+   "mobileReadabilityRequirement": "reads at 44x44 px touch size; zero text baked",
+   "negativeSpace": ">=6% transparent margin",
+   "transparency": "magenta-key",
+   "resolution": "1024x256",
+   "aspectRatio": "1024:256",
+   "animationLayerRequirements": [
+    "rail",
+    "per-prism lit variants"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + text",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/ui/hud-prism-rail.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.ui.btn_spin.normal",
+   "assetCategory": "ui",
+   "purpose": "Primary spin button, normal state (1 of 10 states per the step-7 UI spec); most-touched control; the other 9 states derive from this file via edit-image",
+   "subject": "Circular brass bellows-stopper button with a swirl-of-essence glyph embossed on a venom-amber glass face",
+   "composition": "perfect circle ~88%, concentric detail only (survives rotation), no text",
+   "cameraAngle": "straight-on",
+   "perspective": "orthographic, subtle 2 px top-light bevel",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "action venom-amber #D98E2B face (reserved hue), brass rim",
+   "silhouetteRequirement": "glyph readable as solid shape at 44 px",
+   "mobileReadabilityRequirement": "reads at 44x44 px touch size; zero text baked",
+   "negativeSpace": ">=6% transparent margin",
+   "transparency": "magenta-key",
+   "resolution": "512x512",
+   "aspectRatio": "512:512",
+   "animationLayerRequirements": [
+    "button base",
+    "glyph (state overlay)"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + letters, arrows",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/ui/btn-spin-normal.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.ui.btn_stop",
+   "assetCategory": "ui",
+   "purpose": "Stop / slam-stop button (jurisdiction-gated animationSkipEnabled); swaps into the spin button position during presentation",
+   "subject": "Square wax-stamp button: mulberry wax face with abstract stop-sigil, brass frame",
+   "composition": "rounded square ~84%, bold single glyph",
+   "cameraAngle": "straight-on",
+   "perspective": "orthographic, subtle 2 px top-light bevel",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "wax-mulberry face, brass frame",
+   "silhouetteRequirement": "glyph readable as solid shape at 44 px",
+   "mobileReadabilityRequirement": "reads at 44x44 px touch size; zero text baked",
+   "negativeSpace": ">=6% transparent margin",
+   "transparency": "magenta-key",
+   "resolution": "512x512",
+   "aspectRatio": "512:512",
+   "animationLayerRequirements": [
+    "single sprite"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + octagon traffic sign",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/ui/btn-stop.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.ui.btn_autoplay",
+   "assetCategory": "ui",
+   "purpose": "Autoplay button (jurisdiction-gated autoplayEnabled); opens the autoplay panel with counts and stop conditions",
+   "subject": "Brass hourglass button: small hourglass emblem on walnut roundel",
+   "composition": "circle ~84%, hourglass centered",
+   "cameraAngle": "straight-on",
+   "perspective": "orthographic, subtle 2 px top-light bevel",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "brass + walnut",
+   "silhouetteRequirement": "glyph readable as solid shape at 44 px",
+   "mobileReadabilityRequirement": "reads at 44x44 px touch size; zero text baked",
+   "negativeSpace": ">=6% transparent margin",
+   "transparency": "magenta-key",
+   "resolution": "512x512",
+   "aspectRatio": "512:512",
+   "animationLayerRequirements": [
+    "single sprite"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + clock faces with numbers",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/ui/btn-autoplay.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.ui.btn_bet",
+   "assetCategory": "ui",
+   "purpose": "Bet button: opens bet selection; paired in-engine +/- steppers reuse its ring",
+   "subject": "Balance-scale button: tiny brass scale with two weights on walnut roundel",
+   "composition": "circle ~84%",
+   "cameraAngle": "straight-on",
+   "perspective": "orthographic, subtle 2 px top-light bevel",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "brass + walnut",
+   "silhouetteRequirement": "glyph readable as solid shape at 44 px",
+   "mobileReadabilityRequirement": "reads at 44x44 px touch size; zero text baked",
+   "negativeSpace": ">=6% transparent margin",
+   "transparency": "magenta-key",
+   "resolution": "512x512",
+   "aspectRatio": "512:512",
+   "animationLayerRequirements": [
+    "single sprite"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + currency symbols",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/ui/btn-bet.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.ui.btn_buy",
+   "assetCategory": "ui",
+   "purpose": "Bonus-buy button (jurisdiction-gated bonusBuyEnabled); opens the buy menu; mutually exclusive with ante mode",
+   "subject": "Ornate brass key button on oxblood roundel (unlocks the chambers)",
+   "composition": "circle ~84%, key diagonal",
+   "cameraAngle": "straight-on",
+   "perspective": "orthographic, subtle 2 px top-light bevel",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "brass key, oxblood field",
+   "silhouetteRequirement": "glyph readable as solid shape at 44 px",
+   "mobileReadabilityRequirement": "reads at 44x44 px touch size; zero text baked",
+   "negativeSpace": ">=6% transparent margin",
+   "transparency": "magenta-key",
+   "resolution": "512x512",
+   "aspectRatio": "512:512",
+   "animationLayerRequirements": [
+    "single sprite"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + padlocks with keyholes reading as security icons",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/ui/btn-buy.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.ui.btn_ante",
+   "assetCategory": "ui",
+   "purpose": "The Patron's Ante toggle (jurisdiction-gated enhancedChanceEnabled); 1.25x stake for ~1.6x seal frequency; toggled state derives via edit-image",
+   "subject": "Raised goblet button: small lifted tasting-goblet emblem on verdigris roundel",
+   "composition": "circle ~84%",
+   "cameraAngle": "straight-on",
+   "perspective": "orthographic, subtle 2 px top-light bevel",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "brass goblet, verdigris field",
+   "silhouetteRequirement": "glyph readable as solid shape at 44 px",
+   "mobileReadabilityRequirement": "reads at 44x44 px touch size; zero text baked",
+   "negativeSpace": ">=6% transparent margin",
+   "transparency": "magenta-key",
+   "resolution": "512x512",
+   "aspectRatio": "512:512",
+   "animationLayerRequirements": [
+    "single sprite"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + wine branding",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/ui/btn-ante.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.ui.btn_settings",
+   "assetCategory": "ui",
+   "purpose": "Settings button: opens settings overlay (sound, spin modes, reduced motion, history, rules, RTP display)",
+   "subject": "Mortar-and-pestle button on walnut roundel",
+   "composition": "circle ~84%",
+   "cameraAngle": "straight-on",
+   "perspective": "orthographic, subtle 2 px top-light bevel",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "bone-cream mortar, walnut field",
+   "silhouetteRequirement": "glyph readable as solid shape at 44 px",
+   "mobileReadabilityRequirement": "reads at 44x44 px touch size; zero text baked",
+   "negativeSpace": ">=6% transparent margin",
+   "transparency": "magenta-key",
+   "resolution": "512x512",
+   "aspectRatio": "512:512",
+   "animationLayerRequirements": [
+    "single sprite"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + gear icons",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/ui/btn-settings.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.ui.ind_spinmode",
+   "assetCategory": "ui",
+   "purpose": "Spin-mode indicator badge (normal/quick/turbo, jurisdiction-gated): small engraved plate whose glyph and tint the engine swaps",
+   "subject": "Spin-mode indicator: three candles of increasing lean/flame (calm, brisk, racing)",
+   "composition": "horizontal strip, three clearly separable candle states",
+   "cameraAngle": "straight-on",
+   "perspective": "orthographic, subtle 2 px top-light bevel",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "candle-gold flames, brass holders",
+   "silhouetteRequirement": "glyph readable as solid shape at 44 px",
+   "mobileReadabilityRequirement": "reads at 44x44 px touch size; zero text baked",
+   "negativeSpace": ">=6% transparent margin",
+   "transparency": "magenta-key",
+   "resolution": "512x256",
+   "aspectRatio": "512:256",
+   "animationLayerRequirements": [
+    "three state variants in one sheet"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + text labels",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/ui/ind-spinmode.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.ui.panel_hud",
+   "assetCategory": "ui",
+   "purpose": "HUD panel 9-slice: walnut plate with brass fillet behind balance/bet/win readouts; slice insets recorded here at pack time (free packer emits none)",
+   "subject": "HUD tray: low walnut tray with brass inlay line, subtle parchment inset zones for engine text",
+   "composition": "horizontal panel, calm surfaces, clear inset zones",
+   "cameraAngle": "straight-on",
+   "perspective": "orthographic, subtle 2 px top-light bevel",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "walnut + brass line, parchment insets",
+   "silhouetteRequirement": "glyph readable as solid shape at 44 px",
+   "mobileReadabilityRequirement": "reads at 44x44 px touch size; zero text baked",
+   "negativeSpace": ">=6% transparent margin",
+   "transparency": "magenta-key",
+   "resolution": "1024x512",
+   "aspectRatio": "1024:512",
+   "animationLayerRequirements": [
+    "9-slice safe"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + baked labels",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/ui/panel-hud.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.ui.panel_overlay",
+   "assetCategory": "ui",
+   "purpose": "Overlay/menu panel 9-slice: larger walnut-and-brass plate for paytable, rules, settings, autoplay and summary overlays",
+   "subject": "Overlay panel: parchment ledger page mounted on walnut board with brass corners",
+   "composition": "vertical panel, generous empty parchment field",
+   "cameraAngle": "straight-on",
+   "perspective": "orthographic, subtle 2 px top-light bevel",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "parchment bone-cream + walnut + brass",
+   "silhouetteRequirement": "glyph readable as solid shape at 44 px",
+   "mobileReadabilityRequirement": "reads at 44x44 px touch size; zero text baked",
+   "negativeSpace": ">=6% transparent margin",
+   "transparency": "magenta-key",
+   "resolution": "1024x1024",
+   "aspectRatio": "1024:1024",
+   "animationLayerRequirements": [
+    "9-slice safe"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + handwriting, text",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/ui/panel-overlay.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.winplate.big",
+   "assetCategory": "ui",
+   "purpose": "BIG WIN ornamental plate (win >= 15x bet); localized tier word + numerals render in-engine over it; mega/epic/max derive from this file with escalating treatments",
+   "subject": "BIG win plate: blown-glass ribbon flourish over a brass bar, ember-like candle sparks \u2014 abstract celebratory shapes only, empty lower zone for the engine numeral",
+   "composition": "horizontal 2:1 plate, flourish centered, lower third calm and empty",
+   "cameraAngle": "straight-on",
+   "perspective": "orthographic, subtle 2 px top-light bevel",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "candle-gold + amber, brass bar",
+   "silhouetteRequirement": "glyph readable as solid shape at 44 px",
+   "mobileReadabilityRequirement": "reads at 44x44 px touch size; zero text baked",
+   "negativeSpace": ">=6% transparent margin",
+   "transparency": "magenta-key",
+   "resolution": "1024x512",
+   "aspectRatio": "1024:512",
+   "animationLayerRequirements": [
+    "plate",
+    "spark layer"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + words, letters, coins",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/winplates/big.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.winplate.mega",
+   "assetCategory": "ui",
+   "purpose": "MEGA WIN ornamental plate (win >= 40x bet); derived from img.winplate.big with richer brass flourish and essence spill",
+   "subject": "MEGA win plate: doubled glass ribbons with poured-essence arcs, denser sparks",
+   "composition": "as big-plate with taller flourish, lower third empty",
+   "cameraAngle": "straight-on",
+   "perspective": "orthographic, subtle 2 px top-light bevel",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "candle-gold + poison green arcs",
+   "silhouetteRequirement": "glyph readable as solid shape at 44 px",
+   "mobileReadabilityRequirement": "reads at 44x44 px touch size; zero text baked",
+   "negativeSpace": ">=6% transparent margin",
+   "transparency": "magenta-key",
+   "resolution": "1024x512",
+   "aspectRatio": "1024:512",
+   "animationLayerRequirements": [
+    "plate",
+    "spark layer"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + words",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/winplates/mega.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.winplate.epic",
+   "assetCategory": "ui",
+   "purpose": "EPIC WIN ornamental plate (win >= 80x bet); derived from img.winplate.mega with prism-light refractions joining the flourish",
+   "subject": "EPIC win plate: triple ribbon vortex with prism glints, richest of the set",
+   "composition": "vertical energy, still leaves lower third empty",
+   "cameraAngle": "straight-on",
+   "perspective": "orthographic, subtle 2 px top-light bevel",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "candle-gold + moon-violet glints",
+   "silhouetteRequirement": "glyph readable as solid shape at 44 px",
+   "mobileReadabilityRequirement": "reads at 44x44 px touch size; zero text baked",
+   "negativeSpace": ">=6% transparent margin",
+   "transparency": "magenta-key",
+   "resolution": "1024x512",
+   "aspectRatio": "1024:512",
+   "animationLayerRequirements": [
+    "plate",
+    "spark layer"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + words",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/winplates/epic.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.winplate.max",
+   "assetCategory": "ui",
+   "purpose": "MAX WIN plate (10,000x cap; non-skippable amount plate per motion spec); the overflowing master vial crowns the flourish; house-lights treatment",
+   "subject": "MAX WIN plate: the Master Vial overflowing, essence flooding over brass, house lights blazing",
+   "composition": "vial centerpiece, radial overflow, lower third empty",
+   "cameraAngle": "straight-on",
+   "perspective": "orthographic, subtle 2 px top-light bevel",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "full warm palette, essence + candle-gold dominant",
+   "silhouetteRequirement": "glyph readable as solid shape at 44 px",
+   "mobileReadabilityRequirement": "reads at 44x44 px touch size; zero text baked",
+   "negativeSpace": ">=6% transparent margin",
+   "transparency": "magenta-key",
+   "resolution": "1024x512",
+   "aspectRatio": "1024:512",
+   "animationLayerRequirements": [
+    "plate",
+    "overflow layer"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + words",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/winplates/max.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.ui.buymenu",
+   "assetCategory": "ui",
+   "purpose": "Feature-buy menu backdrop: the appointment ledger composition presenting the three chamber purchases (buy_feature 42.10x / buy_super 91.70x / buy_ultimate 167.70x, per-mode RTP disclosed per GDD \u00a713); prices and labels render in-engine",
+   "subject": "The Chamber Doors buy screen: three arched doors side by side \u2014 velvet parlour door (amber), iron cellar door (verdigris), glass conservatory door (moon-violet), each with an empty brass price plaque",
+   "composition": "three equal vertical door panels, plaques empty for engine text, calm header zone",
+   "cameraAngle": "straight-on",
+   "perspective": "orthographic, subtle 2 px top-light bevel",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "tier hues per door over bg-deep",
+   "silhouetteRequirement": "glyph readable as solid shape at 44 px",
+   "mobileReadabilityRequirement": "reads at 44x44 px touch size; zero text baked",
+   "negativeSpace": ">=6% transparent margin",
+   "transparency": "opaque",
+   "resolution": "2048x1152",
+   "aspectRatio": "2048:1152",
+   "animationLayerRequirements": [
+    "three door panels separable"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + text on plaques",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "colour-grade to palette lock",
+    "QA seams at layer boundaries"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/ui/buymenu.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.meta.splash",
+   "assetCategory": "splash",
+   "purpose": "Splash/loading screen: the parlour shopfront at midnight, logo area reserved top-centre, loading-bar zone calm at bottom; portrait-safe central composition",
+   "subject": "Splash: the parlour shopfront at midnight in the rain \u2014 glowing mullioned window full of bottles, brass sign bracket with an EMPTY hanging sign, wet cobbles reflecting candlelight; calm dark upper third reserved for the logo",
+   "composition": "16:9, vertical thirds, key elements in central 50% (safe portrait crop), sign deliberately blank",
+   "cameraAngle": "low hero angle",
+   "perspective": "single vanishing point",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "bg-deep night + candle-gold window + moonlight rain",
+   "silhouetteRequirement": "n/a",
+   "mobileReadabilityRequirement": "key elements inside central 50% (portrait crop safe)",
+   "negativeSpace": "logo zone kept calm",
+   "transparency": "opaque",
+   "resolution": "2048x1152",
+   "aspectRatio": "2048:1152",
+   "animationLayerRequirements": [
+    "opaque"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + any signage text, people",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "colour-grade to palette lock",
+    "QA seams at layer boundaries"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/meta/splash.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.meta.icon",
+   "assetCategory": "icon",
+   "purpose": "Game icon (1:1): the Parlour Seal pressed in wax over the amethyst philtre, readable at 64 px lobby size",
+   "subject": "Game icon: the H1 amethyst Belladonna Philtre emblem tight-cropped on bg-deep rounded square",
+   "composition": "single bottle filling ~85%, instantly readable at 64px",
+   "cameraAngle": "straight-on",
+   "perspective": "orthographic",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "belladonna violet + brass on bg-deep",
+   "silhouetteRequirement": "reads at 64 px",
+   "mobileReadabilityRequirement": "reads at 64 px",
+   "negativeSpace": "8% margin",
+   "transparency": "opaque",
+   "resolution": "1024x1024",
+   "aspectRatio": "1024:1024",
+   "animationLayerRequirements": [
+    "opaque"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + text",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "colour-grade to palette lock",
+    "QA seams at layer boundaries"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/meta/icon.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.meta.thumbnail",
+   "assetCategory": "thumbnail",
+   "purpose": "Lobby thumbnail (16:9): master vial and premium bottles on the parlour counter, title area reserved left third; no baked text",
+   "subject": "Thumbnail: master vial and three potion bottles arranged on the parlour counter, candle-lit, upper-left quiet zone for logo overlay",
+   "composition": "16:9, subjects right-of-center, quiet upper-left",
+   "cameraAngle": "three-quarter still-life",
+   "perspective": "shallow",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "full palette, warm key",
+   "silhouetteRequirement": "n/a",
+   "mobileReadabilityRequirement": "reads at 25% scale",
+   "negativeSpace": "quiet logo zone upper-left",
+   "transparency": "opaque",
+   "resolution": "2048x1152",
+   "aspectRatio": "2048:1152",
+   "animationLayerRequirements": [
+    "opaque"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + text",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "colour-grade to palette lock",
+    "QA seams at layer boundaries"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/meta/thumbnail.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.vfx.shard",
+   "assetCategory": "vfx",
+   "purpose": "Glass-shard particle sheet (6 faceted shard shapes on one canvas) for cascade shatter (sfx.cascade.shatter companion); grayscale-for-tint so shards echo the broken bottle's hue",
+   "subject": "Glass shard sprite sheet: 8 distinct poison-glass shards in a 4x2 grid, crisp edges, faint inner glow",
+   "composition": "8 cells, each shard centered in its cell, generous spacing",
+   "cameraAngle": "straight-on",
+   "perspective": "flat",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "mixed glass hues per palette, subtle essence glow",
+   "silhouetteRequirement": "single-element silhouette, additive-blend friendly",
+   "mobileReadabilityRequirement": "reads at 32 px",
+   "negativeSpace": "generous transparent surround",
+   "transparency": "magenta-key",
+   "resolution": "1024x1024",
+   "aspectRatio": "1024:1024",
+   "animationLayerRequirements": [
+    "8-cell sheet"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + overlapping shards",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/vfx/shard-sheet.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.vfx.essence",
+   "assetCategory": "vfx",
+   "purpose": "Essence droplet/stream texture for orb collect and vial pours (anim.orb.collect / anim.orb.apply); hard core with 2 px falloff, tinted in-engine from the orb token",
+   "subject": "Essence stream blob: a single luminous chartreuse liquid streak with tapered tail, additive-blend friendly",
+   "composition": "single element centered, soft core hard silhouette",
+   "cameraAngle": "straight-on",
+   "perspective": "flat",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "orb essence #A8C94E",
+   "silhouetteRequirement": "single-element silhouette, additive-blend friendly",
+   "mobileReadabilityRequirement": "reads at 32 px",
+   "negativeSpace": "generous transparent surround",
+   "transparency": "magenta-key",
+   "resolution": "512x512",
+   "aspectRatio": "512:512",
+   "animationLayerRequirements": [
+    "single sprite"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + smoke, fire",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/vfx/essence.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.vfx.prism",
+   "assetCategory": "vfx",
+   "purpose": "Prism caustic streak texture for The Prisming (anim.ultimate_feature.prisming); thin refracted light bar, grayscale-for-tint",
+   "subject": "Prism caustic star: crossed light caustic with tiny in-palette spectral fringes",
+   "composition": "single element centered ~80%",
+   "cameraAngle": "straight-on",
+   "perspective": "flat",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "moonlight + moon-violet fringes",
+   "silhouetteRequirement": "single-element silhouette, additive-blend friendly",
+   "mobileReadabilityRequirement": "reads at 32 px",
+   "negativeSpace": "generous transparent surround",
+   "transparency": "magenta-key",
+   "resolution": "512x512",
+   "aspectRatio": "512:512",
+   "animationLayerRequirements": [
+    "single sprite"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + lens flare rings",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/vfx/prism-caustic.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.vfx.mote",
+   "assetCategory": "vfx",
+   "purpose": "Dust-mote/ember particle texture for candle-shaft ambience and the feature/super entry bursts; grayscale-for-tint",
+   "subject": "Dust mote / candle spark: tiny soft glowing dot with faint tail",
+   "composition": "single small element centered",
+   "cameraAngle": "straight-on",
+   "perspective": "flat",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "candle-gold",
+   "silhouetteRequirement": "single-element silhouette, additive-blend friendly",
+   "mobileReadabilityRequirement": "reads at 32 px",
+   "negativeSpace": "generous transparent surround",
+   "transparency": "magenta-key",
+   "resolution": "512x512",
+   "aspectRatio": "512:512",
+   "animationLayerRequirements": [
+    "single sprite"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + bokeh discs",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/vfx/mote.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  },
+  {
+   "assetId": "img.vfx.petal",
+   "assetCategory": "vfx",
+   "purpose": "Belladonna petal particle texture for the Night Garden entry burst and idle petal-fall (ultimate_feature only); violet-hued family exception to grayscale",
+   "subject": "Belladonna petal: single dark violet petal, slight curl",
+   "composition": "single element centered ~70%",
+   "cameraAngle": "straight-on",
+   "perspective": "flat",
+   "lighting": "warm candle key lower-left, cold moonlight rim upper-right (style anchor); tier grade per palette role",
+   "materials": "poison glass / tarnished brass / dark walnut family per subject",
+   "paletteRole": "belladonna violet, moonlight rim",
+   "silhouetteRequirement": "single-element silhouette, additive-blend friendly",
+   "mobileReadabilityRequirement": "reads at 32 px",
+   "negativeSpace": "generous transparent surround",
+   "transparency": "magenta-key",
+   "resolution": "512x512",
+   "aspectRatio": "512:512",
+   "animationLayerRequirements": [
+    "single sprite"
+   ],
+   "consistencyReference": "derive style from img.symbol.h1 via edit-image with the hero as source",
+   "negativePrompt": "<negativeAnchor> + cherry blossom",
+   "prohibitedContent": [
+    "protected characters/logos",
+    "celebrity likeness",
+    "existing slot symbol copies",
+    "living-artist style imitation",
+    "readable text of any kind",
+    "child-appealing mascots",
+    "candy-gradient trade dress",
+    "deity-portrait composition"
+   ],
+   "manualCleanup": [
+    "chroma-key magenta tol 0.12",
+    "despill edge pixels",
+    "defringe 1-2 px",
+    "alpha-threshold strays",
+    "QA at 200-400% zoom on light+dark backdrops"
+   ],
+   "exportFormat": "png (source of truth) -> WebP transport -> atlas per atlasGroup",
+   "fileName": "art/vfx/petal.png",
+   "provenance": {
+    "generator": "imagegen-mcp",
+    "model": "<record at generation>",
+    "seed": "<record>",
+    "generatedAt": "<record>",
+    "license": "generated in-run; original work, no third-party IP"
+   }
+  }
+ ]
+}

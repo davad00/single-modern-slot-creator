@@ -1,0 +1,1028 @@
+{
+  "events": [
+    {
+      "eventId": "music.base",
+      "file": "music/base.ogg",
+      "format": "ogg",
+      "sampleRateHz": 44100,
+      "bitrateKbps": 160,
+      "durationMs": 96000,
+      "loop": {
+        "enabled": true,
+        "startMs": 0,
+        "endMs": 96000
+      },
+      "priority": 50,
+      "polyphonyLimit": 1,
+      "volumeDb": -6,
+      "loudnessLufsTarget": -16,
+      "ducking": {
+        "ducks": [],
+        "amountDb": 0,
+        "attackMs": 0,
+        "releaseMs": 0
+      },
+      "interruptBehavior": "crossfade",
+      "mobileFallback": {
+        "file": "music/base.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": null,
+      "generationPrompt": {
+        "tool": "stable-audio-2.5",
+        "prompt": "Warm industrial-fantasy underscore for a molten glassworks: hammered dulcimer, low tuned percussion, soft furnace-drone pads, glass chimes; patient and hypnotic; seamless loop.",
+        "bpm": 96,
+        "key": "Am"
+      }
+    },
+    {
+      "eventId": "music.feature",
+      "file": "music/feature.ogg",
+      "format": "ogg",
+      "sampleRateHz": 44100,
+      "bitrateKbps": 160,
+      "durationMs": 80000,
+      "loop": {
+        "enabled": true,
+        "startMs": 0,
+        "endMs": 80000
+      },
+      "priority": 55,
+      "polyphonyLimit": 1,
+      "volumeDb": -6,
+      "loudnessLufsTarget": -16,
+      "ducking": {
+        "ducks": [],
+        "amountDb": 0,
+        "attackMs": 0,
+        "releaseMs": 0
+      },
+      "interruptBehavior": "crossfade",
+      "mobileFallback": {
+        "file": "music/feature.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": null,
+      "generationPrompt": {
+        "tool": "stable-audio-2.5",
+        "prompt": "Kindled Spins layer: base theme plus driving frame-drum groove, brighter dulcimer arpeggios and rising ember shimmer; determined energy; same key/tempo family as the base loop; seamless loop.",
+        "bpm": 96,
+        "key": "Am"
+      }
+    },
+    {
+      "eventId": "music.super_feature",
+      "file": "music/super-feature.ogg",
+      "format": "ogg",
+      "sampleRateHz": 44100,
+      "bitrateKbps": 160,
+      "durationMs": 80000,
+      "loop": {
+        "enabled": true,
+        "startMs": 0,
+        "endMs": 80000
+      },
+      "priority": 60,
+      "polyphonyLimit": 1,
+      "volumeDb": -6,
+      "loudnessLufsTarget": -15,
+      "ducking": {
+        "ducks": [],
+        "amountDb": 0,
+        "attackMs": 0,
+        "releaseMs": 0
+      },
+      "interruptBehavior": "crossfade",
+      "mobileFallback": {
+        "file": "music/super-feature.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": null,
+      "generationPrompt": {
+        "tool": "stable-audio-2.5",
+        "prompt": "Roaring Kiln layer: heavy anvil hits, choir-of-bellows swells, urgent string ostinato over the base groove; forge at full blast; same key/tempo family; seamless loop.",
+        "bpm": 96,
+        "key": "Am"
+      }
+    },
+    {
+      "eventId": "music.ultimate_feature",
+      "file": "music/ultimate-feature.ogg",
+      "format": "ogg",
+      "sampleRateHz": 44100,
+      "bitrateKbps": 160,
+      "durationMs": 80000,
+      "loop": {
+        "enabled": true,
+        "startMs": 0,
+        "endMs": 80000
+      },
+      "priority": 65,
+      "polyphonyLimit": 1,
+      "volumeDb": -5,
+      "loudnessLufsTarget": -15,
+      "ducking": {
+        "ducks": [],
+        "amountDb": 0,
+        "attackMs": 0,
+        "releaseMs": 0
+      },
+      "interruptBehavior": "crossfade",
+      "mobileFallback": {
+        "file": "music/ultimate-feature.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": null,
+      "generationPrompt": {
+        "tool": "stable-audio-2.5",
+        "prompt": "Starfire Crown layer: full orchestral-hybrid peak with soaring brass, cascading glass-harp runs and thunderous drums; triumphant, incandescent; same key/tempo family; seamless loop.",
+        "bpm": 96,
+        "key": "Am"
+      }
+    },
+    {
+      "eventId": "amb.forge",
+      "file": "amb/forge.ogg",
+      "format": "ogg",
+      "sampleRateHz": 44100,
+      "bitrateKbps": 160,
+      "durationMs": 60000,
+      "loop": {
+        "enabled": true,
+        "startMs": 0,
+        "endMs": 60000
+      },
+      "priority": 20,
+      "polyphonyLimit": 1,
+      "volumeDb": -14,
+      "loudnessLufsTarget": -28,
+      "ducking": {
+        "ducks": [],
+        "amountDb": 0,
+        "attackMs": 0,
+        "releaseMs": 0
+      },
+      "interruptBehavior": "ignore",
+      "mobileFallback": {
+        "file": "amb/forge.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "pause",
+      "reducedSensoryBehavior": "mute",
+      "associatedAnimationEvent": null,
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Distant glass furnace room tone: soft roaring kiln, occasional glass tinkles and metal creaks, low air rumble, no melody, smooth loop."
+      }
+    },
+    {
+      "eventId": "sfx.reel.spin_loop",
+      "file": "sfx/reel-spin-loop.ogg",
+      "format": "ogg",
+      "sampleRateHz": 44100,
+      "bitrateKbps": 160,
+      "durationMs": 1400,
+      "loop": {
+        "enabled": true,
+        "startMs": 0,
+        "endMs": 1400
+      },
+      "priority": 40,
+      "polyphonyLimit": 1,
+      "volumeDb": -10,
+      "loudnessLufsTarget": -20,
+      "ducking": {
+        "ducks": [],
+        "amountDb": 0,
+        "attackMs": 0,
+        "releaseMs": 0
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx/reel-spin-loop.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "continue",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.reel.spin_start",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Continuous soft mechanical whir of five spinning glass-and-brass reels, airy ticks, dry, loopable."
+      }
+    },
+    {
+      "eventId": "sfx.reel.stop",
+      "file": "sfx/reel-stop.ogg",
+      "format": "ogg",
+      "sampleRateHz": 44100,
+      "bitrateKbps": 160,
+      "durationMs": 300,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 300
+      },
+      "priority": 60,
+      "polyphonyLimit": 5,
+      "volumeDb": -6,
+      "loudnessLufsTarget": -18,
+      "ducking": {
+        "ducks": [
+          "music.*"
+        ],
+        "amountDb": -3,
+        "attackMs": 120,
+        "releaseMs": 500
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx/reel-stop.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "continue",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.reel.stop",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Slot reel stop: solid brass thunk with a short glass clink, tight and dry, no reverb tail."
+      }
+    },
+    {
+      "eventId": "sfx.scatter.land_1",
+      "file": "sfx/scatter-land-1.ogg",
+      "format": "ogg",
+      "sampleRateHz": 44100,
+      "bitrateKbps": 160,
+      "durationMs": 700,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 700
+      },
+      "priority": 80,
+      "polyphonyLimit": 1,
+      "volumeDb": -4,
+      "loudnessLufsTarget": -16,
+      "ducking": {
+        "ducks": [
+          "music.*"
+        ],
+        "amountDb": -6,
+        "attackMs": 120,
+        "releaseMs": 500
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx/scatter-land-1.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "continue",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.scatter.land",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "First Kiln Sigil scatter stinger: single struck glass bell with warm furnace whoosh, medium pitch, dry tail."
+      }
+    },
+    {
+      "eventId": "sfx.scatter.land_2",
+      "file": "sfx/scatter-land-2.ogg",
+      "format": "ogg",
+      "sampleRateHz": 44100,
+      "bitrateKbps": 160,
+      "durationMs": 800,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 800
+      },
+      "priority": 82,
+      "polyphonyLimit": 1,
+      "volumeDb": -4,
+      "loudnessLufsTarget": -16,
+      "ducking": {
+        "ducks": [
+          "music.*"
+        ],
+        "amountDb": -6,
+        "attackMs": 120,
+        "releaseMs": 500
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx/scatter-land-2.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "continue",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.scatter.land",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Second scatter stinger: two-note rising glass bell motif over a swelling ember crackle, a third higher than stinger one, more urgent."
+      }
+    },
+    {
+      "eventId": "sfx.scatter.land_3",
+      "file": "sfx/scatter-land-3.ogg",
+      "format": "ogg",
+      "sampleRateHz": 44100,
+      "bitrateKbps": 160,
+      "durationMs": 1000,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 1000
+      },
+      "priority": 85,
+      "polyphonyLimit": 1,
+      "volumeDb": -3,
+      "loudnessLufsTarget": -15,
+      "ducking": {
+        "ducks": [
+          "music.*"
+        ],
+        "amountDb": -9,
+        "attackMs": 120,
+        "releaseMs": 500
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx/scatter-land-3.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "continue",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.scatter.land",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Third scatter stinger: triumphant three-note glass bell fanfare with deep kiln boom and bright spark burst, resolving upward; the trigger moment."
+      }
+    },
+    {
+      "eventId": "sfx.scatter.anticipation",
+      "file": "sfx/scatter-anticipation.ogg",
+      "format": "ogg",
+      "sampleRateHz": 44100,
+      "bitrateKbps": 160,
+      "durationMs": 1200,
+      "loop": {
+        "enabled": true,
+        "startMs": 0,
+        "endMs": 1200
+      },
+      "priority": 75,
+      "polyphonyLimit": 1,
+      "volumeDb": -8,
+      "loudnessLufsTarget": -18,
+      "ducking": {
+        "ducks": [
+          "music.*"
+        ],
+        "amountDb": -4,
+        "attackMs": 120,
+        "releaseMs": 500
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx/scatter-anticipation.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "continue",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.scatter.anticipation",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Rising tension shimmer: bowed glass drone crescendo with accelerating ember ticks, loopable while the last reels spin."
+      }
+    },
+    {
+      "eventId": "sfx.cascade.remove",
+      "file": "sfx/cascade-remove.ogg",
+      "format": "ogg",
+      "sampleRateHz": 44100,
+      "bitrateKbps": 160,
+      "durationMs": 350,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 350
+      },
+      "priority": 55,
+      "polyphonyLimit": 4,
+      "volumeDb": -8,
+      "loudnessLufsTarget": -18,
+      "ducking": {
+        "ducks": [],
+        "amountDb": 0,
+        "attackMs": 0,
+        "releaseMs": 0
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx/cascade-remove.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "continue",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.cascade.remove",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Winning glass symbols shattering into soft molten sparks, crisp crystalline break, no harsh edge, dry."
+      }
+    },
+    {
+      "eventId": "sfx.cascade.refill",
+      "file": "sfx/cascade-refill.ogg",
+      "format": "ogg",
+      "sampleRateHz": 44100,
+      "bitrateKbps": 160,
+      "durationMs": 400,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 400
+      },
+      "priority": 50,
+      "polyphonyLimit": 4,
+      "volumeDb": -9,
+      "loudnessLufsTarget": -19,
+      "ducking": {
+        "ducks": [],
+        "amountDb": 0,
+        "attackMs": 0,
+        "releaseMs": 0
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx/cascade-refill.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "continue",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.cascade.refill",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "New glass symbols dropping into place: quick sequence of soft glass taps landing bottom-up, light and playful, dry."
+      }
+    },
+    {
+      "eventId": "sfx.cascade.multiplier",
+      "file": "sfx/cascade-multiplier.ogg",
+      "format": "ogg",
+      "sampleRateHz": 44100,
+      "bitrateKbps": 160,
+      "durationMs": 500,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 500
+      },
+      "priority": 65,
+      "polyphonyLimit": 2,
+      "volumeDb": -6,
+      "loudnessLufsTarget": -17,
+      "ducking": {
+        "ducks": [
+          "music.*"
+        ],
+        "amountDb": -4,
+        "attackMs": 120,
+        "releaseMs": 500
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx/cascade-multiplier.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "continue",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.cascade.multiplier",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Multiplier step-up chime: bright ascending two-note glass harp pluck with a warm furnace pulse underneath."
+      }
+    },
+    {
+      "eventId": "sfx.win.medium",
+      "file": "sfx/win-medium.ogg",
+      "format": "ogg",
+      "sampleRateHz": 44100,
+      "bitrateKbps": 160,
+      "durationMs": 1400,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 1400
+      },
+      "priority": 70,
+      "polyphonyLimit": 1,
+      "volumeDb": -5,
+      "loudnessLufsTarget": -16,
+      "ducking": {
+        "ducks": [
+          "music.*"
+        ],
+        "amountDb": -6,
+        "attackMs": 120,
+        "releaseMs": 500
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx/win-medium.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "continue",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.win.medium",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Medium win tune: short cheerful glass-marimba phrase with warm brass tail, satisfying but restrained."
+      }
+    },
+    {
+      "eventId": "sfx.win.big",
+      "file": "sfx/win-big.ogg",
+      "format": "ogg",
+      "sampleRateHz": 44100,
+      "bitrateKbps": 160,
+      "durationMs": 2400,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 2400
+      },
+      "priority": 80,
+      "polyphonyLimit": 1,
+      "volumeDb": -4,
+      "loudnessLufsTarget": -15,
+      "ducking": {
+        "ducks": [
+          "music.*"
+        ],
+        "amountDb": -9,
+        "attackMs": 120,
+        "releaseMs": 500
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx/win-big.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "continue",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.win.big",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Big win fanfare: bold brass-and-glass-harp flourish with kiln-boom accent and sparkling tail, celebratory."
+      }
+    },
+    {
+      "eventId": "sfx.win.mega",
+      "file": "sfx/win-mega.ogg",
+      "format": "ogg",
+      "sampleRateHz": 44100,
+      "bitrateKbps": 160,
+      "durationMs": 3400,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 3400
+      },
+      "priority": 85,
+      "polyphonyLimit": 1,
+      "volumeDb": -3,
+      "loudnessLufsTarget": -14,
+      "ducking": {
+        "ducks": [
+          "music.*"
+        ],
+        "amountDb": -12,
+        "attackMs": 120,
+        "releaseMs": 500
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx/win-mega.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "continue",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.win.mega",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Mega win fanfare: longer, higher brass fanfare with rolling percussion, cascading glass runs and crowd-of-bells finale."
+      }
+    },
+    {
+      "eventId": "sfx.win.epic",
+      "file": "sfx/win-epic.ogg",
+      "format": "ogg",
+      "sampleRateHz": 44100,
+      "bitrateKbps": 160,
+      "durationMs": 4600,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 4600
+      },
+      "priority": 90,
+      "polyphonyLimit": 1,
+      "volumeDb": -3,
+      "loudnessLufsTarget": -14,
+      "ducking": {
+        "ducks": [
+          "music.*"
+        ],
+        "amountDb": -60,
+        "attackMs": 120,
+        "releaseMs": 500
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx/win-epic.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "continue",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.win.epic",
+      "generationPrompt": {
+        "tool": "stable-audio-2.5",
+        "prompt": "Epic win celebration piece that takes over the music bus: soaring orchestral-hybrid theme with glass-harp cascades, huge drums and triumphant final chord.",
+        "bpm": 96,
+        "key": "Am"
+      }
+    },
+    {
+      "eventId": "sfx.win.max",
+      "file": "sfx/win-max.ogg",
+      "format": "ogg",
+      "sampleRateHz": 44100,
+      "bitrateKbps": 160,
+      "durationMs": 6000,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 6000
+      },
+      "priority": 100,
+      "polyphonyLimit": 1,
+      "volumeDb": -2,
+      "loudnessLufsTarget": -14,
+      "ducking": {
+        "ducks": [
+          "music.*"
+        ],
+        "amountDb": -60,
+        "attackMs": 120,
+        "releaseMs": 500
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx/win-max.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "continue",
+      "reducedSensoryBehavior": "unchanged",
+      "associatedAnimationEvent": "anim.win.max",
+      "generationPrompt": {
+        "tool": "stable-audio-2.5",
+        "prompt": "Maximum win anthem, uninterruptible: the game's full theme at maximum intensity with star-burst glass shimmer, deep kiln detonation and a long radiant outro.",
+        "bpm": 96,
+        "key": "Am"
+      }
+    },
+    {
+      "eventId": "sfx.win.countup_loop",
+      "file": "sfx/win-countup-loop.ogg",
+      "format": "ogg",
+      "sampleRateHz": 44100,
+      "bitrateKbps": 160,
+      "durationMs": 1250,
+      "loop": {
+        "enabled": true,
+        "startMs": 0,
+        "endMs": 1250
+      },
+      "priority": 72,
+      "polyphonyLimit": 1,
+      "volumeDb": -8,
+      "loudnessLufsTarget": -18,
+      "ducking": {
+        "ducks": [
+          "music.*"
+        ],
+        "amountDb": -9,
+        "attackMs": 120,
+        "releaseMs": 500
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx/win-countup-loop.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "continue",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.win.countup",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Win meter count-up loop: rapid soft glass-tick arpeggio, one bar at 96 bpm, seamless loop, energy without harshness."
+      }
+    },
+    {
+      "eventId": "sfx.win.countup_end",
+      "file": "sfx/win-countup-end.ogg",
+      "format": "ogg",
+      "sampleRateHz": 44100,
+      "bitrateKbps": 160,
+      "durationMs": 600,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 600
+      },
+      "priority": 74,
+      "polyphonyLimit": 1,
+      "volumeDb": -5,
+      "loudnessLufsTarget": -16,
+      "ducking": {
+        "ducks": [],
+        "amountDb": 0,
+        "attackMs": 0,
+        "releaseMs": 0
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx/win-countup-end.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "continue",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.win.countup",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Count-up terminator: single resolving glass-bell hit with warm low thump, beat-quantized landing."
+      }
+    },
+    {
+      "eventId": "sfx.result.neutral",
+      "file": "sfx/result-neutral.ogg",
+      "format": "ogg",
+      "sampleRateHz": 44100,
+      "bitrateKbps": 160,
+      "durationMs": 450,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 450
+      },
+      "priority": 30,
+      "polyphonyLimit": 1,
+      "volumeDb": -12,
+      "loudnessLufsTarget": -24,
+      "ducking": {
+        "ducks": [],
+        "amountDb": 0,
+        "attackMs": 0,
+        "releaseMs": 0
+      },
+      "interruptBehavior": "ignore",
+      "mobileFallback": {
+        "file": "sfx/result-neutral.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "continue",
+      "reducedSensoryBehavior": "mute",
+      "associatedAnimationEvent": null,
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Neutral non-celebratory result tick: single muted glass tap, flat pitch, non-melodic, under half a second, clearly distinct from any win sound."
+      }
+    },
+    {
+      "eventId": "sfx.feature.enter",
+      "file": "sfx/feature-enter.ogg",
+      "format": "ogg",
+      "sampleRateHz": 44100,
+      "bitrateKbps": 160,
+      "durationMs": 2600,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 2600
+      },
+      "priority": 92,
+      "polyphonyLimit": 1,
+      "volumeDb": -3,
+      "loudnessLufsTarget": -15,
+      "ducking": {
+        "ducks": [
+          "music.*"
+        ],
+        "amountDb": -12,
+        "attackMs": 120,
+        "releaseMs": 500
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx/feature-enter.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "continue",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.feature.enter",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Bonus entry hit: massive kiln door opening with molten roar, deep brass swell and radiant glass choir bloom."
+      }
+    },
+    {
+      "eventId": "sfx.feature.retrigger",
+      "file": "sfx/feature-retrigger.ogg",
+      "format": "ogg",
+      "sampleRateHz": 44100,
+      "bitrateKbps": 160,
+      "durationMs": 1600,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 1600
+      },
+      "priority": 88,
+      "polyphonyLimit": 1,
+      "volumeDb": -4,
+      "loudnessLufsTarget": -15,
+      "ducking": {
+        "ducks": [
+          "music.*"
+        ],
+        "amountDb": -9,
+        "attackMs": 120,
+        "releaseMs": 500
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx/feature-retrigger.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "continue",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.feature.retrigger",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Retrigger stinger: urgent rising bell cascade with a bellows-blast accent, adds-more-rounds excitement."
+      }
+    },
+    {
+      "eventId": "sfx.feature.summary",
+      "file": "sfx/feature-summary.ogg",
+      "format": "ogg",
+      "sampleRateHz": 44100,
+      "bitrateKbps": 160,
+      "durationMs": 2800,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 2800
+      },
+      "priority": 85,
+      "polyphonyLimit": 1,
+      "volumeDb": -4,
+      "loudnessLufsTarget": -15,
+      "ducking": {
+        "ducks": [
+          "music.*"
+        ],
+        "amountDb": -9,
+        "attackMs": 120,
+        "releaseMs": 500
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "sfx/feature-summary.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "continue",
+      "reducedSensoryBehavior": "attenuate",
+      "associatedAnimationEvent": "anim.feature.summary",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Feature summary flourish: warm settling brass-and-glass resolution phrase with soft sparkle tail, conclusive."
+      }
+    },
+    {
+      "eventId": "ui.button_press",
+      "file": "ui/button-press.ogg",
+      "format": "ogg",
+      "sampleRateHz": 44100,
+      "bitrateKbps": 160,
+      "durationMs": 120,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 120
+      },
+      "priority": 25,
+      "polyphonyLimit": 4,
+      "volumeDb": -10,
+      "loudnessLufsTarget": -22,
+      "ducking": {
+        "ducks": [],
+        "amountDb": 0,
+        "attackMs": 0,
+        "releaseMs": 0
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "ui/button-press.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "continue",
+      "reducedSensoryBehavior": "mute",
+      "associatedAnimationEvent": "anim.ui.button_press",
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "UI button press: tiny brass click with faint glass overtone, instant, dry."
+      }
+    },
+    {
+      "eventId": "ui.menu_open",
+      "file": "ui/menu-open.ogg",
+      "format": "ogg",
+      "sampleRateHz": 44100,
+      "bitrateKbps": 160,
+      "durationMs": 250,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 250
+      },
+      "priority": 25,
+      "polyphonyLimit": 2,
+      "volumeDb": -10,
+      "loudnessLufsTarget": -22,
+      "ducking": {
+        "ducks": [],
+        "amountDb": 0,
+        "attackMs": 0,
+        "releaseMs": 0
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "ui/menu-open.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "continue",
+      "reducedSensoryBehavior": "mute",
+      "associatedAnimationEvent": null,
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Menu open whoosh: short soft air movement with a light glass shimmer, subtle."
+      }
+    },
+    {
+      "eventId": "ui.error",
+      "file": "ui/error.ogg",
+      "format": "ogg",
+      "sampleRateHz": 44100,
+      "bitrateKbps": 160,
+      "durationMs": 400,
+      "loop": {
+        "enabled": false,
+        "startMs": 0,
+        "endMs": 400
+      },
+      "priority": 60,
+      "polyphonyLimit": 1,
+      "volumeDb": -8,
+      "loudnessLufsTarget": -20,
+      "ducking": {
+        "ducks": [
+          "music.*"
+        ],
+        "amountDb": -6,
+        "attackMs": 120,
+        "releaseMs": 500
+      },
+      "interruptBehavior": "steal",
+      "mobileFallback": {
+        "file": "ui/error.m4a",
+        "format": "m4a"
+      },
+      "focusLossBehavior": "continue",
+      "reducedSensoryBehavior": "unchanged",
+      "associatedAnimationEvent": null,
+      "generationPrompt": {
+        "tool": "elevenlabs-sfx-v2",
+        "prompt": "Error notice: muted double thud with dull glass damp, serious but not alarming, no melody."
+      }
+    }
+  ]
+}

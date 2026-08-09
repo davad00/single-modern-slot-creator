@@ -1,0 +1,569 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.single-slot-creator.local/feature.schema.json",
+  "title": "Feature definitions — config/features.json",
+  "description": "Full definition of the three mandatory feature tiers (feature, super_feature, ultimate_feature): the state machine they run in, their reel set or weight overrides, typed modifiers with parameters, progression, max-win behavior, recovery contract, and exit summary. Tiers must be materially different in math AND presentation; changing only title or spin count is insufficient.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["features"],
+  "properties": {
+    "features": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "description": "Exactly one entry per canonical tier: feature, super_feature, ultimate_feature.",
+      "items": { "$ref": "#/$defs/feature" }
+    }
+  },
+  "$defs": {
+    "tierId": {
+      "type": "string",
+      "enum": ["feature", "super_feature", "ultimate_feature"],
+      "description": "Canonical internal tier identifier per CONVENTIONS §4.1."
+    },
+    "symbolId": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9_]{0,15}$",
+      "description": "Canonical symbol id (WILD, SCATTER, H1..H4, L1..L5, FX1.., MULT, CASH, COLLECT, MYSTERY, JP_*, BLANK)."
+    },
+    "animEventId": {
+      "type": "string",
+      "pattern": "^anim\\.[a-z0-9_]+\\.[a-z0-9_]+$",
+      "description": "Animation event id in dot notation, e.g. anim.feature.enter."
+    },
+    "feature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tierId",
+        "stateMachineRef",
+        "modifiers",
+        "progression",
+        "maxWin",
+        "recovery",
+        "exitSummary"
+      ],
+      "description": "One feature tier. Exactly one of reelSetRef or weightOverrides must be present: either the tier runs on its own reel set, or it modifies the base weights.",
+      "oneOf": [
+        { "required": ["reelSetRef"], "not": { "required": ["weightOverrides"] } },
+        { "required": ["weightOverrides"], "not": { "required": ["reelSetRef"] } }
+      ],
+      "properties": {
+        "tierId": {
+          "$ref": "#/$defs/tierId",
+          "description": "Which canonical tier this entry defines."
+        },
+        "stateMachineRef": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{1,60}$",
+          "description": "Id of the state-machine definition (in config/state-machine.json) that governs this tier, e.g. 'main' or a tier-specific machine id."
+        },
+        "reelSetRef": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_-]{1,60}$",
+          "description": "Id of a reel set in config/reel-sets.json used exclusively by this tier. Mutually exclusive with weightOverrides."
+        },
+        "weightOverrides": {
+          "type": "object",
+          "minProperties": 1,
+          "description": "Per-symbol weight multipliers (x100 fixed point) applied over the base reel set for this tier. Keys are symbol ids. Mutually exclusive with reelSetRef.",
+          "propertyNames": { "pattern": "^[A-Z][A-Z0-9_]{0,15}$" },
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 100000,
+            "description": "Weight multiplier in integer hundredths (100 = unchanged, 200 = doubled, 0 = removed)."
+          }
+        },
+        "modifiers": {
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 12,
+          "description": "Typed modifiers active in this tier. Ids are referenced from config/scatter-tiers.json entry.modifiers.",
+          "items": { "$ref": "#/$defs/modifier" }
+        },
+        "progression": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["meter", "stages"],
+          "description": "In-feature progression: a fill meter and the stages it unlocks. Use an empty stages array for tiers without staged progression.",
+          "properties": {
+            "meter": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["enabled", "startValue", "target"],
+              "description": "The progression meter shown in the feature HUD.",
+              "properties": {
+                "enabled": {
+                  "type": "boolean",
+                  "description": "Whether this tier has a progression meter."
+                },
+                "startValue": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 1000,
+                  "description": "Meter value at feature entry (higher tiers may start partially filled)."
+                },
+                "target": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 1000,
+                  "description": "Meter value that completes the final stage."
+                },
+                "collectSymbolId": {
+                  "$ref": "#/$defs/symbolId",
+                  "description": "Symbol whose landings fill the meter (typically COLLECT)."
+                }
+              }
+            },
+            "stages": {
+              "type": "array",
+              "maxItems": 8,
+              "description": "Stages unlocked as the meter fills, in ascending threshold order.",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["stageId", "threshold", "effects"],
+                "properties": {
+                  "stageId": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9_]{1,40}$",
+                    "description": "snake_case id of this stage."
+                  },
+                  "threshold": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 1000,
+                    "description": "Meter value at which this stage activates."
+                  },
+                  "effects": {
+                    "type": "array",
+                    "minItems": 1,
+                    "maxItems": 6,
+                    "description": "Modifier ids (defined in this tier's modifiers array) that activate at this stage.",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[a-z][a-z0-9_]{1,40}$"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "maxWin": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["behavior"],
+          "description": "What happens when the round total reaches the game max-win cap during this tier. The cap itself (maxWinXBet) lives in config/game-config.json; the engine emits a max_win_termination step.",
+          "properties": {
+            "behavior": {
+              "type": "string",
+              "enum": ["terminate_immediately", "complete_current_step_then_terminate"],
+              "description": "terminate_immediately: the feature ends the moment the cap is hit. complete_current_step_then_terminate: the current step's presentation finishes, then the feature ends. Both cap the win at exactly the max-win value."
+            },
+            "celebrationAnimationEventId": {
+              "$ref": "#/$defs/animEventId",
+              "description": "Animation event played on max-win termination (typically anim.maxwin.reached)."
+            }
+          }
+        },
+        "recovery": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["resumable", "persistedFields"],
+          "description": "Recovery contract: every tier is resumable from the committed outcome manifest plus resumePointer.",
+          "properties": {
+            "resumable": {
+              "const": true,
+              "description": "Always true: an interrupted feature must resume from the committed manifest, never re-randomize."
+            },
+            "persistedFields": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 30,
+              "uniqueItems": true,
+              "description": "camelCase names of the tier-state fields the server persists and the client restores on resume (e.g. remainingRounds, currentMultiplier100, stickyWildPositions, meterValue).",
+              "items": {
+                "type": "string",
+                "pattern": "^[a-z][a-zA-Z0-9]{1,60}$"
+              }
+            }
+          }
+        },
+        "exitSummary": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["displayFields", "summaryAnimationEventId"],
+          "description": "The end-of-feature summary screen (state feature_summary).",
+          "properties": {
+            "displayFields": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "description": "Facts shown on the summary screen.",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "total_win",
+                  "rounds_played",
+                  "retriggers",
+                  "highest_multiplier",
+                  "symbols_collected",
+                  "stages_reached",
+                  "max_win_reached"
+                ],
+                "description": "One summary fact."
+              }
+            },
+            "summaryAnimationEventId": {
+              "$ref": "#/$defs/animEventId",
+              "description": "Animation event for the summary presentation (typically anim.feature.summary)."
+            }
+          }
+        },
+        "publicName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 60,
+          "description": "Optional themed public name; must match the publicName in config/scatter-tiers.json for the same tier."
+        }
+      }
+    },
+    "modifier": {
+      "description": "A typed feature modifier. The type field selects which params shape applies.",
+      "oneOf": [
+        { "$ref": "#/$defs/modStickyWild" },
+        { "$ref": "#/$defs/modPersistentMultiplier" },
+        { "$ref": "#/$defs/modSymbolUpgrade" },
+        { "$ref": "#/$defs/modExpandingGrid" },
+        { "$ref": "#/$defs/modCollectionMeter" },
+        { "$ref": "#/$defs/modGuaranteedEvent" },
+        { "$ref": "#/$defs/modExtraRows" },
+        { "$ref": "#/$defs/modPremiumBoost" }
+      ]
+    },
+    "modifierBase": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["id", "type", "params"],
+      "description": "Common modifier envelope: stable id, discriminating type, typed params. Explicit extension base: it stays open (additionalProperties true) so each mod* variant can compose it via allOf and close the object with its own additionalProperties false.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]{1,40}$",
+          "description": "snake_case id unique within this tier; referenced from scatter-tiers entry.modifiers and progression stages."
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 300,
+          "description": "Human-readable summary of what this modifier does."
+        }
+      }
+    },
+    "modStickyWild": {
+      "allOf": [{ "$ref": "#/$defs/modifierBase" }],
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": true,
+        "description": true,
+        "type": {
+          "const": "sticky_wild",
+          "description": "Wilds that land stick in place for subsequent feature rounds."
+        },
+        "params": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Parameters for the sticky_wild modifier.",
+          "required": ["maxStickyWilds"],
+          "properties": {
+            "maxStickyWilds": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 40,
+              "description": "Hard cap on simultaneously stuck wilds (liability bound)."
+            },
+            "stickForRounds": {
+              "type": ["integer", "null"],
+              "minimum": 1,
+              "maximum": 100,
+              "description": "Rounds a wild stays stuck; null means until the feature ends."
+            },
+            "wildSymbolId": {
+              "$ref": "#/$defs/symbolId",
+              "description": "Which symbol sticks (default WILD)."
+            }
+          }
+        }
+      }
+    },
+    "modPersistentMultiplier": {
+      "allOf": [{ "$ref": "#/$defs/modifierBase" }],
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": true,
+        "description": true,
+        "type": {
+          "const": "persistent_multiplier",
+          "description": "A win multiplier that persists and grows across feature rounds."
+        },
+        "params": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Parameters for the persistent_multiplier modifier.",
+          "required": ["startMultiplier100", "incrementOn", "increment100", "capMultiplier100"],
+          "properties": {
+            "startMultiplier100": {
+              "type": "integer",
+              "minimum": 100,
+              "maximum": 100000,
+              "description": "Starting multiplier, x100 fixed point (100 = 1x)."
+            },
+            "incrementOn": {
+              "type": "string",
+              "enum": ["any_win", "cascade", "round", "collect_symbol"],
+              "description": "Event that increases the multiplier."
+            },
+            "increment100": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10000,
+              "description": "Increase per increment event, x100 fixed point (100 = +1x)."
+            },
+            "capMultiplier100": {
+              "type": "integer",
+              "minimum": 100,
+              "maximum": 1000000,
+              "description": "Hard multiplier cap (liability bound)."
+            }
+          }
+        }
+      }
+    },
+    "modSymbolUpgrade": {
+      "allOf": [{ "$ref": "#/$defs/modifierBase" }],
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": true,
+        "description": true,
+        "type": {
+          "const": "symbol_upgrade",
+          "description": "Transforms lower-value symbols into a higher-value symbol."
+        },
+        "params": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Parameters for the symbol_upgrade modifier.",
+          "required": ["fromSymbols", "toSymbol", "trigger"],
+          "properties": {
+            "fromSymbols": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 12,
+              "uniqueItems": true,
+              "description": "Symbols eligible to be upgraded.",
+              "items": { "$ref": "#/$defs/symbolId" }
+            },
+            "toSymbol": {
+              "$ref": "#/$defs/symbolId",
+              "description": "Symbol the eligible symbols become."
+            },
+            "trigger": {
+              "type": "string",
+              "enum": ["feature_start", "per_round", "meter_stage", "random_event"],
+              "description": "When the upgrade is applied."
+            }
+          }
+        }
+      }
+    },
+    "modExpandingGrid": {
+      "allOf": [{ "$ref": "#/$defs/modifierBase" }],
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": true,
+        "description": true,
+        "type": {
+          "const": "expanding_grid",
+          "description": "The grid grows during the feature, increasing ways/positions."
+        },
+        "params": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Parameters for the expanding_grid modifier.",
+          "required": ["startRows", "maxRows", "expandOn"],
+          "properties": {
+            "startRows": {
+              "type": "integer",
+              "minimum": 2,
+              "maximum": 12,
+              "description": "Visible rows at feature entry."
+            },
+            "maxRows": {
+              "type": "integer",
+              "minimum": 2,
+              "maximum": 12,
+              "description": "Hard cap on rows (must be >= startRows; enforced by the config validator)."
+            },
+            "expandOn": {
+              "type": "string",
+              "enum": ["any_win", "retrigger", "meter_stage", "collect_symbol"],
+              "description": "Event that adds a row."
+            },
+            "rowsPerExpansion": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 4,
+              "description": "Rows added per expansion event (default 1)."
+            }
+          }
+        }
+      }
+    },
+    "modCollectionMeter": {
+      "allOf": [{ "$ref": "#/$defs/modifierBase" }],
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": true,
+        "description": true,
+        "type": {
+          "const": "collection_meter",
+          "description": "Collecting a symbol fills a meter that awards an effect on completion."
+        },
+        "params": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Parameters for the collection_meter modifier.",
+          "required": ["collectSymbolId", "target", "reward"],
+          "properties": {
+            "collectSymbolId": {
+              "$ref": "#/$defs/symbolId",
+              "description": "Symbol whose landings fill the meter (typically COLLECT or CASH)."
+            },
+            "target": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 1000,
+              "description": "Collections needed to complete the meter."
+            },
+            "reward": {
+              "type": "string",
+              "enum": ["extra_rounds", "multiplier_boost", "symbol_upgrade", "stage_advance", "instant_pay"],
+              "description": "Effect awarded when the meter completes."
+            },
+            "carriesBetweenRounds": {
+              "type": "boolean",
+              "description": "Whether partial fill persists between feature rounds (default true)."
+            }
+          }
+        }
+      }
+    },
+    "modGuaranteedEvent": {
+      "allOf": [{ "$ref": "#/$defs/modifierBase" }],
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": true,
+        "description": true,
+        "type": {
+          "const": "guaranteed_event",
+          "description": "A deterministic in-feature guarantee (e.g. at least one wild per round). Guarantees are baked into the math model, never client-side."
+        },
+        "params": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Parameters for the guaranteed_event modifier.",
+          "required": ["guarantee", "everyNRounds"],
+          "properties": {
+            "guarantee": {
+              "type": "string",
+              "enum": ["wild_spawn", "premium_symbol", "multiplier_boost", "win", "scatter_chance_boost"],
+              "description": "What is guaranteed."
+            },
+            "everyNRounds": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 20,
+              "description": "The guarantee fires at least once per this many feature rounds (1 = every round)."
+            }
+          }
+        }
+      }
+    },
+    "modExtraRows": {
+      "allOf": [{ "$ref": "#/$defs/modifierBase" }],
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": true,
+        "description": true,
+        "type": {
+          "const": "extra_rows",
+          "description": "The tier plays on a fixed larger grid than the base game."
+        },
+        "params": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Parameters for the extra_rows modifier.",
+          "required": ["rowsAdded"],
+          "properties": {
+            "rowsAdded": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 6,
+              "description": "Rows added to the base-game row count for the whole feature."
+            }
+          }
+        }
+      }
+    },
+    "modPremiumBoost": {
+      "allOf": [{ "$ref": "#/$defs/modifierBase" }],
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": true,
+        "description": true,
+        "type": {
+          "const": "premium_boost",
+          "description": "Premium symbols appear more often (and/or lows less often) in this tier."
+        },
+        "params": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Parameters for the premium_boost modifier.",
+          "required": ["weightMultiplier100", "appliesTo"],
+          "properties": {
+            "weightMultiplier100": {
+              "type": "integer",
+              "minimum": 100,
+              "maximum": 10000,
+              "description": "Weight multiplier for the listed symbols, x100 fixed point (150 = +50% frequency)."
+            },
+            "appliesTo": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 12,
+              "uniqueItems": true,
+              "description": "Symbols boosted (typically H1..H4).",
+              "items": { "$ref": "#/$defs/symbolId" }
+            },
+            "lowWeightMultiplier100": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100,
+              "description": "Optional weight multiplier applied to low symbols L1..L5 (x100; 50 = halved, 0 = removed)."
+            }
+          }
+        }
+      }
+    }
+  }
+}

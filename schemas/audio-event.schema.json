@@ -1,0 +1,272 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.single-slot-creator.local/audio-event.schema.json",
+  "title": "Audio events — config/audio-events.json",
+  "description": "Every audio event the game can play: music states (base plus all three feature tiers), sfx, ambience, and UI sounds. Per CONVENTIONS §9.8 every event defines loop points, priority, ducking, and polyphony. The client audio manager is silent-safe: missing files never break the game, and audio never implies that player input can affect a committed outcome.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["events"],
+  "properties": {
+    "events": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 300,
+      "description": "All audio events, unique by eventId (uniqueness enforced by the config validator). Music must cover music.base, music.feature, music.super_feature, music.ultimate_feature.",
+      "items": { "$ref": "#/$defs/audioEvent" }
+    }
+  },
+  "$defs": {
+    "audioEventId": {
+      "type": "string",
+      "pattern": "^(music\\.[a-z0-9_]+|sfx\\.[a-z0-9_]+\\.[a-z0-9_]+|amb\\.[a-z0-9_]+|ui\\.[a-z0-9_]+)$",
+      "description": "Audio event id per CONVENTIONS §4.3: music.<state>, sfx.<context>.<name>, amb.<name>, ui.<name>."
+    },
+    "audioEventIdPattern": {
+      "type": "string",
+      "pattern": "^(music|sfx|amb|ui)(\\.[a-z0-9_*]+){1,2}$",
+      "description": "Audio event id or glob-style pattern with '*' wildcards for ducking targets, e.g. 'music.*' or 'sfx.reel.*'."
+    },
+    "animEventId": {
+      "type": "string",
+      "pattern": "^anim\\.[a-z0-9_]+\\.[a-z0-9_]+$",
+      "description": "Animation event id in dot notation."
+    },
+    "audioEvent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "eventId",
+        "file",
+        "format",
+        "sampleRateHz",
+        "bitrateKbps",
+        "durationMs",
+        "loop",
+        "priority",
+        "polyphonyLimit",
+        "volumeDb",
+        "loudnessLufsTarget",
+        "ducking",
+        "interruptBehavior",
+        "mobileFallback",
+        "focusLossBehavior",
+        "reducedSensoryBehavior",
+        "associatedAnimationEvent",
+        "generationPrompt"
+      ],
+      "properties": {
+        "eventId": {
+          "$ref": "#/$defs/audioEventId",
+          "description": "Unique id of this event, e.g. sfx.scatter.land or music.feature."
+        },
+        "file": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9/_.-]*\\.(ogg|m4a|mp3|webm)$",
+          "description": "Path of the primary audio file relative to assets/audio/."
+        },
+        "format": {
+          "type": "string",
+          "enum": ["ogg", "m4a", "mp3", "webm"],
+          "description": "Container/codec of the primary file (ogg preferred on desktop, m4a for Safari/iOS)."
+        },
+        "sampleRateHz": {
+          "type": "integer",
+          "enum": [22050, 32000, 44100, 48000],
+          "description": "Sample rate of the encoded file in Hz."
+        },
+        "bitrateKbps": {
+          "type": "integer",
+          "minimum": 32,
+          "maximum": 320,
+          "description": "Encoded bitrate in kbps."
+        },
+        "durationMs": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 600000,
+          "description": "Duration of the file in milliseconds."
+        },
+        "loop": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["enabled", "startMs", "endMs"],
+          "description": "Loop definition. For one-shots set enabled false with startMs 0 and endMs equal to durationMs.",
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "description": "Whether this event loops (music and ambience usually do; sfx usually do not)."
+            },
+            "startMs": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 600000,
+              "description": "Sample-accurate loop start in milliseconds."
+            },
+            "endMs": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 600000,
+              "description": "Sample-accurate loop end in milliseconds (must be > startMs when enabled; runtime-validated)."
+            }
+          }
+        },
+        "priority": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Mixer priority; when the voice pool is exhausted, lower-priority voices are stolen first (100 = never steal)."
+        },
+        "polyphonyLimit": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 32,
+          "description": "Maximum simultaneous instances of this event (e.g. cascade pops capped to avoid stacking)."
+        },
+        "volumeDb": {
+          "type": "number",
+          "minimum": -60,
+          "maximum": 12,
+          "description": "Playback gain in dB relative to unity (0 = as encoded)."
+        },
+        "loudnessLufsTarget": {
+          "type": "number",
+          "minimum": -40,
+          "maximum": -6,
+          "description": "Integrated loudness target the delivered file must be mastered to, in LUFS (e.g. -16 for music, -14 for big-win stingers)."
+        },
+        "ducking": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["ducks", "amountDb", "attackMs", "releaseMs"],
+          "description": "Sidechain ducking this event applies to others while playing. Use an empty ducks array for no ducking.",
+          "properties": {
+            "ducks": {
+              "type": "array",
+              "maxItems": 12,
+              "uniqueItems": true,
+              "description": "Event ids or '*' glob patterns that are ducked while this event plays, e.g. ['music.*'].",
+              "items": { "$ref": "#/$defs/audioEventIdPattern" }
+            },
+            "amountDb": {
+              "type": "number",
+              "minimum": -60,
+              "maximum": 0,
+              "description": "Gain reduction applied to ducked events in dB (negative; -12 = duck by 12 dB)."
+            },
+            "attackMs": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 5000,
+              "description": "Duck fade-in time in milliseconds."
+            },
+            "releaseMs": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000,
+              "description": "Duck recovery time in milliseconds after this event ends."
+            }
+          }
+        },
+        "interruptBehavior": {
+          "type": "string",
+          "enum": ["steal", "queue", "ignore", "crossfade"],
+          "description": "What a new instance does when the polyphony limit is hit or a conflicting event starts: steal the oldest voice, queue, ignore the new request, or crossfade (music state changes)."
+        },
+        "mobileFallback": {
+          "description": "Lower-footprint variant served to constrained mobile devices, or null to always use the primary file.",
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["file", "format"],
+              "properties": {
+                "file": {
+                  "type": "string",
+                  "pattern": "^[a-z0-9][a-z0-9/_.-]*\\.(ogg|m4a|mp3|webm)$",
+                  "description": "Path of the fallback file relative to assets/audio/."
+                },
+                "format": {
+                  "type": "string",
+                  "enum": ["ogg", "m4a", "mp3", "webm"],
+                  "description": "Container/codec of the fallback file."
+                }
+              }
+            },
+            { "type": "null" }
+          ]
+        },
+        "focusLossBehavior": {
+          "type": "string",
+          "enum": ["pause", "duck", "continue"],
+          "description": "What this event does when the tab/app loses focus. Music typically pauses; committed-outcome presentation audio may continue."
+        },
+        "reducedSensoryBehavior": {
+          "type": "string",
+          "enum": ["mute", "attenuate", "unchanged"],
+          "description": "Behavior under the reduced-sensory accessibility setting: fully muted, attenuated, or unchanged (reserve unchanged for essential feedback)."
+        },
+        "associatedAnimationEvent": {
+          "oneOf": [{ "$ref": "#/$defs/animEventId" }, { "type": "null" }],
+          "description": "Animation event this audio is synchronized with, or null for free-running audio (music, ambience)."
+        },
+        "generationPrompt": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["tool", "prompt"],
+          "description": "How to (re)generate this asset with an SFX/music generation tool (ElevenLabs SFX / Stable Audio class). Mirrored into prompts/audio-prompts.json.",
+          "properties": {
+            "tool": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 60,
+              "description": "Target generation tool, e.g. 'elevenlabs-sfx', 'stable-audio'."
+            },
+            "prompt": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 2000,
+              "description": "Full generation prompt describing the sound."
+            },
+            "negativePrompt": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1000,
+              "description": "Optional: qualities to avoid."
+            },
+            "bpm": {
+              "type": "integer",
+              "minimum": 40,
+              "maximum": 240,
+              "description": "Optional: tempo for musical assets, needed for beat-synced loop points."
+            },
+            "key": {
+              "type": "string",
+              "pattern": "^[A-G](#|b)?m?$",
+              "description": "Optional: musical key for musical assets, e.g. 'Am', 'F#'."
+            },
+            "loopPoints": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["startMs", "endMs"],
+              "description": "Optional: loop points the generated asset must be edited to.",
+              "properties": {
+                "startMs": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 600000,
+                  "description": "Requested loop start in milliseconds."
+                },
+                "endMs": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 600000,
+                  "description": "Requested loop end in milliseconds."
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

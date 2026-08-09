@@ -1,0 +1,15 @@
+{
+ "gameId": "belladonna-parlour",
+ "gameName": "Belladonna's Parlour",
+ "projectSlug": "belladonna-parlour",
+ "gameVersion": "0.1.0",
+ "mathVersion": "0.1.0",
+ "grid": {
+  "columns": 6,
+  "rows": 5
+ },
+ "evaluation": "scatter_pays",
+ "maxWinXBet": 10000,
+ "betMinorDefault": 100,
+ "activeReelSet": "base"
+}

@@ -1,0 +1,112 @@
+{
+  "defaults": {
+    "musicTool": "stable-audio-2.5",
+    "sfxTool": "elevenlabs-sfx-v2",
+    "bpmFamily": 96,
+    "keyFamily": "Am",
+    "outputFormat": "48kHz wav master -> ogg 160kbps + m4a mobile fallback",
+    "loudnessNote": "music mastered to -16 LUFS, big-win stingers to -14 LUFS, per config/audio-events.json loudnessLufsTarget",
+    "mirrorNote": "each entry mirrors the generationPrompt of the same eventId in config/audio-events.json"
+  },
+  "prompts": [
+    {
+      "eventId": "music.base",
+      "tool": "stable-audio-2.5",
+      "prompt": "Warm industrial-fantasy underscore for a molten glassworks: hammered dulcimer, low tuned percussion, soft furnace-drone pads, glass chimes; patient and hypnotic; 96 bpm; A minor.",
+      "bpm": 96,
+      "key": "Am",
+      "bars": 32,
+      "seamlessLoop": true,
+      "instrumental": true,
+      "durationSeconds": 96
+    },
+    {
+      "eventId": "music.feature",
+      "tool": "stable-audio-2.5",
+      "prompt": "Free-spins layer over the same theme family: driving frame-drum groove, brighter hammered-dulcimer arpeggios, rising ember shimmer; determined, kindled energy; 96 bpm; A minor; must layer cleanly over the base loop's harmonic bed.",
+      "bpm": 96,
+      "key": "Am",
+      "bars": 32,
+      "seamlessLoop": true,
+      "instrumental": true,
+      "durationSeconds": 80
+    },
+    {
+      "eventId": "music.super_feature",
+      "tool": "stable-audio-2.5",
+      "prompt": "Second-tier bonus layer: heavy anvil hits, bellows-swell brass, urgent string ostinato over the established groove; the forge at full roar; 96 bpm; A minor; same harmonic bed as the feature loop with one added intensity layer.",
+      "bpm": 96,
+      "key": "Am",
+      "bars": 32,
+      "seamlessLoop": true,
+      "instrumental": true,
+      "durationSeconds": 80
+    },
+    {
+      "eventId": "music.ultimate_feature",
+      "tool": "stable-audio-2.5",
+      "prompt": "Top-tier bonus peak: full orchestral-hybrid with soaring brass theme, cascading glass-harp runs, thunderous taiko-scale drums; triumphant and incandescent; 96 bpm; A minor; the loudest, densest state in the adaptive set.",
+      "bpm": 96,
+      "key": "Am",
+      "bars": 32,
+      "seamlessLoop": true,
+      "instrumental": true,
+      "durationSeconds": 80
+    },
+    {
+      "eventId": "sfx.reel.stop",
+      "tool": "elevenlabs-sfx-v2",
+      "prompt": "Slot reel stop: solid brass thunk with a short glass clink on top, tight and dry, no reverb tail.",
+      "durationSeconds": 0.3,
+      "loop": false,
+      "promptInfluence": 0.85,
+      "noMusic": true
+    },
+    {
+      "eventId": "sfx.scatter.land_1",
+      "tool": "elevenlabs-sfx-v2",
+      "prompt": "First bonus-symbol stinger: single struck glass bell with a warm furnace whoosh underneath, medium pitch, short dry tail.",
+      "durationSeconds": 0.7,
+      "loop": false,
+      "promptInfluence": 0.8,
+      "noMusic": false
+    },
+    {
+      "eventId": "sfx.scatter.land_2",
+      "tool": "elevenlabs-sfx-v2",
+      "prompt": "Second bonus-symbol stinger, escalation step two: two-note rising glass bell motif a third higher than step one, swelling ember crackle underneath, more urgent.",
+      "durationSeconds": 0.8,
+      "loop": false,
+      "promptInfluence": 0.8,
+      "noMusic": false
+    },
+    {
+      "eventId": "sfx.scatter.land_3",
+      "tool": "elevenlabs-sfx-v2",
+      "prompt": "Third bonus-symbol stinger, the trigger moment: triumphant three-note glass bell fanfare resolving upward, deep kiln boom and bright spark burst.",
+      "durationSeconds": 1.0,
+      "loop": false,
+      "promptInfluence": 0.8,
+      "noMusic": false
+    },
+    {
+      "eventId": "sfx.win.big",
+      "tool": "elevenlabs-sfx-v2",
+      "prompt": "Big win fanfare: bold brass-and-glass-harp flourish with a kiln-boom accent and sparkling glass tail, celebratory, about two and a half seconds.",
+      "durationSeconds": 2.4,
+      "loop": false,
+      "promptInfluence": 0.7,
+      "noMusic": false
+    },
+    {
+      "eventId": "sfx.win.countup_loop",
+      "tool": "elevenlabs-sfx-v2",
+      "prompt": "Win meter count-up loop: rapid soft glass-tick arpeggio, exactly one bar at 96 bpm (2.5 seconds), seamless loop, energetic but never harsh; pairs with a separate beat-quantized terminator hit.",
+      "durationSeconds": 1.25,
+      "loop": true,
+      "promptInfluence": 0.75,
+      "noMusic": false,
+      "loopPoints": { "startMs": 0, "endMs": 1250 }
+    }
+  ]
+}

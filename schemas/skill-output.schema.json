@@ -1,0 +1,509 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.single-slot-creator.local/skill-output.schema.json",
+  "title": "Skill output — complete structured result of one single-modern-slot-creator run",
+  "description": "The full structured output of one skill execution: identity, research, concept selection, design documents, math model, PAR sheet, all game configs, presentation/UI/audio specifications, QA results, and the artifact manifest. Math-critical fields are strictly typed; document-like blobs are permissive objects/arrays whose canonical detailed shape lives in the dedicated per-artifact schemas. Every top-level key is required; arrays may be empty when a deliverable was disabled or a section is legitimately empty (record why in unresolvedItems).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "project",
+    "research",
+    "conceptCandidates",
+    "selectedConcept",
+    "gameDesignDocument",
+    "mathModel",
+    "parSheet",
+    "symbols",
+    "paytable",
+    "reelSets",
+    "weightedTables",
+    "scatterFeature",
+    "features",
+    "bonusBuys",
+    "enhancedChanceModes",
+    "spinPresentation",
+    "autoplay",
+    "uiSpecification",
+    "animationEvents",
+    "assetManifest",
+    "artPrompts",
+    "audioEvents",
+    "audioPrompts",
+    "stateMachine",
+    "outcomeManifestSchema",
+    "jurisdictionPolicy",
+    "simulationReports",
+    "testResults",
+    "performanceReport",
+    "accessibilityReport",
+    "complianceReview",
+    "artifactManifest",
+    "knownRisks",
+    "unresolvedItems"
+  ],
+  "properties": {
+    "project": {
+      "type": "object",
+      "description": "Identity and versioning of the produced game (math-critical, strict).",
+      "additionalProperties": false,
+      "required": ["gameId", "gameName", "projectSlug", "gameVersion", "mathVersion", "configHash", "status"],
+      "properties": {
+        "gameId": { "type": "string", "pattern": "^[a-z][a-z0-9-]{2,60}$", "description": "Stable machine id of the game." },
+        "gameName": { "type": "string", "minLength": 1, "maxLength": 80, "description": "Public display name of the game." },
+        "projectSlug": { "$ref": "#/$defs/projectSlug", "description": "Kebab-case slug of games/<slug>/." },
+        "gameVersion": { "$ref": "#/$defs/semver", "description": "Semver of the game package." },
+        "mathVersion": { "$ref": "#/$defs/semver", "description": "Semver of the math model." },
+        "configHash": { "$ref": "#/$defs/sha256", "description": "Canonical hash over all config/*.json." },
+        "status": {
+          "type": "string",
+          "enum": ["prototype", "production-prototype", "failed-gate"],
+          "description": "Honest final status. failed-gate = a step gate failed after max attempts; evidence lives in the validation report and knownRisks."
+        }
+      }
+    },
+    "research": {
+      "type": "object",
+      "description": "Focused research dossier backing the design decisions.",
+      "additionalProperties": false,
+      "required": ["findings", "sources", "ipRisks", "jurisdictionNotes"],
+      "properties": {
+        "findings": {
+          "type": "array",
+          "description": "Research findings that shaped the design (market patterns, mechanic trends, player expectations).",
+          "items": { "$ref": "#/$defs/docItem" }
+        },
+        "sources": {
+          "type": "array",
+          "description": "Cited sources with dates (the research gate requires at least 8).",
+          "items": { "$ref": "#/$defs/docItem" }
+        },
+        "ipRisks": {
+          "type": "array",
+          "description": "Identified IP risks and the patterns-not-to-copy list (trademarked mechanic names, studio-specific art/naming).",
+          "items": { "$ref": "#/$defs/docItem" }
+        },
+        "jurisdictionNotes": {
+          "type": "array",
+          "description": "Per-jurisdiction regulatory notes affecting features (autoplay, bonus buy, spin speed, RTP display).",
+          "items": { "$ref": "#/$defs/docItem" }
+        }
+      }
+    },
+    "conceptCandidates": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "description": "Exactly three scored concept candidates (concept gate). Each carries theme, hook, rubric scores, and rationale.",
+      "items": { "$ref": "#/$defs/docBlob" }
+    },
+    "selectedConcept": {
+      "$ref": "#/$defs/docBlob",
+      "description": "The single winning concept: theme, narrative, hook, target audience, and why it beat the other candidates."
+    },
+    "gameDesignDocument": {
+      "$ref": "#/$defs/docBlob",
+      "description": "Structured game design document content (rendered to docs/game-design-document.md from templates/game-design-document.md)."
+    },
+    "mathModel": {
+      "type": "object",
+      "description": "The math model. Math-critical headline fields are strict; the full canonical shape is math-model.schema.json.",
+      "additionalProperties": true,
+      "required": ["targetRtp", "volatilityClass", "contributions", "maxWin"],
+      "properties": {
+        "mathVersion": { "$ref": "#/$defs/semver", "description": "Semver of the math model." },
+        "targetRtp": { "$ref": "#/$defs/rtp", "description": "Total target RTP fraction of the default profile." },
+        "rtpTolerance": { "type": "number", "minimum": 0.0001, "maximum": 0.003, "description": "Allowed absolute |simRTP - targetRtp| at release simulation size." },
+        "volatilityClass": { "type": "string", "enum": ["low", "medium", "medium-high", "high", "very-high"], "description": "Target volatility class." },
+        "targetHitFrequency": { "type": "number", "minimum": 0.05, "maximum": 0.6, "description": "Target fraction of rounds with any win." },
+        "contributions": {
+          "type": "object",
+          "description": "Planned RTP contribution per win source (fractions of total bet; must sum to targetRtp ±0.0005).",
+          "additionalProperties": false,
+          "required": ["base", "feature", "super_feature", "ultimate_feature", "scatterPay"],
+          "properties": {
+            "base": { "$ref": "#/$defs/rtpFraction", "description": "Base-game wins." },
+            "feature": { "$ref": "#/$defs/rtpFraction", "description": "`feature` tier wins." },
+            "super_feature": { "$ref": "#/$defs/rtpFraction", "description": "`super_feature` tier wins." },
+            "ultimate_feature": { "$ref": "#/$defs/rtpFraction", "description": "`ultimate_feature` tier wins." },
+            "scatterPay": { "$ref": "#/$defs/rtpFraction", "description": "Direct scatter pays." },
+            "jackpot": { "$ref": "#/$defs/rtpFraction", "description": "Fixed jackpot awards; omit when no jackpots." }
+          }
+        },
+        "maxWin": {
+          "type": "object",
+          "description": "Max-win cap and termination policy.",
+          "additionalProperties": false,
+          "required": ["xBet", "terminationPolicy"],
+          "properties": {
+            "xBet": { "type": "integer", "minimum": 100, "maximum": 250000, "description": "Cap as a whole-number multiple of total bet." },
+            "terminationPolicy": { "type": "string", "enum": ["end_round_pay_cap", "end_feature_pay_cap", "continue_no_extra_pay"], "description": "How the round ends when the cap is reached." }
+          }
+        }
+      }
+    },
+    "parSheet": {
+      "type": "object",
+      "description": "Measured PAR sheet data (canonical shape: par-sheet.schema.json). Values are reported exactly as simulated.",
+      "additionalProperties": true,
+      "properties": {
+        "rtpContributions": { "$ref": "#/$defs/docBlob", "description": "Measured RTP split per win source, plus total." },
+        "hitFrequency": { "type": "number", "minimum": 0, "maximum": 1, "description": "Measured fraction of rounds with any win." },
+        "featureFrequencies": { "$ref": "#/$defs/docBlob", "description": "Measured 1-in-N trigger frequency per tier." },
+        "payoutPercentiles": { "$ref": "#/$defs/docBlob", "description": "p50/p75/p90/p95/p99/p999 of per-round x-bet wins." },
+        "maxWinProbability": { "type": "number", "exclusiveMinimum": 0, "maximum": 1, "description": "Per-round probability of reaching the max-win cap." },
+        "simulationProvenance": { "$ref": "#/$defs/docBlob", "description": "Reproducibility block: versions, configHash, lockfile hash, seeds, rounds, workers, command." }
+      }
+    },
+    "symbols": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 64,
+      "description": "All symbol definitions (canonical per-symbol shape: symbol.schema.json).",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["id", "kind"],
+        "properties": {
+          "id": { "$ref": "#/$defs/symbolId", "description": "Canonical symbol id." },
+          "kind": {
+            "type": "string",
+            "enum": ["wild", "scatter", "premium", "low", "feature_exclusive", "multiplier", "cash", "collector", "mystery", "jackpot", "blank"],
+            "description": "Functional class of the symbol."
+          }
+        }
+      }
+    },
+    "paytable": {
+      "type": "object",
+      "description": "The paytable (canonical shape: paytable.schema.json). Pays are integer payX100 (x-bet hundredths).",
+      "additionalProperties": true,
+      "required": ["entries"],
+      "properties": {
+        "evaluationMode": { "type": "string", "enum": ["lines", "ways", "cluster"], "description": "Win-evaluation archetype." },
+        "entries": {
+          "type": "array",
+          "minItems": 1,
+          "description": "Per-symbol of-a-kind pay entries.",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": ["symbolId", "ofAKindPays"],
+            "properties": {
+              "symbolId": { "$ref": "#/$defs/symbolId", "description": "Paying symbol." },
+              "ofAKindPays": {
+                "type": "object",
+                "description": "Map from match length (\"3\"..\"8\") to integer payX100.",
+                "minProperties": 1,
+                "additionalProperties": false,
+                "patternProperties": {
+                  "^[3-8]$": { "type": "integer", "minimum": 0, "maximum": 25000000, "description": "Pay in integer hundredths of a bet." }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "reelSets": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 32,
+      "description": "All strip-based reel sets (canonical per-set shape: reel-set.schema.json).",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["setId", "purpose"],
+        "properties": {
+          "setId": { "type": "string", "pattern": "^[a-z][a-z0-9_-]{2,40}$", "description": "Unique reel-set id." },
+          "purpose": { "type": "string", "enum": ["base", "feature", "super_feature", "ultimate_feature", "respin", "bonus_buy_entry"], "description": "Game context this set serves." }
+        }
+      }
+    },
+    "weightedTables": {
+      "type": "array",
+      "maxItems": 32,
+      "description": "Weighted-table reel sets and auxiliary weight tables (cash values, multiplier draws). Empty when the game is purely strip-based.",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["setId"],
+        "properties": {
+          "setId": { "type": "string", "pattern": "^[a-z][a-z0-9_-]{2,40}$", "description": "Unique table id." }
+        }
+      }
+    },
+    "scatterFeature": {
+      "type": "object",
+      "description": "The three-tier scatter hierarchy definition: trigger counts per tier, counting rule, retrigger policy, and per-tier content summary.",
+      "additionalProperties": true,
+      "required": ["enabled"],
+      "properties": {
+        "enabled": { "type": "boolean", "description": "Whether the scatter hierarchy is active (normally true)." },
+        "tiers": {
+          "type": "array",
+          "maxItems": 3,
+          "description": "One entry per tier in canonical order.",
+          "items": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": ["tierId"],
+            "properties": {
+              "tierId": { "$ref": "#/$defs/tierId", "description": "Canonical tier id." },
+              "triggerScatters": { "type": "integer", "minimum": 2, "maximum": 6, "description": "Scatter count triggering this tier (5+ means \"this many or more\" for ultimate_feature)." }
+            }
+          }
+        }
+      }
+    },
+    "features": {
+      "type": "array",
+      "description": "All feature definitions (per-tier bonus content, respins, modifiers) with purpose, trigger, state, math link, recovery, and tests.",
+      "items": { "$ref": "#/$defs/docBlob" }
+    },
+    "bonusBuys": {
+      "type": "array",
+      "maxItems": 6,
+      "description": "Bonus-buy modes. Empty when bonus buy was not built (e.g. real-money UK targeting).",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["modeId", "priceXBet100", "entryTier", "rtp"],
+        "properties": {
+          "modeId": { "type": "string", "pattern": "^[a-z][a-z0-9_-]{2,40}$", "description": "Unique buy-mode id." },
+          "priceXBet100": { "type": "integer", "minimum": 100, "maximum": 25000000, "description": "Purchase price in integer hundredths of a bet (100x -> 10000)." },
+          "entryTier": { "$ref": "#/$defs/tierId", "description": "Tier the purchase enters." },
+          "rtp": { "$ref": "#/$defs/rtp", "description": "Measured/target RTP of the mode relative to its price." }
+        }
+      }
+    },
+    "enhancedChanceModes": {
+      "type": "array",
+      "maxItems": 3,
+      "description": "Enhanced-chance (ante bet) modes. Empty when not built.",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["modeId", "anteMultiplier100"],
+        "properties": {
+          "modeId": { "type": "string", "pattern": "^[a-z][a-z0-9_-]{2,40}$", "description": "Unique mode id." },
+          "anteMultiplier100": { "type": "integer", "minimum": 105, "maximum": 500, "description": "Bet-cost multiplier in x100 fixed-point (1.25x -> 125)." },
+          "effect": { "type": "string", "maxLength": 400, "description": "Precise math effect of the mode." }
+        }
+      }
+    },
+    "spinPresentation": {
+      "$ref": "#/$defs/docBlob",
+      "description": "Spin timing per mode (normal/quick/turbo), win-tier thresholds (small/medium/big/mega/epic/max) and celebration rules. Presentation only — never affects outcomes."
+    },
+    "autoplay": {
+      "$ref": "#/$defs/docBlob",
+      "description": "Autoplay configuration: spin counts, all stop conditions (win/loss limits, single-win limit, feature stop), and jurisdiction gating."
+    },
+    "uiSpecification": {
+      "$ref": "#/$defs/docBlob",
+      "description": "UI/UX specification: every screen and HUD layout for portrait/landscape/tablet/desktop/ultrawide, control component states, accessibility rules."
+    },
+    "animationEvents": {
+      "type": "array",
+      "description": "Animation event catalog. Each event defines duration, easing, skippable, skipTo, blocksInput, audioEvent, reducedMotion + lowPerformance variants, and recovery policy.",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["eventId"],
+        "properties": {
+          "eventId": { "type": "string", "pattern": "^anim\\.[a-z0-9_]+\\.[a-z0-9_]+$", "description": "Dot-notation animation event id, e.g. anim.reel.spin_start." }
+        }
+      }
+    },
+    "assetManifest": {
+      "type": "array",
+      "description": "Every art/audio/atlas/font asset the game references, with provenance.",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["assetId"],
+        "properties": {
+          "assetId": { "$ref": "#/$defs/assetId", "description": "Typed asset id, e.g. img.symbol.h1.static, audio.music.base." },
+          "path": { "type": "string", "maxLength": 300, "description": "Project-relative file path of the asset (when generated)." },
+          "generated": { "type": "boolean", "description": "true = file was actually produced; false = prompt-only." }
+        }
+      }
+    },
+    "artPrompts": {
+      "type": "array",
+      "description": "Every image-generation prompt (mirrors prompts/art-prompts.json), covering every visual asset in the manifest.",
+      "items": { "$ref": "#/$defs/docBlob" }
+    },
+    "audioEvents": {
+      "type": "array",
+      "description": "Audio event catalog. Each event defines loop points, priority, ducking, and polyphony; music states cover base + all three tiers.",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["eventId"],
+        "properties": {
+          "eventId": { "type": "string", "pattern": "^(music|sfx|amb|ui|haptic)\\.[a-z0-9_.]+$", "description": "Dot-notation audio/haptic event id, e.g. music.base, sfx.reel.stop." }
+        }
+      }
+    },
+    "audioPrompts": {
+      "type": "array",
+      "description": "Every audio-generation prompt (mirrors prompts/audio-prompts.json).",
+      "items": { "$ref": "#/$defs/docBlob" }
+    },
+    "stateMachine": {
+      "type": "object",
+      "description": "The game state machine over the canonical state set; server-owned round states vs client presentation states are marked.",
+      "additionalProperties": true,
+      "required": ["states"],
+      "properties": {
+        "states": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "description": "States used by the game — a subset (usually all) of the canonical state set.",
+          "items": {
+            "type": "string",
+            "enum": [
+              "boot", "loading", "ready", "round_requested", "outcome_received", "outcome_committed",
+              "presenting_initial_result", "presenting_wins", "presenting_cascades", "feature_pending",
+              "feature_entry", "feature_active", "super_feature_entry", "super_feature_active",
+              "ultimate_feature_entry", "ultimate_feature_active", "feature_retrigger", "maximum_win",
+              "feature_summary", "round_complete", "reconnecting", "recovering", "error"
+            ],
+            "description": "One canonical state name."
+          }
+        },
+        "transitions": {
+          "type": "array",
+          "description": "Directed transitions with triggers/guards.",
+          "items": { "$ref": "#/$defs/docBlob" }
+        }
+      }
+    },
+    "outcomeManifestSchema": {
+      "$ref": "#/$defs/docBlob",
+      "description": "The generated JSON Schema for server outcome manifests (round steps[], grids, wins, events) — embedded verbatim as an object."
+    },
+    "jurisdictionPolicy": {
+      "$ref": "#/$defs/docBlob",
+      "description": "Per-jurisdiction feature gates (autoplay, quick/turbo, slam stop, bonus buy, enhanced chance, min round duration, RTP display) plus the most-restrictive UNKNOWN default."
+    },
+    "simulationReports": {
+      "type": "array",
+      "description": "One report per simulation run (per RTP profile, per tier, per bonus-buy mode), each with measured stats and the full reproducibility block.",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["reportId", "rounds", "measuredRtp"],
+        "properties": {
+          "reportId": { "type": "string", "pattern": "^[a-z][a-z0-9_-]{2,60}$", "description": "Unique report id, e.g. \"release-rtp-96\", \"buy-feature-rtp-96\"." },
+          "rounds": { "type": "integer", "minimum": 1000000, "description": "Simulated rounds in this run (>= 1e6)." },
+          "measuredRtp": { "type": "number", "minimum": 0, "maximum": 2, "description": "Measured RTP fraction of this run, reported exactly (bonus-buy runs are measured against mode price)." }
+        }
+      }
+    },
+    "testResults": {
+      "type": "array",
+      "description": "Executed test-matrix results: suite, command, pass/fail counts, honest per-item outcomes (client tests, math tests, equivalence tests, schema validation).",
+      "items": { "$ref": "#/$defs/docBlob" }
+    },
+    "performanceReport": {
+      "$ref": "#/$defs/docBlob",
+      "description": "Measured/estimated client performance: fps per device profile, load size, memory, low-performance mode behaviour."
+    },
+    "accessibilityReport": {
+      "$ref": "#/$defs/docBlob",
+      "description": "Accessibility audit: reduced-motion coverage, colour-independence, touch target sizes, flash rate, contrast ratios."
+    },
+    "complianceReview": {
+      "$ref": "#/$defs/docBlob",
+      "description": "Compliance review and certification-readiness checklist. Outputs are certification-ready candidates; certification is never claimed."
+    },
+    "artifactManifest": {
+      "type": "array",
+      "minItems": 1,
+      "description": "Every produced file with integrity hash and provenance.",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["path", "sha256"],
+        "properties": {
+          "path": { "type": "string", "minLength": 1, "maxLength": 300, "description": "Path relative to games/<slug>/." },
+          "sha256": { "$ref": "#/$defs/sha256", "description": "Integrity hash of the file bytes." },
+          "provenance": { "type": "string", "maxLength": 300, "description": "How the file was produced (generator step, tool, prompt id)." }
+        }
+      }
+    },
+    "knownRisks": {
+      "type": "array",
+      "description": "Honest list of known risks and limitations (failed gates, unverified estimates, prompt-only assets, IP cautions).",
+      "items": { "$ref": "#/$defs/docItem" }
+    },
+    "unresolvedItems": {
+      "type": "array",
+      "description": "Open items the run could not resolve (missing tools, skipped deliverables, decisions needing a human).",
+      "items": { "$ref": "#/$defs/docItem" }
+    }
+  },
+  "$defs": {
+    "docBlob": {
+      "type": "object",
+      "description": "Document-like structured blob. Shape is intentionally permissive here; the dedicated per-artifact schema (when one exists) is authoritative for the file on disk."
+    },
+    "docItem": {
+      "description": "One document item: either a plain string or a structured object.",
+      "anyOf": [
+        { "type": "string", "minLength": 1, "maxLength": 4000 },
+        { "type": "object" }
+      ]
+    },
+    "assetId": {
+      "type": "string",
+      "pattern": "^(img|atlas|audio|anim|font)\\.[a-z0-9_.-]+$",
+      "description": "Typed asset id per CONVENTIONS §10."
+    },
+    "rtpFraction": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 0.99,
+      "description": "One win source's RTP contribution as a fraction of total bet."
+    },
+    "minorUnits": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Monetary amount in integer minor units (e.g. cents). Never a binary float."
+    },
+    "semver": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semantic version string MAJOR.MINOR.PATCH."
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "description": "Prefixed lowercase-hex SHA-256 digest."
+    },
+    "tierId": {
+      "type": "string",
+      "enum": ["feature", "super_feature", "ultimate_feature"],
+      "description": "Canonical scatter feature tier id (3 / 4 / 5+ scatters)."
+    },
+    "symbolId": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9_]{0,15}$",
+      "description": "Canonical symbol id, e.g. WILD, SCATTER, H1, L3, JP_GRAND."
+    },
+    "projectSlug": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{2,40}$",
+      "description": "Kebab-case project slug used for games/<slug>/."
+    },
+    "rtp": {
+      "type": "number",
+      "minimum": 0.8,
+      "maximum": 0.99,
+      "description": "Return-to-player expressed as a fraction (e.g. 0.9600)."
+    }
+  }
+}

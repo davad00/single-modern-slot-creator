@@ -1,0 +1,17 @@
+{
+  "feature": {
+    "rounds": 8,
+    "startingMult100": 200,
+    "reelSet": "feature"
+  },
+  "super_feature": {
+    "rounds": 10,
+    "startingMult100": 400,
+    "reelSet": "super_feature"
+  },
+  "ultimate_feature": {
+    "rounds": 12,
+    "startingMult100": 800,
+    "reelSet": "ultimate_feature"
+  }
+}

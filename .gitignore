@@ -1,0 +1,18 @@
+# Dependencies / build output
+node_modules/
+dist/
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Local dev servers & logs
+serve.log
+*.log
+
+# Build machinery for THIS package's own construction (local paths, worker
+# transcripts, scheduler state) — not part of the skill
+.build/
+
+# Session/tooling state
+.claude/

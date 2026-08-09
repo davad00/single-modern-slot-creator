@@ -1,0 +1,197 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.single-slot-creator.local/asset-manifest.schema.json",
+  "title": "Asset manifest — config/asset-manifest.json",
+  "description": "Inventory of every visual, audio, and font asset the game needs: what it is for, where the file lives, device variants, full generation provenance, and pipeline status. Every entry here must be covered by prompts/art-prompts.json or prompts/audio-prompts.json, and every generated file must trace back to an entry.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["assets"],
+  "properties": {
+    "assets": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 1000,
+      "description": "All assets, unique by assetId (uniqueness enforced by the config validator).",
+      "items": { "$ref": "#/$defs/asset" }
+    }
+  },
+  "$defs": {
+    "assetId": {
+      "type": "string",
+      "pattern": "^(img|atlas|audio|anim|font)\\.[a-z0-9_.-]+$",
+      "description": "Asset id with kind prefix per CONVENTIONS §10, e.g. img.symbol.h1, audio.music.base, font.hud-numerals."
+    },
+    "filePath": {
+      "type": "string",
+      "pattern": "^[a-z0-9][A-Za-z0-9/_.-]*$",
+      "description": "File path relative to games/<slug>/assets/ using forward slashes."
+    },
+    "resolution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["w", "h"],
+      "description": "Pixel dimensions of the delivered file.",
+      "properties": {
+        "w": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 16384,
+          "description": "Width in pixels."
+        },
+        "h": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 16384,
+          "description": "Height in pixels."
+        }
+      }
+    },
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "assetId",
+        "category",
+        "purpose",
+        "file",
+        "format",
+        "transparent",
+        "atlasGroup",
+        "deviceVariants",
+        "provenance",
+        "status"
+      ],
+      "properties": {
+        "assetId": {
+          "$ref": "#/$defs/assetId",
+          "description": "Unique id of this asset."
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "symbol",
+            "background",
+            "foreground",
+            "frame",
+            "ui",
+            "vfx",
+            "character",
+            "feature_env",
+            "audio_music",
+            "audio_sfx",
+            "font",
+            "icon",
+            "thumbnail",
+            "splash"
+          ],
+          "description": "Functional category of the asset."
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 300,
+          "description": "What this asset is used for in the game, e.g. 'H1 premium symbol, base and feature reels'."
+        },
+        "file": {
+          "$ref": "#/$defs/filePath",
+          "description": "Primary delivered file (png is the source of truth for art)."
+        },
+        "format": {
+          "type": "string",
+          "enum": ["png", "webp", "jpg", "svg", "json", "ogg", "m4a", "mp3", "webm", "ttf", "otf", "woff2"],
+          "description": "File format of the primary file."
+        },
+        "resolution": {
+          "$ref": "#/$defs/resolution",
+          "description": "Pixel dimensions. Required for image assets; omit for audio and fonts (enforced by the config validator)."
+        },
+        "transparent": {
+          "type": "boolean",
+          "description": "Whether the image carries (or must carry after keying) an alpha channel. Always false for audio/fonts. Magenta-keyed generations must be cleaned before status 'cleaned'."
+        },
+        "atlasGroup": {
+          "type": ["string", "null"],
+          "pattern": "^[a-z][a-z0-9-]{1,40}$",
+          "description": "Kebab-case id of the texture atlas this asset is packed into, or null for standalone files (backgrounds, audio, fonts)."
+        },
+        "deviceVariants": {
+          "type": "array",
+          "maxItems": 6,
+          "description": "Alternate files for specific device profiles. Empty array when the primary file serves all devices.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["deviceProfile", "file"],
+            "properties": {
+              "deviceProfile": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9-]{1,40}$",
+                "description": "Id of a profile in config/device-profiles.json, e.g. 'mobile-low'."
+              },
+              "file": {
+                "$ref": "#/$defs/filePath",
+                "description": "Variant file for that profile."
+              },
+              "resolution": {
+                "$ref": "#/$defs/resolution",
+                "description": "Variant pixel dimensions (image assets)."
+              }
+            }
+          }
+        },
+        "provenance": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["generator", "sourceFiles", "generatedAt", "license"],
+          "description": "Where this asset came from. Required for certification honesty and IP review.",
+          "properties": {
+            "generator": {
+              "type": "string",
+              "enum": ["imagegen-mcp", "blender", "manual", "external"],
+              "description": "Tool/path that produced the asset: image-gen MCP tools, a Blender script, hand-made, or an external source."
+            },
+            "prompt": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 4000,
+              "description": "Full generation prompt (imagegen-mcp) or a pointer to the Blender script parameters."
+            },
+            "seed": {
+              "type": ["integer", "string"],
+              "description": "Generation seed when the tool exposes one (integer, or a tool-specific string)."
+            },
+            "model": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 120,
+              "description": "Model/tool version that generated the asset, e.g. 'gpt-image-2'."
+            },
+            "sourceFiles": {
+              "type": "array",
+              "maxItems": 20,
+              "uniqueItems": true,
+              "description": "Input files this asset was derived from (raw generations, Blender scenes, edit sources). Empty for from-scratch generations.",
+              "items": { "$ref": "#/$defs/filePath" }
+            },
+            "generatedAt": {
+              "type": "string",
+              "format": "date-time",
+              "description": "ISO-8601 timestamp when the current file was produced."
+            },
+            "license": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 500,
+              "description": "License/usage note, e.g. 'generated in-run via imagegen MCP; original work, no third-party IP'. External assets must name the license."
+            }
+          }
+        },
+        "status": {
+          "type": "string",
+          "enum": ["prompt-only", "generated", "cleaned", "atlased", "final"],
+          "description": "Pipeline stage: prompt written but not generated; raw generation on disk; keyed/cleaned; packed into an atlas; final and referenced by the client."
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "gameId": "kilnspire",
+  "gameName": "Kilnspire",
+  "projectSlug": "kilnspire",
+  "gameVersion": "1.0.0",
+  "mathVersion": "1.0.0",
+  "grid": {
+    "columns": 5,
+    "rows": 4
+  },
+  "evaluation": "ways",
+  "maxWinXBet": 10000,
+  "betMinorDefault": 100
+}

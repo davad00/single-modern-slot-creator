@@ -1,0 +1,27 @@
+{
+  "$comment": "No dedicated schema exists for this file (schema-gap, noted in docs/known-limitations.md). Autoplay is jurisdiction-gated via jurisdiction-policies.json (autoplayEnabled); where disabled it is excluded from the build, not hidden. Autoplay changes presentation cadence only - outcomes come from the committed manifest exactly as in manual play.",
+  "jurisdictionFlag": "autoplayEnabled",
+  "roundOptions": [10, 25, 50, 100],
+  "maxRounds": 100,
+  "stopConditions": {
+    "$comment": "Loss limit is mandatory before autoplay can start (MGA-style); every condition is player-visible and immediate.",
+    "lossLimitMinor": { "required": true, "default": null },
+    "singleWinExceedsMinor": { "required": false, "default": null },
+    "balanceBelowMinor": { "required": false, "default": null },
+    "balanceAboveMinor": { "required": false, "default": null },
+    "onAnyFeatureTrigger": true,
+    "onMaxWin": true,
+    "onRealityCheck": true,
+    "onJurisdictionSessionEnd": true
+  },
+  "ui": {
+    "visibleStopButton": true,
+    "remainingRoundsAlwaysVisible": true,
+    "intervalAlertPopup": true,
+    "confirmationRequired": true
+  },
+  "pacing": {
+    "interRoundDelayMs": 400,
+    "respectsMinimumRoundDurationMs": true
+  }
+}

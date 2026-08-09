@@ -1,0 +1,20 @@
+{
+  "evaluationMode": "ways",
+  "directionRule": "left_to_right",
+  "entries": [
+    { "symbolId": "H1", "ofAKindPays": { "3": 45, "4": 135, "5": 440 } },
+    { "symbolId": "H2", "ofAKindPays": { "3": 38, "4": 92, "5": 270 } },
+    { "symbolId": "H3", "ofAKindPays": { "3": 27, "4": 74, "5": 178 } },
+    { "symbolId": "H4", "ofAKindPays": { "3": 18, "4": 55, "5": 142 } },
+    { "symbolId": "L1", "ofAKindPays": { "3": 8, "4": 28, "5": 75 } },
+    { "symbolId": "L2", "ofAKindPays": { "3": 8, "4": 21, "5": 55 } },
+    { "symbolId": "L3", "ofAKindPays": { "3": 6, "4": 19, "5": 45 } },
+    { "symbolId": "L4", "ofAKindPays": { "4": 15, "5": 38 } },
+    { "symbolId": "L5", "ofAKindPays": { "4": 12, "5": 28 } }
+  ],
+  "scatterPays": {
+    "symbolId": "SCATTER",
+    "pays": { "3": 300, "4": 1500, "5": 10000 }
+  },
+  "wildSubstitutionNote": "WILD (Molten Core) substitutes for every paying symbol; it never substitutes for SCATTER. Ways pays are per way, left-to-right from reel 1; a run consisting entirely of wilds pays as the highest-paying substitutable interpretation. All pays are payX100 integers per way; winMinor = (betMinor * payX100) // 100 (floor)."
+}

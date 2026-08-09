@@ -1,0 +1,137 @@
+{
+  "policies": [
+    {
+      "policyId": "restricted-default",
+      "jurisdiction": "UNKNOWN",
+      "notes": "Most-restrictive fallback per CONVENTIONS 9.6 and research/17 UNKNOWN row: every optional feature off, 5000 ms floor (highest known statutory floor, DE), stake ladder capped pending session override, all responsible-play displays on, blocking fixed-60 reality check.",
+      "flags": {
+        "autoplayEnabled": false,
+        "quickSpinEnabled": false,
+        "turboSpinEnabled": false,
+        "slamStopEnabled": false,
+        "animationSkipEnabled": false,
+        "bonusBuyEnabled": false,
+        "enhancedChanceEnabled": false,
+        "minimumRoundDurationMs": 5000,
+        "maxStakeMinor": 100,
+        "ldwCelebrationSuppressed": true,
+        "showRtp": true,
+        "showMaximumWin": true,
+        "showGameHistory": true,
+        "netPositionDisplay": true,
+        "sessionClockDisplay": true,
+        "realityCheckMinutes": 60
+      }
+    },
+    {
+      "policyId": "mt-generic",
+      "jurisdiction": "MT",
+      "notes": "Permissive MGA/.com profile per GDD 21 and research/17 mt-generic-com. slamStop stays off as a design stance (illusion-of-control research) though MGA permits it. MGA min RTP 0.85 satisfied by the 0.96 profile; demo parity mandatory; reality check is player-set (persists until acknowledged), hence null interval here.",
+      "flags": {
+        "autoplayEnabled": true,
+        "quickSpinEnabled": true,
+        "turboSpinEnabled": true,
+        "slamStopEnabled": false,
+        "animationSkipEnabled": true,
+        "bonusBuyEnabled": true,
+        "enhancedChanceEnabled": true,
+        "minimumRoundDurationMs": null,
+        "maxStakeMinor": null,
+        "ldwCelebrationSuppressed": true,
+        "showRtp": true,
+        "showMaximumWin": true,
+        "showGameHistory": true,
+        "netPositionDisplay": true,
+        "sessionClockDisplay": true,
+        "realityCheckMinutes": null
+      }
+    },
+    {
+      "policyId": "gb-ukgc",
+      "jurisdiction": "GB",
+      "notes": "UKGC RTS: no autoplay (8/8A), no quick/turbo/slam/skip (14E), 2500 ms floor with release-and-re-press (14D), bonus buy off (3A/14A reading). LDW: returns <= stake never celebrate (14F) - suppression is load-bearing here. maxStakeMinor 500 = GBP 5 (25+); the 18-24 GBP 2 tier needs a runtime session override of the bet ladder. Reality check is player-set blocking, hence null interval. Net position + session clock mandatory (2E/13C).",
+      "flags": {
+        "autoplayEnabled": false,
+        "quickSpinEnabled": false,
+        "turboSpinEnabled": false,
+        "slamStopEnabled": false,
+        "animationSkipEnabled": false,
+        "bonusBuyEnabled": false,
+        "enhancedChanceEnabled": false,
+        "minimumRoundDurationMs": 2500,
+        "maxStakeMinor": 500,
+        "ldwCelebrationSuppressed": true,
+        "showRtp": true,
+        "showMaximumWin": true,
+        "showGameHistory": true,
+        "netPositionDisplay": true,
+        "sessionClockDisplay": true,
+        "realityCheckMinutes": null
+      }
+    },
+    {
+      "policyId": "de-ggl",
+      "jurisdiction": "DE",
+      "notes": "GlueStV 2021 / GGL: no autoplay/quick/turbo (s22a(6)), fixed 5000 ms floor implementing the statutory 5 s average, bonus buy off per review (stake caps make >=100x buys impossible; ante mode likewise blocked). maxStakeMinor 100 = EUR 1 default tier; EUR 3 / EUR 5 tiers are session-supplied overrides. Fixed 60-min reality check with express confirmation (s6h(7)); the 5-min post-ack lockout is a client duty (no schema field).",
+      "flags": {
+        "autoplayEnabled": false,
+        "quickSpinEnabled": false,
+        "turboSpinEnabled": false,
+        "slamStopEnabled": false,
+        "animationSkipEnabled": false,
+        "bonusBuyEnabled": false,
+        "enhancedChanceEnabled": false,
+        "minimumRoundDurationMs": 5000,
+        "maxStakeMinor": 100,
+        "ldwCelebrationSuppressed": true,
+        "showRtp": true,
+        "showMaximumWin": true,
+        "showGameHistory": true,
+        "netPositionDisplay": true,
+        "sessionClockDisplay": true,
+        "realityCheckMinutes": 60
+      }
+    },
+    {
+      "policyId": "se-spel",
+      "jurisdiction": "SE",
+      "notes": "Spelinspektionen: 3000 ms floor (tresekundersregeln), applying to autoplay rounds too - autoplay allowed with per-round >= 3 s and player-set limits (2026 draft caps at 60 rounds; re-check before SE release). Quick/turbo/skip off (would breach the floor). Bonus buy widely disabled on SE sites, no written ban - off pending review. No statutory per-spin stake cap (platform limits apply). Reality check is player-set, hence null; session clock continuously displayed.",
+      "flags": {
+        "autoplayEnabled": true,
+        "quickSpinEnabled": false,
+        "turboSpinEnabled": false,
+        "slamStopEnabled": false,
+        "animationSkipEnabled": false,
+        "bonusBuyEnabled": false,
+        "enhancedChanceEnabled": false,
+        "minimumRoundDurationMs": 3000,
+        "maxStakeMinor": null,
+        "ldwCelebrationSuppressed": true,
+        "showRtp": true,
+        "showMaximumWin": true,
+        "showGameHistory": true,
+        "netPositionDisplay": true,
+        "sessionClockDisplay": true,
+        "realityCheckMinutes": null
+      }
+    }
+  ],
+  "defaultPolicy": {
+    "autoplayEnabled": false,
+    "quickSpinEnabled": false,
+    "turboSpinEnabled": false,
+    "slamStopEnabled": false,
+    "animationSkipEnabled": false,
+    "bonusBuyEnabled": false,
+    "enhancedChanceEnabled": false,
+    "minimumRoundDurationMs": 5000,
+    "maxStakeMinor": 100,
+    "ldwCelebrationSuppressed": true,
+    "showRtp": true,
+    "showMaximumWin": true,
+    "showGameHistory": true,
+    "netPositionDisplay": true,
+    "sessionClockDisplay": true,
+    "realityCheckMinutes": 60
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "projectSlug": "belladonna-parlour",
+  "gameVersion": "0.1.0",
+  "notes": "Device performance tiers per research/06-frontend-tech.md D10-D12 budgets. Consumed by the client bootstrap: detect once, cache in sessionStorage, auto-downgrade on sustained low fps. Every animation event's lowPerformance variant (config/animation-events.json) maps onto these tiers. Presentation only - tiers never touch outcomes.",
+  "detection": {
+    "ladder": [
+      "renderer backend actually obtained (webgpu | webgl | canvas)",
+      "detect-gpu tier if benchmark JSON fetchable (self-hosted; conservative default on fetch failure)",
+      "navigator.hardwareConcurrency / deviceMemory heuristic",
+      "first-100-frames fps sample confirms or downgrades"
+    ],
+    "cache": "sessionStorage",
+    "autoDowngrade": { "sustainedFpsBelow": 45, "forSeconds": 3, "order": ["particles", "filters", "dpr"] },
+    "autoSuggestLowPerf": { "fpsBelow": 30, "forSeconds": 5 },
+    "neverUserAgentSniff": true
+  },
+  "profiles": {
+    "high": {
+      "dprCap": 3,
+      "fpsTarget": 60,
+      "particleCap": 500,
+      "maxConcurrentFilters": 4,
+      "shaderQuality": "full",
+      "atlasScale": 1.0,
+      "vramBudgetMb": 128,
+      "parallaxLayers": 4,
+      "gameSpecific": {
+        "glassShardParticles": true,
+        "vialFluidShader": true,
+        "prismRefractionShader": true,
+        "ambientIdleLoops": true,
+        "screenShake": "full"
+      }
+    },
+    "mid": {
+      "dprCap": 2,
+      "fpsTarget": 60,
+      "particleCap": 200,
+      "maxConcurrentFilters": 2,
+      "shaderQuality": "simplified",
+      "atlasScale": 1.0,
+      "vramBudgetMb": 128,
+      "parallaxLayers": 3,
+      "gameSpecific": {
+        "glassShardParticles": true,
+        "vialFluidShader": false,
+        "prismRefractionShader": false,
+        "ambientIdleLoops": true,
+        "screenShake": "low",
+        "note": "vial fill and prisming use pre-baked sprite sequences instead of shaders"
+      }
+    },
+    "low": {
+      "dprCap": 1.5,
+      "fpsTarget": 30,
+      "particleCap": 50,
+      "maxConcurrentFilters": 0,
+      "shaderQuality": "off",
+      "atlasScale": 0.5,
+      "vramBudgetMb": 96,
+      "parallaxLayers": 1,
+      "gameSpecific": {
+        "glassShardParticles": false,
+        "vialFluidShader": false,
+        "prismRefractionShader": false,
+        "ambientIdleLoops": false,
+        "screenShake": "off",
+        "note": "cascade shatter = sprite swap only (GDD 6.1 lowPerf); vial = counter tick + static glow frame; backgrounds static single layer"
+      }
+    }
+  },
+  "canvasFallback": {
+    "behaviour": "PixiJS canvas renderer with static symbols, zero particles, zero filters, static background - functional but simplified; never a blank canvas",
+    "particleCap": 0
+  },
+  "transferBudgets": {
+    "preloadMb": 0.5,
+    "firstSpinPlayableMb": 8,
+    "totalAllFeaturesMb": 25,
+    "jsGzipMb": 1.5,
+    "timeGates4g": { "splashSeconds": 3, "playableSeconds": 10, "hardFailSeconds": 20 }
+  },
+  "runtimeBudgets": {
+    "drawCallsWarn": 100,
+    "drawCallsFail": 200,
+    "jsHeapMbMax": 256,
+    "singleWebglCanvas": true,
+    "orientationResize": "single debounced resize >= 250ms (iOS resize-leak, WebKit 219780)"
+  }
+}

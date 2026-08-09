@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "1.0.0",
+  "project": {
+    "gameName": "",
+    "projectSlug": "",
+    "gameVersion": "0.0.0",
+    "mathVersion": "0.0.0",
+    "rtpProfileId": "",
+    "configHash": "sha256:"
+  },
+  "generatedAt": "",
+  "generator": "single-modern-slot-creator v1.0.0",
+  "artifacts": [
+    {
+      "path": "",
+      "category": "doc|config|math|client|asset|prompt|report",
+      "sha256": "",
+      "status": "final|draft|prompt-only",
+      "provenance": ""
+    }
+  ],
+  "gates": {
+    "G2": "pass|fail|skipped",
+    "G3": "pass|fail|skipped",
+    "G4": "pass|fail|skipped",
+    "G5": "pass|fail|skipped",
+    "G6": "pass|fail|skipped",
+    "G7": "pass|fail|skipped",
+    "G8": "pass|fail|skipped",
+    "G9": "pass|fail|skipped",
+    "G10": "pass|fail|skipped",
+    "G11": "pass|fail|skipped",
+    "G12": "pass|fail|skipped",
+    "G13": "pass|fail|skipped",
+    "G14": "pass|fail|skipped"
+  },
+  "knownLimitations": []
+}

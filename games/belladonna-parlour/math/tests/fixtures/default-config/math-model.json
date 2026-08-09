@@ -1,0 +1,12 @@
+{
+  "profileId": "rtp-fixture",
+  "targetRtp": 0.96,
+  "rtpTolerance": 0.003,
+  "volatilityClass": "high",
+  "cascades": {
+    "enabled": false,
+    "capPerSpin": 20,
+    "multiplierProgression": [100, 200, 300, 500]
+  },
+  "maxWin": { "xBet": 5000, "terminationPolicy": "end_round" }
+}

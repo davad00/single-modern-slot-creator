@@ -1,0 +1,88 @@
+{
+ "evaluationMode": "scatter_pays",
+ "directionRule": "any_adjacent",
+ "entries": [
+  {
+   "symbolId": "H1",
+   "ofAKindPays": {
+    "8": 320,
+    "10": 1000,
+    "12": 2600
+   }
+  },
+  {
+   "symbolId": "H2",
+   "ofAKindPays": {
+    "8": 260,
+    "10": 650,
+    "12": 1600
+   }
+  },
+  {
+   "symbolId": "H3",
+   "ofAKindPays": {
+    "8": 200,
+    "10": 450,
+    "12": 1000
+   }
+  },
+  {
+   "symbolId": "H4",
+   "ofAKindPays": {
+    "8": 130,
+    "10": 320,
+    "12": 800
+   }
+  },
+  {
+   "symbolId": "L1",
+   "ofAKindPays": {
+    "8": 52,
+    "10": 130,
+    "12": 400
+   }
+  },
+  {
+   "symbolId": "L2",
+   "ofAKindPays": {
+    "8": 42,
+    "10": 100,
+    "12": 320
+   }
+  },
+  {
+   "symbolId": "L3",
+   "ofAKindPays": {
+    "8": 34,
+    "10": 80,
+    "12": 260
+   }
+  },
+  {
+   "symbolId": "L4",
+   "ofAKindPays": {
+    "8": 27,
+    "10": 64,
+    "12": 200
+   }
+  },
+  {
+   "symbolId": "L5",
+   "ofAKindPays": {
+    "8": 21,
+    "10": 50,
+    "12": 160
+   }
+  }
+ ],
+ "scatterPays": {
+  "symbolId": "SCATTER",
+  "pays": {
+   "3": 200,
+   "4": 600,
+   "5": 2000,
+   "6": 10000
+  }
+ },
+ "wildSubstitutionNote": "No WILD symbol exists in this archetype. Pays are anywhere-count bands: a symbol count pays the highest listed threshold <= count (8-9 / 10-11 / 12+). Values are verbatim from math-config/paytable.json (single source of truth)."
+}

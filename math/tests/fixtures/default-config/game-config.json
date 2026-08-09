@@ -1,0 +1,23 @@
+{
+  "gameId": "fixture-basic",
+  "gameName": "Fixture Basic",
+  "projectSlug": "fixture-basic",
+  "gameVersion": "1.0.0",
+  "mathVersion": "1.0.0",
+  "grid": { "columns": 5, "rows": 3 },
+  "evaluation": "lines",
+  "lines": [
+    [1, 1, 1, 1, 1],
+    [0, 0, 0, 0, 0],
+    [2, 2, 2, 2, 2],
+    [0, 1, 2, 1, 0],
+    [2, 1, 0, 1, 2],
+    [0, 0, 1, 2, 2],
+    [2, 2, 1, 0, 0],
+    [1, 0, 1, 2, 1],
+    [1, 2, 1, 0, 1],
+    [0, 1, 1, 1, 2]
+  ],
+  "maxWinXBet": 5000,
+  "betMinorDefault": 100
+}

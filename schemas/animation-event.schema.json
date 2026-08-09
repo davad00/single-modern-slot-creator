@@ -1,0 +1,185 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.single-slot-creator.local/animation-event.schema.json",
+  "title": "Animation events — config/animation-events.json",
+  "description": "Every animation event the game can play. Per CONVENTIONS §9.8 each event defines duration, easing, skippable, skipTo, blocksInput, audioEvent, reduced-motion and low-performance variants, and a recovery policy. Skipping or fast-forwarding an event can NEVER alter a committed outcome.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["events"],
+  "properties": {
+    "events": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 200,
+      "description": "All animation events, unique by eventId (uniqueness enforced by the config validator).",
+      "items": { "$ref": "#/$defs/animationEvent" }
+    }
+  },
+  "$defs": {
+    "animEventId": {
+      "type": "string",
+      "pattern": "^anim\\.[a-z0-9_]+\\.[a-z0-9_]+$",
+      "description": "Animation event id in dot notation: anim.<context>.<name>, e.g. anim.scatter.land."
+    },
+    "audioEventId": {
+      "type": "string",
+      "pattern": "^(music\\.[a-z0-9_]+|sfx\\.[a-z0-9_]+\\.[a-z0-9_]+|amb\\.[a-z0-9_]+|ui\\.[a-z0-9_]+)$",
+      "description": "Audio event id per CONVENTIONS §4.3."
+    },
+    "timelineId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{1,60}$",
+      "description": "Kebab-case id of a deterministic timeline in the client timeline engine."
+    },
+    "animationEvent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "eventId",
+        "trigger",
+        "timelineId",
+        "durationMs",
+        "easing",
+        "priority",
+        "layer",
+        "blocksInput",
+        "skippable",
+        "skipTo",
+        "audioEvent",
+        "hapticEvent",
+        "reducedMotionTimelineId",
+        "lowPerformanceTimelineId",
+        "recoveryPolicy"
+      ],
+      "properties": {
+        "eventId": {
+          "$ref": "#/$defs/animEventId",
+          "description": "Unique id of this event, e.g. anim.scatter.land."
+        },
+        "trigger": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]{1,60}$",
+          "description": "snake_case trigger that fires this event: a state-machine state entry or a step/presentation event, e.g. symbol_landed, presenting_wins."
+        },
+        "conditions": {
+          "type": "object",
+          "additionalProperties": false,
+          "description": "Optional filters narrowing when the trigger fires this event. All present conditions must match.",
+          "properties": {
+            "symbolId": {
+              "type": "string",
+              "pattern": "^[A-Z][A-Z0-9_]{0,15}$",
+              "description": "Only fire for this symbol, e.g. SCATTER."
+            },
+            "tierId": {
+              "type": "string",
+              "enum": ["feature", "super_feature", "ultimate_feature"],
+              "description": "Only fire for this feature tier."
+            },
+            "winTier": {
+              "type": "string",
+              "enum": ["small", "medium", "big", "mega", "epic", "max"],
+              "description": "Only fire for this win-size tier."
+            },
+            "stepType": {
+              "type": "string",
+              "enum": [
+                "initial_result",
+                "cascade",
+                "respin",
+                "feature_round",
+                "feature_trigger",
+                "feature_retrigger",
+                "feature_upgrade",
+                "jackpot_award",
+                "max_win_termination",
+                "settlement"
+              ],
+              "description": "Only fire during this manifest step type."
+            },
+            "minScatterCount": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 8,
+              "description": "Only fire when at least this many scatters are visible (e.g. anticipation)."
+            }
+          }
+        },
+        "preconditions": {
+          "type": "array",
+          "maxItems": 8,
+          "uniqueItems": true,
+          "description": "Ids of other animation events that must have completed before this one may start (sequencing, e.g. countup after last cascade).",
+          "items": { "$ref": "#/$defs/animEventId" }
+        },
+        "timelineId": {
+          "$ref": "#/$defs/timelineId",
+          "description": "Standard-motion timeline played for this event."
+        },
+        "durationMs": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 30000,
+          "description": "Nominal duration in milliseconds at 1x speed."
+        },
+        "easing": {
+          "type": "string",
+          "pattern": "^[a-z][a-zA-Z0-9]{1,40}$",
+          "description": "Easing curve name implemented in the deterministic timeline engine, e.g. easeOutBack, linear."
+        },
+        "priority": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Scheduling priority; higher wins when events compete for the same layer (100 = must play)."
+        },
+        "layer": {
+          "type": "string",
+          "enum": ["background", "reels", "symbols", "vfx", "frame", "hud", "overlay", "fullscreen"],
+          "description": "Render layer this event animates on."
+        },
+        "blocksInput": {
+          "type": "boolean",
+          "description": "Whether player input (spin, UI) is locked while this event plays."
+        },
+        "skippable": {
+          "type": "boolean",
+          "description": "Whether the player can skip this event. Skipping affects presentation only."
+        },
+        "skipTo": {
+          "type": "string",
+          "enum": ["complete", "next_step", "summary"],
+          "description": "Where a skip lands: this event's end state (complete), the next manifest step (next_step), or the feature summary (summary)."
+        },
+        "fastForwardFactor": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 10,
+          "description": "Playback speed multiplier applied in quick/turbo modes (1 = not accelerated)."
+        },
+        "audioEvent": {
+          "oneOf": [{ "$ref": "#/$defs/audioEventId" }, { "type": "null" }],
+          "description": "Audio event synchronized with this animation, or null for silent events. Non-null ids must exist in config/audio-events.json."
+        },
+        "hapticEvent": {
+          "type": ["string", "null"],
+          "enum": ["haptic.light", "haptic.medium", "haptic.heavy", null],
+          "description": "Haptic pulse fired with this event on supporting devices, or null."
+        },
+        "reducedMotionTimelineId": {
+          "$ref": "#/$defs/timelineId",
+          "description": "Mandatory reduced-motion variant timeline (accessibility): same information, minimal movement, flash rate ≤ 3/s."
+        },
+        "lowPerformanceTimelineId": {
+          "$ref": "#/$defs/timelineId",
+          "description": "Mandatory low-performance variant timeline for weak devices (fewer particles, simpler shaders)."
+        },
+        "recoveryPolicy": {
+          "type": "string",
+          "enum": ["seek-to-authoritative-state", "restart", "skip"],
+          "description": "What happens if this event is interrupted by disconnect/reload: seek presentation to the committed state, restart the event, or skip it entirely."
+        }
+      }
+    }
+  }
+}

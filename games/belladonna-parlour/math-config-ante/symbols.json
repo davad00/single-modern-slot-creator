@@ -1,0 +1,62 @@
+[
+ {
+  "id": "SCATTER",
+  "kind": "scatter",
+  "tierRank": 0
+ },
+ {
+  "id": "MULT",
+  "kind": "multiplier",
+  "tierRank": 0
+ },
+ {
+  "id": "FX1",
+  "kind": "feature_exclusive",
+  "tierRank": 0
+ },
+ {
+  "id": "H1",
+  "kind": "premium",
+  "tierRank": 1
+ },
+ {
+  "id": "H2",
+  "kind": "premium",
+  "tierRank": 2
+ },
+ {
+  "id": "H3",
+  "kind": "premium",
+  "tierRank": 3
+ },
+ {
+  "id": "H4",
+  "kind": "premium",
+  "tierRank": 4
+ },
+ {
+  "id": "L1",
+  "kind": "low",
+  "tierRank": 5
+ },
+ {
+  "id": "L2",
+  "kind": "low",
+  "tierRank": 6
+ },
+ {
+  "id": "L3",
+  "kind": "low",
+  "tierRank": 7
+ },
+ {
+  "id": "L4",
+  "kind": "low",
+  "tierRank": 8
+ },
+ {
+  "id": "L5",
+  "kind": "low",
+  "tierRank": 9
+ }
+]

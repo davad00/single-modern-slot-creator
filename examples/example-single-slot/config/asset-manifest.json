@@ -1,0 +1,1392 @@
+{
+  "assets": [
+    {
+      "assetId": "img.symbol.wild.static",
+      "category": "symbol",
+      "purpose": "WILD Molten Core symbol, static state; base and all feature reel sets",
+      "file": "art/symbols/wild-static.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.symbol.wild.win",
+      "category": "symbol",
+      "purpose": "WILD Molten Core symbol, win state; base and all feature reel sets",
+      "file": "art/symbols/wild-win.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.symbol.wild.blur",
+      "category": "symbol",
+      "purpose": "WILD Molten Core symbol, blur state; base and all feature reel sets",
+      "file": "art/symbols/wild-blur.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.symbol.scatter.static",
+      "category": "symbol",
+      "purpose": "SCATTER Kiln Sigil symbol, static state; base and all feature reel sets",
+      "file": "art/symbols/scatter-static.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.symbol.scatter.win",
+      "category": "symbol",
+      "purpose": "SCATTER Kiln Sigil symbol, win state; base and all feature reel sets",
+      "file": "art/symbols/scatter-win.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.symbol.scatter.blur",
+      "category": "symbol",
+      "purpose": "SCATTER Kiln Sigil symbol, blur state; base and all feature reel sets",
+      "file": "art/symbols/scatter-blur.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.symbol.h1.static",
+      "category": "symbol",
+      "purpose": "H1 Star-Glass Orb symbol, static state; base and all feature reel sets",
+      "file": "art/symbols/h1-static.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.symbol.h1.win",
+      "category": "symbol",
+      "purpose": "H1 Star-Glass Orb symbol, win state; base and all feature reel sets",
+      "file": "art/symbols/h1-win.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.symbol.h1.blur",
+      "category": "symbol",
+      "purpose": "H1 Star-Glass Orb symbol, blur state; base and all feature reel sets",
+      "file": "art/symbols/h1-blur.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.symbol.h2.static",
+      "category": "symbol",
+      "purpose": "H2 Glasswright's Gauntlet symbol, static state; base and all feature reel sets",
+      "file": "art/symbols/h2-static.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.symbol.h2.win",
+      "category": "symbol",
+      "purpose": "H2 Glasswright's Gauntlet symbol, win state; base and all feature reel sets",
+      "file": "art/symbols/h2-win.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.symbol.h2.blur",
+      "category": "symbol",
+      "purpose": "H2 Glasswright's Gauntlet symbol, blur state; base and all feature reel sets",
+      "file": "art/symbols/h2-blur.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.symbol.h3.static",
+      "category": "symbol",
+      "purpose": "H3 Crucible of Embers symbol, static state; base and all feature reel sets",
+      "file": "art/symbols/h3-static.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.symbol.h3.win",
+      "category": "symbol",
+      "purpose": "H3 Crucible of Embers symbol, win state; base and all feature reel sets",
+      "file": "art/symbols/h3-win.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.symbol.h3.blur",
+      "category": "symbol",
+      "purpose": "H3 Crucible of Embers symbol, blur state; base and all feature reel sets",
+      "file": "art/symbols/h3-blur.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.symbol.h4.static",
+      "category": "symbol",
+      "purpose": "H4 Blowpipe & Shears symbol, static state; base and all feature reel sets",
+      "file": "art/symbols/h4-static.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.symbol.h4.win",
+      "category": "symbol",
+      "purpose": "H4 Blowpipe & Shears symbol, win state; base and all feature reel sets",
+      "file": "art/symbols/h4-win.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.symbol.h4.blur",
+      "category": "symbol",
+      "purpose": "H4 Blowpipe & Shears symbol, blur state; base and all feature reel sets",
+      "file": "art/symbols/h4-blur.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.symbol.l1.static",
+      "category": "symbol",
+      "purpose": "L1 Cobalt Bead symbol, static state; base and all feature reel sets",
+      "file": "art/symbols/l1-static.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.symbol.l1.win",
+      "category": "symbol",
+      "purpose": "L1 Cobalt Bead symbol, win state; base and all feature reel sets",
+      "file": "art/symbols/l1-win.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.symbol.l1.blur",
+      "category": "symbol",
+      "purpose": "L1 Cobalt Bead symbol, blur state; base and all feature reel sets",
+      "file": "art/symbols/l1-blur.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.symbol.l2.static",
+      "category": "symbol",
+      "purpose": "L2 Amber Bead symbol, static state; base and all feature reel sets",
+      "file": "art/symbols/l2-static.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.symbol.l2.win",
+      "category": "symbol",
+      "purpose": "L2 Amber Bead symbol, win state; base and all feature reel sets",
+      "file": "art/symbols/l2-win.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.symbol.l2.blur",
+      "category": "symbol",
+      "purpose": "L2 Amber Bead symbol, blur state; base and all feature reel sets",
+      "file": "art/symbols/l2-blur.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.symbol.l3.static",
+      "category": "symbol",
+      "purpose": "L3 Viridian Bead symbol, static state; base and all feature reel sets",
+      "file": "art/symbols/l3-static.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.symbol.l3.win",
+      "category": "symbol",
+      "purpose": "L3 Viridian Bead symbol, win state; base and all feature reel sets",
+      "file": "art/symbols/l3-win.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.symbol.l3.blur",
+      "category": "symbol",
+      "purpose": "L3 Viridian Bead symbol, blur state; base and all feature reel sets",
+      "file": "art/symbols/l3-blur.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.symbol.l4.static",
+      "category": "symbol",
+      "purpose": "L4 Rose Bead symbol, static state; base and all feature reel sets",
+      "file": "art/symbols/l4-static.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.symbol.l4.win",
+      "category": "symbol",
+      "purpose": "L4 Rose Bead symbol, win state; base and all feature reel sets",
+      "file": "art/symbols/l4-win.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.symbol.l4.blur",
+      "category": "symbol",
+      "purpose": "L4 Rose Bead symbol, blur state; base and all feature reel sets",
+      "file": "art/symbols/l4-blur.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.symbol.l5.static",
+      "category": "symbol",
+      "purpose": "L5 Smoke Bead symbol, static state; base and all feature reel sets",
+      "file": "art/symbols/l5-static.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.symbol.l5.win",
+      "category": "symbol",
+      "purpose": "L5 Smoke Bead symbol, win state; base and all feature reel sets",
+      "file": "art/symbols/l5-win.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.symbol.l5.blur",
+      "category": "symbol",
+      "purpose": "L5 Smoke Bead symbol, blur state; base and all feature reel sets",
+      "file": "art/symbols/l5-blur.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.env.base.layer0",
+      "category": "background",
+      "purpose": "Base-game environment parallax layer 0 (sky): the Kilnspire glassworks tower interior",
+      "file": "art/env/base-layer0.png",
+      "format": "png",
+      "transparent": false,
+      "atlasGroup": null,
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 2048,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.env.base.layer1",
+      "category": "background",
+      "purpose": "Base-game environment parallax layer 1 (mid): the Kilnspire glassworks tower interior",
+      "file": "art/env/base-layer1.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": null,
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 2048,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.env.base.layer2",
+      "category": "background",
+      "purpose": "Base-game environment parallax layer 2 (near): the Kilnspire glassworks tower interior",
+      "file": "art/env/base-layer2.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": null,
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 2048,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.env.feature.backdrop",
+      "category": "feature_env",
+      "purpose": "feature tier environment backdrop (world transformation per tier)",
+      "file": "art/env/feature-backdrop.png",
+      "format": "png",
+      "transparent": false,
+      "atlasGroup": null,
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 2048,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.env.super_feature.backdrop",
+      "category": "feature_env",
+      "purpose": "super-feature tier environment backdrop (world transformation per tier)",
+      "file": "art/env/super-feature-backdrop.png",
+      "format": "png",
+      "transparent": false,
+      "atlasGroup": null,
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 2048,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.env.ultimate_feature.backdrop",
+      "category": "feature_env",
+      "purpose": "ultimate-feature tier environment backdrop (world transformation per tier)",
+      "file": "art/env/ultimate-feature-backdrop.png",
+      "format": "png",
+      "transparent": false,
+      "atlasGroup": null,
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 2048,
+        "h": 1024
+      }
+    },
+    {
+      "assetId": "img.frame.reel",
+      "category": "frame",
+      "purpose": "Reel frame: brass-and-glass kiln aperture around the 5x4 grid",
+      "file": "art/frame/reel-frame.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1600,
+        "h": 1200
+      }
+    },
+    {
+      "assetId": "img.frame.cell",
+      "category": "frame",
+      "purpose": "Grid cell backing tile",
+      "file": "art/frame/cell.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 256,
+        "h": 256
+      }
+    },
+    {
+      "assetId": "img.frame.cell_win",
+      "category": "frame",
+      "purpose": "Grid cell win-highlight variant",
+      "file": "art/frame/cell-win.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "base",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 256,
+        "h": 256
+      }
+    },
+    {
+      "assetId": "img.ui.btn_spin.normal",
+      "category": "ui",
+      "purpose": "Primary spin button, normal state (1 of 10 states; other 9 derived via edit_image)",
+      "file": "art/ui/btn-spin-normal.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "preload",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 512,
+        "h": 512
+      }
+    },
+    {
+      "assetId": "img.ui.btn_spin.pressed",
+      "category": "ui",
+      "purpose": "Primary spin button, pressed state",
+      "file": "art/ui/btn-spin-pressed.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "preload",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 512,
+        "h": 512
+      }
+    },
+    {
+      "assetId": "img.ui.btn_spin.disabled",
+      "category": "ui",
+      "purpose": "Primary spin button, disabled state",
+      "file": "art/ui/btn-spin-disabled.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "preload",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 512,
+        "h": 512
+      }
+    },
+    {
+      "assetId": "img.ui.btn_menu",
+      "category": "ui",
+      "purpose": "Menu button",
+      "file": "art/ui/btn-menu.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "preload",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 256,
+        "h": 256
+      }
+    },
+    {
+      "assetId": "img.ui.btn_autoplay",
+      "category": "ui",
+      "purpose": "Autoplay button (excluded from builds where autoplay is jurisdiction-disabled)",
+      "file": "art/ui/btn-autoplay.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "preload",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 256,
+        "h": 256
+      }
+    },
+    {
+      "assetId": "img.ui.hud_panel",
+      "category": "ui",
+      "purpose": "HUD 9-slice panel for balance/bet/win",
+      "file": "art/ui/hud-panel.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "preload",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 512,
+        "h": 256
+      }
+    },
+    {
+      "assetId": "img.ui.buy_panel",
+      "category": "ui",
+      "purpose": "Bonus-buy menu panel art (three tier cards)",
+      "file": "art/ui/buy-panel.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "feature",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 768
+      }
+    },
+    {
+      "assetId": "img.vfx.particle_ember",
+      "category": "vfx",
+      "purpose": "Ember particle texture, grayscale-for-tint",
+      "file": "art/vfx/particle-ember.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "celebrations",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 128,
+        "h": 128
+      }
+    },
+    {
+      "assetId": "img.vfx.particle_glass",
+      "category": "vfx",
+      "purpose": "Glass shard particle texture, grayscale-for-tint",
+      "file": "art/vfx/particle-glass.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "celebrations",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 128,
+        "h": 128
+      }
+    },
+    {
+      "assetId": "img.vfx.glow_ring",
+      "category": "vfx",
+      "purpose": "Radial glow ring for win highlights and scatter anticipation",
+      "file": "art/vfx/glow-ring.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "celebrations",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 256,
+        "h": 256
+      }
+    },
+    {
+      "assetId": "img.winplate.big",
+      "category": "ui",
+      "purpose": "BIG WIN typography plate",
+      "file": "art/winplates/big.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "celebrations",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 512
+      }
+    },
+    {
+      "assetId": "img.winplate.mega",
+      "category": "ui",
+      "purpose": "MEGA WIN typography plate",
+      "file": "art/winplates/mega.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "celebrations",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 512
+      }
+    },
+    {
+      "assetId": "img.winplate.epic",
+      "category": "ui",
+      "purpose": "EPIC WIN typography plate",
+      "file": "art/winplates/epic.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "celebrations",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 512
+      }
+    },
+    {
+      "assetId": "img.winplate.max",
+      "category": "ui",
+      "purpose": "MAX WIN typography plate (10,000x cap)",
+      "file": "art/winplates/max.png",
+      "format": "png",
+      "transparent": true,
+      "atlasGroup": "celebrations",
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1024,
+        "h": 512
+      }
+    },
+    {
+      "assetId": "img.meta.icon",
+      "category": "icon",
+      "purpose": "Game icon 1:1",
+      "file": "art/meta/icon.png",
+      "format": "png",
+      "transparent": false,
+      "atlasGroup": null,
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 512,
+        "h": 512
+      }
+    },
+    {
+      "assetId": "img.meta.thumbnail",
+      "category": "thumbnail",
+      "purpose": "Lobby thumbnail 16:9",
+      "file": "art/meta/thumbnail.png",
+      "format": "png",
+      "transparent": false,
+      "atlasGroup": null,
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 1920,
+        "h": 1080
+      }
+    },
+    {
+      "assetId": "img.meta.splash",
+      "category": "splash",
+      "purpose": "Splash/loading screen",
+      "file": "art/meta/splash.png",
+      "format": "png",
+      "transparent": false,
+      "atlasGroup": null,
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only",
+      "resolution": {
+        "w": 2048,
+        "h": 1152
+      }
+    },
+    {
+      "assetId": "audio.music.base",
+      "category": "audio_music",
+      "purpose": "Adaptive music loop: music.base state",
+      "file": "audio/music/base.ogg",
+      "format": "ogg",
+      "transparent": false,
+      "atlasGroup": null,
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only"
+    },
+    {
+      "assetId": "audio.music.feature",
+      "category": "audio_music",
+      "purpose": "Adaptive music loop: music.feature state",
+      "file": "audio/music/feature.ogg",
+      "format": "ogg",
+      "transparent": false,
+      "atlasGroup": null,
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only"
+    },
+    {
+      "assetId": "audio.music.super_feature",
+      "category": "audio_music",
+      "purpose": "Adaptive music loop: music.super_feature state",
+      "file": "audio/music/super-feature.ogg",
+      "format": "ogg",
+      "transparent": false,
+      "atlasGroup": null,
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only"
+    },
+    {
+      "assetId": "audio.music.ultimate_feature",
+      "category": "audio_music",
+      "purpose": "Adaptive music loop: music.ultimate_feature state",
+      "file": "audio/music/ultimate-feature.ogg",
+      "format": "ogg",
+      "transparent": false,
+      "atlasGroup": null,
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only"
+    },
+    {
+      "assetId": "font.hud_numerals",
+      "category": "font",
+      "purpose": "HUD numeral font (tabular figures, 4.5:1 contrast on playfield)",
+      "file": "fonts/hud-numerals.woff2",
+      "format": "woff2",
+      "transparent": false,
+      "atlasGroup": null,
+      "deviceVariants": [],
+      "provenance": {
+        "generator": "imagegen-mcp",
+        "prompt": "see prompts/art-prompts.json entry for this assetId (or the shared style block for derivative states)",
+        "sourceFiles": [],
+        "generatedAt": "2026-08-08T07:30:00Z",
+        "license": "not yet generated - prompt-only entry; will be generated in-run via imagegen MCP as original work, no third-party IP"
+      },
+      "status": "prompt-only"
+    }
+  ]
+}

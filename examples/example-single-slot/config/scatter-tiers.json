@@ -1,0 +1,51 @@
+{
+  "countingRule": "initial-grid",
+  "countCascadedScatters": false,
+  "countCopiedScatters": false,
+  "tiers": [
+    {
+      "tierId": "feature",
+      "scattersRequired": 3,
+      "publicName": "Kindled Spins",
+      "entry": {
+        "rounds": 8,
+        "startingMultiplier100": 200,
+        "modifiers": ["kindled_premium_lift"]
+      }
+    },
+    {
+      "tierId": "super_feature",
+      "scattersRequired": 4,
+      "publicName": "Roaring Kiln",
+      "entry": {
+        "rounds": 10,
+        "startingMultiplier100": 400,
+        "modifiers": ["roaring_premium_lift", "bellows_wild_lift"]
+      }
+    },
+    {
+      "tierId": "ultimate_feature",
+      "scattersRequired": 5,
+      "publicName": "Starfire Crown",
+      "entry": {
+        "rounds": 12,
+        "startingMultiplier100": 800,
+        "modifiers": ["starfire_premium_lift", "molten_wild_surge"]
+      }
+    }
+  ],
+  "fiveOrMoreUsesUltimateTier": true,
+  "retrigger": {
+    "allowed": true,
+    "scattersRequired": 3,
+    "roundsAwarded": 4,
+    "capPerFeature": 3
+  },
+  "anticipation": {
+    "enabled": true,
+    "triggersAtScatters": 2
+  },
+  "scattersPayIndependently": true,
+  "scattersSubstituteAsWild": false,
+  "scattersPersistDuringCascades": true
+}

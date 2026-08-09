@@ -1,0 +1,379 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.single-slot-creator.local/simulation-report.schema.json",
+  "title": "Simulation report — math/reports/*.json",
+  "description": "One simulation run's complete record: reproducibility provenance (versions, hashes, seeds, exact command), aggregate results (RTP with confidence interval, hit frequency, per-tier contributions and frequencies, payout distribution, volatility), per-tier breakdown, and the pass/fail verdict against the target RTP. Numbers are reported exactly as measured — never massaged.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["reportId", "kind", "provenance", "results", "perTier", "passFail"],
+  "properties": {
+    "reportId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{2,80}$",
+      "description": "Kebab-case id of this report, e.g. 'release-rtp96-2026-08-08-a'."
+    },
+    "kind": {
+      "type": "string",
+      "enum": ["dev", "regression", "release", "rare_event", "bonus_buy", "tier_isolated"],
+      "description": "Purpose of the run: quick dev check, CI regression, full release-size run, rare-event stress (max win / ultimate tier), a bonus-buy mode, or a single tier simulated in isolation."
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "gameVersion",
+        "mathVersion",
+        "configHash",
+        "simCodeVersion",
+        "lockfileHash",
+        "seedPolicy",
+        "seeds",
+        "rounds",
+        "workers",
+        "command",
+        "startedAt",
+        "durationS"
+      ],
+      "description": "Everything needed to reproduce this run bit-for-bit.",
+      "properties": {
+        "gameVersion": {
+          "$ref": "#/$defs/semver",
+          "description": "Game package semver the run used."
+        },
+        "mathVersion": {
+          "$ref": "#/$defs/semver",
+          "description": "Math model semver the run used."
+        },
+        "configHash": {
+          "$ref": "#/$defs/sha256",
+          "description": "sha256 of the canonical config/*.json concatenation the run used (CONVENTIONS §5)."
+        },
+        "simCodeVersion": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "description": "Version/commit of the simulator code, e.g. a semver or git short hash."
+        },
+        "lockfileHash": {
+          "$ref": "#/$defs/sha256",
+          "description": "sha256 of the uv lockfile (uv.lock) pinning the Python environment."
+        },
+        "seedPolicy": {
+          "type": "string",
+          "enum": ["fixed", "per-worker-derived", "random-recorded"],
+          "description": "How seeds were chosen: one fixed seed, per-worker seeds derived from a master seed, or random seeds that were recorded."
+        },
+        "seeds": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 1024,
+          "description": "Every RNG seed used (numpy PCG64), in worker order.",
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "One PCG64 seed."
+          }
+        },
+        "rounds": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100000000000,
+          "description": "Total rounds simulated across all workers."
+        },
+        "workers": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1024,
+          "description": "Parallel worker processes used."
+        },
+        "command": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000,
+          "description": "Exact command line that produced this report, e.g. 'uv run python -m slot_math.simulate --rounds 100000000 --seed 42'."
+        },
+        "startedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO-8601 timestamp when the run started."
+        },
+        "durationS": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Wall-clock duration of the run in seconds."
+        }
+      }
+    },
+    "results": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rtp",
+        "rtpCi95",
+        "hitFrequency",
+        "contributions",
+        "featureFreq",
+        "retriggerRate",
+        "avgCascades",
+        "payoutPercentiles",
+        "maxWinHits",
+        "maxWinProb",
+        "variance",
+        "stddev",
+        "volatilityIndex"
+      ],
+      "description": "Aggregate measurements over all simulated rounds.",
+      "properties": {
+        "rtp": {
+          "$ref": "#/$defs/fraction",
+          "description": "Measured return-to-player as a fraction of total wagered (0.9600 = 96%)."
+        },
+        "rtpCi95": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "description": "95% confidence interval of the RTP as [low, high] fractions (low <= high, runtime-validated).",
+          "prefixItems": [
+            { "$ref": "#/$defs/fraction", "description": "Lower CI bound." },
+            { "$ref": "#/$defs/fraction", "description": "Upper CI bound." }
+          ],
+          "items": false
+        },
+        "hitFrequency": {
+          "$ref": "#/$defs/probability",
+          "description": "Fraction of rounds with any win (0.30 = 30% of rounds pay)."
+        },
+        "contributions": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["base", "scatter_pay", "feature", "super_feature", "ultimate_feature"],
+          "description": "RTP contribution of each component, as fractions of total wagered. base + scatter_pay + feature + super_feature + ultimate_feature must equal rtp within ±0.0005 (QA gate G5).",
+          "properties": {
+            "base": {
+              "$ref": "#/$defs/fraction",
+              "description": "Base-game line/ways/cluster wins contribution."
+            },
+            "scatter_pay": {
+              "$ref": "#/$defs/fraction",
+              "description": "Direct scatter pays contribution (0 when scatters do not pay)."
+            },
+            "feature": {
+              "$ref": "#/$defs/fraction",
+              "description": "feature tier (3 scatters) contribution."
+            },
+            "super_feature": {
+              "$ref": "#/$defs/fraction",
+              "description": "super_feature tier (4 scatters) contribution."
+            },
+            "ultimate_feature": {
+              "$ref": "#/$defs/fraction",
+              "description": "ultimate_feature tier (5+ scatters) contribution."
+            }
+          }
+        },
+        "featureFreq": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["feature", "super_feature", "ultimate_feature"],
+          "description": "Natural trigger frequency of each tier expressed as 1-in-N rounds (N, not a probability).",
+          "properties": {
+            "feature": {
+              "$ref": "#/$defs/oneInN",
+              "description": "feature triggers once per this many rounds."
+            },
+            "super_feature": {
+              "$ref": "#/$defs/oneInN",
+              "description": "super_feature triggers once per this many rounds."
+            },
+            "ultimate_feature": {
+              "$ref": "#/$defs/oneInN",
+              "description": "ultimate_feature triggers once per this many rounds."
+            }
+          }
+        },
+        "retriggerRate": {
+          "$ref": "#/$defs/probability",
+          "description": "Fraction of triggered features that retriggered at least once."
+        },
+        "avgCascades": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Average cascades per round (0 for non-cascading games)."
+        },
+        "payoutPercentiles": {
+          "type": "object",
+          "minProperties": 1,
+          "description": "Round-payout distribution as x-bet multiples keyed by percentile, e.g. {'p50': 0, 'p90': 1.2, 'p99': 14.5}.",
+          "propertyNames": { "pattern": "^p(\\d{1,2}(\\.\\d+)?|100)$" },
+          "additionalProperties": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Payout at this percentile as an x-bet multiple."
+          }
+        },
+        "maxWinHits": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of simulated rounds that hit the max-win cap."
+        },
+        "maxWinProb": {
+          "$ref": "#/$defs/probability",
+          "description": "Measured probability of hitting the max-win cap per round (maxWinHits / rounds)."
+        },
+        "variance": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Variance of round payout in x-bet units squared."
+        },
+        "stddev": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Standard deviation of round payout in x-bet units."
+        },
+        "volatilityIndex": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Studio volatility index derived from stddev (documented in the PAR sheet; comparable across this game's profiles only)."
+        }
+      }
+    },
+    "perTier": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 10,
+      "description": "Breakdown per tier (all three canonical tiers required; bonus-buy entries may add more rows with the same tierIds).",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "tierId",
+          "triggers",
+          "freqOneInN",
+          "rtpContribution",
+          "avgPayX",
+          "medianPayX",
+          "p99PayX",
+          "maxPayX",
+          "avgRounds",
+          "retriggerRate"
+        ],
+        "properties": {
+          "tierId": {
+            "$ref": "#/$defs/tierId",
+            "description": "Which tier this row measures."
+          },
+          "entryMode": {
+            "type": "string",
+            "enum": ["natural", "bonus_buy"],
+            "description": "Optional: whether this row measures natural triggers or a bonus-buy entry (default natural)."
+          },
+          "triggers": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Number of times this tier triggered in the run."
+          },
+          "freqOneInN": {
+            "$ref": "#/$defs/oneInN",
+            "description": "Trigger frequency as 1-in-N rounds."
+          },
+          "rtpContribution": {
+            "$ref": "#/$defs/fraction",
+            "description": "This tier's contribution to total RTP, as a fraction of total wagered."
+          },
+          "avgPayX": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Mean total payout of one feature instance, as an x-bet multiple."
+          },
+          "medianPayX": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Median total payout of one feature instance, x-bet."
+          },
+          "p99PayX": {
+            "type": "number",
+            "minimum": 0,
+            "description": "99th-percentile payout of one feature instance, x-bet (tail measure)."
+          },
+          "maxPayX": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Largest observed payout of one feature instance, x-bet (≤ the max-win cap)."
+          },
+          "avgRounds": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Average feature rounds played per instance, including retriggers."
+          },
+          "retriggerRate": {
+            "$ref": "#/$defs/probability",
+            "description": "Fraction of this tier's instances that retriggered at least once."
+          }
+        }
+      }
+    },
+    "passFail": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["targetRtp", "tolerance", "pass", "notes"],
+      "description": "Verdict against the RTP gate: |rtp − targetRtp| must be within the 99% CI half-width AND within tolerance at release size (CONVENTIONS §5).",
+      "properties": {
+        "targetRtp": {
+          "$ref": "#/$defs/fraction",
+          "description": "The design target RTP for the active math profile."
+        },
+        "tolerance": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 0.05,
+          "description": "Maximum allowed absolute deviation |rtp − targetRtp| (0.003 at release level)."
+        },
+        "pass": {
+          "type": "boolean",
+          "description": "Whether this run passes the gate. Reported honestly; a failing run ships marked FAILED-GATE."
+        },
+        "notes": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 1000,
+          "description": "Evidence and caveats: measured deviation, CI half-width, anomalies, follow-ups."
+        }
+      }
+    }
+  },
+  "$defs": {
+    "semver": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semantic version string."
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "description": "sha256 hash with 'sha256:' prefix."
+    },
+    "tierId": {
+      "type": "string",
+      "enum": ["feature", "super_feature", "ultimate_feature"],
+      "description": "Canonical internal tier identifier."
+    },
+    "fraction": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 10,
+      "description": "A ratio of total wagered expressed as a fraction (0.9600 = 96%). Upper bound 10 leaves room for pathological bonus-buy measurements while catching unit mistakes."
+    },
+    "probability": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "A probability or rate in [0, 1]."
+    },
+    "oneInN": {
+      "type": "number",
+      "minimum": 1,
+      "description": "A frequency expressed as 1-in-N (N rounds per occurrence)."
+    }
+  }
+}

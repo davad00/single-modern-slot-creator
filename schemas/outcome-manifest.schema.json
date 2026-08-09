@@ -1,0 +1,340 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.single-slot-creator.local/outcome-manifest.schema.json",
+  "title": "Outcome manifest — one committed round (server-authoritative contract)",
+  "description": "The complete, immutable record of one round: identity and versioning, wager, initial grid, the ordered presentation steps, feature block, totals, and signature. The client is a pure renderer of this manifest: skipping/turbo/autoplay never change any value in it. Recovery = re-fetch this committed manifest plus resumePointer and seek presentation to that step instantly. stepIds are strictly ordered step-1, step-2, … (ordering and cross-field sums are enforced by the runtime validator; JSON Schema cannot express them).",
+  "x-extensions": "Forward compatibility: unknown top-level fields are rejected (additionalProperties false). Extensions MUST go under the 'ext' property, namespaced as '<vendor>.<key>'. Validators must ignore ext content they do not understand and the signature always covers it.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "roundId",
+    "gameId",
+    "gameVersion",
+    "mathVersion",
+    "mathProfileId",
+    "configHash",
+    "currency",
+    "wagerMinor",
+    "initialGrid",
+    "steps",
+    "feature",
+    "totalWinMinor",
+    "maximumWinReached",
+    "roundComplete",
+    "signature"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "$ref": "#/$defs/semver",
+      "description": "Version of this manifest schema the round was produced against."
+    },
+    "roundId": {
+      "type": "string",
+      "pattern": "^rnd_[A-Za-z0-9_-]{6,}$",
+      "description": "Globally unique round id issued by the RGS (dev provider uses the same format)."
+    },
+    "gameId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{2,60}$",
+      "description": "Stable machine id of the game (kebab-case), matching config/game-config.json."
+    },
+    "gameVersion": {
+      "$ref": "#/$defs/semver",
+      "description": "Semver of the game package that produced this round."
+    },
+    "mathVersion": {
+      "$ref": "#/$defs/semver",
+      "description": "Semver of the math model that produced this round."
+    },
+    "mathProfileId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{1,40}$",
+      "description": "Which RTP profile was active, e.g. 'rtp-96'."
+    },
+    "configHash": {
+      "$ref": "#/$defs/sha256",
+      "description": "sha256 of the canonical config/*.json concatenation active for this round (CONVENTIONS §5)."
+    },
+    "currency": {
+      "type": "string",
+      "pattern": "^[A-Z]{3}$",
+      "description": "ISO-4217 currency code, e.g. EUR."
+    },
+    "wagerMinor": {
+      "$ref": "#/$defs/minorUnits",
+      "description": "Total bet for this round in integer minor units."
+    },
+    "initialBalanceMinor": {
+      "$ref": "#/$defs/minorUnits",
+      "description": "Optional: player balance in minor units before the wager was taken."
+    },
+    "initialGrid": {
+      "$ref": "#/$defs/grid",
+      "description": "The grid as first presented, columns-major: outer array = reels left to right, inner arrays = symbol ids top to bottom."
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 500,
+      "description": "Ordered presentation steps of the base round. stepIds ascend strictly (step-1, step-2, …) across the whole manifest including feature.steps.",
+      "items": { "$ref": "#/$defs/step" }
+    },
+    "feature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["triggered"],
+      "description": "Feature block. When triggered is true, all tier fields are required and feature rounds live in feature.steps.",
+      "properties": {
+        "triggered": {
+          "type": "boolean",
+          "description": "Whether this round triggered any feature tier."
+        },
+        "tier": {
+          "$ref": "#/$defs/tierId",
+          "description": "Which tier was awarded."
+        },
+        "initialRounds": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 100,
+          "description": "Feature rounds awarded at entry."
+        },
+        "remainingRounds": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 200,
+          "description": "Rounds still unplayed at the point this manifest describes (0 when the feature finished; >0 only mid-recovery)."
+        },
+        "steps": {
+          "type": "array",
+          "maxItems": 500,
+          "description": "Ordered steps of the feature, continuing the manifest-wide stepId sequence.",
+          "items": { "$ref": "#/$defs/step" }
+        },
+        "retriggers": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 20,
+          "description": "Number of retriggers that occurred (bounded by the retrigger cap)."
+        },
+        "maxWinReached": {
+          "type": "boolean",
+          "description": "Whether the feature ended by max-win termination."
+        }
+      },
+      "if": {
+        "properties": { "triggered": { "const": true } }
+      },
+      "then": {
+        "required": ["triggered", "tier", "initialRounds", "remainingRounds", "steps", "retriggers", "maxWinReached"]
+      }
+    },
+    "totalWinMinor": {
+      "$ref": "#/$defs/minorUnits",
+      "description": "Total win of the whole round (base + feature) in integer minor units, after max-win capping. Must equal the sum of all step winMinor values as capped (runtime-validated)."
+    },
+    "maximumWinReached": {
+      "type": "boolean",
+      "description": "Whether the round hit the max-win cap (a max_win_termination step must then be present)."
+    },
+    "balanceAfterMinor": {
+      "$ref": "#/$defs/minorUnits",
+      "description": "Optional: player balance in minor units after settlement."
+    },
+    "roundComplete": {
+      "type": "boolean",
+      "description": "Whether the round is fully settled server-side. Always true for committed manifests; false only in transitional recovery payloads."
+    },
+    "resumePointer": {
+      "$ref": "#/$defs/stepId",
+      "description": "Optional: the step at which an interrupted presentation must resume. Present only in recovery payloads."
+    },
+    "signature": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096,
+      "description": "Detached JWS (or HMAC placeholder in dev) over the canonical manifest bytes minus this signature field itself."
+    },
+    "ext": {
+      "type": "object",
+      "description": "Namespaced forward-compatibility extensions. Keys are '<vendor>.<key>' (lowercase vendor prefix, dot, camelCase key); values are any JSON. Unknown entries must be ignored by consumers.",
+      "propertyNames": { "pattern": "^[a-z][a-z0-9_-]*\\.[a-zA-Z0-9_.-]+$" },
+      "additionalProperties": true
+    }
+  },
+  "$defs": {
+    "semver": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semantic version string."
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "description": "sha256 hash with 'sha256:' prefix."
+    },
+    "minorUnits": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Money as integer minor units (cents). Never floats for settlement."
+    },
+    "tierId": {
+      "type": "string",
+      "enum": ["feature", "super_feature", "ultimate_feature"],
+      "description": "Canonical internal tier identifier."
+    },
+    "symbolId": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9_]{0,15}$",
+      "description": "Canonical symbol id per CONVENTIONS §4.2."
+    },
+    "stepId": {
+      "type": "string",
+      "pattern": "^step-[0-9]+$",
+      "description": "Step identifier step-<n>, n starting at 1 and strictly ascending in manifest order."
+    },
+    "eventId": {
+      "type": "string",
+      "pattern": "^(anim\\.[a-z0-9_]+\\.[a-z0-9_]+|music\\.[a-z0-9_]+|sfx\\.[a-z0-9_]+\\.[a-z0-9_]+|amb\\.[a-z0-9_]+|ui\\.[a-z0-9_]+|haptic\\.(light|medium|heavy))$",
+      "description": "Presentation hint id: an animation, audio, or haptic event id per CONVENTIONS §4.3."
+    },
+    "grid": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 8,
+      "description": "Columns-major grid: outer array = reels left to right; inner arrays = symbol ids top to bottom. Rows per reel may vary (expanding grids).",
+      "items": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 12,
+        "description": "One reel's visible symbols, top to bottom.",
+        "items": { "$ref": "#/$defs/symbolId" }
+      }
+    },
+    "position": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "description": "Grid position as [column, row], zero-based, columns-major.",
+      "prefixItems": [
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 7,
+          "description": "Zero-based column (reel) index."
+        },
+        {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 11,
+          "description": "Zero-based row index from the top."
+        }
+      ],
+      "items": false
+    },
+    "win": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["symbolId", "positions", "payX100", "winMinor"],
+      "description": "One winning combination in a step. Exactly one of lineId / waysCount / clusterSize may be present, matching the game's win-evaluation mode.",
+      "properties": {
+        "symbolId": {
+          "$ref": "#/$defs/symbolId",
+          "description": "The paying symbol (wilds report the substituted symbol)."
+        },
+        "positions": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 96,
+          "description": "Grid positions [column, row] that form this win.",
+          "items": { "$ref": "#/$defs/position" }
+        },
+        "payX100": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100000000,
+          "description": "Pay as integer hundredths of a bet (250 = 2.5x), before applying winMinor floor rule."
+        },
+        "winMinor": {
+          "$ref": "#/$defs/minorUnits",
+          "description": "Settled amount for this win: (betMinor * payX100) // 100, floor, including any step multiplier already applied per the math model."
+        },
+        "lineId": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 199,
+          "description": "Winning payline index (line games only)."
+        },
+        "waysCount": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1000000,
+          "description": "Number of ways this symbol combination pays (ways games only)."
+        },
+        "clusterSize": {
+          "type": "integer",
+          "minimum": 2,
+          "maximum": 96,
+          "description": "Cluster size (cluster games only)."
+        }
+      }
+    },
+    "step": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stepId", "type", "grid", "wins", "scatterCount", "multiplier100", "events"],
+      "description": "One atomic presentation step. The client renders steps in order; every value is server-committed.",
+      "properties": {
+        "stepId": {
+          "$ref": "#/$defs/stepId",
+          "description": "Strictly ascending step id within the manifest."
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "initial_result",
+            "cascade",
+            "respin",
+            "feature_round",
+            "feature_trigger",
+            "feature_retrigger",
+            "feature_upgrade",
+            "jackpot_award",
+            "max_win_termination",
+            "settlement"
+          ],
+          "description": "Step kind per CONVENTIONS §7."
+        },
+        "grid": {
+          "$ref": "#/$defs/grid",
+          "description": "Grid state at the end of this step, columns-major."
+        },
+        "wins": {
+          "type": "array",
+          "maxItems": 100,
+          "description": "Wins evaluated in this step (empty for non-paying steps).",
+          "items": { "$ref": "#/$defs/win" }
+        },
+        "scatterCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 40,
+          "description": "Scatters counting toward a trigger at the end of this step, per the configured counting rule."
+        },
+        "multiplier100": {
+          "type": "integer",
+          "minimum": 100,
+          "maximum": 1000000,
+          "description": "Win multiplier active in this step, x100 fixed point (100 = 1x)."
+        },
+        "events": {
+          "type": "array",
+          "maxItems": 40,
+          "description": "Presentation hint ids (animation/audio/haptic) the client plays for this step. Hints only: they never carry outcome data.",
+          "items": { "$ref": "#/$defs/eventId" }
+        }
+      }
+    }
+  }
+}

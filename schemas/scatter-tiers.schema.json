@@ -1,0 +1,203 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.single-slot-creator.local/scatter-tiers.schema.json",
+  "title": "Scatter tier configuration — config/scatter-tiers.json",
+  "description": "Defines how scatters are counted, the three mandatory feature tiers (3 scatters = feature, 4 = super_feature, 5+ = ultimate_feature), retrigger rules, and scatter anticipation behavior. Default counting rule is initial-grid: cascaded and copied scatters do not count. Final values must be validated by the approved math model.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "countingRule",
+    "countCascadedScatters",
+    "countCopiedScatters",
+    "tiers",
+    "fiveOrMoreUsesUltimateTier",
+    "retrigger",
+    "anticipation"
+  ],
+  "properties": {
+    "countingRule": {
+      "type": "string",
+      "enum": ["initial-grid", "include-cascades", "include-copied"],
+      "description": "Which grid states contribute scatters toward a trigger. initial-grid: only the initial paid-spin result counts (default). include-cascades: scatters landing during cascades also count. include-copied: cascaded AND copied/transformed scatters count."
+    },
+    "countCascadedScatters": {
+      "type": "boolean",
+      "description": "Whether scatters that land during cascades count toward the trigger total. Must be false when countingRule is initial-grid; must be true when countingRule is include-cascades or include-copied."
+    },
+    "countCopiedScatters": {
+      "type": "boolean",
+      "description": "Whether scatters created by copy/transform mechanics count toward the trigger total. Must be false unless countingRule is include-copied."
+    },
+    "tiers": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "description": "Exactly the three mandatory tiers, in ascending scatter order: feature (3 scatters), super_feature (4), ultimate_feature (5+). Public names are themed; internal tierIds never change.",
+      "items": { "$ref": "#/$defs/tier" }
+    },
+    "fiveOrMoreUsesUltimateTier": {
+      "type": "boolean",
+      "description": "When true (default), any count of 5 or more scatters awards the ultimate_feature tier; extra scatters beyond 5 award no separate tier (extraScatterBonus may still add value)."
+    },
+    "retrigger": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["allowed", "scattersRequired", "roundsAwarded", "capPerFeature"],
+      "description": "How scatters landing inside an active feature retrigger additional rounds. Caps are mandatory: no unbounded liability.",
+      "properties": {
+        "allowed": {
+          "type": "boolean",
+          "description": "Whether retriggers are possible at all during features."
+        },
+        "scattersRequired": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 8,
+          "description": "Minimum scatters that must land in a single feature round to award a retrigger."
+        },
+        "roundsAwarded": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 50,
+          "description": "Feature rounds added per retrigger."
+        },
+        "capPerFeature": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 20,
+          "description": "Hard maximum number of retriggers per feature instance. 0 means retriggers are disabled in math even if allowed is true."
+        }
+      }
+    },
+    "anticipation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["enabled", "triggersAtScatters"],
+      "description": "Scatter anticipation presentation (slowed reels, tension audio). Presentation only: never changes the committed outcome.",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Whether anticipation presentation plays when a trigger is possible."
+        },
+        "triggersAtScatters": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4,
+          "description": "Number of scatters already visible that arms anticipation on the remaining reels (typically 2)."
+        }
+      }
+    },
+    "scattersPayIndependently": {
+      "type": "boolean",
+      "description": "Optional: whether scatter combinations award a direct pay in addition to triggering features. Pays are defined in the paytable."
+    },
+    "scattersSubstituteAsWild": {
+      "type": "boolean",
+      "description": "Optional: whether SCATTER also substitutes as WILD in line/ways evaluation. Default false."
+    },
+    "scattersPersistDuringCascades": {
+      "type": "boolean",
+      "description": "Optional: whether landed scatters remain in place while cascades resolve around them. Default true."
+    },
+    "allowedReels": {
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "maxItems": 8,
+      "description": "Optional: zero-based reel (column) indices that may contain scatters. Omit to allow all reels.",
+      "items": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 7,
+        "description": "Zero-based reel index, left to right."
+      }
+    },
+    "extraScatterBonus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["enabled"],
+      "description": "Optional: additional award for each scatter beyond the ultimate_feature threshold (e.g. +2 rounds per extra scatter).",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Whether scatters beyond the ultimate threshold add extra value."
+        },
+        "extraRoundsPerScatter": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 20,
+          "description": "Feature rounds added per scatter beyond the ultimate_feature scattersRequired."
+        },
+        "extraStartingMultiplier100": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 10000,
+          "description": "Starting-multiplier increase per extra scatter, in integer hundredths (x100 fixed point; 50 = +0.5x)."
+        }
+      }
+    }
+  },
+  "$defs": {
+    "tierId": {
+      "type": "string",
+      "enum": ["feature", "super_feature", "ultimate_feature"],
+      "description": "Canonical internal tier identifier. Never renamed; public names are themed separately."
+    },
+    "modifierId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{1,40}$",
+      "description": "snake_case id of a feature modifier defined in config/features.json for the same tier."
+    },
+    "tier": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tierId", "scattersRequired", "publicName", "entry"],
+      "description": "One scatter tier: the internal id, the scatter count that awards it, its themed public name, and the entry package the player receives.",
+      "properties": {
+        "tierId": {
+          "$ref": "#/$defs/tierId",
+          "description": "Internal tier id: feature (3 scatters), super_feature (4), ultimate_feature (5+)."
+        },
+        "scattersRequired": {
+          "type": "integer",
+          "minimum": 3,
+          "maximum": 8,
+          "description": "Exact scatter count that awards this tier (3, 4, or 5). With fiveOrMoreUsesUltimateTier, counts above the ultimate threshold still award ultimate_feature."
+        },
+        "publicName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 60,
+          "description": "Themed, player-facing name of this bonus tier (original; never a trademarked mechanic name)."
+        },
+        "entry": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["rounds", "startingMultiplier100", "modifiers"],
+          "description": "What the player receives on entering this tier. Tiers must be materially different in math and presentation, not just rounds or title.",
+          "properties": {
+            "rounds": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "description": "Initial number of feature rounds (free spins / respins) awarded."
+            },
+            "startingMultiplier100": {
+              "type": "integer",
+              "minimum": 100,
+              "maximum": 100000,
+              "description": "Starting win multiplier in integer hundredths (x100 fixed point; 100 = 1x, 250 = 2.5x)."
+            },
+            "modifiers": {
+              "type": "array",
+              "uniqueItems": true,
+              "maxItems": 12,
+              "description": "Ids of the modifiers active from entry, each defined for this tier in config/features.json.",
+              "items": { "$ref": "#/$defs/modifierId" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

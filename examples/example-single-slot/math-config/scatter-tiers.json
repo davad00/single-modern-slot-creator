@@ -1,0 +1,15 @@
+{
+  "countingRule": "initial-grid",
+  "countCascadedScatters": false,
+  "countCopiedScatters": false,
+  "featureBonusScatters": 3,
+  "superFeatureScatters": 4,
+  "ultimateFeatureScatters": 5,
+  "fiveOrMoreUsesUltimateTier": true,
+  "retrigger": {
+    "allowed": true,
+    "scattersRequired": 3,
+    "roundsAwarded": 4,
+    "capPerFeature": 3
+  }
+}

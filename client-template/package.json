@@ -1,0 +1,20 @@
+{
+  "name": "slot-client-template",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Deterministic slot client core (single-modern-slot-creator template). Presentation layer (PixiJS) plugs into src/core seams; see README.md.",
+  "scripts": {
+    "dev": "bun run scripts/serve.ts",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit",
+    "build": "bun build ./src/index.ts --outdir dist --target browser"
+  },
+  "dependencies": {
+    "pixi.js": "^8"
+  },
+  "devDependencies": {
+    "typescript": "^5",
+    "bun-types": "latest"
+  }
+}

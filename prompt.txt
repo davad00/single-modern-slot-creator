@@ -1,0 +1,4049 @@
+MISSION BRIEF: END-TO-END SINGLE MODERN ONLINE SLOT CREATION & AI AGENT SKILL SPECIFICATION
+
+ROLE & CONTEXT
+
+You are operating as a specialized AI Agent Swarm composed of top-tier iGaming strategists, slot mathematicians, game-system architects, AI creative directors, UI/UX designers, motion designers, audio designers, regulatory compliance specialists, and quality-assurance engineers.
+
+Your objective is to conduct exhaustive, current, source-backed research on modern online slot development and build an end-to-end operational “Single Slot Creation Skill” that allows an AI Agent Swarm to design, calculate, asset-generate, code, simulate, test, and package one production-quality modern slot game per execution.
+
+Each execution of the Skill must create exactly one complete slot game, including:
+
+One original theme and narrative.
+
+One defined slot archetype.
+
+One coherent base-game loop.
+
+One mathematical model.
+
+One symbol set and paytable.
+
+One reel-strip, weighted-table, ways, cluster, grid, or equivalent probability model.
+
+One 3-scatter Feature Bonus.
+
+One 4-scatter Super Feature Bonus.
+
+One 5-or-more-scatter Ultimate Feature Bonus.
+
+One fully immersive responsive interface.
+
+One smooth animation and VFX system.
+
+One adaptive audio system.
+
+One normal-spin mode.
+
+One quick-spin mode.
+
+One turbo-spin mode.
+
+One safe animation-skip system.
+
+One jurisdiction-controlled autoplay system.
+
+One server-authoritative game-state contract.
+
+One deterministic development-mode round provider.
+
+One simulation and mathematical-validation suite.
+
+One PAR sheet.
+
+One Game Design Document.
+
+One complete collection of structured art and audio generation prompts.
+
+One implementation-ready project structure.
+
+One QA, performance, accessibility, and certification-readiness package.
+
+The Skill may generate several short concept candidates during the concept-selection phase, but it must select and fully develop only one final slot game.
+
+The following are explicitly outside the scope of this Skill:
+
+Creating a casino company.
+
+Creating a casino lobby.
+
+Creating a multi-game casino platform.
+
+Creating player accounts.
+
+Creating KYC or AML systems.
+
+Creating payment processing.
+
+Creating affiliate systems.
+
+Creating a complete operator back office.
+
+Creating a multi-game portfolio.
+
+Creating several finished slot games during one execution.
+
+The resulting slot must be self-contained and designed for later integration into a licensed Remote Game Server, wallet system, casino operator, or game aggregator.
+
+AGENT ROLES IN THIS SWARM
+
+1. Agent 1 — Chief iGaming Strategist & Slot Mechanics Designer
+
+Researches current slot-game trends, modern slot archetypes, feature structures, user-interface conventions, mobile-first game presentation, pacing, player comprehension, and commercially successful mechanic combinations.
+
+Responsibilities include:
+
+Researching modern slot mechanics such as cascading reels, cluster pays, variable ways, expanding grids, symbol splitting, hold-and-respin, dynamic reel layouts, collection systems, persistent multipliers, free spins, enhanced free spins, and feature buys.
+
+Comparing current market patterns from studios such as Pragmatic Play, Hacksaw Gaming, Nolimit City, Push Gaming, Relax Gaming, ELK Studios, Play’n GO, NetEnt, Big Time Gaming, and similar studios.
+
+Using those studios only as market references and never copying their protected names, artwork, characters, exact mechanics, reel strips, paytables, or source code.
+
+Generating several original concept directions and selecting one final concept.
+
+Defining the game’s theme, narrative, player fantasy, primary mechanic, secondary mechanics, symbol hierarchy, bonus hierarchy, and differentiating identity.
+
+Evaluating mechanic compatibility, mathematical feasibility, mobile readability, implementation complexity, animation potential, and certification risk.
+
+Defining a non-deceptive engagement and pacing strategy.
+
+Ensuring that the game is designed for legal adult audiences and does not use themes primarily directed toward minors.
+
+2. Agent 2 — Lead Slot Mathematician & Game Systems Engineer
+
+Defines and validates the complete mathematical and logical model of the slot.
+
+Responsibilities include:
+
+Defining theoretical RTP.
+
+Defining base-game RTP contribution.
+
+Defining Feature Bonus RTP contribution.
+
+Defining Super Feature RTP contribution.
+
+Defining Ultimate Feature RTP contribution.
+
+Defining alternative RTP profiles where requested.
+
+Defining volatility, variance, standard deviation, hit frequency, feature frequency, retrigger frequency, payout distributions, and maximum exposure.
+
+Creating reel strips, virtual reel strips, weighted symbol tables, cascade replacement tables, cluster-generation models, or equivalent probability models.
+
+Defining paytables and symbol distributions.
+
+Defining wild, scatter, multiplier, cascade, respin, collection, and feature behavior.
+
+Creating a complete PAR Sheet.
+
+Creating exact-enumeration tools where practical.
+
+Creating Monte Carlo simulation tools where exact enumeration is impractical.
+
+Running development, regression, high-volume, and rare-event simulations.
+
+Validating bonus-buy and enhanced-chance modes separately.
+
+Defining the deterministic game-state machine.
+
+Defining the server-authoritative outcome manifest.
+
+Defining interruption and recovery behavior.
+
+Ensuring that presentation modes such as quick spin and turbo spin never alter the game’s mathematics.
+
+3. Agent 3 — AI Creative, Immersive UI, Motion & Audio-Visual Director
+
+Defines the complete visual, interface, animation, VFX, and audio production pipeline.
+
+Responsibilities include:
+
+Creating an original visual identity and style bible.
+
+Designing the fully immersive base-game environment.
+
+Designing the Feature Bonus environment.
+
+Designing the Super Feature environment.
+
+Designing the Ultimate Feature environment.
+
+Designing mobile portrait, mobile landscape, tablet, desktop, and ultrawide layouts.
+
+Defining layered backgrounds, parallax, foreground elements, environmental animation, lighting reactions, camera movement, symbol animation, particle effects, shader effects, and feature transitions.
+
+Designing the reels, grid, reel frame, HUD, controls, win display, bet controls, paytable, feature-buy interface, settings, autoplay interface, and spin-speed controls.
+
+Defining exact animation timelines, durations, easing rules, skip behavior, fast-forward behavior, recovery behavior, and reduced-motion alternatives.
+
+Generating structured prompts for Midjourney, ComfyUI, Stable Diffusion-compatible workflows, approved image-generation systems, Blender, Spine 2D, Rive, or equivalent tools.
+
+Defining spritesheets, texture atlases, WebP/AVIF assets, compressed textures, animation rigs, VFX assets, and mobile optimization.
+
+Creating an adaptive audio-state system containing background music, feature music, reel sounds, symbol sounds, scatter anticipation, multiplier sounds, win tiers, feature triggers, retriggers, and maximum-win sequences.
+
+Defining audio prompts, loop points, priorities, ducking, volume, polyphony, mobile behavior, and reduced-sensory alternatives.
+
+4. Agent 4 — Regulatory, Game Integrity, Responsible Design & QA Specialist
+
+Researches and defines the game-specific compliance, integrity, recovery, testing, and certification-readiness requirements.
+
+Responsibilities include:
+
+Researching the current applicable version of GLI interactive-gaming standards and other relevant technical standards.
+
+Researching jurisdiction-specific restrictions on autoplay, turbo spin, quick spin, animation skipping, minimum game-cycle timing, feature buys, enhanced-chance modes, stop controls, maximum stakes, win presentation, game history, and interrupted-game recovery.
+
+Defining jurisdiction-controlled feature flags.
+
+Reviewing RNG boundaries, seed integrity, game-state recovery, payout verification, configuration versioning, and auditability.
+
+Ensuring that selectable RTP profiles are fixed, versioned, tested, and never selected dynamically based on player behavior.
+
+Ensuring that the client cannot determine or alter a real-money result.
+
+Defining unit, integration, simulation, property-based, browser, mobile, accessibility, visual-regression, performance, network-interruption, and recovery tests.
+
+Defining certification-candidate documentation.
+
+Distinguishing between cryptographic or provably-fair verification and formal regulatory certification.
+
+Marking all items requiring legal, laboratory, operator, or jurisdiction-specific review.
+
+Ensuring the game does not use deceptive win presentation, hidden odds changes, fake wins, or misleading near-miss messaging.
+
+5. Agent 5 — Skill Architect, Prompt Engineer & Implementation Orchestrator
+
+Synthesizes all research and agent outputs into one modular, production-ready Single Slot Creation Agent Skill.
+
+Responsibilities include:
+
+Creating the Skill system prompt.
+
+Defining the Skill input schema.
+
+Defining all agent system prompts.
+
+Defining agent handoff contracts.
+
+Defining workflow steps and execution order.
+
+Defining retry and failure conditions.
+
+Defining JSON schemas.
+
+Defining TypeScript interfaces.
+
+Defining mathematical code templates.
+
+Defining the game-state-machine schema.
+
+Defining the outcome-manifest schema.
+
+Defining animation-event schemas.
+
+Defining audio-event schemas.
+
+Defining asset-manifest schemas.
+
+Defining the output schema.
+
+Defining the generated project folder structure.
+
+Generating a playable browser-client template.
+
+Generating a deterministic development round provider.
+
+Generating a production Remote Game Server adapter interface.
+
+Ensuring that every future Skill invocation generates one complete slot game.
+
+Rejecting inconsistent outputs, such as a paytable that does not match the math model or an animation that references a nonexistent feature state.
+
+REQUIRED DELIVERABLES
+
+PART 1: COMPREHENSIVE MODERN SLOT INDUSTRY, GAME DESIGN & ENGINE RESEARCH
+
+Provide an in-depth, current, source-backed breakdown covering all systems required to create one modern slot game.
+
+Every major market, regulatory, technical, or mathematical claim must include:
+
+Source name.
+
+Source type.
+
+Publication or revision date.
+
+Relevant jurisdiction where applicable.
+
+Whether the information is mandatory, recommended, observed, or inferred.
+
+Any uncertainty or requirement for external legal review.
+
+Do not provide a broad report about operating an online casino. Focus only on the research required to design and implement individual slot games.
+
+1. Modern Slot Archetypes
+
+Research and explain the mathematical, technical, visual, and user-experience characteristics of:
+
+Three-reel classic slots.
+
+Five-reel video slots.
+
+Fixed-payline slots.
+
+Multi-payline slots.
+
+Fixed ways-to-win slots.
+
+All-ways slots.
+
+Adjacent-pay slots.
+
+Variable-reel-height slots.
+
+Variable-ways slots.
+
+Cluster-pays slots.
+
+Grid slots.
+
+Cascading or tumbling slots.
+
+Expanding-grid slots.
+
+Hold-and-respin slots.
+
+Cash-on-reels slots.
+
+Multi-board slots.
+
+Dual-grid slots.
+
+Multi-reel-set slots.
+
+Collection and progression slots.
+
+Fixed-jackpot slots.
+
+Progressive-jackpot-compatible slots.
+
+Hybrid slots combining compatible systems.
+
+For each archetype, explain:
+
+How wins are evaluated.
+
+How symbols are generated.
+
+Typical mathematical complexity.
+
+Typical volatility behavior.
+
+Mobile-layout requirements.
+
+Animation requirements.
+
+State-machine requirements.
+
+Common feature combinations.
+
+Common implementation risks.
+
+Certification considerations.
+
+Whether exact mathematical enumeration is practical.
+
+Whether simulation is normally required.
+
+Create a mechanic compatibility matrix showing which archetypes and features combine effectively and which combinations should normally be avoided.
+
+2. Modern Mechanics & Feature Systems
+
+Provide a detailed breakdown of:
+
+Wild mechanics
+
+Standard wilds.
+
+Stacked wilds.
+
+Expanding wilds.
+
+Sticky wilds.
+
+Walking wilds.
+
+Shifting wilds.
+
+Random wilds.
+
+Wild reels.
+
+Multiplier wilds.
+
+Transforming wilds.
+
+Collected wilds.
+
+Feature-only wilds.
+
+Symbol mechanics
+
+Stacked symbols.
+
+Oversized symbols.
+
+Split symbols.
+
+Mystery symbols.
+
+Symbol upgrades.
+
+Symbol transformations.
+
+Symbol removal.
+
+Symbol duplication.
+
+Symbol collection.
+
+Locked symbols.
+
+Persistent symbols.
+
+Premium-symbol enhancements.
+
+Cash symbols.
+
+Collector symbols.
+
+Booster symbols.
+
+Jackpot symbols.
+
+Reel and grid mechanics
+
+Cascades.
+
+Symbol drops.
+
+Reel expansion.
+
+Row expansion.
+
+Variable reel heights.
+
+Dynamic grid sizes.
+
+Locked reels.
+
+Reel respins.
+
+Position respins.
+
+Symbol nudging.
+
+Gravity changes.
+
+Portals.
+
+Multi-board interaction.
+
+Cross-board symbol transfer.
+
+Grid unlocks.
+
+Multiplier mechanics
+
+Global multipliers.
+
+Cascade multipliers.
+
+Per-symbol multipliers.
+
+Per-position multipliers.
+
+Per-reel multipliers.
+
+Wild multipliers.
+
+Additive multipliers.
+
+Multiplicative multipliers.
+
+Persistent feature multipliers.
+
+Collected multipliers.
+
+Resetting base-game multipliers.
+
+Bonus mechanics
+
+Free spins.
+
+Enhanced free spins.
+
+Hold-and-respin features.
+
+Pick bonuses.
+
+Prize wheels.
+
+Feature selection.
+
+Modifier selection.
+
+Random modifiers.
+
+Guaranteed modifiers.
+
+Branching features.
+
+Multi-stage bonuses.
+
+Feature upgrades.
+
+Retriggers.
+
+Collection meters.
+
+Maximum-win events.
+
+Bonus buys.
+
+Enhanced-chance modes.
+
+Ante-bet modes.
+
+Fixed jackpots.
+
+Progressive-jackpot adapters.
+
+For every mechanic, explain:
+
+Trigger condition.
+
+State transition.
+
+Mathematical impact.
+
+Volatility impact.
+
+RTP contribution.
+
+Presentation requirements.
+
+Animation requirements.
+
+Audio requirements.
+
+Recovery requirements.
+
+Mobile-readability impact.
+
+Performance cost.
+
+Testing requirements.
+
+Certification complexity.
+
+Do not add mechanics only to increase feature count. Every mechanic selected for a generated slot must have a clear purpose and fit the game’s theme, math, and presentation.
+
+3. Mandatory Scatter Bonus Hierarchy
+
+The Skill must support the following default hierarchy in every generated game unless explicitly disabled in the Skill input:
+
+3 scatters: Feature Bonus.
+
+4 scatters: Super Feature Bonus.
+
+5 or more scatters: Ultimate Feature Bonus.
+
+The game may use theme-specific public names for these bonuses, but the internal identifiers must remain:
+
+feature
+super_feature
+ultimate_feature
+
+The three tiers must be materially different mathematically and audiovisually.
+
+Feature Bonus — 3 scatters
+
+Define:
+
+Number of free spins or feature rounds.
+
+Starting multiplier.
+
+Active feature modifier.
+
+Feature-specific reel strips or symbol weights.
+
+Retrigger rules.
+
+Maximum retriggers.
+
+Trigger frequency.
+
+RTP contribution.
+
+Average payout.
+
+Median payout.
+
+Payout percentiles.
+
+Maximum payout.
+
+Average feature duration.
+
+Entry animation.
+
+Feature environment.
+
+Feature HUD.
+
+Feature audio state.
+
+Exit summary.
+
+Recovery behavior.
+
+Super Feature Bonus — 4 scatters
+
+The Super Feature must be clearly stronger than the standard Feature Bonus.
+
+Possible enhancements include:
+
+More feature rounds.
+
+A higher starting multiplier.
+
+Improved reel strips.
+
+Improved symbol weights.
+
+Higher premium-symbol frequency.
+
+Fewer low-value symbols.
+
+Additional active modifiers.
+
+Sticky wilds.
+
+Persistent modifiers.
+
+A larger grid.
+
+Guaranteed feature events.
+
+Improved retrigger frequency.
+
+A partially completed progression meter.
+
+A stronger starting collection state.
+
+More favorable multiplier distributions.
+
+The Skill must explicitly state whether the Super Feature uses:
+
+A separate reel set.
+
+Separate symbol weights.
+
+A separate state machine.
+
+A modified standard-feature configuration.
+
+A separate bonus-buy entry model.
+
+Changing only the feature title, background color, or number of spins is insufficient.
+
+Ultimate Feature Bonus — 5 or more scatters
+
+The Ultimate Feature must be the rarest and strongest bonus tier while remaining within the approved maximum-win and liability model.
+
+Possible enhancements include:
+
+The highest starting multiplier.
+
+The largest starting grid.
+
+Multiple simultaneous modifiers.
+
+Persistent multipliers.
+
+Persistent wilds.
+
+Premium-symbol transformations.
+
+Guaranteed high-value events.
+
+Improved retriggers.
+
+Multi-stage progression.
+
+An exclusive final stage.
+
+Exclusive symbols.
+
+An exclusive feature environment.
+
+Exclusive animation and VFX.
+
+Exclusive adaptive music.
+
+A distinct maximum-win sequence.
+
+The Ultimate Feature must define:
+
+Natural trigger probability.
+
+Trigger frequency.
+
+RTP contribution.
+
+Average payout.
+
+Median payout.
+
+Tail distribution.
+
+Maximum payout.
+
+Maximum exposure.
+
+Average duration.
+
+Retrigger behavior.
+
+Maximum-win termination behavior.
+
+Recovery behavior.
+
+Bonus-buy price where permitted.
+
+Separate simulation results.
+
+Scatter counting rules
+
+The Skill must configure:
+
+Whether scatters are counted only on the initial paid-spin result.
+
+Whether scatters accumulated during cascades count.
+
+Whether copied or transformed scatters count.
+
+Whether scatters pay independently.
+
+Whether scatters substitute as wilds.
+
+Whether scatters remain during cascades.
+
+Which reels or grid positions may contain scatters.
+
+Whether more than five scatters provide additional awards.
+
+How retrigger scatters behave.
+
+How feature-buy triggers are generated.
+
+How scatter anticipation behaves.
+
+The default must be:
+
+{
+  "countingRule": "initial-grid",
+  "countCascadedScatters": false,
+  "countCopiedScatters": false,
+  "featureBonusScatters": 3,
+  "superFeatureScatters": 4,
+  "ultimateFeatureScatters": 5,
+  "fiveOrMoreUsesUltimateTier": true
+}
+
+The final values and rules must be validated by the approved math model.
+
+4. Mathematical Framework
+
+Provide a detailed explanation and implementation model for:
+
+PAR Sheets.
+
+Theoretical RTP.
+
+Base-game RTP contribution.
+
+Feature RTP contribution.
+
+Super Feature RTP contribution.
+
+Ultimate Feature RTP contribution.
+
+Scatter-pay contribution.
+
+Jackpot contribution where applicable.
+
+Alternative RTP profiles.
+
+Volatility.
+
+Variance.
+
+Standard deviation.
+
+Hit frequency.
+
+Paying-spin frequency.
+
+Feature frequency.
+
+Retrigger frequency.
+
+Cascade frequency.
+
+Average cascades per spin.
+
+Average payout.
+
+Median payout.
+
+Payout distribution.
+
+Tail risk.
+
+Maximum win.
+
+Probability of maximum win.
+
+Maximum liability.
+
+Bonus-buy RTP.
+
+Enhanced-chance RTP.
+
+Confidence intervals.
+
+Include and explain formulas such as:
+
+RTP = E[payout] / wager
+
+Hit Frequency = P(total payout > 0)
+
+Variance = E[X²] - E[X]²
+
+Standard Deviation = √Variance
+
+Feature Trigger Frequency = 1 / P(feature trigger per paid round)
+
+Feature RTP Contribution
+= P(feature trigger)
+× E[feature payout | triggered]
+/ wager
+
+Explain how to model and generate:
+
+Physical-style reel strips.
+
+Virtual reel strips.
+
+Weighted symbol tables.
+
+Independent reel stops.
+
+Dependent feature states.
+
+Cluster grids.
+
+Cascade replacement tables.
+
+Feature-specific reel strips.
+
+Feature-specific symbol weights.
+
+Hold-and-respin states.
+
+Persistent progression states.
+
+Bonus-buy entry distributions.
+
+The research must distinguish between:
+
+Exact mathematical enumeration.
+
+Analytical decomposition.
+
+Monte Carlo simulation.
+
+Rare-event simulation.
+
+Stratified sampling.
+
+Importance sampling.
+
+Do not assume that one million spins are always sufficient.
+
+Use one million rounds only as a possible development-level simulation. Determine larger simulation sizes according to:
+
+Feature rarity.
+
+Ultimate Feature rarity.
+
+Volatility.
+
+Maximum-win probability.
+
+Tail behavior.
+
+Number of RTP profiles.
+
+Number of bonus-buy modes.
+
+Required confidence interval.
+
+Every simulation must be reproducible from:
+
+Game version.
+
+Math version.
+
+Configuration hash.
+
+Simulation-code version.
+
+Dependency lockfile.
+
+Random seed or seed policy.
+
+Round count.
+
+Worker count.
+
+Exact execution command.
+
+5. Fully Immersive UI/UX Design
+
+Define a complete slot-game interface that feels like a cohesive interactive world rather than a static reel grid placed over a background.
+
+Research and specify:
+
+Cinematic loading sequences.
+
+Theme-specific game entrances.
+
+Multi-layer backgrounds.
+
+Parallax.
+
+Foreground environmental elements.
+
+Ambient animation.
+
+Reactive lighting.
+
+Theme-integrated reel frames.
+
+Theme-integrated controls.
+
+Animated symbols.
+
+Character reactions where appropriate.
+
+Environmental reactions.
+
+Camera motion.
+
+Screen shake with configurable limits.
+
+Particle effects.
+
+Trail effects.
+
+Glow effects.
+
+Shader effects.
+
+Feature-world transformations.
+
+Seamless transitions.
+
+Fullscreen mode.
+
+Mobile portrait layouts.
+
+Mobile landscape layouts.
+
+Tablet layouts.
+
+Desktop layouts.
+
+Ultrawide layouts.
+
+Safe-area handling.
+
+Notch handling.
+
+Orientation changes.
+
+Optional haptic feedback.
+
+The interface must always keep the following clear:
+
+Balance.
+
+Total bet.
+
+Current win.
+
+Spin state.
+
+Active autoplay state.
+
+Active quick-spin or turbo-spin state.
+
+Feature-buy price.
+
+Rules.
+
+Paytable.
+
+Scatter requirements.
+
+Maximum win.
+
+RTP information where required.
+
+Design every state for:
+
+Spin button.
+
+Stop or skip button.
+
+Autoplay button.
+
+Quick-spin control.
+
+Turbo-spin control.
+
+Bet selector.
+
+Coin-value selector where applicable.
+
+Total-bet display.
+
+Balance display.
+
+Current-win display.
+
+Feature-buy button where permitted.
+
+Enhanced-chance control where permitted.
+
+Settings.
+
+Sound controls.
+
+Music controls.
+
+Fullscreen control.
+
+Paytable.
+
+Game rules.
+
+Feature guide.
+
+Network status.
+
+Loading.
+
+Reconnection.
+
+Errors.
+
+Insufficient balance.
+
+Orientation changes.
+
+Reduced-motion mode.
+
+Low-performance mode.
+
+Data-saver mode where included.
+
+Game history or committed-round replay.
+
+6. Motion, Animation & VFX System
+
+Do not use generic descriptions such as “add smooth animations.”
+
+Define a centralized, deterministic motion system where every animation contains:
+
+Event ID.
+
+Trigger.
+
+Preconditions.
+
+Timeline ID.
+
+Duration.
+
+Delay.
+
+Easing.
+
+Animation priority.
+
+Layer or z-index.
+
+Whether the animation blocks input.
+
+Whether the animation is skippable.
+
+Skip destination.
+
+Fast-forward behavior.
+
+Associated audio event.
+
+Associated haptic event.
+
+Reduced-motion alternative.
+
+Low-performance alternative.
+
+Recovery behavior after interruption.
+
+Behavior after tab suspension.
+
+Behavior after WebGL context loss.
+
+Define animation states for:
+
+Game boot.
+
+Loading.
+
+Loading complete.
+
+Idle.
+
+Spin pressed.
+
+Reel acceleration.
+
+Reel motion.
+
+Reel deceleration.
+
+Reel stop.
+
+Quick stop.
+
+Turbo result.
+
+Symbol landing.
+
+Wild landing.
+
+Scatter landing.
+
+Multiplier landing.
+
+Mystery-symbol reveal.
+
+Winning-symbol highlight.
+
+Payline visualization.
+
+Ways visualization.
+
+Cluster visualization.
+
+Symbol removal.
+
+Symbol explosion.
+
+Cascade.
+
+Grid refill.
+
+Grid expansion.
+
+Respin.
+
+Sticky-symbol lock.
+
+Collection meter.
+
+Multiplier increase.
+
+Scatter anticipation.
+
+Feature Bonus trigger.
+
+Super Feature trigger.
+
+Ultimate Feature trigger.
+
+Feature transition.
+
+Feature-round start.
+
+Retrigger.
+
+Feature upgrade.
+
+Big Win.
+
+Mega Win.
+
+Epic Win.
+
+Maximum Win.
+
+Win count-up.
+
+Feature summary.
+
+Return to base game.
+
+Autoplay start.
+
+Autoplay stop.
+
+Error.
+
+Reconnection.
+
+Round recovery.
+
+Orientation change.
+
+Implement:
+
+Cancelable timelines.
+
+Seekable timelines.
+
+Deterministic event ordering.
+
+Timeline priorities.
+
+Safe animation skipping.
+
+Safe fast-forwarding.
+
+Duplicate-event protection.
+
+Duplicate-audio protection.
+
+Recovery from browser backgrounding.
+
+Recovery from device sleep.
+
+Recovery from rendering-context loss.
+
+Reduced-motion variants.
+
+Low-performance variants.
+
+Skipping or accelerating an animation must never:
+
+Change an outcome.
+
+Generate another wager.
+
+Skip settlement.
+
+Duplicate settlement.
+
+Duplicate a win.
+
+Alter a feature state.
+
+Move the client ahead of the authoritative outcome.
+
+Cause autoplay to start an overlapping round.
+
+7. Normal Spin, Quick Spin, Turbo Spin, Skip & Autoplay
+
+Research and specify all spin-presentation modes.
+
+All speed modes must alter presentation only.
+
+They must never alter:
+
+RTP.
+
+Reel strips.
+
+Symbol weights.
+
+Win probability.
+
+Feature probability.
+
+Scatter count.
+
+Retrigger probability.
+
+Maximum win.
+
+Wager amount.
+
+Settlement.
+
+Outcome generation.
+
+Normal Spin
+
+Define:
+
+Full reel acceleration.
+
+Full reel travel.
+
+Standard reel-stop rhythm.
+
+Full anticipation.
+
+Full win presentation.
+
+Full cascade presentation.
+
+Full feature transitions.
+
+Quick Spin
+
+Define:
+
+Shortened acceleration.
+
+Shortened reel travel.
+
+Reduced reel-stop delay.
+
+Shortened ordinary-win presentation.
+
+Shortened cascade pauses.
+
+Preserved feature clarity.
+
+Preserved responsible-gaming messages.
+
+Clear active-state indication.
+
+Turbo Spin
+
+Define:
+
+Minimal reel-travel presentation.
+
+Near-immediate display of the committed result.
+
+Clear Turbo-active indication.
+
+Reduced ordinary animations.
+
+Reduced standard-win holds.
+
+Preserved important feature events.
+
+Jurisdiction-controlled minimum round duration.
+
+No change to server round processing.
+
+Stop, Skip & Fast-Forward
+
+Define:
+
+Reel-stop behavior after the outcome is committed.
+
+Win-count-up skipping.
+
+Cascade fast-forwarding.
+
+Feature-transition skipping.
+
+Non-skippable information where required.
+
+Behavior in reduced-motion mode.
+
+Behavior during autoplay.
+
+Behavior after repeated input.
+
+Behavior during network delay.
+
+Autoplay
+
+Where permitted, autoplay must support:
+
+A finite round count.
+
+Immediate stop.
+
+A clear active-state display.
+
+Stop on Feature Bonus.
+
+Stop on Super Feature.
+
+Stop on Ultimate Feature.
+
+Stop on a configurable win threshold.
+
+Stop on a configurable loss threshold.
+
+Stop on a configurable profit threshold.
+
+Stop when balance falls below a threshold.
+
+Stop on insufficient balance.
+
+Stop on network error.
+
+Stop on game error.
+
+Stop on a responsible-gaming interruption.
+
+Stop on reality-check presentation.
+
+Stop when the bet changes.
+
+Stop at maximum win.
+
+No infinite autoplay default.
+
+No unbounded queue of pending wagers.
+
+No overlapping rounds.
+
+The game must define rapid-input protection for:
+
+Repeated pointer clicks.
+
+Repeated touch input.
+
+Repeated spacebar input.
+
+Repeated Enter-key input.
+
+Manual input during autoplay.
+
+Stop input during result presentation.
+
+Skip input during feature transitions.
+
+Delayed round responses.
+
+Reconnection.
+
+Orientation changes.
+
+Browser backgrounding.
+
+Device sleep.
+
+8. Technology Stack & Architecture
+
+Research and compare:
+
+Frontend
+
+PixiJS.
+
+Phaser.
+
+Three.js.
+
+WebGL2.
+
+WebGPU.
+
+Canvas fallback.
+
+Spine 2D.
+
+Rive.
+
+GSAP.
+
+Custom deterministic timeline engines.
+
+Web Audio API.
+
+Use TypeScript and Bun as the default JavaScript/TypeScript tooling.
+
+Use commands such as:
+
+bun install
+bun run dev
+bun test
+bun run typecheck
+bun run build
+
+Do not use npm commands.
+
+Use PixiJS as the default renderer unless another renderer is clearly better for the selected slot.
+
+Use Three.js only when true 3D rendering provides material value.
+
+Math and simulation
+
+Use Python managed through uv.
+
+Use tools such as:
+
+NumPy.
+
+SciPy.
+
+Polars or Pandas.
+
+Pytest.
+
+Hypothesis.
+
+Numba, Rust, or another accelerator where justified.
+
+Use commands such as:
+
+uv sync
+uv run pytest
+uv run python -m slot_math.simulate
+
+Do not use global pip installation instructions.
+
+Game-state and integration architecture
+
+Define:
+
+Server-authoritative outcome generation.
+
+Client presentation boundaries.
+
+Deterministic development-mode outcome generation.
+
+Production Remote Game Server adapter.
+
+Round IDs.
+
+Idempotency.
+
+Outcome signatures.
+
+Configuration hashes.
+
+Math-version references.
+
+Outcome replay.
+
+Interruption recovery.
+
+Feature-state persistence.
+
+Maximum-win termination.
+
+Wallet integration boundaries.
+
+Error handling.
+
+Audit event hooks.
+
+The Skill does not need to create a complete casino backend. It must create the exact integration contracts required by the generated slot.
+
+Rendering and performance
+
+Research and define:
+
+Texture-atlas strategy.
+
+Object pooling.
+
+Particle limits.
+
+Shader-quality levels.
+
+Compressed textures.
+
+WebP.
+
+AVIF.
+
+KTX2 or Basis.
+
+Audio compression.
+
+Feature-asset lazy loading.
+
+Asset caching.
+
+Memory budgets.
+
+Bundle-size budgets.
+
+Frame-time budgets.
+
+Garbage-collection mitigation.
+
+Low-end-device fallbacks.
+
+Browser compatibility.
+
+WebGL context-loss recovery.
+
+9. Art & Asset Generation Pipeline
+
+Create a complete asset-generation workflow containing:
+
+Concept art.
+
+Style bible.
+
+Symbol design.
+
+Background design.
+
+Foreground design.
+
+Reel-frame design.
+
+Interface-component design.
+
+Feature-environment design.
+
+Character design where applicable.
+
+VFX design.
+
+Animation-layer separation.
+
+Rigging.
+
+Texture-atlas generation.
+
+Compression.
+
+Device-profile variants.
+
+Manual cleanup.
+
+Visual QA.
+
+Provenance recording.
+
+The style bible must define:
+
+Original theme.
+
+Narrative.
+
+Mood.
+
+Shape language.
+
+Material language.
+
+Lighting.
+
+Camera perspective.
+
+Color roles.
+
+Contrast rules.
+
+Symbol silhouettes.
+
+Character rules.
+
+Environment rules.
+
+UI rules.
+
+VFX rules.
+
+Typography.
+
+Feature Bonus visual language.
+
+Super Feature visual language.
+
+Ultimate Feature visual language.
+
+Prohibited references.
+
+Mobile-readability requirements.
+
+Accessibility requirements.
+
+Generate structured prompts for:
+
+Loading screen.
+
+Splash art.
+
+Base-game background.
+
+Background layers.
+
+Foreground layers.
+
+Reel frame.
+
+Grid cells.
+
+Low-value symbols.
+
+High-value symbols.
+
+Wild.
+
+Scatter.
+
+Bonus symbols.
+
+Mystery symbols.
+
+Multiplier symbols.
+
+Collector symbols.
+
+Feature-exclusive symbols.
+
+Feature Bonus environment.
+
+Super Feature environment.
+
+Ultimate Feature environment.
+
+Feature HUDs.
+
+Buttons.
+
+Settings icons.
+
+Spin-mode indicators.
+
+Paytable elements.
+
+Big-win typography.
+
+Particles.
+
+Glows.
+
+Trails.
+
+Explosions.
+
+Character animation parts.
+
+Feature-buy interface.
+
+Game icon.
+
+Thumbnail.
+
+Lobby artwork where optionally requested for integration.
+
+Every image prompt must include:
+
+Asset ID.
+
+Asset category.
+
+Purpose.
+
+Subject.
+
+Composition.
+
+Camera angle.
+
+Perspective.
+
+Lighting.
+
+Materials.
+
+Palette role.
+
+Silhouette requirement.
+
+Mobile-readability requirement.
+
+Negative-space requirement.
+
+Transparency requirement.
+
+Resolution.
+
+Aspect ratio.
+
+Animation-layer requirements.
+
+Consistency reference.
+
+Negative prompt.
+
+Prohibited content.
+
+Manual cleanup instructions.
+
+Export format.
+
+File name.
+
+Provenance metadata.
+
+Do not request:
+
+Protected characters.
+
+Protected logos.
+
+Unlicensed celebrity likenesses.
+
+Direct copies of existing slot assets.
+
+Direct imitation of living artists.
+
+Direct replication of another studio’s visual identity.
+
+10. Audio Pipeline
+
+Create a complete adaptive audio specification covering:
+
+Game boot.
+
+Loading completion.
+
+Base-game ambience.
+
+Base-game music.
+
+Spin start.
+
+Reel movement.
+
+Reel stops.
+
+Quick-spin reel stops.
+
+Turbo-spin result.
+
+Wild landing.
+
+Scatter landing.
+
+Second-scatter tension.
+
+Third-scatter Feature trigger.
+
+Fourth-scatter Super Feature trigger.
+
+Fifth-scatter Ultimate Feature trigger.
+
+Cascade.
+
+Grid refill.
+
+Grid expansion.
+
+Multiplier increase.
+
+Meter collection.
+
+Standard win.
+
+Medium win.
+
+Big Win.
+
+Mega Win.
+
+Epic Win.
+
+Maximum Win.
+
+Feature Bonus entry.
+
+Feature Bonus music.
+
+Super Feature entry.
+
+Super Feature music.
+
+Ultimate Feature entry.
+
+Ultimate Feature music.
+
+Retrigger.
+
+Feature summary.
+
+Return to base game.
+
+Autoplay start.
+
+Autoplay stop.
+
+Button interactions.
+
+Error.
+
+Reconnection.
+
+Recovered round.
+
+For each audio event, define:
+
+Event ID.
+
+File name.
+
+Format.
+
+Sample rate.
+
+Bit rate.
+
+Duration.
+
+Loop points.
+
+Priority.
+
+Polyphony limit.
+
+Volume.
+
+Loudness target.
+
+Ducking behavior.
+
+Interrupt behavior.
+
+Mobile fallback.
+
+Focus-loss behavior.
+
+Reduced-sensory behavior.
+
+Associated animation event.
+
+Generation prompt.
+
+The audio system must support layered intensity and state transitions without implying that player input can affect an already committed outcome.
+
+11. Regulatory Standards, Integrity & Certification Readiness
+
+Research current applicable requirements rather than relying on outdated assumptions.
+
+Cover, where relevant:
+
+GLI interactive-gaming technical standards.
+
+RNG requirements.
+
+Seed and entropy integrity.
+
+Outcome independence.
+
+Game-state recovery.
+
+Interrupted-game handling.
+
+Bet validation.
+
+Payout verification.
+
+Game history.
+
+Configuration versioning.
+
+Selectable RTP profiles.
+
+Maximum-win handling.
+
+Minimum game-cycle duration.
+
+Autoplay restrictions.
+
+Quick-spin restrictions.
+
+Turbo-spin restrictions.
+
+Stop-button restrictions.
+
+Feature-buy restrictions.
+
+Enhanced-chance restrictions.
+
+Win-presentation restrictions.
+
+Responsible-gaming hooks.
+
+Reality-check hooks.
+
+Accessibility expectations.
+
+Data and audit requirements.
+
+Laboratory submission expectations.
+
+Produce a game-specific jurisdiction policy schema similar to:
+
+{
+  "jurisdictionPolicy": {
+    "policyId": "default-demo",
+    "autoplayEnabled": true,
+    "quickSpinEnabled": true,
+    "turboSpinEnabled": true,
+    "animationSkipEnabled": true,
+    "bonusBuyEnabled": true,
+    "enhancedChanceEnabled": true,
+    "minimumRoundDurationMs": null,
+    "showRtp": true,
+    "showMaximumWin": true,
+    "showGameHistory": true
+  }
+}
+
+These values are examples only and must not be treated as legal conclusions.
+
+Every real-money release must be marked as requiring:
+
+Jurisdiction-specific legal review.
+
+Independent mathematical verification.
+
+External security review.
+
+Laboratory or regulator certification where applicable.
+
+Operator or aggregator acceptance testing.
+
+Do not label a game as certified unless actual certification evidence is available.
+
+PART 2: THE SINGLE SLOT CREATION PIPELINE — ENGINEERING PROCESS
+
+Map out exactly how the AI Agent Swarm collaborates to create one slot game from start to finish.
+
+Step 1: Input Intake, Validation & Assumptions
+
+Validate the supplied game brief.
+
+Identify:
+
+Missing values.
+
+Conflicting requirements.
+
+Mathematical risks.
+
+Mechanic-combination risks.
+
+Mobile-performance risks.
+
+Accessibility risks.
+
+Compliance risks.
+
+IP and naming risks.
+
+When information is missing:
+
+Select a sensible default.
+
+Record the assumption.
+
+Explain why the default fits the rest of the design.
+
+Continue without unnecessary clarification.
+
+Produce:
+
+Normalized input.
+
+Assumption log.
+
+Constraint list.
+
+Initial risk register.
+
+Project ID.
+
+Project slug.
+
+Artifact manifest.
+
+Definition of done.
+
+Step 2: Focused Market & Mechanic Research
+
+Research only what is required for the selected slot.
+
+Cover:
+
+Comparable slot archetypes.
+
+Current mechanic patterns.
+
+Current visual-presentation patterns.
+
+Current mobile UI conventions.
+
+Current animation approaches.
+
+Current audio approaches.
+
+Current game-speed requirements.
+
+Current autoplay and feature-buy restrictions.
+
+Relevant mechanic licensing or trademark risks.
+
+Produce:
+
+Source-backed research dossier.
+
+Source register.
+
+Competitor-pattern matrix.
+
+Originality review.
+
+IP-risk list.
+
+Design opportunities.
+
+Patterns that must not be copied.
+
+Step 3: Concept & Theme Strategy
+
+Generate three concise, original concept candidates.
+
+For each candidate, define:
+
+Working title.
+
+Theme.
+
+Narrative.
+
+Player fantasy.
+
+Visual style.
+
+Primary slot archetype.
+
+Primary mechanic.
+
+Supporting mechanics.
+
+Feature Bonus concept.
+
+Super Feature concept.
+
+Ultimate Feature concept.
+
+Differentiating identity.
+
+Art complexity.
+
+Math complexity.
+
+Mobile-readability score.
+
+Animation-potential score.
+
+Compliance-risk score.
+
+Production-effort score.
+
+Score each concept using a transparent rubric.
+
+Select one final concept.
+
+Do not fully develop rejected concepts.
+
+Produce:
+
+Final title.
+
+Backup title.
+
+Tagline.
+
+Theme.
+
+Narrative.
+
+Visual identity.
+
+Audio identity.
+
+Core game loop.
+
+Differentiation statement.
+
+Reason for selection.
+
+Step 4: Slot Archetype & Mechanics Selection
+
+Choose:
+
+One primary slot archetype.
+
+One primary mechanic.
+
+No more than two or three major supporting mechanics unless a more complex design is specifically justified.
+
+Create a compatibility analysis covering:
+
+Theme fit.
+
+Mathematical fit.
+
+Volatility impact.
+
+Mobile readability.
+
+UI complexity.
+
+Animation complexity.
+
+State-machine complexity.
+
+Simulation complexity.
+
+Performance cost.
+
+Certification impact.
+
+For every selected mechanic, define:
+
+Purpose.
+
+Trigger.
+
+Input state.
+
+Output state.
+
+Mathematical behavior.
+
+Visual behavior.
+
+Audio behavior.
+
+Interruption behavior.
+
+Recovery behavior.
+
+Test cases.
+
+Reject mechanics that:
+
+Duplicate another mechanic’s purpose.
+
+Create unreadable visual states.
+
+Produce excessive feature complexity.
+
+Make the maximum liability unclear.
+
+Create unbounded feature loops.
+
+Make mobile performance impractical.
+
+Cannot be represented by the outcome manifest.
+
+Step 5: Math & Logic Generation
+
+Generate:
+
+Symbol list.
+
+Symbol IDs.
+
+Symbol hierarchy.
+
+Paytable.
+
+Reel strips or weighted symbol tables.
+
+Base-game probability model.
+
+Wild rules.
+
+Scatter rules.
+
+Multiplier distributions.
+
+Cascade or respin logic.
+
+Feature-trigger probabilities.
+
+Retrigger probabilities.
+
+Feature-specific reel strips or symbol weights.
+
+Maximum-win rules.
+
+Bonus-buy entry models.
+
+Enhanced-chance models.
+
+PAR sheet.
+
+Initial theoretical calculations.
+
+Simulation suite.
+
+Validation report.
+
+The math model must calculate and separately report:
+
+Base-game RTP.
+
+Feature Bonus RTP.
+
+Super Feature RTP.
+
+Ultimate Feature RTP.
+
+Total RTP.
+
+Hit frequency.
+
+Feature frequencies.
+
+Retrigger frequencies.
+
+Volatility.
+
+Variance.
+
+Maximum exposure.
+
+Payout percentiles.
+
+Maximum-win probability.
+
+Step 6: Three-Tier Scatter Bonus Design
+
+Define the complete behavior for:
+
+3 scatters — Feature Bonus
+
+Produce:
+
+Trigger logic.
+
+Number of rounds.
+
+Starting multiplier.
+
+Active modifiers.
+
+Retriggers.
+
+Math configuration.
+
+Entry transition.
+
+Feature environment.
+
+HUD.
+
+Audio state.
+
+Exit summary.
+
+Recovery flow.
+
+4 scatters — Super Feature Bonus
+
+Produce:
+
+Trigger logic.
+
+Stronger math configuration.
+
+Distinct reel strips or symbol weights where required.
+
+Additional modifiers.
+
+Higher progression state.
+
+Enhanced visuals.
+
+Enhanced audio.
+
+Distinct transition.
+
+Separate simulation results.
+
+Recovery flow.
+
+5 or more scatters — Ultimate Feature Bonus
+
+Produce:
+
+Trigger logic.
+
+Strongest approved math configuration.
+
+Ultimate modifier set.
+
+Exclusive feature states.
+
+Exclusive visual environment.
+
+Exclusive VFX.
+
+Exclusive adaptive audio.
+
+Maximum-win behavior.
+
+Separate simulation results.
+
+Recovery flow.
+
+The generated public names may be theme-specific, but the internal tier IDs must remain stable.
+
+Step 7: Fully Immersive UI/UX Design
+
+Create:
+
+Base-game wireframe.
+
+Feature Bonus wireframe.
+
+Super Feature wireframe.
+
+Ultimate Feature wireframe.
+
+Mobile portrait layout.
+
+Mobile landscape layout.
+
+Tablet layout.
+
+Desktop layout.
+
+Ultrawide layout.
+
+Reel and grid dimensions.
+
+HUD hierarchy.
+
+Bet controls.
+
+Spin controls.
+
+Quick-spin and turbo controls.
+
+Autoplay interface.
+
+Feature-buy interface.
+
+Settings.
+
+Paytable.
+
+Rules.
+
+Error states.
+
+Loading states.
+
+Reconnection states.
+
+Game-history interface.
+
+Reduced-motion interface.
+
+Low-performance interface.
+
+Define exact component states:
+
+Default.
+
+Hover.
+
+Focused.
+
+Pressed.
+
+Disabled.
+
+Active.
+
+Loading.
+
+Error.
+
+Hidden.
+
+Jurisdiction-disabled.
+
+Step 8: Motion, Animation & VFX Design
+
+Create:
+
+Motion-language specification.
+
+Animation-event JSON.
+
+Timeline definitions.
+
+Reel behavior.
+
+Symbol behavior.
+
+Scatter anticipation.
+
+Feature transitions.
+
+Super Feature transitions.
+
+Ultimate Feature transitions.
+
+Cascade behavior.
+
+Win-tier behavior.
+
+Environment reactions.
+
+Camera behavior.
+
+Particle behavior.
+
+Shader behavior.
+
+Skip rules.
+
+Fast-forward rules.
+
+Reduced-motion alternatives.
+
+Low-performance alternatives.
+
+Recovery behavior.
+
+Every animation must be linked to:
+
+A valid game event.
+
+A valid game state.
+
+A valid audio event where applicable.
+
+A deterministic skip destination.
+
+Step 9: Asset & Art Pipeline
+
+Generate structured art prompts and specifications for:
+
+Symbols.
+
+Backgrounds.
+
+Foregrounds.
+
+Reel frames.
+
+Grid cells.
+
+UI buttons.
+
+HUD components.
+
+Wild.
+
+Scatter.
+
+Feature symbols.
+
+Feature environments.
+
+Super Feature environments.
+
+Ultimate Feature environments.
+
+Particles.
+
+VFX textures.
+
+Win frames.
+
+Feature-buy screens.
+
+Game icon.
+
+Thumbnail.
+
+Splash art.
+
+Define:
+
+Resolution.
+
+Aspect ratio.
+
+Transparency.
+
+Layer separation.
+
+Rigging requirements.
+
+Animation clips.
+
+Texture-atlas groups.
+
+Compression.
+
+Mobile variants.
+
+Naming conventions.
+
+File formats.
+
+Provenance.
+
+Step 10: Audio Pipeline
+
+Generate:
+
+Music direction.
+
+Base-game loop specification.
+
+Feature Bonus loop.
+
+Super Feature loop.
+
+Ultimate Feature loop.
+
+Reel sounds.
+
+Symbol sounds.
+
+Scatter anticipation.
+
+Multiplier sounds.
+
+Cascade sounds.
+
+Win-tier sounds.
+
+Feature-entry stings.
+
+Retrigger sounds.
+
+Maximum-win sequence.
+
+UI feedback.
+
+Error and reconnection sounds.
+
+Produce:
+
+Audio-event JSON.
+
+Audio-generation prompts.
+
+Mixing rules.
+
+Loop rules.
+
+Ducking rules.
+
+Priority rules.
+
+Mobile fallback.
+
+Reduced-sensory mode.
+
+Step 11: Code Integration & Game State Machine
+
+Generate:
+
+Game configuration JSON.
+
+Symbol configuration JSON.
+
+Paytable JSON.
+
+Reel-set or weight-table JSON.
+
+Scatter-tier JSON.
+
+Feature configuration JSON.
+
+Animation-event JSON.
+
+Audio-event JSON.
+
+Device-profile JSON.
+
+Jurisdiction-policy JSON.
+
+Outcome-manifest JSON Schema.
+
+TypeScript interfaces.
+
+Browser-client architecture.
+
+Development-mode round provider.
+
+Production RGS adapter interface.
+
+Recovery logic.
+
+Game-history or committed-round replay logic.
+
+Use a state machine equivalent in scope to:
+
+READY
+→ ROUND_REQUESTED
+→ WAGER_ACCEPTED
+→ OUTCOME_RECEIVED
+→ OUTCOME_COMMITTED
+→ PRESENTING_INITIAL_RESULT
+→ PRESENTING_WINS
+→ PRESENTING_CASCADES_OR_RESPINS
+→ FEATURE_PENDING
+→ FEATURE_ACTIVE
+→ FEATURE_COMPLETE
+→ ROUND_SETTLED
+→ ROUND_COMPLETE
+→ READY
+
+Support explicit states for:
+
+Feature Bonus entry.
+
+Feature Bonus active.
+
+Super Feature entry.
+
+Super Feature active.
+
+Ultimate Feature entry.
+
+Ultimate Feature active.
+
+Retrigger.
+
+Feature upgrade.
+
+Maximum-win termination.
+
+Feature summary.
+
+Recovery.
+
+Clearly distinguish:
+
+Authoritative round states.
+
+Client presentation states.
+
+UI-only states.
+
+Step 12: Spin Speed, Skip & Autoplay Integration
+
+Implement:
+
+Normal spin.
+
+Quick spin.
+
+Turbo spin.
+
+Reel stop.
+
+Animation skip.
+
+Cascade fast-forward.
+
+Win-count-up skip.
+
+Feature-transition handling.
+
+Finite autoplay.
+
+Autoplay stop conditions.
+
+Rapid-input protection.
+
+Round-in-progress locking.
+
+Duplicate-request protection.
+
+Jurisdiction-controlled mode availability.
+
+The same outcome manifest must produce the same final result in normal, quick, turbo, skipped, and recovered presentations.
+
+Step 13: Simulation, QA & Validation
+
+Run:
+
+Unit tests.
+
+Math tests.
+
+Paytable tests.
+
+Reel-strip tests.
+
+Weight-table tests.
+
+RTP simulations.
+
+Feature-frequency tests.
+
+Retrigger tests.
+
+Maximum-win tests.
+
+Property-based tests.
+
+State-machine tests.
+
+Outcome-schema tests.
+
+Animation-skip tests.
+
+Turbo-mode equivalence tests.
+
+Autoplay tests.
+
+Rapid-input tests.
+
+Refresh tests.
+
+Reconnection tests.
+
+Feature-recovery tests.
+
+Browser tests.
+
+Mobile tests.
+
+Orientation-change tests.
+
+Accessibility tests.
+
+Localization tests.
+
+Visual-regression tests.
+
+Performance tests.
+
+Memory tests.
+
+Long-session stability tests.
+
+Reject the game when:
+
+RTP is outside tolerance.
+
+Feature contributions do not sum correctly.
+
+The maximum win exceeds the configured cap.
+
+A feature can enter an infinite state.
+
+Client presentation changes the final result.
+
+Recovery generates a replacement result.
+
+A rule in the help screen differs from the math.
+
+A configured animation references an invalid state.
+
+A bonus-buy mode lacks independent analysis.
+
+A JSON artifact fails schema validation.
+
+Step 14: Final Packaging
+
+Produce one complete slot project containing:
+
+README.
+
+Assumption log.
+
+Decision log.
+
+Risk register.
+
+Source register.
+
+Game Design Document.
+
+Game configuration.
+
+Math model.
+
+PAR sheet.
+
+Simulation suite.
+
+Simulation reports.
+
+Client implementation.
+
+Development round provider.
+
+Production RGS adapter interface.
+
+State-machine definition.
+
+Outcome schema.
+
+Asset manifest.
+
+Image-generation prompts.
+
+Audio specification.
+
+Audio-generation prompts.
+
+Animation specification.
+
+Automated tests.
+
+Performance report.
+
+Accessibility report.
+
+Compliance review.
+
+Certification-readiness checklist.
+
+Final artifact manifest.
+
+Known limitations.
+
+PART 3: THE REUSABLE “SINGLE SLOT CREATION AGENT SKILL” SPECIFICATION
+
+Create the exact, ready-to-use Skill Specification / SOP for an AI Agent.
+
+The Skill must be reusable. Each execution must take one structured slot brief and produce one complete slot-game project.
+
+1. Skill Name & Description
+
+Define metadata including:
+
+Skill name.
+
+Skill ID.
+
+Version.
+
+Description.
+
+Purpose.
+
+Supported input types.
+
+Generated artifact types.
+
+Default technology stack.
+
+Required tools.
+
+Optional tools.
+
+Execution stages.
+
+Validation gates.
+
+Failure behavior.
+
+Scope exclusions.
+
+Example:
+
+name: single-modern-slot-creator
+id: single-modern-slot-creator
+version: 1.0.0
+description: >
+  Designs, calculates, asset-specifies, implements, simulates,
+  tests, and packages one original modern online slot game per execution.
+scope: single-slot-only
+
+2. Input Schema — JSON
+
+Create a strict JSON Schema supporting parameters equivalent to:
+
+{
+  "project": {
+    "gameName": "AUTO",
+    "projectSlug": "AUTO",
+    "releaseLevel": "production-prototype",
+    "targetJurisdictions": [],
+    "targetLanguages": ["en"],
+    "targetCurrencies": ["EUR"],
+    "demoOnly": false
+  },
+  "creative": {
+    "theme": "AUTO",
+    "narrative": "AUTO",
+    "mood": "cinematic",
+    "visualStyle": "AUTO",
+    "artDimensionality": "2.5D",
+    "charactersAllowed": true,
+    "themeRestrictions": []
+  },
+  "layout": {
+    "primarySlotType": "AUTO",
+    "columns": 5,
+    "rows": 4,
+    "variableGrid": false,
+    "orientationPriority": "mobile-portrait"
+  },
+  "math": {
+    "targetRtp": 0.96,
+    "alternativeRtpProfiles": [],
+    "volatility": "high",
+    "maximumWinXBet": 10000,
+    "minimumBetMinor": 10,
+    "maximumBetMinor": 10000,
+    "targetHitFrequency": "AUTO",
+    "targetFeatureFrequency": "AUTO"
+  },
+  "mechanics": {
+    "primaryMechanic": "AUTO",
+    "secondaryMechanics": [],
+    "cascades": "AUTO",
+    "wildTypes": [],
+    "multipliers": "AUTO",
+    "expandingGrid": "AUTO",
+    "holdAndRespin": "AUTO",
+    "persistentProgression": "AUTO",
+    "jackpot": false
+  },
+  "scatterFeatureHierarchy": {
+    "enabled": true,
+    "featureBonusScatters": 3,
+    "superFeatureScatters": 4,
+    "ultimateFeatureScatters": 5,
+    "countingRule": "initial-grid",
+    "countCascadedScatters": false,
+    "retriggerAllowed": true
+  },
+  "optionalModes": {
+    "bonusBuyRequested": true,
+    "enhancedChanceRequested": true,
+    "normalSpin": true,
+    "quickSpin": true,
+    "turboSpin": true,
+    "animationSkip": true,
+    "autoplayRequested": true
+  },
+  "presentation": {
+    "fullyImmersive": true,
+    "parallax": true,
+    "reactiveEnvironment": true,
+    "cameraEffects": true,
+    "particles": true,
+    "shaderEffects": true,
+    "adaptiveAudio": true,
+    "haptics": true,
+    "targetFps": 60,
+    "reducedMotion": true,
+    "lowPerformanceMode": true
+  },
+  "technical": {
+    "renderer": "AUTO",
+    "serverAuthoritative": true,
+    "developmentRoundProvider": true,
+    "productionRgsAdapter": true,
+    "webgl2Required": true,
+    "webgpuOptional": true
+  },
+  "deliverables": {
+    "researchReport": true,
+    "gameDesignDocument": true,
+    "mathModel": true,
+    "parSheet": true,
+    "simulationSuite": true,
+    "artPrompts": true,
+    "audioPrompts": true,
+    "playableClient": true,
+    "outcomeSchema": true,
+    "tests": true,
+    "complianceReview": true
+  }
+}
+
+The final JSON Schema must include:
+
+Required fields.
+
+Optional fields.
+
+Defaults.
+
+Enums.
+
+Numeric limits.
+
+String limits.
+
+Array limits.
+
+Conditional validation.
+
+Incompatible-option checks.
+
+Clear validation error messages.
+
+Safe behavior for AUTO values.
+
+3. Agent System Prompts & Execution Steps
+
+Create complete system prompts for every agent.
+
+Each agent prompt must define:
+
+Role.
+
+Mission.
+
+Inputs.
+
+Outputs.
+
+Allowed tools.
+
+Prohibited actions.
+
+Required schemas.
+
+Validation checks.
+
+Completion criteria.
+
+Handoff target.
+
+Failure conditions.
+
+At minimum, create system prompts for:
+
+Step 1 — Research Agent Prompt
+
+Must generate:
+
+Current focused research.
+
+Source register.
+
+Competitor-pattern analysis.
+
+Mechanic compatibility analysis.
+
+IP-risk analysis.
+
+Jurisdiction considerations.
+
+Step 2 — Concept & Theme Agent Prompt
+
+Must generate:
+
+Three concise concepts.
+
+Scoring matrix.
+
+One selected concept.
+
+Theme.
+
+Narrative.
+
+Visual identity.
+
+Audio identity.
+
+Core mechanic.
+
+Bonus hierarchy.
+
+Step 3 — Math Engine Agent Prompt
+
+Must generate:
+
+Symbol definitions.
+
+Paytable.
+
+Reel strips or weights.
+
+Feature probabilities.
+
+RTP calculations.
+
+Volatility calculations.
+
+PAR sheet.
+
+Simulation code.
+
+Simulation report.
+
+Math validation result.
+
+Step 4 — Feature Design Agent Prompt
+
+Must generate:
+
+Base-game state flow.
+
+Feature Bonus.
+
+Super Feature.
+
+Ultimate Feature.
+
+Retriggers.
+
+Maximum-win behavior.
+
+Bonus-buy variants.
+
+Feature state machine.
+
+Edge cases.
+
+Step 5 — Immersive UI/UX Agent Prompt
+
+Must generate:
+
+Responsive layouts.
+
+HUD.
+
+Controls.
+
+Feature interfaces.
+
+Settings.
+
+Paytable.
+
+Spin-speed controls.
+
+Autoplay interface.
+
+Error and recovery states.
+
+Accessibility behavior.
+
+Step 6 — Motion & VFX Agent Prompt
+
+Must generate:
+
+Animation-event schema.
+
+Timelines.
+
+Reel motion.
+
+Symbol motion.
+
+Feature transitions.
+
+Win tiers.
+
+Skip behavior.
+
+Reduced-motion variants.
+
+Low-performance variants.
+
+Step 7 — Art Generation Agent Prompt
+
+Must generate:
+
+Style bible.
+
+Asset manifest.
+
+Image prompts.
+
+Negative prompts.
+
+Layering instructions.
+
+Rigging plan.
+
+Export specifications.
+
+Optimization rules.
+
+Step 8 — Audio Generation Agent Prompt
+
+Must generate:
+
+Audio-event map.
+
+Music-state graph.
+
+Sound-generation prompts.
+
+Loop rules.
+
+Ducking rules.
+
+Mixing rules.
+
+Mobile behavior.
+
+Step 9 — Code Integration Agent Prompt
+
+Must generate:
+
+Game configuration.
+
+Client architecture.
+
+State machine.
+
+Outcome manifest.
+
+Development round provider.
+
+Production RGS adapter.
+
+Normal, quick, turbo, skip, and autoplay integration.
+
+Recovery behavior.
+
+Step 10 — QA & Validation Agent Prompt
+
+Must generate:
+
+Test plan.
+
+Automated tests.
+
+Simulation checks.
+
+State-machine checks.
+
+Performance checks.
+
+Accessibility checks.
+
+Compliance review.
+
+Final pass or fail status.
+
+4. Required JSON Schemas
+
+Create exact schemas for:
+
+Skill input.
+
+Skill output.
+
+Project manifest.
+
+Game identity.
+
+Game configuration.
+
+Symbol definition.
+
+Paytable.
+
+Reel set.
+
+Weighted table.
+
+Cluster configuration.
+
+Cascade configuration.
+
+Scatter-tier configuration.
+
+Feature configuration.
+
+Bonus-buy configuration.
+
+Enhanced-chance configuration.
+
+Spin-presentation configuration.
+
+Autoplay configuration.
+
+State machine.
+
+Outcome manifest.
+
+Animation event.
+
+Audio event.
+
+Asset manifest.
+
+Device profile.
+
+Jurisdiction policy.
+
+PAR sheet.
+
+Simulation report.
+
+Test report.
+
+Final artifact manifest.
+
+5. Game State Machine JSON Schema
+
+The game-state-machine schema must support states equivalent to:
+
+{
+  "states": [
+    "boot",
+    "loading",
+    "ready",
+    "round_requested",
+    "outcome_received",
+    "outcome_committed",
+    "presenting_initial_result",
+    "presenting_wins",
+    "presenting_cascades",
+    "feature_pending",
+    "feature_entry",
+    "feature_active",
+    "super_feature_entry",
+    "super_feature_active",
+    "ultimate_feature_entry",
+    "ultimate_feature_active",
+    "feature_retrigger",
+    "maximum_win",
+    "feature_summary",
+    "round_complete",
+    "reconnecting",
+    "recovering",
+    "error"
+  ],
+  "transitions": [],
+  "guards": [],
+  "actions": [],
+  "recoveryRules": []
+}
+
+The final schema must include:
+
+Transition guards.
+
+Entry actions.
+
+Exit actions.
+
+Recoverable states.
+
+Terminal states.
+
+Invalid-transition behavior.
+
+Presentation-state mapping.
+
+Outcome-event mapping.
+
+Animation-event mapping.
+
+Audio-event mapping.
+
+6. Outcome Manifest JSON Schema
+
+Create a strict outcome schema equivalent in scope to:
+
+{
+  "schemaVersion": "1.0.0",
+  "roundId": "rnd_123",
+  "gameId": "game_slug",
+  "gameVersion": "1.0.0",
+  "mathVersion": "1.0.0",
+  "mathProfileId": "rtp-96",
+  "configHash": "sha256-value",
+  "currency": "EUR",
+  "wagerMinor": 100,
+  "initialBalanceMinor": 10000,
+  "initialGrid": [],
+  "steps": [
+    {
+      "stepId": "step-1",
+      "type": "initial_result",
+      "grid": [],
+      "wins": [],
+      "scatterCount": 4,
+      "multiplier": 1,
+      "events": []
+    }
+  ],
+  "feature": {
+    "triggered": true,
+    "tier": "super_feature",
+    "initialRounds": 12,
+    "remainingRounds": 0,
+    "steps": [],
+    "retriggers": 1
+  },
+  "totalWinMinor": 2500,
+  "maximumWinReached": false,
+  "balanceAfterMinor": 12400,
+  "roundComplete": true,
+  "signature": "signature-placeholder"
+}
+
+Define:
+
+Required fields.
+
+Optional fields.
+
+Enums.
+
+Numeric limits.
+
+Array-size limits.
+
+Step ordering.
+
+Versioning.
+
+Signature boundary.
+
+Recovery behavior.
+
+Forward compatibility.
+
+Validation errors.
+
+7. Animation Event JSON Schema
+
+Create a structure equivalent to:
+
+{
+  "eventId": "scatter_land",
+  "trigger": "symbol_landed",
+  "conditions": {
+    "symbolId": "SCATTER"
+  },
+  "timelineId": "scatter-land-standard",
+  "durationMs": 700,
+  "easing": "easeOutBack",
+  "skippable": true,
+  "skipTo": "complete",
+  "blocksInput": false,
+  "audioEvent": "sfx.scatter.land",
+  "hapticEvent": "medium",
+  "reducedMotionTimelineId": "scatter-land-reduced",
+  "lowPerformanceTimelineId": "scatter-land-lite",
+  "recoveryPolicy": "seek-to-authoritative-state"
+}
+
+8. Output Schema — JSON
+
+Create an exact structured output schema containing:
+
+{
+  "project": {
+    "gameId": "string",
+    "gameName": "string",
+    "projectSlug": "string",
+    "gameVersion": "string",
+    "mathVersion": "string",
+    "configHash": "string",
+    "status": "prototype"
+  },
+  "research": {
+    "findings": [],
+    "sources": [],
+    "ipRisks": [],
+    "jurisdictionNotes": []
+  },
+  "conceptCandidates": [],
+  "selectedConcept": {},
+  "gameDesignDocument": {},
+  "mathModel": {},
+  "parSheet": {},
+  "symbols": [],
+  "paytable": {},
+  "reelSets": [],
+  "weightedTables": [],
+  "scatterFeature": {},
+  "features": [],
+  "bonusBuys": [],
+  "enhancedChanceModes": [],
+  "spinPresentation": {},
+  "autoplay": {},
+  "uiSpecification": {},
+  "animationEvents": [],
+  "assetManifest": [],
+  "artPrompts": [],
+  "audioEvents": [],
+  "audioPrompts": [],
+  "stateMachine": {},
+  "outcomeManifestSchema": {},
+  "jurisdictionPolicy": {},
+  "simulationReports": [],
+  "testResults": [],
+  "performanceReport": {},
+  "accessibilityReport": {},
+  "complianceReview": {},
+  "artifactManifest": [],
+  "knownRisks": [],
+  "unresolvedItems": []
+}
+
+9. Required Skill Folder Structure
+
+Generate the Skill using a structure equivalent to:
+
+single-slot-creator-skill/
+├── SKILL.md
+├── README.md
+├── agents/
+│   ├── strategist.md
+│   ├── mathematician.md
+│   ├── creative-director.md
+│   ├── compliance-qa.md
+│   └── skill-orchestrator.md
+├── schemas/
+│   ├── skill-input.schema.json
+│   ├── skill-output.schema.json
+│   ├── game-config.schema.json
+│   ├── symbol.schema.json
+│   ├── paytable.schema.json
+│   ├── reel-set.schema.json
+│   ├── math-model.schema.json
+│   ├── par-sheet.schema.json
+│   ├── scatter-tiers.schema.json
+│   ├── feature.schema.json
+│   ├── bonus-buy.schema.json
+│   ├── state-machine.schema.json
+│   ├── outcome-manifest.schema.json
+│   ├── animation-event.schema.json
+│   ├── audio-event.schema.json
+│   ├── asset-manifest.schema.json
+│   ├── jurisdiction-policy.schema.json
+│   └── simulation-report.schema.json
+├── prompts/
+│   ├── research.md
+│   ├── concept.md
+│   ├── mechanics.md
+│   ├── math.md
+│   ├── ui-ux.md
+│   ├── animation-vfx.md
+│   ├── art-generation.md
+│   ├── audio-generation.md
+│   ├── code-integration.md
+│   └── validation.md
+├── templates/
+│   ├── game-design-document.md
+│   ├── par-sheet.md
+│   ├── art-style-bible.md
+│   ├── motion-specification.md
+│   ├── audio-specification.md
+│   ├── compliance-review.md
+│   ├── validation-report.md
+│   └── artifact-manifest.json
+├── math/
+│   ├── pyproject.toml
+│   ├── uv.lock
+│   ├── src/
+│   └── tests/
+├── client-template/
+│   ├── package.json
+│   ├── bun.lock
+│   ├── src/
+│   ├── public/
+│   └── tests/
+└── examples/
+    └── example-single-slot/
+
+CONSTRAINTS & QUALITY CRITERIA
+
+Create one complete slot game per Skill execution.
+
+Do not create a casino company or multi-game casino platform.
+
+Avoid generic descriptions.
+
+Provide concrete JSON schemas.
+
+Provide exact mathematical formulas.
+
+Provide code templates.
+
+Provide exact prompt templates.
+
+Provide exact file names.
+
+Provide exact interfaces.
+
+Provide exact state transitions.
+
+Provide exact test cases.
+
+Provide measurable performance targets.
+
+Provide measurable acceptance criteria.
+
+Use current, source-backed research.
+
+Clearly separate facts, assumptions, recommendations, and legal-review items.
+
+Use studios such as Pragmatic Play, Hacksaw Gaming, Nolimit City, Push Gaming, Relax Gaming, and similar companies only as general market references.
+
+Do not clone protected games, characters, artwork, names, sounds, paytables, reel strips, or proprietary mechanics.
+
+Use generic mechanic terminology unless licensing rights are confirmed.
+
+Ensure that the slot is original.
+
+Ensure that the mathematical model is fixed, versioned, hashed, and reproducible.
+
+Ensure that the outcome is server-authoritative.
+
+Ensure that the visual client cannot determine or modify the result.
+
+Ensure that normal, quick, turbo, skip, and autoplay modes do not alter the mathematics.
+
+Ensure that Feature, Super Feature, and Ultimate Feature tiers are mathematically distinct.
+
+Ensure that all feature tiers have separate simulation results.
+
+Ensure that the UI is fully immersive but remains readable.
+
+Ensure that every animation has timing, skip, recovery, reduced-motion, and low-performance rules.
+
+Ensure that the game supports mobile portrait, mobile landscape, tablet, desktop, and ultrawide layouts.
+
+Ensure that accessibility does not depend only on color, audio, flashing, or haptics.
+
+Ensure that autoplay and feature buys are controlled by jurisdiction policy.
+
+Ensure that no feature has unbounded mathematical liability.
+
+Ensure that no feature can enter an infinite loop.
+
+Ensure that money values use integer minor units or exact fixed-point values.
+
+Do not use binary floating-point for settlement values.
+
+Use Bun for TypeScript and JavaScript tooling.
+
+Use uv for Python environments, dependencies, and execution.
+
+Use PixiJS as the default renderer unless another technology is clearly justified.
+
+Use a deterministic development round provider only for development and testing.
+
+Clearly separate development outcome generation from production Remote Game Server integration.
+
+Include game-state recovery and committed-outcome replay.
+
+Include mathematical, state-machine, UI, animation, accessibility, performance, and recovery tests.
+
+Do not claim regulatory certification without actual certification evidence.
+
+Do not implement player-specific RTP, behavioral odds, loss-chasing logic, hidden payout adjustment, deceptive win displays, or misleading near-miss messaging.
+
+Do not stop after research or concept generation.
+
+Continue through mathematics, schemas, UI, animation, assets, audio, code architecture, testing, and final packaging.
+
+REQUIRED FINAL RESPONSE FORMAT
+
+Return the generated work in the following order:
+
+Executive summary.
+
+Scope and assumptions.
+
+Normalized Skill input.
+
+Research methodology.
+
+Source-backed slot research.
+
+Slot-archetype comparison.
+
+Mechanic compatibility matrix.
+
+Three concise concept candidates.
+
+Concept scoring matrix.
+
+Selected concept.
+
+Complete Game Design Document.
+
+Base-game specification.
+
+Symbol specification.
+
+Paytable.
+
+Reel strips or weighted tables.
+
+Wild and multiplier rules.
+
+Scatter counting rules.
+
+3-scatter Feature Bonus.
+
+4-scatter Super Feature.
+
+5-or-more-scatter Ultimate Feature.
+
+Retrigger rules.
+
+Maximum-win rules.
+
+Bonus-buy and enhanced-chance modes.
+
+Mathematical model.
+
+PAR sheet.
+
+Simulation methodology.
+
+Simulation code.
+
+Simulation results.
+
+Immersive UI/UX specification.
+
+Responsive layout specification.
+
+Motion and animation specification.
+
+VFX specification.
+
+Normal, quick, turbo, stop, and skip specification.
+
+Autoplay specification.
+
+Art style bible.
+
+Asset manifest.
+
+Image-generation prompts.
+
+Audio specification.
+
+Audio-generation prompts.
+
+Game-state-machine specification.
+
+Outcome-manifest JSON Schema.
+
+Client architecture.
+
+Development round-provider architecture.
+
+Production RGS adapter interface.
+
+Automated test suite.
+
+Performance report.
+
+Accessibility report.
+
+Game-specific compliance review.
+
+Certification-readiness checklist.
+
+Reusable Skill specification.
+
+Skill input JSON Schema.
+
+Skill output JSON Schema.
+
+Skill folder structure.
+
+Generated-slot folder structure.
+
+Build and execution commands.
+
+Final artifact manifest.
+
+Known risks and unresolved items.
+
+Format the response using:
+
+Markdown headings.
+
+Tables.
+
+Code blocks.
+
+JSON.
+
+JSON Schema.
+
+TypeScript interfaces.
+
+Python simulation code.
+
+Bun commands.
+
+uv commands.
+
+Mermaid state diagrams.
+
+Mermaid sequence diagrams.
+
+Exact file paths.
+
+Exact test cases.
+
+Exact acceptance criteria.
+
+AGENTS
+
+agents:
+  - name: iGaming Market Research & Slot Design Agent
+    tools:
+      - WebSearch
+      - CompetitorAnalysis
+      - SourceValidator
+      - IPPatternReview
+    task: >
+      Research current modern slot archetypes, mechanics, presentation
+      patterns, mobile UX conventions, regulatory restrictions, and
+      competitor patterns. Generate three original concepts and select
+      one final slot concept without copying protected games or assets.
+    outputs:
+      - research-dossier
+      - source-register
+      - mechanic-compatibility-matrix
+      - concept-candidates
+      - selected-concept
+      - initial-game-design-document
+
+  - name: Math Engine, Feature & Systems Agent
+    tools:
+      - PythonInterpreter
+      - NumPy
+      - SciPy
+      - Polars
+      - Hypothesis
+      - JSONSchemaValidator
+    task: >
+      Generate the complete mathematical model, PAR sheet, paytable,
+      reel strips or weighted tables, RTP breakdown, volatility model,
+      scatter-tier probabilities, Feature Bonus, Super Feature,
+      Ultimate Feature, retriggers, maximum-win model, bonus-buy models,
+      and reproducible simulation suite.
+    outputs:
+      - math-model
+      - par-sheet
+      - reel-sets
+      - weighted-tables
+      - paytable
+      - scatter-tier-config
+      - feature-configs
+      - simulation-code
+      - simulation-reports
+      - state-machine-model
+
+  - name: Immersive Visual, UI, Motion & Audio Agent
+    tools:
+      - MidjourneyAPI
+      - ComfyUI
+      - StableDiffusion
+      - Blender
+      - Spine2D
+      - Rive
+      - AudioGen
+      - TextureAtlasGenerator
+    task: >
+      Create the immersive UI/UX system, responsive layouts, art style
+      bible, symbol prompts, background prompts, feature-environment
+      prompts, UI assets, animation timelines, VFX events, adaptive
+      music specification, sound-effect prompts, reduced-motion variants,
+      and low-performance variants.
+    outputs:
+      - ui-specification
+      - responsive-layouts
+      - art-style-bible
+      - asset-manifest
+      - image-prompts
+      - animation-event-config
+      - motion-specification
+      - vfx-specification
+      - audio-event-config
+      - audio-prompts
+
+  - name: Regulatory, Integrity & QA Agent
+    tools:
+      - WebSearch
+      - StandardsResearch
+      - JSONSchemaValidator
+      - TestGenerator
+      - BrowserAutomation
+      - PerformanceProfiler
+      - AccessibilityValidator
+    task: >
+      Research current game-specific technical and jurisdictional
+      requirements; validate game integrity, state recovery, quick spin,
+      turbo spin, skip, autoplay, bonus buys, responsible-design controls,
+      accessibility, performance, schema consistency, and certification
+      readiness.
+    outputs:
+      - jurisdiction-policy
+      - compliance-review
+      - test-plan
+      - automated-tests
+      - performance-report
+      - accessibility-report
+      - recovery-report
+      - certification-checklist
+      - validation-status
+
+  - name: Single Slot Skill Developer & Orchestrator Agent
+    tools:
+      - JSONSchemaValidator
+      - CodeGenerator
+      - TypeScriptCompiler
+      - Bun
+      - UV
+      - FileSystem
+      - TemplateRenderer
+    task: >
+      Synthesize all approved outputs into one modular Single Slot
+      Creation Skill, including system prompts, JSON schemas, code
+      templates, client architecture, development round provider,
+      production RGS adapter interface, validation gates, folder
+      structures, build commands, test commands, and one complete
+      generated slot package per execution.
+    outputs:
+      - SKILL.md
+      - agent-system-prompts
+      - skill-input-schema
+      - skill-output-schema
+      - client-template
+      - development-round-provider
+      - production-rgs-adapter
+      - project-folder
+      - artifact-manifest
+      - final-validation-report

@@ -1,0 +1,331 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.single-slot-creator.local/math-model.schema.json",
+  "title": "Math model specification",
+  "description": "Versioned target specification of the game's mathematics: RTP target and tolerance, volatility, hit frequency, per-source RTP contributions, tier trigger probabilities, retrigger/cascade bounds, max-win cap and termination, bonus-buy and enhanced-chance models, and the simulation policy. The simulator verifies measured values against this document; base + feature + super_feature + ultimate_feature + scatterPay (+ jackpot) contributions must sum to targetRtp within ±0.0005 (checked by the simulator, not expressible in JSON Schema).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "mathVersion",
+    "targetRtp",
+    "rtpTolerance",
+    "volatilityClass",
+    "targetHitFrequency",
+    "contributions",
+    "featureTriggerProb",
+    "retriggerRules",
+    "cascadeRules",
+    "maxWin",
+    "simulationPolicy"
+  ],
+  "properties": {
+    "mathVersion": {
+      "$ref": "#/$defs/semver",
+      "description": "Semver of this math model; must match mathVersion in game-config.json."
+    },
+    "targetRtp": {
+      "$ref": "#/$defs/rtp",
+      "description": "Total target RTP fraction of the default profile (e.g. 0.9600)."
+    },
+    "rtpTolerance": {
+      "type": "number",
+      "minimum": 0.0001,
+      "maximum": 0.003,
+      "description": "Maximum allowed absolute |simRTP - targetRtp| at release-level simulation size. Must also fall within the 99% CI half-width (CONVENTIONS §5); hard cap 0.003."
+    },
+    "volatilityClass": {
+      "type": "string",
+      "enum": ["low", "medium", "medium-high", "high", "very-high"],
+      "description": "Target volatility class of the default profile."
+    },
+    "targetHitFrequency": {
+      "type": "number",
+      "minimum": 0.05,
+      "maximum": 0.6,
+      "description": "Target fraction of rounds with any win (win > 0), e.g. 0.28."
+    },
+    "contributions": {
+      "type": "object",
+      "description": "Planned RTP contribution of each win source, as fractions of total bet. Contributions must sum to targetRtp ±0.0005 (simulator gate).",
+      "additionalProperties": false,
+      "required": ["base", "feature", "super_feature", "ultimate_feature", "scatterPay"],
+      "properties": {
+        "base": { "$ref": "#/$defs/rtpFraction", "description": "Base-game line/ways/cluster wins." },
+        "feature": { "$ref": "#/$defs/rtpFraction", "description": "Wins inside the `feature` tier (3 scatters)." },
+        "super_feature": { "$ref": "#/$defs/rtpFraction", "description": "Wins inside the `super_feature` tier (4 scatters)." },
+        "ultimate_feature": { "$ref": "#/$defs/rtpFraction", "description": "Wins inside the `ultimate_feature` tier (5+ scatters)." },
+        "scatterPay": { "$ref": "#/$defs/rtpFraction", "description": "Direct scatter pays outside feature wins." },
+        "jackpot": { "$ref": "#/$defs/rtpFraction", "description": "Fixed jackpot awards (JP_MINI..JP_GRAND). Omit when the game has no jackpots." }
+      }
+    },
+    "featureTriggerProb": {
+      "type": "object",
+      "description": "Natural per-round trigger probability of each tier (base game, no enhanced chance).",
+      "additionalProperties": false,
+      "required": ["feature", "super_feature", "ultimate_feature"],
+      "properties": {
+        "feature": { "$ref": "#/$defs/triggerProb", "description": "P(exactly the `feature` tier triggers) per round, e.g. 0.005 = 1 in 200." },
+        "super_feature": { "$ref": "#/$defs/triggerProb", "description": "P(exactly the `super_feature` tier triggers) per round." },
+        "ultimate_feature": { "$ref": "#/$defs/triggerProb", "description": "P(the `ultimate_feature` tier triggers) per round." }
+      }
+    },
+    "retriggerRules": {
+      "type": "object",
+      "description": "Feature retrigger policy. Caps are mandatory: no unbounded feature length.",
+      "additionalProperties": false,
+      "required": ["allowed", "capPerFeature"],
+      "properties": {
+        "allowed": {
+          "type": "boolean",
+          "description": "Whether features can retrigger at all."
+        },
+        "capPerFeature": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 50,
+          "description": "Hard maximum number of retriggers within one feature instance. Must be 0 when allowed is false."
+        }
+      }
+    },
+    "cascadeRules": {
+      "type": "object",
+      "description": "Cascade/tumble policy with proven termination.",
+      "additionalProperties": false,
+      "required": ["enabled"],
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Whether winning symbols cascade (are removed and refilled)."
+        },
+        "capPerSpin": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 200,
+          "description": "Hard maximum cascade steps within one spin (termination guarantee). Required when enabled is true."
+        },
+        "multiplierProgression": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 32,
+          "description": "Optional whole-number win multiplier applied at cascade step 1, 2, 3, …; the last value persists for further steps up to capPerSpin.",
+          "items": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000,
+            "description": "Multiplier at this cascade step."
+          }
+        }
+      }
+    },
+    "maxWin": {
+      "type": "object",
+      "description": "Max-win cap and how a round ends when it is reached (max_win_termination step in the outcome manifest).",
+      "additionalProperties": false,
+      "required": ["xBet", "terminationPolicy"],
+      "properties": {
+        "xBet": {
+          "type": "integer",
+          "minimum": 100,
+          "maximum": 250000,
+          "description": "Cap as a whole-number multiple of total bet; must equal maxWinXBet in game-config.json."
+        },
+        "terminationPolicy": {
+          "type": "string",
+          "enum": ["end_round_pay_cap", "end_feature_pay_cap", "continue_no_extra_pay"],
+          "description": "end_round_pay_cap: round stops immediately, cap paid. end_feature_pay_cap: current feature ends, cap paid. continue_no_extra_pay: presentation continues but no win above cap is added."
+        }
+      }
+    },
+    "bonusBuy": {
+      "type": "array",
+      "maxItems": 6,
+      "description": "Bonus-buy models — one per purchasable mode. Omit (or empty) when bonus buy is not built. Each mode gets separate simulation results.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["modeId", "priceXBet100", "entryTier", "rtp"],
+        "properties": {
+          "modeId": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_-]{2,40}$",
+            "description": "Unique id of the buy mode, e.g. \"buy-feature\", \"buy-ultimate\"."
+          },
+          "priceXBet100": {
+            "type": "integer",
+            "minimum": 100,
+            "maximum": 25000000,
+            "description": "Purchase price as integer hundredths of a bet (100x bet -> 10000)."
+          },
+          "entryTier": {
+            "$ref": "#/$defs/tierId",
+            "description": "Tier the purchase guarantees entry into."
+          },
+          "rtp": {
+            "$ref": "#/$defs/rtp",
+            "description": "Target RTP of the buy mode relative to its price."
+          }
+        }
+      }
+    },
+    "enhancedChance": {
+      "type": "object",
+      "description": "Enhanced-chance (ante bet) model. Required fields expand when enabled is true.",
+      "additionalProperties": false,
+      "required": ["enabled"],
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "Whether an enhanced-chance mode exists."
+        },
+        "anteMultiplier100": {
+          "type": "integer",
+          "minimum": 105,
+          "maximum": 500,
+          "description": "Total-bet cost multiplier in x100 fixed-point (1.25x bet -> 125). Required when enabled."
+        },
+        "effect": {
+          "type": "string",
+          "minLength": 5,
+          "maxLength": 400,
+          "description": "Precise math effect, e.g. \"feature trigger probability doubled via reel set base-ante\". Required when enabled."
+        },
+        "rtp": {
+          "$ref": "#/$defs/rtp",
+          "description": "Target RTP of the enhanced-chance mode relative to the raised bet."
+        }
+      }
+    },
+    "simulationPolicy": {
+      "type": "object",
+      "description": "Simulation sizing and rare-event policy. Every run records the full reproducibility block (CONVENTIONS §5).",
+      "additionalProperties": false,
+      "required": ["devRounds", "releaseRounds", "ciTarget", "rareEventStrategy"],
+      "properties": {
+        "devRounds": {
+          "type": "integer",
+          "minimum": 1000000,
+          "description": "Rounds per development-iteration simulation. Minimum 1e6 rounds."
+        },
+        "releaseRounds": {
+          "type": "integer",
+          "minimum": 10000000,
+          "description": "Rounds for the release-gate simulation (RTP tolerance is judged at this size)."
+        },
+        "ciTarget": {
+          "type": "number",
+          "minimum": 0.9,
+          "maximum": 0.999,
+          "description": "Confidence level used for RTP interval reporting (e.g. 0.99)."
+        },
+        "rareEventStrategy": {
+          "type": "string",
+          "enum": ["none", "stratified", "importance"],
+          "description": "Variance-reduction strategy for rare events (ultimate tier, max win): plain Monte Carlo, stratified sampling, or importance sampling."
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "$comment": "Validation message: 'cascadeRules.capPerSpin is required when cascadeRules.enabled is true.'",
+      "if": {
+        "required": ["cascadeRules"],
+        "properties": {
+          "cascadeRules": {
+            "required": ["enabled"],
+            "properties": { "enabled": { "const": true } }
+          }
+        }
+      },
+      "then": {
+        "properties": { "cascadeRules": { "required": ["capPerSpin"] } }
+      }
+    },
+    {
+      "$comment": "Validation message: 'retriggerRules.capPerFeature must be 0 when retriggerRules.allowed is false.'",
+      "if": {
+        "required": ["retriggerRules"],
+        "properties": {
+          "retriggerRules": {
+            "required": ["allowed"],
+            "properties": { "allowed": { "const": false } }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "retriggerRules": {
+            "properties": { "capPerFeature": { "const": 0 } }
+          }
+        }
+      }
+    },
+    {
+      "$comment": "Validation message: 'enhancedChance.anteMultiplier100 and enhancedChance.effect are required when enhancedChance.enabled is true.'",
+      "if": {
+        "required": ["enhancedChance"],
+        "properties": {
+          "enhancedChance": {
+            "required": ["enabled"],
+            "properties": { "enabled": { "const": true } }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "enhancedChance": { "required": ["anteMultiplier100", "effect"] }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "rtpFraction": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 0.99,
+      "description": "One win source's RTP contribution as a fraction of total bet."
+    },
+    "triggerProb": {
+      "type": "number",
+      "exclusiveMinimum": 0,
+      "maximum": 0.1,
+      "description": "Per-round trigger probability (0 < p <= 0.1)."
+    },
+    "minorUnits": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Monetary amount in integer minor units (e.g. cents). Never a binary float."
+    },
+    "semver": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semantic version string MAJOR.MINOR.PATCH."
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "description": "Prefixed lowercase-hex SHA-256 digest."
+    },
+    "tierId": {
+      "type": "string",
+      "enum": ["feature", "super_feature", "ultimate_feature"],
+      "description": "Canonical scatter feature tier id (3 / 4 / 5+ scatters)."
+    },
+    "symbolId": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Z0-9_]{0,15}$",
+      "description": "Canonical symbol id, e.g. WILD, SCATTER, H1, L3, JP_GRAND."
+    },
+    "projectSlug": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{2,40}$",
+      "description": "Kebab-case project slug used for games/<slug>/."
+    },
+    "rtp": {
+      "type": "number",
+      "minimum": 0.8,
+      "maximum": 0.99,
+      "description": "Return-to-player expressed as a fraction (e.g. 0.9600)."
+    }
+  }
+}

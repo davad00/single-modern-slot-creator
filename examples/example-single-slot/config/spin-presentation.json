@@ -1,0 +1,52 @@
+{
+  "$comment": "No dedicated schema exists for this file (schema-gap, noted in docs/known-limitations.md). Shape follows CONVENTIONS 4.3 (win tiers), 9.2 (presentation modes never alter outcomes) and 9.5 (LDW never celebrated above small). All durations are presentation-only; the committed outcome manifest is authoritative.",
+  "winTiers": {
+    "$comment": "Thresholds are win/totalBet per CONVENTIONS 4.3. max is reached only when maximumWinXBet (10000x) is hit.",
+    "small": { "minXBet": 0, "countupMs": 800, "celebration": "none" },
+    "medium": { "minXBet": 5, "countupMs": 1600, "celebration": "anim.win.medium" },
+    "big": { "minXBet": 15, "countupMs": 2600, "celebration": "anim.win.big" },
+    "mega": { "minXBet": 40, "countupMs": 3600, "celebration": "anim.win.mega" },
+    "epic": { "minXBet": 80, "countupMs": 4800, "celebration": "anim.win.epic" },
+    "max": { "minXBet": 10000, "countupMs": 6000, "celebration": "anim.win.max" }
+  },
+  "ldwRule": {
+    "$comment": "CONVENTIONS 9.5: a return <= stake is never celebrated above small tier; jurisdiction flag ldwCelebrationSuppressed routes it to the neutral result preset.",
+    "treatWinAtOrBelowStakeAs": "neutral",
+    "neutralResultMaxDurationMs": 600
+  },
+  "spinModes": {
+    "normal": {
+      "reelSpinMs": 1400,
+      "reelStopStaggerMs": 220,
+      "cascadeStepMs": 650,
+      "enabledByDefault": true
+    },
+    "quick": {
+      "reelSpinMs": 700,
+      "reelStopStaggerMs": 110,
+      "cascadeStepMs": 400,
+      "jurisdictionFlag": "quickSpinEnabled"
+    },
+    "turbo": {
+      "reelSpinMs": 350,
+      "reelStopStaggerMs": 40,
+      "cascadeStepMs": 250,
+      "jurisdictionFlag": "turboSpinEnabled"
+    }
+  },
+  "anticipation": {
+    "$comment": "Presentation-only per CONVENTIONS 9.5: driven strictly by the committed outcome, never by weighted near-miss reel adjacency.",
+    "armedAtVisibleScatters": 2,
+    "slowedReelExtraMs": 900,
+    "maxTotalExtraMs": 2700,
+    "animationEvent": "anim.scatter.anticipation",
+    "audioEvent": "sfx.scatter.anticipation"
+  },
+  "skip": {
+    "jurisdictionFlag": "animationSkipEnabled",
+    "tapSkipsTo": "step_end_values",
+    "skipNeverAltersOutcome": true,
+    "minimumRoundDurationRespected": true
+  },
+  "equivalenceInvariant": "Same outcome manifest => identical final balance and totalWinMinor in normal, quick, turbo, skipped, autoplay, and recovered presentations (CONVENTIONS 9.2). A real run ships this as an automated client test; this example records it as the binding contract."
+}

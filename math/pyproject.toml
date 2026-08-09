@@ -1,0 +1,25 @@
+[project]
+name = "slot-math"
+version = "1.0.0"
+description = "Deterministic slot mathematics engine, Monte Carlo simulator and PAR-sheet generator (template for single-modern-slot-creator)"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=1.26",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "hypothesis>=6",
+    "jsonschema>=4",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/slot_math"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

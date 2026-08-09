@@ -1,0 +1,1786 @@
+{
+ "schemaVersion": "1.0.0",
+ "project": {
+  "gameId": "belladonna-parlour",
+  "gameName": "Belladonna's Parlour",
+  "projectSlug": "belladonna-parlour",
+  "gameVersion": "0.1.0",
+  "mathVersion": "0.1.0",
+  "configHash": "sha256:c3a6de0fadd9f56e9773c190aa69b55834dba77117881750aaa01a2fbb731441"
+ },
+ "generatedAt": "2026-08-08",
+ "generator": "single-modern-slot-creator v1.0.0",
+ "artifacts": [
+  {
+   "path": "assets/art/blender/parlour-parallax/parlour_layer0.png",
+   "category": "asset",
+   "sha256": "cd539890cb102da1ec8704811bbcb6184e5664a278f5620578aa4f79a043dcdb",
+   "status": "generated",
+   "provenance": "blender-mcp live render from prompts/blender scripts"
+  },
+  {
+   "path": "assets/art/blender/parlour-parallax/parlour_layer1.png",
+   "category": "asset",
+   "sha256": "984806158dcb5fc5dd6ad9975b93ddbab240d6b443612d2d5b9087abf973ad37",
+   "status": "generated",
+   "provenance": "blender-mcp live render from prompts/blender scripts"
+  },
+  {
+   "path": "assets/art/blender/parlour-parallax/parlour_layer2.png",
+   "category": "asset",
+   "sha256": "dd70b16dabd371238edb386d54eceb2b5d8dfe6b6162a710a34318ffe162f5e3",
+   "status": "generated",
+   "provenance": "blender-mcp live render from prompts/blender scripts"
+  },
+  {
+   "path": "assets/art/blender/vial-turntable/vial_turn_000.png",
+   "category": "asset",
+   "sha256": "d51776ec9318e21eeca85e0ca40d38bb3a00b0528789140392de8ab231bdcea8",
+   "status": "generated",
+   "provenance": "blender-mcp live render from prompts/blender scripts"
+  },
+  {
+   "path": "assets/art/blender/vial-turntable/vial_turn_001.png",
+   "category": "asset",
+   "sha256": "0daf094c6e8d86b5ba02bbfdf619f093f6c4b35fdc7a6184ed016d15a126a8c9",
+   "status": "generated",
+   "provenance": "blender-mcp live render from prompts/blender scripts"
+  },
+  {
+   "path": "assets/art/blender/vial-turntable/vial_turn_002.png",
+   "category": "asset",
+   "sha256": "5a8a2792cf4c9bc82c5ae25a5d670bfa307ece5fd0476822f2e9d6540007a361",
+   "status": "generated",
+   "provenance": "blender-mcp live render from prompts/blender scripts"
+  },
+  {
+   "path": "assets/art/blender/vial-turntable/vial_turn_003.png",
+   "category": "asset",
+   "sha256": "ef82e488476c4fb27e7918f833e7c1248e687d8abf594e90249a2b11d6f0a1ae",
+   "status": "generated",
+   "provenance": "blender-mcp live render from prompts/blender scripts"
+  },
+  {
+   "path": "assets/art/blender/vial-turntable/vial_turn_004.png",
+   "category": "asset",
+   "sha256": "712c64cb8aa8cf64c5b6d9ca14d65059321cc1e78d08d664c10218bc2b6c36f7",
+   "status": "generated",
+   "provenance": "blender-mcp live render from prompts/blender scripts"
+  },
+  {
+   "path": "assets/art/blender/vial-turntable/vial_turn_005.png",
+   "category": "asset",
+   "sha256": "c23cc7b9b4b6e88f78f7639bbf207778b065c97f4daee6e8b17e62d6d5a4e836",
+   "status": "generated",
+   "provenance": "blender-mcp live render from prompts/blender scripts"
+  },
+  {
+   "path": "assets/art/blender/vial-turntable/vial_turn_006.png",
+   "category": "asset",
+   "sha256": "1b2791bdfafec59856d20430f18e855b66ac547711fb9bca4287cc292232e086",
+   "status": "generated",
+   "provenance": "blender-mcp live render from prompts/blender scripts"
+  },
+  {
+   "path": "assets/art/blender/vial-turntable/vial_turn_007.png",
+   "category": "asset",
+   "sha256": "36c0330a0d798739c451695f1ffa9b51baafd90ec631d9734cbd5833be102507",
+   "status": "generated",
+   "provenance": "blender-mcp live render from prompts/blender scripts"
+  },
+  {
+   "path": "assets/art/blender/vial-turntable/vial_turn_008.png",
+   "category": "asset",
+   "sha256": "5e3eb7d34277545358beecde37e7169bf60bbd55c6639bf7b23e17a7b0bab15e",
+   "status": "generated",
+   "provenance": "blender-mcp live render from prompts/blender scripts"
+  },
+  {
+   "path": "assets/art/blender/vial-turntable/vial_turn_009.png",
+   "category": "asset",
+   "sha256": "88d43e5cdb18ff7c15feb54f195f93a91c2447f523d66967a063329ebbe6a987",
+   "status": "generated",
+   "provenance": "blender-mcp live render from prompts/blender scripts"
+  },
+  {
+   "path": "assets/art/blender/vial-turntable/vial_turn_010.png",
+   "category": "asset",
+   "sha256": "086bacd768b1cd8ea15780103d64ba744f5ea437b01cd16f6f8ab35255a11292",
+   "status": "generated",
+   "provenance": "blender-mcp live render from prompts/blender scripts"
+  },
+  {
+   "path": "assets/art/blender/vial-turntable/vial_turn_011.png",
+   "category": "asset",
+   "sha256": "82a3e74e9271308e265e8a732fae39b659b966d010cbcade24a8f53b3bc3042e",
+   "status": "generated",
+   "provenance": "blender-mcp live render from prompts/blender scripts"
+  },
+  {
+   "path": "assets/art/frame/cell-win.png",
+   "category": "asset",
+   "sha256": "6d6321a46225a7e3a7cb798ed2da00767dbfb6c4f5f89782ed061b469b41fb06",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/frame/cell.png",
+   "category": "asset",
+   "sha256": "dc10d8b2e53b573f2ec8b6016ab11462d4c8930d6385a8bd82545f90dcb8556f",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/frame/reel-cabinet.png",
+   "category": "asset",
+   "sha256": "1ae19fe2ae2c934e7d98846ffdf7b190da6f12536191545bca58d521ff05dea9",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/symbols/fx1.png",
+   "category": "asset",
+   "sha256": "1dbf71107a928222d2e98aa5d23109f43662492bf3f2d44609ae0055006be3cc",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/symbols/h1.png",
+   "category": "asset",
+   "sha256": "e2526b6981f432e9f82dd401c45e1dab440ebd68dafa1a2e80a7bd03d6c9e90a",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/symbols/h2.png",
+   "category": "asset",
+   "sha256": "ddb065c9ffaf809078ed1bb0ca2576b25857bb17fa4b30bf4c98b0296f8fc098",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/symbols/h3.png",
+   "category": "asset",
+   "sha256": "b190e0f5efa776ae5dd30496055e06555b195e7d04628b5738e9e1e65a49f42f",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/symbols/h4.png",
+   "category": "asset",
+   "sha256": "13a82073c2827f86ee5621b7c3a99f9a980008669bb27b36f36a8895d334cdf1",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/symbols/l1.png",
+   "category": "asset",
+   "sha256": "acfff33458bc2f6acc0a65faca1d2cffe887c14ad8ad2b2a7f91a5ae1a6071a1",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/symbols/l2.png",
+   "category": "asset",
+   "sha256": "ee27946fdd56fd90c7b1bc78a94da7b7b3f839e2fed229942812fecab348d786",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/symbols/l3.png",
+   "category": "asset",
+   "sha256": "1af6d70dcc329fb864791b205f281583ab2cf55b56df39a5481aec23a466b538",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/symbols/l4.png",
+   "category": "asset",
+   "sha256": "70b24f519e472acf03dff6537c3e2cb427f1fd968419686c2c325a9e0b9be4f4",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/symbols/l5.png",
+   "category": "asset",
+   "sha256": "277a3e1b2229ab25e0f6b8ed45456cdffe144a1707f0482914b9194f63a7fb8e",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/symbols/mult-plate.png",
+   "category": "asset",
+   "sha256": "7739f6fd184bd0f63f8d1ff2e020a614552779f32aab466c9d8cbf1263a599ae",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/symbols/mult.png",
+   "category": "asset",
+   "sha256": "7849d5c4f899eed2b6deb15c97b0ed9f82326fe966f48b6852dd78b48b9e4432",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/symbols/scatter.png",
+   "category": "asset",
+   "sha256": "eacfde5b851502eab32cd44dae22267e15c60f380fe99dc6eac6a210ca135ff2",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/ui/btn-ante.png",
+   "category": "asset",
+   "sha256": "7d89c57b01c8874ec4e46ba317e89dfd1d9a5a409dd5f354ff5a626253bf98d7",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/ui/btn-autoplay.png",
+   "category": "asset",
+   "sha256": "50c780cfcc25f4f47e42ad5144adae179c93e418736fb8edf95bd6240e3f2450",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/ui/btn-bet.png",
+   "category": "asset",
+   "sha256": "8d9deacfe05e19ccf2b0d46b55ba782e6e8c8a6b46998f2ea5e89bfaac69b23f",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/ui/btn-buy.png",
+   "category": "asset",
+   "sha256": "8571a7ac5e244fc0a76c6937f62217244c3d729f8ac4bc8be4f29f8a9ccb4434",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/ui/btn-settings.png",
+   "category": "asset",
+   "sha256": "b9979840578b8bd23efaf0973fad34085c96103708ebcee8f0c81aeae192e869",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/ui/btn-spin-normal.png",
+   "category": "asset",
+   "sha256": "b91a38150a66c2ea74c55dd14da85ef61e5376bb37195908490b0c610538e83f",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/ui/btn-stop.png",
+   "category": "asset",
+   "sha256": "83c9ea1797cd3ce42a27ea50e5ad1a9d899576a11500befa8d6dc72beedd114f",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/ui/buymenu.png",
+   "category": "asset",
+   "sha256": "d5cbf7b4522aadba957217b18c3b0626ef6f8ca5d1965555b35d2caf9dc93f7d",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/ui/hud-dial.png",
+   "category": "asset",
+   "sha256": "77fad36ee55b5c4356a22eb6d6406908bf647e3f0ab34398fd016ee98da4cec6",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/ui/hud-prism-rail.png",
+   "category": "asset",
+   "sha256": "7dcb0de45fdb83f2a1a25bb5cf11b25e042388c71fe6cfa377b3911f86b15d7a",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/ui/hud-vial.png",
+   "category": "asset",
+   "sha256": "c6e07c3333ab6329cc109c79d0dfccc91ea27ff1839e4bcad0e32267d26fd229",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/ui/ind-spinmode.png",
+   "category": "asset",
+   "sha256": "90985dab999bee181fa8885fab1bc43f293cdd2cea39c0ada5c5a3d53719c8f4",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/ui/panel-hud.png",
+   "category": "asset",
+   "sha256": "32cb2cc6991b225034bb8a8b6bad9fd4613933b05565a17bdd2ee99d0102303f",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/ui/panel-overlay.png",
+   "category": "asset",
+   "sha256": "0e3e8aee9d7c1866399d6248ec035e5f7ac87ba8ca53dcf6adb289747441ee5c",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/vfx/essence.png",
+   "category": "asset",
+   "sha256": "78147ce0f96937f23031cad1571562ee9961811b328e7add2a81d07d3f15e18e",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/vfx/mote.png",
+   "category": "asset",
+   "sha256": "f66353c0dfbb54ce5054645662a04a02b6845ff291960dfdf5e95e482d95904a",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/vfx/petal.png",
+   "category": "asset",
+   "sha256": "474b258ed9af688d2323d554fe1f0350feea57545760d29252d9a0e550d8a384",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/vfx/prism-caustic.png",
+   "category": "asset",
+   "sha256": "e08db576a72fe2883c16b0cb2f137f2f82b18c29f7572568d4845fef6805b71e",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/vfx/shard-sheet.png",
+   "category": "asset",
+   "sha256": "7ca79e832c85f4f7593fc1b97070625efcf1071dce521c7eced83d3ffab86aa0",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/winplates/big.png",
+   "category": "asset",
+   "sha256": "a3006df5450c8f44fad31ae2e74ac9f5ec00effbd5c31d5c4887fda1c96afa2c",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/winplates/epic.png",
+   "category": "asset",
+   "sha256": "86c079c622b62c1a665dd41163cee661db787e7360fdb982e29585c8b567b6a3",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/winplates/max.png",
+   "category": "asset",
+   "sha256": "a0d0e11c082cc7fa79454c1537e4edfd455a14bf6144a621b652bc274691afd9",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "assets/art/winplates/mega.png",
+   "category": "asset",
+   "sha256": "6ef8dd4d8d89e49776c57ed9ea854aa57f4ebe7bc96c3f99cdbbd87878485d32",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/bun.lock",
+   "category": "client",
+   "sha256": "4b9d076905f66205cc2e8192b641b067a1717eebe32ce5f60fb7a77cd31b7d25",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/package.json",
+   "category": "client",
+   "sha256": "baa95c1df18cf175fd4da4abe8d9f49d2650bcc52c1b3c74b180d9bb720dda6e",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/public/assets/backdrop.png",
+   "category": "client",
+   "sha256": "cd539890cb102da1ec8704811bbcb6184e5664a278f5620578aa4f79a043dcdb",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/public/assets/symbols/fx1.png",
+   "category": "client",
+   "sha256": "1dbf71107a928222d2e98aa5d23109f43662492bf3f2d44609ae0055006be3cc",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/public/assets/symbols/h1.png",
+   "category": "client",
+   "sha256": "e2526b6981f432e9f82dd401c45e1dab440ebd68dafa1a2e80a7bd03d6c9e90a",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/public/assets/symbols/h2.png",
+   "category": "client",
+   "sha256": "ddb065c9ffaf809078ed1bb0ca2576b25857bb17fa4b30bf4c98b0296f8fc098",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/public/assets/symbols/h3.png",
+   "category": "client",
+   "sha256": "b190e0f5efa776ae5dd30496055e06555b195e7d04628b5738e9e1e65a49f42f",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/public/assets/symbols/h4.png",
+   "category": "client",
+   "sha256": "13a82073c2827f86ee5621b7c3a99f9a980008669bb27b36f36a8895d334cdf1",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/public/assets/symbols/l1.png",
+   "category": "client",
+   "sha256": "acfff33458bc2f6acc0a65faca1d2cffe887c14ad8ad2b2a7f91a5ae1a6071a1",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/public/assets/symbols/l2.png",
+   "category": "client",
+   "sha256": "ee27946fdd56fd90c7b1bc78a94da7b7b3f839e2fed229942812fecab348d786",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/public/assets/symbols/l3.png",
+   "category": "client",
+   "sha256": "1af6d70dcc329fb864791b205f281583ab2cf55b56df39a5481aec23a466b538",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/public/assets/symbols/l4.png",
+   "category": "client",
+   "sha256": "70b24f519e472acf03dff6537c3e2cb427f1fd968419686c2c325a9e0b9be4f4",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/public/assets/symbols/l5.png",
+   "category": "client",
+   "sha256": "277a3e1b2229ab25e0f6b8ed45456cdffe144a1707f0482914b9194f63a7fb8e",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/public/assets/symbols/mult.png",
+   "category": "client",
+   "sha256": "7849d5c4f899eed2b6deb15c97b0ed9f82326fe966f48b6852dd78b48b9e4432",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/public/assets/symbols/scatter.png",
+   "category": "client",
+   "sha256": "eacfde5b851502eab32cd44dae22267e15c60f380fe99dc6eac6a210ca135ff2",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/public/config/game-config.json",
+   "category": "client",
+   "sha256": "abb12ba0af933acef45217ff9be64024be1c9120488f18d0af7d39d63b139bb1",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/public/config/jurisdiction-policies.json",
+   "category": "client",
+   "sha256": "f1e2f653cbfd9282c63f2a04e29209f4ea349648b8de1f4617505eb145ad0f69",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/public/config/spin-presentation.json",
+   "category": "client",
+   "sha256": "4ee4eec645d7ca8eaf59de06c7e5e4dd1ebc6e5afaef59210f02ac182faa8d6e",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/public/index.html",
+   "category": "client",
+   "sha256": "cafb441f700d0d98605bab61122a3d4a8c05d7e27a7648ac7627a0df86144edf",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/public/scenarios/dev-bank.json",
+   "category": "client",
+   "sha256": "01dde2ea35e875861565877eb011391e2dc0856ea18659ba352edce5666a12d5",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/README.md",
+   "category": "client",
+   "sha256": "8417eea747c89a172775afa121fb98358f847001bfa7a056d5bb0d9f8f494969",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/scenarios/dev-bank.json",
+   "category": "client",
+   "sha256": "01dde2ea35e875861565877eb011391e2dc0856ea18659ba352edce5666a12d5",
+   "status": "final",
+   "provenance": "export_dev_bank.py (DEV ONLY)"
+  },
+  {
+   "path": "client/scripts/export-wire-manifests.ts",
+   "category": "client",
+   "sha256": "b9a227da67aa5a4accf3a308d49bd440b2c3280e4e48e6514d78eec242cd242e",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/scripts/serve.ts",
+   "category": "client",
+   "sha256": "ce837d92327415070f9ecf5315eb53c89d38d0ef54fdcec3d9ac7e582eac71e4",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/serve.log",
+   "category": "client",
+   "sha256": "6438fc186f8ec65621d985b9f1819671e57c69efba18f6821119078633e56d55",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/src/core/autoplay.ts",
+   "category": "client",
+   "sha256": "e7c0b5c13a4c546abe4be8f855aaf507bbefc32f02ee291237dc99302f879740",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/src/core/configLoader.ts",
+   "category": "client",
+   "sha256": "931c0842b68fe75fb41e470bd02429a3240de2aad3762601d6336f7d0625335a",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/src/core/devRoundProvider.ts",
+   "category": "client",
+   "sha256": "9b712f3349dc2a99118aed8aec22584e112f2e5ce8f59950f164fe33ebe4ff98",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/src/core/inputGuard.ts",
+   "category": "client",
+   "sha256": "09bff529ca78aa1ef81ddf127ead07c988c139309ef9356401ffcbcd0eb47769",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/src/core/money.ts",
+   "category": "client",
+   "sha256": "c1956d8e7e61dda18bc1be566cb063a53aa2e9548546d2427504fcd5eac63895",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/src/core/recovery.ts",
+   "category": "client",
+   "sha256": "aba882729dbd491d0398551aba2c1fe854490426ca04a1b55a9485fd430f0239",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/src/core/rgsAdapter.ts",
+   "category": "client",
+   "sha256": "6c7fb35a7c034cf37111a7f324064928446ac9678d6827b4a9effe30b8aac2b7",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/src/core/rng.ts",
+   "category": "client",
+   "sha256": "b2edc2cf16104f8020d0c1bdcc5de428bab76bceaf31f086c54e7b729acefcf4",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/src/core/roundProvider.ts",
+   "category": "client",
+   "sha256": "6ab287fe62c8c45df00d38ea7fda7240cdb97d570bce5116e58312a54a8f10de",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/src/core/scenarioBankProvider.ts",
+   "category": "client",
+   "sha256": "07666ab1cd97d0392d1c7bf66e531784550bf96972d6d11a50da738289dcbe05",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/src/core/spinTiming.ts",
+   "category": "client",
+   "sha256": "ba7c1c43bed9d592f817f981fffa04b716c587c5a7b86554b7192f71df6b734e",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/src/core/stateMachine.ts",
+   "category": "client",
+   "sha256": "46f15ddbfb2d083c33a1e0befa781286c15870c7c5b92691854449a994f98037",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/src/core/timeline.ts",
+   "category": "client",
+   "sha256": "81ecdd203f514705a55a25d86fb07a799d108ff3d3321a1713ae0f91b449d10c",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/src/core/types.ts",
+   "category": "client",
+   "sha256": "34db72e7be469e0851f82f06c1f6ec65e3e80286947fbc214af4e2c369aa9fb6",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/src/core/wireManifest.ts",
+   "category": "client",
+   "sha256": "374b3886b25179a1cc64c95b773c134c15416f713def80f1ace0425122d92504",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/src/index.ts",
+   "category": "client",
+   "sha256": "2625764c2279435d0b9054c4b9f0a3c083d68a35fa0fea8e61416501ab29d8ac",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/src/presentation/app.ts",
+   "category": "client",
+   "sha256": "f6914b01a1f83e6c9280db0769a4af09065513ac14789af653fd1c1d261dbeca",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/src/presentation/audioManager.ts",
+   "category": "client",
+   "sha256": "d5952f30d35b512009e45e651218b8990da5a64a2367e5f916e73321efcd97b3",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/src/presentation/bp-app.ts",
+   "category": "client",
+   "sha256": "7f2d2e55df6c80fe12ef7d83d334692cbef52fbbdface670e85851639015bd83",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/src/presentation/clock.ts",
+   "category": "client",
+   "sha256": "94d92d1945674ff4ce7c58944427a51785a5fc967728483cc7e99e7e2669b937",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/src/presentation/hud.ts",
+   "category": "client",
+   "sha256": "b4c0e0decb8909cf625a608c1543815e8fd57ea6318d19dffd5738211ee16d8d",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/src/presentation/motionPlayer.ts",
+   "category": "client",
+   "sha256": "007dc76a23426fae564f6618c6add6994bd830d4dd5e811fbf74677293265dab",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/src/presentation/reelView.ts",
+   "category": "client",
+   "sha256": "2c0bb811d457aa186c3b62618208fddd4601b281a0c298da062122c15435c979",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/src/presentation/winPresentation.ts",
+   "category": "client",
+   "sha256": "ec91c9599a4e81ef8275f94f2735fbbe9ad14f2d490ce410d21cec94d890b098",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/tests/audioManager.test.ts",
+   "category": "client",
+   "sha256": "98757e943be87a11034fa9321e157ee49a00347371fe03d2e2367327b3f6acc3",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/tests/autoplay.test.ts",
+   "category": "client",
+   "sha256": "5c7e3a0d6068f0890193b5e8fced35ae6bc78b65f4984b9ffe1194240a0ba6f0",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/tests/bp.scenarioBank.test.ts",
+   "category": "client",
+   "sha256": "9167bab593f8bb9cfe6f1d8c6c089c16ce95a233e1364818fe52421cce018c36",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/tests/devRoundProvider.test.ts",
+   "category": "client",
+   "sha256": "d942cfbf41344b74e89ff00bff098ec591a63e7fcf0697fd26099000f8413b67",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/tests/equivalence.test.ts",
+   "category": "client",
+   "sha256": "eb9f951a091ab00555070880a38d312d9684c577251427a8bfe9d31c10efd02b",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/tests/fixtures.ts",
+   "category": "client",
+   "sha256": "6c07f7d890e72fcf5905f8f253e8897bfbab2e6a744b5ea759c7ab3146b0e185",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/tests/inputGuard.test.ts",
+   "category": "client",
+   "sha256": "045c3955dcfe22c6c0887f63c4c01bc60735c848db78ab1231159d53c82be4bb",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/tests/money.test.ts",
+   "category": "client",
+   "sha256": "2de69c85f241510b56ed9654e859a02a6d4b16ac254df0f3dbb89d335837187f",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/tests/motionPlayer.test.ts",
+   "category": "client",
+   "sha256": "8b6f4aa98e2605ee1c1193c62b018f78e2551c619de2e3a9c282eb488bc48245",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/tests/rng.test.ts",
+   "category": "client",
+   "sha256": "629eb49a8b2d53fee277a1d75f03db8ed688975ddc5cc6839a73c257f85d043e",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/tests/stateMachine.test.ts",
+   "category": "client",
+   "sha256": "ddb3bc697c4c961cad34e183115223e685a83782cd80dd7bc41a6d90763e27f3",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/tests/timeline.test.ts",
+   "category": "client",
+   "sha256": "bbf6843f24d0b2f6fffd4d3b5a527535d982f9130d8012de0d2b8fb605636057",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/tests/winPresentation.test.ts",
+   "category": "client",
+   "sha256": "e610b048e89d8403fda9ee8c6a47ac8656dc4530b8ed9a0278b7ab8ada5d9710",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/tests/wireManifest.test.ts",
+   "category": "client",
+   "sha256": "44d11953a0f00810b09fc2f3811d04ea49e6e0300258d18d0fc9d3d73cbd626f",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "client/tsconfig.json",
+   "category": "client",
+   "sha256": "6907b260c6ce9dc73ebd5c0c4bd6b8efc365b8ca75796941a757a46fd71d2e6c",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "config/animation-events.json",
+   "category": "config",
+   "sha256": "7fb492720b1ee94ff3d9ae2de0bdafa547e616785a0180dea33b03eddbf976e5",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "config/asset-manifest.json",
+   "category": "config",
+   "sha256": "a8413c51f889aeefd1db6a85bd9b71374b12703a16596f72ae5d817a9d454de2",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "config/audio-events.json",
+   "category": "config",
+   "sha256": "5dd6eb92877a8b94e2c2fef4086aab240138e9cd1c1ffeb75b25093034299359",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "config/autoplay.json",
+   "category": "config",
+   "sha256": "225a1259ff89d0aab0d216f8a1a9386d5ca15a5b355b5ebceb52294e7236b41a",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "config/bonus-buys.json",
+   "category": "config",
+   "sha256": "68f1e533d29b5513a4912efff504c126263350d05ba3822cea76f9b5513c5ec9",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "config/device-profiles.json",
+   "category": "config",
+   "sha256": "57b4144c7d0af752fd9c7fb7ef3b9d57a016da677d436ed2ff00e0d2c8eb86af",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "config/features.json",
+   "category": "config",
+   "sha256": "9270d1c17d2858ecce5a096bc7940e6a97b2b4d3f69b470575802143a2c641de",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "config/game-config.json",
+   "category": "config",
+   "sha256": "3b7cf901a3adeda78784b78573e9fcf2f7fe94d8a085a197cdbb73182137bcc8",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "config/jurisdiction-policies.json",
+   "category": "config",
+   "sha256": "96f5c7a4b0de2ce74291eae72cc1b6e667710209b78df920ce64b280ff838c35",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "config/paytable.json",
+   "category": "config",
+   "sha256": "4e2c28f68f61c8e77768de120971b544d6b84021c99b70b41c34849ffe48d045",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "config/reel-sets.json",
+   "category": "config",
+   "sha256": "a9644118af9f542d6f9d0bc3da623dbead986f8b4759ff479a260cb489f61b9d",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "config/scatter-tiers.json",
+   "category": "config",
+   "sha256": "485bf59470cc606f9a0f1d54cb10b610a6d22aa9f62c4f2caa654885b99b0840",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "config/spin-presentation.json",
+   "category": "config",
+   "sha256": "4ee4eec645d7ca8eaf59de06c7e5e4dd1ebc6e5afaef59210f02ac182faa8d6e",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "config/state-machine.json",
+   "category": "config",
+   "sha256": "81c8750ecce188a2e0d54dcfe35e4722efffe54e6c7f5c8a71487f1989dacd18",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "config/symbols.json",
+   "category": "config",
+   "sha256": "6cff72301ba233cbcd8b7310a00eb818415c920713a8580dc5f1ff1f718b721e",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "docs/art-style-bible.md",
+   "category": "doc",
+   "sha256": "c7863ade3d1386612f751ec17c82a69a0f1febbe7a7d99a1266b5b7b14d00fe9",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "docs/assumption-log.md",
+   "category": "doc",
+   "sha256": "05591dc6f69b22bac4eac9132b408f0dd02fc7dc74e7d1175348ed99451be19e",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "docs/audio-specification.md",
+   "category": "doc",
+   "sha256": "c5566a3ea15afc28a5e4900d129d4bb7e1d4192a5e7231e806b57431eb326198",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "docs/compliance-review.md",
+   "category": "doc",
+   "sha256": "9724952fe5461559f022c2ffb61d7bf3681a783052f833d1c1a0d823d6e8c299",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "docs/decision-log.md",
+   "category": "doc",
+   "sha256": "bfd21a932dfc0489a46b39d27107a2c5d9d4d2bf3c6272ee51f25ac9a4f5c181",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "docs/game-design-document.md",
+   "category": "doc",
+   "sha256": "7b6aa4e398575db97b2a4d42332183d363d6a54aaf173ccd2cb9cf5474f426d6",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "docs/known-limitations.md",
+   "category": "doc",
+   "sha256": "5b4406681e91c69c8600f11055bda8cbce09f2b133cb3bf9ff15b4c1c6dd3287",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "docs/motion-specification.md",
+   "category": "doc",
+   "sha256": "02422c1ab8502c7147322f2e42520bb5d3da6085f3814b6fad73269ebf237f15",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "docs/par-sheet.md",
+   "category": "doc",
+   "sha256": "b60fa9acad4d1ddc91ea726291e14032f9a4427a393aa19d1761e4e0ff21482d",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "docs/research-addendum.md",
+   "category": "doc",
+   "sha256": "de83c04c76186e2a24a657b5388ef7e1e20dabe622b5ce1d1169fabc73d8c0f3",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "docs/risk-register.md",
+   "category": "doc",
+   "sha256": "2ff0f97432af6dffd1aa047b3b223cb808231692e31e60d6694b11ebc1ba2945",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "docs/source-register.md",
+   "category": "doc",
+   "sha256": "b9b7555ed8a185da03e72963831277d22381574c0f45a4e1e12dd7e5ecd786e9",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "docs/tuning-log.md",
+   "category": "doc",
+   "sha256": "38ed785d479eb68e70aa90f5bde59a77b2fff12afd7d62767f2abfc32d19fcf1",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "docs/ui-specification.md",
+   "category": "doc",
+   "sha256": "74f5d3e1ad73c4a57420f21efe2d22d9f5fc1f23abd831a160153350f0a68b28",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "docs/validation-report.md",
+   "category": "doc",
+   "sha256": "0714d07413daacd0a8dd682f6ef05c620927ced1111d4b5f9c627399df36ec38",
+   "status": "report",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/.hypothesis/.gitignore",
+   "category": "math",
+   "sha256": "5627b9a2b858698ff493f97992dc91da789c6ead5e425825f45ba695c2ff3023",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/.hypothesis/constants/08fe00fa5091dda4",
+   "category": "math",
+   "sha256": "9afb34302912206b8dd48bf40ffd4c01008d43e2efcf6fa9a84a942636efdf0e",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/.hypothesis/constants/1bf6d92038895a7f",
+   "category": "math",
+   "sha256": "aa310a5ff80ec990bb5a30b0067b94d941ce91d1106622fa9b355ead5a971fac",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/.hypothesis/constants/42a283bf961ae423",
+   "category": "math",
+   "sha256": "0a791a552d3b87b4e11e4cc9f75892a4c1c57ded150791f0873c03a232f93f60",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/.hypothesis/constants/44e6693da9e71816",
+   "category": "math",
+   "sha256": "433bbe61ff73ad661d48acc6c06b4b53a38792773437e90f2da140e133652f99",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/.hypothesis/constants/4631538c149c1da6",
+   "category": "math",
+   "sha256": "ae27e86f75efc2a6852a0a39edb7baa85a77238726c3e8beab4b6e8a4b54cf34",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/.hypothesis/constants/4d235945f8fb2f58",
+   "category": "math",
+   "sha256": "e4067ff931c655ad4c9d881249e453eec950effb4bbbd581d0bbc82a7e18af36",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/.hypothesis/constants/5c9187ecbd7814c0",
+   "category": "math",
+   "sha256": "a6d107d0eff4b9229bb0fde4c5ed670b142fe1f1dd3bdf3286c5e1ccff6410eb",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/.hypothesis/constants/7000cabb8a516ce6",
+   "category": "math",
+   "sha256": "6c29ec578b9c74e603259c423f16302733736245868728fe6f2ef25dbb65e8a0",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/.hypothesis/constants/798d3f4e45c8d3a1",
+   "category": "math",
+   "sha256": "17a3696768a35ea34c16af171c393db3fde01e70cff79a6de3d0efb7b4dd4e75",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/.hypothesis/constants/81c2f0cc8f5045c2",
+   "category": "math",
+   "sha256": "6c29ec578b9c74e603259c423f16302733736245868728fe6f2ef25dbb65e8a0",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/.hypothesis/constants/9d2e2d83ac357572",
+   "category": "math",
+   "sha256": "532c00b1eb691c7d694cda8a3ff4460da77e72f1c20c032729676cb838ae3a33",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/.hypothesis/constants/a395eab7dba86fba",
+   "category": "math",
+   "sha256": "6a4f3d41ffdb7e0123181a69b51d74a1554b66f1405eed48a88496be5d865ae9",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/.hypothesis/constants/b432304a637a9471",
+   "category": "math",
+   "sha256": "f0ead7354a729f2abde3a62710294cd6d7d2d977052e4177a6857deac33c52bb",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/.hypothesis/constants/b4feaed8e0484d4f",
+   "category": "math",
+   "sha256": "06aeaf378fd1b159e4a855132b21b0211691509115736d2b38f210ef0d2a345b",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/.hypothesis/constants/c47773b0190f6069",
+   "category": "math",
+   "sha256": "690838054781b59d54213c082d37c40b83a20ce7c65a25a4b758b0ef5ef107f0",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/.hypothesis/constants/caf2858dfea89487",
+   "category": "math",
+   "sha256": "cdaf6c7988577d15fcabe55370a821e80f6f3f2ca87b5cc48bd51c80b983da19",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/.hypothesis/constants/db490ffe0c778487",
+   "category": "math",
+   "sha256": "fa6c8501ce707f883ec27db51d6fe13a5e98bc63f4fd99b55723f34fd4cac5c2",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/.hypothesis/constants/f0aca5ea83f3a703",
+   "category": "math",
+   "sha256": "fb36c092c46b1f6fa246c7297a004a9b78a3a08fb8d6d65287900e7b377a4e2b",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/.hypothesis/constants/f39c5a40174449a8",
+   "category": "math",
+   "sha256": "7ce3280847afc004e0946255cbfa547fc29b66bf3bbdabd3acf9e71e84bcaf26",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/.hypothesis/constants/f6e85edf95973677",
+   "category": "math",
+   "sha256": "495a2c67be586354aa039c99d9bee0cb93f4747d42d55cd09585f0297738d4ee",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/.hypothesis/constants/fb2845ba702b2b78",
+   "category": "math",
+   "sha256": "346724e4659c5d4b78724f8211377609d85994f958a6771dbe9381421b615f0b",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/pyproject.toml",
+   "category": "math",
+   "sha256": "ba6f84aa8c65e31c297157143da0f139dcb5814c076618113cfd7be429b04cd2",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/README.md",
+   "category": "math",
+   "sha256": "f3b295a3ad2af4febc283b7d11bb9dc30fcc5d8beb0b17cc0fc442847c24eb5b",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/reports/ante-sim.json",
+   "category": "math",
+   "sha256": "117ad14834397b4c64abd3ef16f7f028bd5a2e52ee06db7896fc8e7b968f80a2",
+   "status": "report",
+   "provenance": "slot_math simulate (seeds in report provenance blocks)"
+  },
+  {
+   "path": "math/reports/battery.log",
+   "category": "math",
+   "sha256": "b322533f4cdeb752c7b47963d607a32947366c5d0ed46a64a99a49314764009e",
+   "status": "report",
+   "provenance": "slot_math simulate (seeds in report provenance blocks)"
+  },
+  {
+   "path": "math/reports/dev-sim.json",
+   "category": "math",
+   "sha256": "0af1e83cfd5ae661ea74fa5b3de96c88641a3a5caa093565a91b4b9635f4d6d9",
+   "status": "report",
+   "provenance": "slot_math simulate (seeds in report provenance blocks)"
+  },
+  {
+   "path": "math/reports/tier-feature.json",
+   "category": "math",
+   "sha256": "72825865b5520c9e6ae22beb19d98042a59ed2e5e21c3795480c3c1dce5bee43",
+   "status": "report",
+   "provenance": "slot_math simulate (seeds in report provenance blocks)"
+  },
+  {
+   "path": "math/reports/tier-super.json",
+   "category": "math",
+   "sha256": "6d2aa4df7d047438b5814c7220827be2c9fe039eb52807a6c83fe95998491273",
+   "status": "report",
+   "provenance": "slot_math simulate (seeds in report provenance blocks)"
+  },
+  {
+   "path": "math/reports/tier-ultimate.json",
+   "category": "math",
+   "sha256": "180df0dee80844983823227031faa0c903ee3814747129cf205d3cf789bd25ad",
+   "status": "report",
+   "provenance": "slot_math simulate (seeds in report provenance blocks)"
+  },
+  {
+   "path": "math/reports/tune-01.json",
+   "category": "math",
+   "sha256": "225fec5619385a341055f55fb54bfb93fc1b26968f7045c01ba32de6920672fe",
+   "status": "report",
+   "provenance": "slot_math simulate (seeds in report provenance blocks)"
+  },
+  {
+   "path": "math/reports/tune-02.json",
+   "category": "math",
+   "sha256": "5b6ceb1f99a5708e4765e5ff30d9cb111242c0a18616aee81be1b4191260584b",
+   "status": "report",
+   "provenance": "slot_math simulate (seeds in report provenance blocks)"
+  },
+  {
+   "path": "math/reports/tune-03.json",
+   "category": "math",
+   "sha256": "a01ec612d3187943f7463f2eae3926483ecc60396ae8b2a1e5a1bd62f66ebcef",
+   "status": "report",
+   "provenance": "slot_math simulate (seeds in report provenance blocks)"
+  },
+  {
+   "path": "math/reports/tune-04.json",
+   "category": "math",
+   "sha256": "5dac00630e19cb63d5e3f790bd33b2d90b10689c0dcd77377358c7c8f7b06295",
+   "status": "report",
+   "provenance": "slot_math simulate (seeds in report provenance blocks)"
+  },
+  {
+   "path": "math/reports/tune-05.json",
+   "category": "math",
+   "sha256": "aa1292b1ded2c1dd1389f838cc2f783d88aebb561e6adac450aa61fb23c244d8",
+   "status": "report",
+   "provenance": "slot_math simulate (seeds in report provenance blocks)"
+  },
+  {
+   "path": "math/reports/tune-06.json",
+   "category": "math",
+   "sha256": "3f6e4440555bcce2a7f3771eec86bd8d1ba17a0b094fce41ee6a3fe5a6714b6a",
+   "status": "report",
+   "provenance": "slot_math simulate (seeds in report provenance blocks)"
+  },
+  {
+   "path": "math/reports/tune-07.json",
+   "category": "math",
+   "sha256": "d30e2a31a206bb1ee03d754b881985797179101621fa645c860e6b47f412b28b",
+   "status": "report",
+   "provenance": "slot_math simulate (seeds in report provenance blocks)"
+  },
+  {
+   "path": "math/reports/tune-08.json",
+   "category": "math",
+   "sha256": "b05b00d37436e5289794344434e42c3f19b7f8f6267fc4458472f469b49a95a4",
+   "status": "report",
+   "provenance": "slot_math simulate (seeds in report provenance blocks)"
+  },
+  {
+   "path": "math/run-battery.ps1",
+   "category": "math",
+   "sha256": "69f9cd6a34ea07d198468f4ddad9e1cd802370dea9c3aab293fda0d8fa86cdde",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/src/slot_math/__init__.py",
+   "category": "math",
+   "sha256": "ff59c00e3870b6bb95ad46ab49039831d77c0cebbeae308dd27e640dfd7d043e",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/src/slot_math/cascades.py",
+   "category": "math",
+   "sha256": "98e355a16ede3d9900a02162de1ccd70809b0d34f5c3e69f66cf9bddd7aa1b96",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/src/slot_math/config.py",
+   "category": "math",
+   "sha256": "55d6f1c23f9e75e2850c7e47b60f8477476397af5931cf43ae2e3d96a1b9b7e1",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/src/slot_math/engine.py",
+   "category": "math",
+   "sha256": "697797809f244394cf8805b0ad9635d6f985802847c462c00473bc54dd8d3e6c",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/src/slot_math/enumerate_lines.py",
+   "category": "math",
+   "sha256": "9ce158ea166c5a6d6aa2e313ebfdbfd478c4d594806e677b8d1c85d33fffd69e",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/src/slot_math/evaluator.py",
+   "category": "math",
+   "sha256": "1958a633ec68f7404c4791ec4f41c83d0b07896ad2468aa73cb70e0be65fe831",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/src/slot_math/features.py",
+   "category": "math",
+   "sha256": "695ccd7382af338eb0ff0da89a6990ebfc87c58601115e696a45b1242f886502",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/src/slot_math/money.py",
+   "category": "math",
+   "sha256": "4501f84320834fbb01e2c6296eb20af6e15ee0aabc865c4f1d11dac01226bca1",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/src/slot_math/par_sheet.py",
+   "category": "math",
+   "sha256": "e50e32623097439ea939635ed574c4c44468d03d08c02ab80a5d8982b07991af",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/src/slot_math/reels.py",
+   "category": "math",
+   "sha256": "491b4e6d48551128d78c5e94c0115ca05c4f833c769d51cc2f0320d0abd0d140",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/src/slot_math/rng.py",
+   "category": "math",
+   "sha256": "59b3b7fa9ac9fde46f347a1d2bc71884d2d39d0a0b8ac2823b49224c046be22e",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/src/slot_math/scatter_round.py",
+   "category": "math",
+   "sha256": "e0ed0b333609d449daf03fa0292877d0cf471903b1723b71645703326bf24d14",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/src/slot_math/simulate.py",
+   "category": "math",
+   "sha256": "dba3eb12c49eacc0e14715e1d78bf17e8880d00ff6f4f9c8bed89caf8af8f772",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/tests/conftest.py",
+   "category": "math",
+   "sha256": "7d56c17206196426e88760d287c2a4bd413af232c08a7bb2eb9b45bebea61b89",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/tests/fixtures/default-config/features.json",
+   "category": "math",
+   "sha256": "122488e7eaee5013b59127f9d54a774ef36dbbebd8d13460e4a8ae77b560c4d0",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/tests/fixtures/default-config/game-config.json",
+   "category": "math",
+   "sha256": "8605ef580274b0ae143486e0bf8baf872d7b5fa1d58507dde3003a104111c629",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/tests/fixtures/default-config/math-model.json",
+   "category": "math",
+   "sha256": "8f5cb9183acddc635d78685209eda5bcace099d678790d42f2e27ee1daea8756",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/tests/fixtures/default-config/paytable.json",
+   "category": "math",
+   "sha256": "49ec3fde26dee1aff4ed12ecc2bce8284c219b9738dd3c726d8c30b1d22dbd4f",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/tests/fixtures/default-config/reel-sets.json",
+   "category": "math",
+   "sha256": "4854e17181722909905b3e3b723460cc1578638ac190ebaefa017e04e2280d24",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/tests/fixtures/default-config/scatter-tiers.json",
+   "category": "math",
+   "sha256": "8a8294a3f6ddfe4532e4262a7b483fd90e85753e438820be41d59a0da2275d2e",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/tests/fixtures/default-config/symbols.json",
+   "category": "math",
+   "sha256": "17a639e537fce54063b759ba9663bb6590ecfa9d1aaf97baeff9a92b31c93650",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/tests/test_engine_determinism.py",
+   "category": "math",
+   "sha256": "4bf92e2cbffda982bd7dc2d4358d3d12da1ac2563f80226ee586cb338e984739",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/tests/test_evaluator.py",
+   "category": "math",
+   "sha256": "b1cee154071501a98411ff82ea832bf4248cce11f132a168fe63b360afe2d872",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/tests/test_money.py",
+   "category": "math",
+   "sha256": "164531e1d25c20013a415f17f2d3c9c7e8b7bbff6223db42ad0b53f5ab8db491",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/tests/test_property.py",
+   "category": "math",
+   "sha256": "ebaa049955e330073ba275f80a7e400e8be968bf364000477a261ed791fd5290",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/tests/test_reels.py",
+   "category": "math",
+   "sha256": "fc9c632188da92fd6fde5b087b373743ed42a612e04bfb1b13cd4d9b10e8983f",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/tests/test_rtp_smoke.py",
+   "category": "math",
+   "sha256": "6332faf9e003da8ebdf36aa24ba8f50685d446a3052ca5b3a53d3ff72feb565f",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/tests/test_scatter_game.py",
+   "category": "math",
+   "sha256": "c1a1fa9b192c4553cad6b9a938073fdd5da31af3ac8d7109e7e07bec0fb60a7f",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/tests/test_tiers.py",
+   "category": "math",
+   "sha256": "0f2d92d6597cb39c740664985ede755aeaaf65841e8529647de1afebc1f4c933",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math/uv.lock",
+   "category": "math",
+   "sha256": "114c98c2b66af0597cb88aa0dc327122ab7bf2d47e25721ba27959ff083f3da0",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math-config/build_art_prompts.py",
+   "category": "math",
+   "sha256": "a10aeda3101d8d1b0c01197678c72481e452a48149f1fc442a6483aa9ff2c99f",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math-config/build_artifact_manifest.py",
+   "category": "math",
+   "sha256": "e8c125403bb4e4793634bbe88912501e34dc5649a096dfddcdac00050a7e9cfd",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math-config/check_display_sync.py",
+   "category": "math",
+   "sha256": "1a34352c059dc2e6bf3ac6aed8ad5d15aceeb363a45aa131577a42b0a24599dc",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math-config/export_dev_bank.py",
+   "category": "math",
+   "sha256": "9110e5771e71241100a0e7f8894730b0d61e4b9c2e6825539f138603aa5db348",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math-config/features.json",
+   "category": "math",
+   "sha256": "306aae1ffb52c42cb141e27abc11169143f186a8e4fe3af650985d13879e41e7",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math-config/game-config.json",
+   "category": "math",
+   "sha256": "9dd3f89fc897851175d0d90a7fded4e0ba2021e5b62dde066b201114019a2880",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math-config/generate_art_prompts.py",
+   "category": "math",
+   "sha256": "35c296b91a5bde4e81e539a7d8f53edf0c15d4a12960a02f7d7dc28a589cd3f6",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math-config/generate_math_config.py",
+   "category": "math",
+   "sha256": "0256e7a14bdb2acc93047d6a2e94910271b8d7b7415fcf6b5f88a3a4eb5f6b3b",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math-config/mark_blender_assets.py",
+   "category": "math",
+   "sha256": "5e4208ce695eade7cc607ad8d00fe397d24ce1291cc548d6d1ebdb4b8201d9ca",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math-config/math-model.json",
+   "category": "math",
+   "sha256": "8099435f0c4356b6163946e861b01e3357c2f51ce4a4f972aef89607410f432a",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math-config/patch_gdd_measured.py",
+   "category": "math",
+   "sha256": "458f31a7e02002570668b48f0008569fc982870b9b46baf90bba52427418101e",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math-config/paytable.json",
+   "category": "math",
+   "sha256": "43e1fe796c62abb26bd45dc726919d338d71f6565d24c20791880efa5ba989c6",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math-config/reel-sets.json",
+   "category": "math",
+   "sha256": "4ae95d964035874ff450c019f5dbc928562fbc60d4b1884626bc94dd4ce66bef",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math-config/scatter-tiers.json",
+   "category": "math",
+   "sha256": "f6b6c3e6c59a04142f1dc65d83c63292edc2c30f4fe2f74f0af39eb016f64ef9",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math-config/step13_validate.py",
+   "category": "math",
+   "sha256": "a332f2cdc42ac219e2724fefdd2a9c1b2efb6dbb26ae218c00d6be16a004822d",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math-config/symbols.json",
+   "category": "math",
+   "sha256": "00fd0af59525afc60214488e7550e5d76b6804069d91c00b9915a36293813ff2",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math-config/sync_display.py",
+   "category": "math",
+   "sha256": "38ba768e6e4c345c756dce65f48033bfe00386a0ab819f06de04a2f12b78936f",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math-config/sync_display_configs.py",
+   "category": "math",
+   "sha256": "b01f1eab7420cdc768d758bf58629af4cfcfe0278d88f5022605279e2ae4fa60",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math-config/validate_run.py",
+   "category": "math",
+   "sha256": "87dd7d8b65f20397dae733da6a8da2d783b5772e15bd046e0fbf3efde0b79123",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math-config/wire_client_demo.py",
+   "category": "math",
+   "sha256": "08ec9928ba69898e484ec60112c832fafb9091d87f633d30d9d530486d5ed55f",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math-config-ante/features.json",
+   "category": "meta",
+   "sha256": "306aae1ffb52c42cb141e27abc11169143f186a8e4fe3af650985d13879e41e7",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math-config-ante/game-config.json",
+   "category": "meta",
+   "sha256": "5142b7a360cf5461a25c94b232471a452d78320ac2e2b13ccff9979726cd950b",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math-config-ante/math-model.json",
+   "category": "meta",
+   "sha256": "8099435f0c4356b6163946e861b01e3357c2f51ce4a4f972aef89607410f432a",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math-config-ante/paytable.json",
+   "category": "meta",
+   "sha256": "43e1fe796c62abb26bd45dc726919d338d71f6565d24c20791880efa5ba989c6",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math-config-ante/reel-sets.json",
+   "category": "meta",
+   "sha256": "127e02524569f9ba7ff3075e3ce11bc643c1858f32fbf85a3d81864916b3365b",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math-config-ante/scatter-tiers.json",
+   "category": "meta",
+   "sha256": "f6b6c3e6c59a04142f1dc65d83c63292edc2c30f4fe2f74f0af39eb016f64ef9",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "math-config-ante/symbols.json",
+   "category": "meta",
+   "sha256": "00fd0af59525afc60214488e7550e5d76b6804069d91c00b9915a36293813ff2",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "prompts/art-prompts.json",
+   "category": "prompt",
+   "sha256": "9f95458c276cf578619c9e76e2749eaf043ef720f0e1d7f7fe11e9488fa8905b",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "prompts/audio-prompts.json",
+   "category": "prompt",
+   "sha256": "c6fb823f0dcd380296442954c5508d8cfa2c7b03e54832e9ac52c2ab458dd3f7",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "prompts/blender/bp-asset-kit.py",
+   "category": "prompt",
+   "sha256": "1c25bdd8edf578ce6184efa27a817e7087ba40762dd158cebdc62e5e0bd4c248",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "prompts/blender/master-vial-turntable.py",
+   "category": "prompt",
+   "sha256": "f23de23d7da5575f3d4f9a69a5504acb7a7cb12d5697efcc396c13576398ed6d",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "prompts/blender/parlour-parallax-layers.py",
+   "category": "prompt",
+   "sha256": "00e294cbd5efc39ec0500b01530cc4778bd6312f560291a49167ec9257c1b366",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  },
+  {
+   "path": "README.md",
+   "category": "meta",
+   "sha256": "ecfe405edf13f956311a199dcd8012ea240970f2fe6e704718273f4ed6d187a2",
+   "status": "final",
+   "provenance": "single-modern-slot-creator v1.0.0 run 2026-08-08"
+  }
+ ],
+ "gates": {
+  "G2": "pass",
+  "G3": "pass",
+  "G4": "pass",
+  "G5": "pass-dev-gate (release sizing pending \u2014 known-limitations #1)",
+  "G6": "pass",
+  "G7": "pass",
+  "G8": "pass",
+  "G9": "pass-with-degradation (art prompt-only + Blender renders; imagegen backend down \u2014 K6)",
+  "G10": "pass",
+  "G11": "pass",
+  "G12": "pass",
+  "G13": "pass",
+  "G14": "pass"
+ },
+ "knownLimitations": [
+  "Dev-grade simulation sizing (A10/K3); release evidence REQUIRED-BEFORE-CERT.",
+  "OPEN K7: advertised-max-win hittability vs GLI-11 (PAR \u00a78).",
+  "Art prompt-only except Blender stand-ins (K6); 56 prompts + 2 scripts ready.",
+  "RTP profiles 0.94/0.92 declared, not built (A4)."
+ ]
+}
