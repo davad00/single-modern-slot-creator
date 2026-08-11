@@ -262,8 +262,10 @@ runnable via `blender --background <file.blend> --python <script.py> -- <args>`
      --output-dir assets/art/processed/<assetId>/ \
      --cell-size <resolution> --component-mode all --strict-qc
 
-   # animated sheet (VFX, win-state loops) — rows/cols match the generated grid
-   … --target fx --mode <action> --rows 2 --cols 2 --component-mode all \
+   # animated sheet (VFX, win-state loops) — rows/cols match the generated grid;
+   # valid --target: asset|creature|npc|player; VFX use --target asset with
+   # --mode fx|impact|explode|projectile
+   … --target asset --mode <action> --rows 2 --cols 2 --component-mode all \
      --shared-scale --strict-qc
    ```
 

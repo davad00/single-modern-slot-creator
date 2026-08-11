@@ -59,7 +59,7 @@ Invocation from the game folder (uv, per repo convention):
 uv run --project <skill-root>/tools/sprite-forge \
   python <skill-root>/tools/sprite-forge/generate2dsprite.py process \
   --input assets/art/raw/vfx-impact-sheet.png \
-  --target fx --mode impact --rows 2 --cols 2 \
+  --target asset --mode impact --rows 2 --cols 2 \
   --output-dir assets/art/processed/vfx-impact \
   --cell-size 512 --component-mode all --strict-qc
 ```
