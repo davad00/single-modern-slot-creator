@@ -90,7 +90,8 @@ Step 11 needs 5–8 outputs. Step 13 needs everything.
 - **G9 art:** `prompts/art-prompts.json` covers every entry in
   `config/asset-manifest.json`; each prompt carries the full field set from
   `prompts/art-generation.md`; generation attempted via MCP tools when available;
-  provenance recorded per asset.
+  every generated magenta-key asset post-processed through `tools/sprite-forge`
+  (its `pipeline-meta.json` kept as QC evidence); provenance recorded per asset.
 - **G10 audio:** `config/audio-events.json` validates; every animation event's
   `audioEvent` exists; music states cover base + all three tiers.
 - **G11 code:** `bun install && bun run typecheck && bun test` pass in
@@ -118,6 +119,10 @@ Step 11 needs 5–8 outputs. Step 13 needs everything.
   many prompts); single refinements via `generate_image`/`edit_image`;
   `transparent: true` for sprites (magenta key). Tools absent → emit
   `prompts/art-prompts.json` only and note it in the validation report.
+- **Sprite post-processing:** key/despill/defringe every magenta-key asset and
+  extract/QC every animation sheet with the vendored processor in
+  `tools/sprite-forge/` (uv-run; see `tools/sprite-forge/NOTICE.md` and
+  `prompts/art-generation.md` §6) — never ad-hoc cleanup code.
 - **Blender:** if `mcp__blender__*` tools are connected, use them for 3D hero
   symbols, turntable sprite sheets, parallax depth layers, normal-map bakes
   (details in `prompts/art-generation.md` §Blender); always ALSO write the

@@ -1,0 +1,12 @@
+[project]
+name = "sprite-forge-vendored"
+version = "1.0.0"
+description = "Vendored deterministic sprite post-processor (agent-sprite-forge) for the single-modern-slot-creator art pipeline"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=1.26",
+    "Pillow>=10.0",
+]
+
+[dependency-groups]
+dev = ["pytest>=8.0"]

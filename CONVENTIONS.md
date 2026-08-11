@@ -43,6 +43,8 @@ slots-skill/                      # repo root == the skill package
 │   ├── validation-report.md  artifact-manifest.json
 ├── math/                         # uv-managed Python simulation package TEMPLATE
 ├── client-template/              # bun + TypeScript + PixiJS client TEMPLATE
+├── tools/sprite-forge/           # vendored agent-sprite-forge processor (MIT) —
+│                                 # magenta keying, frame extraction, QC, GIF export
 └── examples/example-single-slot/ # worked example artifacts (illustrative; may be
                                   # absent in a given build — see README "Known gaps")
 ```
@@ -208,6 +210,15 @@ minus `signature` itself (detached JWS or HMAC placeholder in dev).
   `transparent: true` (magenta key) + documented keying/cleanup step. If the tools
   are absent, still write `prompts/art-prompts.json` and stop after prompts with a
   clear note in the validation report.
+- **Sprite post-processing: `tools/sprite-forge/` (vendored agent-sprite-forge,
+  MIT — see its `NOTICE.md`).** Every `magenta-key` asset is keyed, despilled and
+  defringed with `generate2dsprite.py process` (single stills: `--rows 1 --cols 1
+  --target asset --mode single`); animated sheets additionally get frame
+  extraction, alignment, QC metadata (`pipeline-meta.json`) and an `animation.gif`
+  preview. Never write ad-hoc keying code when this tool covers the job. Runs via
+  uv: `uv run --project <skill-root>/tools/sprite-forge python
+  <skill-root>/tools/sprite-forge/generate2dsprite.py …`. Sheet-layout and
+  containment rules for multi-frame prompts: `tools/sprite-forge/references/`.
 - **Blender:** if the Blender MCP server is connected (`mcp__blender__*`), use
   `execute_blender_code` / background-mode variants for 3D hero assets,
   turntable sprite-sheet renders, depth/parallax layers, and normal-map bakes;

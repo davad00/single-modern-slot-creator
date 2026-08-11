@@ -151,6 +151,7 @@ Steps 7–10 depend on 3–6 but are independent of each other and run in parall
 | `research/` | Source-backed research dossier (see below) |
 | `math/` | uv-managed Python simulation package TEMPLATE (`slot_math`) — copied and specialized per game |
 | `client-template/` | Bun + strict TypeScript + PixiJS v8 client TEMPLATE — deterministic core, copied per game |
+| `tools/sprite-forge/` | Vendored [agent-sprite-forge](https://github.com/0x0funky/agent-sprite-forge) processor (MIT) — deterministic magenta keying/despill, sheet frame extraction, alignment, QC metadata, GIF export for all step-9 art (see its `NOTICE.md`) |
 | `.build/` | Build machinery for this skill package itself — safe for users to ignore |
 
 ## Research foundation

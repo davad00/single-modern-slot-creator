@@ -276,7 +276,7 @@ transparent: true magenta key for sprites/cutouts). -->
 2. **Lock the anchors.** Extract/confirm final hex values and update §6.1 and §17.2 from the approved hero. Re-render §17.1 with the hero's asset id.
 3. **Derive, don't re-invent.** Every subsequent asset is produced with `mcp__imagegen__edit_image` using the hero (or the nearest approved sibling — e.g. H1 → H2) in `source_images` as a style/composition reference, OR with `generate_images` prompts whose `consistencyReference` field names the hero asset id. Batch all same-wave assets into ONE `generate_images` call.
 4. **Family passes.** Generate in waves so each wave can reference the previous: ① hero + background, ② premium symbols H1–H4 + WILD + SCATTER, ③ lows L1–L5 + FX/MULT/CASH/COLLECT/MYSTERY, ④ tier environments + HUDs, ⑤ UI + paytable + VFX sheets + icon/thumbnail/splash/loading.
-5. **Sprites/cutouts:** `transparent: true` (magenta key) + record the keying/cleanup step per asset in the manifest provenance.
+5. **Sprites/cutouts:** `transparent: true` (magenta key); keying/despill/defringe runs through the vendored `tools/sprite-forge` processor (CONVENTIONS §8) and the resulting `pipeline-meta.json` + cleanup steps are recorded per asset in the manifest provenance.
 6. **Drift check per wave:** place new assets beside the hero at grid scale; any off-palette hue, lighting-direction mismatch, or shape-language break → regenerate via `edit_image` with a correction instruction before the next wave.
 7. **Provenance:** every generated file records prompt id, tool, source references, and cleanup steps in artifact-manifest.json (gate G14).
 

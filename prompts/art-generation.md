@@ -3,7 +3,8 @@
 Role: `agents/creative-director.md` · Gate: **G9** (SKILL.md: "`prompts/art-prompts.json`
 covers every entry in `config/asset-manifest.json`; each prompt carries the full field
 set from `prompts/art-generation.md`; generation attempted via MCP tools when available;
-provenance recorded per asset")
+every generated magenta-key asset post-processed through `tools/sprite-forge` (its
+`pipeline-meta.json` kept as QC evidence); provenance recorded per asset")
 
 ## Objective
 
@@ -28,6 +29,10 @@ tracked deliverables. Everything visual the client renders traces back to this s
 6. `docs/game-design-document.md` §1–§4 (theme, symbol set), the UI spec from step 7
    (screens, controls, states), and `docs/motion-specification.md` (which assets need
    animation layers, sprite sheets, or normal maps).
+7. `tools/sprite-forge/NOTICE.md` (the deterministic post-processor this step uses)
+   and, before authoring any multi-frame sheet prompt,
+   `tools/sprite-forge/references/prompt-rules.md` + `references/modes.md` — grid
+   shape, containment, and centering rules that make sheets machine-splittable.
 
 ## Procedure
 
@@ -197,7 +202,18 @@ set every manifest entry `status: "prompt-only"`, note the tool absence in
    remaining button states from the normal state, tier HUD variants, portrait splash)
    use `mcp__imagegen__edit_image` with the approved parent in `source_images` and a
    delta instruction — never a fresh text-only generation.
-5. Record actual model/seed/date into each prompt's `provenance` and the manifest
+5. **Animated sheets (win-state symbol loops, VFX explosion/impact/coin sheets,
+   character parts)** are generated as ONE multi-row grid per action family, per
+   `tools/sprite-forge/references/prompt-rules.md`: 4 frames → 2x2, 6 → 2x3,
+   8 → 2x4, 9 → 3x3 (never a raw 1xN strip for anything with a body/subject);
+   solid `#FF00FF` background; subject centered in every cell inside the central
+   ~65% safe area, consistent scale, nothing crossing cell edges. For drift-prone
+   grids, pre-generate a geometry guide (`make_layout_guide.py`) or — for a symbol
+   whose still already passed QC — an anchor sheet (`make_anchor_layout.py` from the
+   approved still) and pass it via `edit_image` `source_images` with instructions to
+   change only the poses and never reproduce guide boxes. If the client needs a
+   strip or atlas, assemble it AFTER per-frame QC — never generate it raw.
+6. Record actual model/seed/date into each prompt's `provenance` and the manifest
    entry (`status: "generated"`), including failed/retried generations.
 
 ### 5. Blender pipeline (3D where it beats 2D)
@@ -212,7 +228,10 @@ lows, UI, and single-view art. Recipes (full parameters in `research/10` §5):
   render 2048² then Lanczos-downscale to 1024² (cheap AA); shared light rig matching
   the style-bible key across ALL symbol renders.
 - **(b) Turntable sprite sheet** — parent to rotating empty, 24–36 frames of yaw
-  (10–15°/step), PNG frames → montage into a sheet + JSON frame map.
+  (10–15°/step), PNG frames → montage into a sheet + JSON frame map. Blender frames
+  carry true alpha (no keying needed), but run the assembled sheet through the
+  sprite-forge processor anyway for alignment/QC metadata and the `animation.gif`
+  review artifact — same evidence trail as generated sheets.
 - **(c) Parallax layers** — one scene, per-collection renders (or Cryptomatte masks),
   camera X-shift per layer export for correct parallax offsets.
 - **(d) Normal + emission passes** — Cycles tangent-space bake (swizzle note: flip a
@@ -231,10 +250,31 @@ runnable via `blender --background <file.blend> --python <script.py> -- <args>`
 
 ### 6. Post-processing, packing, export, provenance
 
-1. **Alpha keying (every `transparency: magenta-key` asset):** chroma-key magenta →
-   despill edge pixels → defringe 1–2 px (zero/neighbor-fill RGB where α=0) →
-   alpha-threshold isolated semi-transparent strays → QA against light AND dark
-   backdrops at 200–400% zoom. Set `status: "cleaned"`.
+1. **Alpha keying + sheet processing (every `transparency: magenta-key` asset):**
+   run the vendored deterministic processor — NEVER ad-hoc keying code:
+
+   ```bash
+   # single still (symbols, UI, frame, parallax layers)
+   uv run --project <skill-root>/tools/sprite-forge \
+     python <skill-root>/tools/sprite-forge/generate2dsprite.py process \
+     --input assets/art/raw/<file>.png \
+     --target asset --mode single --rows 1 --cols 1 \
+     --output-dir assets/art/processed/<assetId>/ \
+     --cell-size <resolution> --component-mode all --strict-qc
+
+   # animated sheet (VFX, win-state loops) — rows/cols match the generated grid
+   … --target fx --mode <action> --rows 2 --cols 2 --component-mode all \
+     --shared-scale --strict-qc
+   ```
+
+   It performs the full chain (chroma-key `#FF00FF` → despill → defringe →
+   component filtering → trim/scale/align) and emits per-frame PNGs,
+   `sheet-transparent.png`, `animation.gif` (sheets), and `pipeline-meta.json` —
+   keep that meta file next to the asset as G9 QC evidence. Then QA visually
+   against light AND dark backdrops at 200–400% zoom; reject any sheet whose QC
+   reports edge-touched, clamped, or empty frames (regenerate the raw sheet rather
+   than loosening thresholds). Use `--component-mode largest` when detached
+   specks must be dropped; keep `all` for multi-part FX. Set `status: "cleaned"`.
 2. **Atlas packing:** free-tex-packer-core via a bun script (`bun x`); padding 2,
    extrude 1, allowRotation + detectIdentical + trim on; power-of-two, ≤ 2048².
    Partition by load phase so features lazy-load — `atlasGroup` values:
@@ -265,8 +305,9 @@ All under `games/<slug>/`:
 - `config/asset-manifest.json` — full inventory, schema-valid, statuses honest.
 - `prompts/art-prompts.json` — one 24-field prompt object per manifest image asset.
 - `prompts/blender/*.py` — the four standalone headless scripts (always, even MCP-less).
-- `assets/art/` (+ `assets/art/raw/`), `assets/atlas/` — whatever was actually
-  generated/keyed/packed; nothing fabricated.
+- `assets/art/` (+ `assets/art/raw/`, `assets/art/processed/<assetId>/` with each
+  asset's sprite-forge outputs incl. `pipeline-meta.json`), `assets/atlas/` —
+  whatever was actually generated/keyed/packed; nothing fabricated.
 - `artifact-manifest.json` — updated; `docs/validation-report.md` noted if prompt-only.
 
 ## Gate checklist — G9 (all must pass before step 11 consumes art)
@@ -288,6 +329,10 @@ All under `games/<slug>/`:
       statuses `prompt-only` AND the validation report says so.
 - [ ] All four Blender scripts exist in `prompts/blender/` and document the
       `blender --background --python … -- args` invocation, regardless of MCP state.
+- [ ] Every generated magenta-key asset was processed through `tools/sprite-forge`
+      (`pipeline-meta.json` present beside the cleaned asset); every animated sheet
+      has zero edge-touched/clamped/empty frames in its QC summary and an
+      `animation.gif` review artifact.
 - [ ] Every generated file has provenance (generator, prompt, seed/model when exposed,
       date, license, cleanup steps) and an honest `status`; every `atlasGroup` maps to
       the lazy-load partition scheme.
@@ -302,9 +347,14 @@ All under `games/<slug>/`:
 - Style drift in a wave: correct via `edit_image` against the hero with an explicit
   delta instruction; if two correction rounds fail, regenerate the wave with a
   tightened STYLE ANCHOR (bump its version suffix, log in `docs/decision-log.md`).
-- Keying failures (halos, magenta rim): re-run despill/defringe with wider tolerance;
+- Keying failures (halos, magenta rim): re-run the sprite-forge processor with wider
+  tolerance (`--threshold` / `--edge-threshold` up, `--edge-clean-depth` deeper);
   persistent failures ⇒ regenerate with "crisp hard edges, no glow, no drop shadow"
   reinforced, or route through the `rembg` fallback; never ship a haloed sprite.
+- Sheet QC failures (edge-touched, clamped, or empty frames; scale drift across
+  frames): regenerate the raw sheet with tightened containment language or a layout
+  guide/anchor sheet — do not hide generation drift with per-frame rescaling or by
+  loosening QC thresholds.
 - A symbol failing the 120 px / silhouette test goes back through the derivative
   workflow with explicit simplification instructions — never shipped failing.
 - imagegen tools erroring mid-wave: keep successful assets, mark the rest
